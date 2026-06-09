@@ -25270,6 +25270,1744 @@ pub mod qdec {
         impl crate::Resettable for QdecSoftRstSpec {}
     }
 }
+#[doc = "USB 2.0 OTG controller (Synopsys DWC OTG, device-controller base)"]
+pub type Usb = crate::Periph<usb::RegisterBlock, 0x5800_0000>;
+impl core::fmt::Debug for Usb {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Usb").finish()
+    }
+}
+#[doc = "USB 2.0 OTG controller (Synopsys DWC OTG, device-controller base)"]
+pub mod usb {
+    #[repr(C)]
+    #[doc = "Register block"]
+    pub struct RegisterBlock {
+        gotgctl: Gotgctl,
+        gotgint: Gotgint,
+        gahbcfg: Gahbcfg,
+        gusbcfg: Gusbcfg,
+        grstctl: Grstctl,
+        gintsts: Gintsts,
+        gintmsk: Gintmsk,
+        grxstsrd: Grxstsrd,
+        grxstspd: Grxstspd,
+        grxfsiz: Grxfsiz,
+        gnptxfsiz: Gnptxfsiz,
+        gnptxsts: Gnptxsts,
+        gi2cctl: Gi2cctl,
+        gpvndctl: Gpvndctl,
+        ggpio: Ggpio,
+        guid: Guid,
+        gsnpsid: Gsnpsid,
+        ghwcfg1: Ghwcfg1,
+        ghwcfg2: Ghwcfg2,
+        ghwcfg3: Ghwcfg3,
+        ghwcfg4: Ghwcfg4,
+        glpmcfg: Glpmcfg,
+        gpwrdn: Gpwrdn,
+        gdfifocfg: Gdfifocfg,
+        gadpctl: Gadpctl,
+        _reserved25: [u8; 0x9c],
+        hptxfsiz: Hptxfsiz,
+        _reserved26: [u8; 0x02fc],
+        hcfg: Hcfg,
+        hfir: Hfir,
+        hfnum: Hfnum,
+        _reserved29: [u8; 0x04],
+        hptxsts: Hptxsts,
+        haint: Haint,
+        haintmsk: Haintmsk,
+        _reserved32: [u8; 0x24],
+        hprt: Hprt,
+        _reserved33: [u8; 0x03bc],
+        dcfg: Dcfg,
+        dctl: Dctl,
+        dsts: Dsts,
+        _reserved36: [u8; 0x04],
+        diepmsk: Diepmsk,
+        doepmsk: Doepmsk,
+        daint: Daint,
+        daintmsk: Daintmsk,
+        dtknqr1: Dtknqr1,
+        dtknqr2: Dtknqr2,
+        dvbusdis: Dvbusdis,
+        dvbuspulse: Dvbuspulse,
+        dthrctl: Dthrctl,
+        dtknqr4: Dtknqr4,
+        deachint: Deachint,
+        deachintmsk: Deachintmsk,
+        _reserved48: [u8; 0x05c0],
+        pcgcctl: Pcgcctl,
+    }
+    impl RegisterBlock {
+        #[doc = "0x00 - DOTG_GOTGCTL"]
+        #[inline(always)]
+        pub const fn gotgctl(&self) -> &Gotgctl {
+            &self.gotgctl
+        }
+        #[doc = "0x04 - DOTG_GOTGINT"]
+        #[inline(always)]
+        pub const fn gotgint(&self) -> &Gotgint {
+            &self.gotgint
+        }
+        #[doc = "0x08 - DOTG_GAHBCFG"]
+        #[inline(always)]
+        pub const fn gahbcfg(&self) -> &Gahbcfg {
+            &self.gahbcfg
+        }
+        #[doc = "0x0c - DOTG_GUSBCFG"]
+        #[inline(always)]
+        pub const fn gusbcfg(&self) -> &Gusbcfg {
+            &self.gusbcfg
+        }
+        #[doc = "0x10 - DOTG_GRSTCTL"]
+        #[inline(always)]
+        pub const fn grstctl(&self) -> &Grstctl {
+            &self.grstctl
+        }
+        #[doc = "0x14 - DOTG_GINTSTS"]
+        #[inline(always)]
+        pub const fn gintsts(&self) -> &Gintsts {
+            &self.gintsts
+        }
+        #[doc = "0x18 - DOTG_GINTMSK"]
+        #[inline(always)]
+        pub const fn gintmsk(&self) -> &Gintmsk {
+            &self.gintmsk
+        }
+        #[doc = "0x1c - DOTG_GRXSTSRD"]
+        #[inline(always)]
+        pub const fn grxstsrd(&self) -> &Grxstsrd {
+            &self.grxstsrd
+        }
+        #[doc = "0x20 - DOTG_GRXSTSPD"]
+        #[inline(always)]
+        pub const fn grxstspd(&self) -> &Grxstspd {
+            &self.grxstspd
+        }
+        #[doc = "0x24 - DOTG_GRXFSIZ"]
+        #[inline(always)]
+        pub const fn grxfsiz(&self) -> &Grxfsiz {
+            &self.grxfsiz
+        }
+        #[doc = "0x28 - DOTG_GNPTXFSIZ"]
+        #[inline(always)]
+        pub const fn gnptxfsiz(&self) -> &Gnptxfsiz {
+            &self.gnptxfsiz
+        }
+        #[doc = "0x2c - DOTG_GNPTXSTS"]
+        #[inline(always)]
+        pub const fn gnptxsts(&self) -> &Gnptxsts {
+            &self.gnptxsts
+        }
+        #[doc = "0x30 - DOTG_GI2CCTL"]
+        #[inline(always)]
+        pub const fn gi2cctl(&self) -> &Gi2cctl {
+            &self.gi2cctl
+        }
+        #[doc = "0x34 - DOTG_GPVNDCTL"]
+        #[inline(always)]
+        pub const fn gpvndctl(&self) -> &Gpvndctl {
+            &self.gpvndctl
+        }
+        #[doc = "0x38 - DOTG_GGPIO"]
+        #[inline(always)]
+        pub const fn ggpio(&self) -> &Ggpio {
+            &self.ggpio
+        }
+        #[doc = "0x3c - DOTG_GUID"]
+        #[inline(always)]
+        pub const fn guid(&self) -> &Guid {
+            &self.guid
+        }
+        #[doc = "0x40 - DOTG_GSNPSID"]
+        #[inline(always)]
+        pub const fn gsnpsid(&self) -> &Gsnpsid {
+            &self.gsnpsid
+        }
+        #[doc = "0x44 - DOTG_GHWCFG1"]
+        #[inline(always)]
+        pub const fn ghwcfg1(&self) -> &Ghwcfg1 {
+            &self.ghwcfg1
+        }
+        #[doc = "0x48 - DOTG_GHWCFG2"]
+        #[inline(always)]
+        pub const fn ghwcfg2(&self) -> &Ghwcfg2 {
+            &self.ghwcfg2
+        }
+        #[doc = "0x4c - DOTG_GHWCFG3"]
+        #[inline(always)]
+        pub const fn ghwcfg3(&self) -> &Ghwcfg3 {
+            &self.ghwcfg3
+        }
+        #[doc = "0x50 - DOTG_GHWCFG4"]
+        #[inline(always)]
+        pub const fn ghwcfg4(&self) -> &Ghwcfg4 {
+            &self.ghwcfg4
+        }
+        #[doc = "0x54 - DOTG_GLPMCFG"]
+        #[inline(always)]
+        pub const fn glpmcfg(&self) -> &Glpmcfg {
+            &self.glpmcfg
+        }
+        #[doc = "0x58 - DOTG_GPWRDN"]
+        #[inline(always)]
+        pub const fn gpwrdn(&self) -> &Gpwrdn {
+            &self.gpwrdn
+        }
+        #[doc = "0x5c - DOTG_GDFIFOCFG"]
+        #[inline(always)]
+        pub const fn gdfifocfg(&self) -> &Gdfifocfg {
+            &self.gdfifocfg
+        }
+        #[doc = "0x60 - DOTG_GADPCTL"]
+        #[inline(always)]
+        pub const fn gadpctl(&self) -> &Gadpctl {
+            &self.gadpctl
+        }
+        #[doc = "0x100 - DOTG_HPTXFSIZ"]
+        #[inline(always)]
+        pub const fn hptxfsiz(&self) -> &Hptxfsiz {
+            &self.hptxfsiz
+        }
+        #[doc = "0x400 - DOTG_HCFG"]
+        #[inline(always)]
+        pub const fn hcfg(&self) -> &Hcfg {
+            &self.hcfg
+        }
+        #[doc = "0x404 - DOTG_HFIR"]
+        #[inline(always)]
+        pub const fn hfir(&self) -> &Hfir {
+            &self.hfir
+        }
+        #[doc = "0x408 - DOTG_HFNUM"]
+        #[inline(always)]
+        pub const fn hfnum(&self) -> &Hfnum {
+            &self.hfnum
+        }
+        #[doc = "0x410 - DOTG_HPTXSTS"]
+        #[inline(always)]
+        pub const fn hptxsts(&self) -> &Hptxsts {
+            &self.hptxsts
+        }
+        #[doc = "0x414 - DOTG_HAINT"]
+        #[inline(always)]
+        pub const fn haint(&self) -> &Haint {
+            &self.haint
+        }
+        #[doc = "0x418 - DOTG_HAINTMSK"]
+        #[inline(always)]
+        pub const fn haintmsk(&self) -> &Haintmsk {
+            &self.haintmsk
+        }
+        #[doc = "0x440 - DOTG_HPRT"]
+        #[inline(always)]
+        pub const fn hprt(&self) -> &Hprt {
+            &self.hprt
+        }
+        #[doc = "0x800 - DOTG_DCFG"]
+        #[inline(always)]
+        pub const fn dcfg(&self) -> &Dcfg {
+            &self.dcfg
+        }
+        #[doc = "0x804 - DOTG_DCTL"]
+        #[inline(always)]
+        pub const fn dctl(&self) -> &Dctl {
+            &self.dctl
+        }
+        #[doc = "0x808 - DOTG_DSTS"]
+        #[inline(always)]
+        pub const fn dsts(&self) -> &Dsts {
+            &self.dsts
+        }
+        #[doc = "0x810 - DOTG_DIEPMSK"]
+        #[inline(always)]
+        pub const fn diepmsk(&self) -> &Diepmsk {
+            &self.diepmsk
+        }
+        #[doc = "0x814 - DOTG_DOEPMSK"]
+        #[inline(always)]
+        pub const fn doepmsk(&self) -> &Doepmsk {
+            &self.doepmsk
+        }
+        #[doc = "0x818 - DOTG_DAINT"]
+        #[inline(always)]
+        pub const fn daint(&self) -> &Daint {
+            &self.daint
+        }
+        #[doc = "0x81c - DOTG_DAINTMSK"]
+        #[inline(always)]
+        pub const fn daintmsk(&self) -> &Daintmsk {
+            &self.daintmsk
+        }
+        #[doc = "0x820 - DOTG_DTKNQR1"]
+        #[inline(always)]
+        pub const fn dtknqr1(&self) -> &Dtknqr1 {
+            &self.dtknqr1
+        }
+        #[doc = "0x824 - DOTG_DTKNQR2"]
+        #[inline(always)]
+        pub const fn dtknqr2(&self) -> &Dtknqr2 {
+            &self.dtknqr2
+        }
+        #[doc = "0x828 - DOTG_DVBUSDIS"]
+        #[inline(always)]
+        pub const fn dvbusdis(&self) -> &Dvbusdis {
+            &self.dvbusdis
+        }
+        #[doc = "0x82c - DOTG_DVBUSPULSE"]
+        #[inline(always)]
+        pub const fn dvbuspulse(&self) -> &Dvbuspulse {
+            &self.dvbuspulse
+        }
+        #[doc = "0x830 - DOTG_DTHRCTL"]
+        #[inline(always)]
+        pub const fn dthrctl(&self) -> &Dthrctl {
+            &self.dthrctl
+        }
+        #[doc = "0x834 - DOTG_DTKNQR4"]
+        #[inline(always)]
+        pub const fn dtknqr4(&self) -> &Dtknqr4 {
+            &self.dtknqr4
+        }
+        #[doc = "0x838 - DOTG_DEACHINT"]
+        #[inline(always)]
+        pub const fn deachint(&self) -> &Deachint {
+            &self.deachint
+        }
+        #[doc = "0x83c - DOTG_DEACHINTMSK"]
+        #[inline(always)]
+        pub const fn deachintmsk(&self) -> &Deachintmsk {
+            &self.deachintmsk
+        }
+        #[doc = "0xe00 - DOTG_PCGCCTL"]
+        #[inline(always)]
+        pub const fn pcgcctl(&self) -> &Pcgcctl {
+            &self.pcgcctl
+        }
+    }
+    #[doc = "GOTGCTL (rw) register accessor: DOTG_GOTGCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gotgctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gotgctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gotgctl`] module"]
+    #[doc(alias = "GOTGCTL")]
+    pub type Gotgctl = crate::Reg<gotgctl::GotgctlSpec>;
+    #[doc = "DOTG_GOTGCTL"]
+    pub mod gotgctl {
+        #[doc = "Register `GOTGCTL` reader"]
+        pub type R = crate::R<GotgctlSpec>;
+        #[doc = "Register `GOTGCTL` writer"]
+        pub type W = crate::W<GotgctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GOTGCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gotgctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gotgctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GotgctlSpec;
+        impl crate::RegisterSpec for GotgctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gotgctl::R`](R) reader structure"]
+        impl crate::Readable for GotgctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gotgctl::W`](W) writer structure"]
+        impl crate::Writable for GotgctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GOTGCTL to value 0"]
+        impl crate::Resettable for GotgctlSpec {}
+    }
+    #[doc = "GOTGINT (rw) register accessor: DOTG_GOTGINT\n\nYou can [`read`](crate::Reg::read) this register and get [`gotgint::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gotgint::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gotgint`] module"]
+    #[doc(alias = "GOTGINT")]
+    pub type Gotgint = crate::Reg<gotgint::GotgintSpec>;
+    #[doc = "DOTG_GOTGINT"]
+    pub mod gotgint {
+        #[doc = "Register `GOTGINT` reader"]
+        pub type R = crate::R<GotgintSpec>;
+        #[doc = "Register `GOTGINT` writer"]
+        pub type W = crate::W<GotgintSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GOTGINT\n\nYou can [`read`](crate::Reg::read) this register and get [`gotgint::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gotgint::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GotgintSpec;
+        impl crate::RegisterSpec for GotgintSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gotgint::R`](R) reader structure"]
+        impl crate::Readable for GotgintSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gotgint::W`](W) writer structure"]
+        impl crate::Writable for GotgintSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GOTGINT to value 0"]
+        impl crate::Resettable for GotgintSpec {}
+    }
+    #[doc = "GAHBCFG (rw) register accessor: DOTG_GAHBCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gahbcfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gahbcfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gahbcfg`] module"]
+    #[doc(alias = "GAHBCFG")]
+    pub type Gahbcfg = crate::Reg<gahbcfg::GahbcfgSpec>;
+    #[doc = "DOTG_GAHBCFG"]
+    pub mod gahbcfg {
+        #[doc = "Register `GAHBCFG` reader"]
+        pub type R = crate::R<GahbcfgSpec>;
+        #[doc = "Register `GAHBCFG` writer"]
+        pub type W = crate::W<GahbcfgSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GAHBCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gahbcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gahbcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GahbcfgSpec;
+        impl crate::RegisterSpec for GahbcfgSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gahbcfg::R`](R) reader structure"]
+        impl crate::Readable for GahbcfgSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gahbcfg::W`](W) writer structure"]
+        impl crate::Writable for GahbcfgSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GAHBCFG to value 0"]
+        impl crate::Resettable for GahbcfgSpec {}
+    }
+    #[doc = "GUSBCFG (rw) register accessor: DOTG_GUSBCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gusbcfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gusbcfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gusbcfg`] module"]
+    #[doc(alias = "GUSBCFG")]
+    pub type Gusbcfg = crate::Reg<gusbcfg::GusbcfgSpec>;
+    #[doc = "DOTG_GUSBCFG"]
+    pub mod gusbcfg {
+        #[doc = "Register `GUSBCFG` reader"]
+        pub type R = crate::R<GusbcfgSpec>;
+        #[doc = "Register `GUSBCFG` writer"]
+        pub type W = crate::W<GusbcfgSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GUSBCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gusbcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gusbcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GusbcfgSpec;
+        impl crate::RegisterSpec for GusbcfgSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gusbcfg::R`](R) reader structure"]
+        impl crate::Readable for GusbcfgSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gusbcfg::W`](W) writer structure"]
+        impl crate::Writable for GusbcfgSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GUSBCFG to value 0"]
+        impl crate::Resettable for GusbcfgSpec {}
+    }
+    #[doc = "GRSTCTL (rw) register accessor: DOTG_GRSTCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`grstctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grstctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@grstctl`] module"]
+    #[doc(alias = "GRSTCTL")]
+    pub type Grstctl = crate::Reg<grstctl::GrstctlSpec>;
+    #[doc = "DOTG_GRSTCTL"]
+    pub mod grstctl {
+        #[doc = "Register `GRSTCTL` reader"]
+        pub type R = crate::R<GrstctlSpec>;
+        #[doc = "Register `GRSTCTL` writer"]
+        pub type W = crate::W<GrstctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GRSTCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`grstctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grstctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GrstctlSpec;
+        impl crate::RegisterSpec for GrstctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`grstctl::R`](R) reader structure"]
+        impl crate::Readable for GrstctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`grstctl::W`](W) writer structure"]
+        impl crate::Writable for GrstctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GRSTCTL to value 0"]
+        impl crate::Resettable for GrstctlSpec {}
+    }
+    #[doc = "GINTSTS (rw) register accessor: DOTG_GINTSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`gintsts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gintsts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gintsts`] module"]
+    #[doc(alias = "GINTSTS")]
+    pub type Gintsts = crate::Reg<gintsts::GintstsSpec>;
+    #[doc = "DOTG_GINTSTS"]
+    pub mod gintsts {
+        #[doc = "Register `GINTSTS` reader"]
+        pub type R = crate::R<GintstsSpec>;
+        #[doc = "Register `GINTSTS` writer"]
+        pub type W = crate::W<GintstsSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GINTSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`gintsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gintsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GintstsSpec;
+        impl crate::RegisterSpec for GintstsSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gintsts::R`](R) reader structure"]
+        impl crate::Readable for GintstsSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gintsts::W`](W) writer structure"]
+        impl crate::Writable for GintstsSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GINTSTS to value 0"]
+        impl crate::Resettable for GintstsSpec {}
+    }
+    #[doc = "GINTMSK (rw) register accessor: DOTG_GINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`gintmsk::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gintmsk::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gintmsk`] module"]
+    #[doc(alias = "GINTMSK")]
+    pub type Gintmsk = crate::Reg<gintmsk::GintmskSpec>;
+    #[doc = "DOTG_GINTMSK"]
+    pub mod gintmsk {
+        #[doc = "Register `GINTMSK` reader"]
+        pub type R = crate::R<GintmskSpec>;
+        #[doc = "Register `GINTMSK` writer"]
+        pub type W = crate::W<GintmskSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`gintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GintmskSpec;
+        impl crate::RegisterSpec for GintmskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gintmsk::R`](R) reader structure"]
+        impl crate::Readable for GintmskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gintmsk::W`](W) writer structure"]
+        impl crate::Writable for GintmskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GINTMSK to value 0"]
+        impl crate::Resettable for GintmskSpec {}
+    }
+    #[doc = "GRXSTSRD (rw) register accessor: DOTG_GRXSTSRD\n\nYou can [`read`](crate::Reg::read) this register and get [`grxstsrd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxstsrd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@grxstsrd`] module"]
+    #[doc(alias = "GRXSTSRD")]
+    pub type Grxstsrd = crate::Reg<grxstsrd::GrxstsrdSpec>;
+    #[doc = "DOTG_GRXSTSRD"]
+    pub mod grxstsrd {
+        #[doc = "Register `GRXSTSRD` reader"]
+        pub type R = crate::R<GrxstsrdSpec>;
+        #[doc = "Register `GRXSTSRD` writer"]
+        pub type W = crate::W<GrxstsrdSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GRXSTSRD\n\nYou can [`read`](crate::Reg::read) this register and get [`grxstsrd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxstsrd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GrxstsrdSpec;
+        impl crate::RegisterSpec for GrxstsrdSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`grxstsrd::R`](R) reader structure"]
+        impl crate::Readable for GrxstsrdSpec {}
+        #[doc = "`write(|w| ..)` method takes [`grxstsrd::W`](W) writer structure"]
+        impl crate::Writable for GrxstsrdSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GRXSTSRD to value 0"]
+        impl crate::Resettable for GrxstsrdSpec {}
+    }
+    #[doc = "GRXSTSPD (rw) register accessor: DOTG_GRXSTSPD\n\nYou can [`read`](crate::Reg::read) this register and get [`grxstspd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxstspd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@grxstspd`] module"]
+    #[doc(alias = "GRXSTSPD")]
+    pub type Grxstspd = crate::Reg<grxstspd::GrxstspdSpec>;
+    #[doc = "DOTG_GRXSTSPD"]
+    pub mod grxstspd {
+        #[doc = "Register `GRXSTSPD` reader"]
+        pub type R = crate::R<GrxstspdSpec>;
+        #[doc = "Register `GRXSTSPD` writer"]
+        pub type W = crate::W<GrxstspdSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GRXSTSPD\n\nYou can [`read`](crate::Reg::read) this register and get [`grxstspd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxstspd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GrxstspdSpec;
+        impl crate::RegisterSpec for GrxstspdSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`grxstspd::R`](R) reader structure"]
+        impl crate::Readable for GrxstspdSpec {}
+        #[doc = "`write(|w| ..)` method takes [`grxstspd::W`](W) writer structure"]
+        impl crate::Writable for GrxstspdSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GRXSTSPD to value 0"]
+        impl crate::Resettable for GrxstspdSpec {}
+    }
+    #[doc = "GRXFSIZ (rw) register accessor: DOTG_GRXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`grxfsiz::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxfsiz::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@grxfsiz`] module"]
+    #[doc(alias = "GRXFSIZ")]
+    pub type Grxfsiz = crate::Reg<grxfsiz::GrxfsizSpec>;
+    #[doc = "DOTG_GRXFSIZ"]
+    pub mod grxfsiz {
+        #[doc = "Register `GRXFSIZ` reader"]
+        pub type R = crate::R<GrxfsizSpec>;
+        #[doc = "Register `GRXFSIZ` writer"]
+        pub type W = crate::W<GrxfsizSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GRXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`grxfsiz::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxfsiz::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GrxfsizSpec;
+        impl crate::RegisterSpec for GrxfsizSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`grxfsiz::R`](R) reader structure"]
+        impl crate::Readable for GrxfsizSpec {}
+        #[doc = "`write(|w| ..)` method takes [`grxfsiz::W`](W) writer structure"]
+        impl crate::Writable for GrxfsizSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GRXFSIZ to value 0"]
+        impl crate::Resettable for GrxfsizSpec {}
+    }
+    #[doc = "GNPTXFSIZ (rw) register accessor: DOTG_GNPTXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`gnptxfsiz::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gnptxfsiz::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gnptxfsiz`] module"]
+    #[doc(alias = "GNPTXFSIZ")]
+    pub type Gnptxfsiz = crate::Reg<gnptxfsiz::GnptxfsizSpec>;
+    #[doc = "DOTG_GNPTXFSIZ"]
+    pub mod gnptxfsiz {
+        #[doc = "Register `GNPTXFSIZ` reader"]
+        pub type R = crate::R<GnptxfsizSpec>;
+        #[doc = "Register `GNPTXFSIZ` writer"]
+        pub type W = crate::W<GnptxfsizSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GNPTXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`gnptxfsiz::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gnptxfsiz::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GnptxfsizSpec;
+        impl crate::RegisterSpec for GnptxfsizSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gnptxfsiz::R`](R) reader structure"]
+        impl crate::Readable for GnptxfsizSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gnptxfsiz::W`](W) writer structure"]
+        impl crate::Writable for GnptxfsizSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GNPTXFSIZ to value 0"]
+        impl crate::Resettable for GnptxfsizSpec {}
+    }
+    #[doc = "GNPTXSTS (rw) register accessor: DOTG_GNPTXSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`gnptxsts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gnptxsts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gnptxsts`] module"]
+    #[doc(alias = "GNPTXSTS")]
+    pub type Gnptxsts = crate::Reg<gnptxsts::GnptxstsSpec>;
+    #[doc = "DOTG_GNPTXSTS"]
+    pub mod gnptxsts {
+        #[doc = "Register `GNPTXSTS` reader"]
+        pub type R = crate::R<GnptxstsSpec>;
+        #[doc = "Register `GNPTXSTS` writer"]
+        pub type W = crate::W<GnptxstsSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GNPTXSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`gnptxsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gnptxsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GnptxstsSpec;
+        impl crate::RegisterSpec for GnptxstsSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gnptxsts::R`](R) reader structure"]
+        impl crate::Readable for GnptxstsSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gnptxsts::W`](W) writer structure"]
+        impl crate::Writable for GnptxstsSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GNPTXSTS to value 0"]
+        impl crate::Resettable for GnptxstsSpec {}
+    }
+    #[doc = "GI2CCTL (rw) register accessor: DOTG_GI2CCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gi2cctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gi2cctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gi2cctl`] module"]
+    #[doc(alias = "GI2CCTL")]
+    pub type Gi2cctl = crate::Reg<gi2cctl::Gi2cctlSpec>;
+    #[doc = "DOTG_GI2CCTL"]
+    pub mod gi2cctl {
+        #[doc = "Register `GI2CCTL` reader"]
+        pub type R = crate::R<Gi2cctlSpec>;
+        #[doc = "Register `GI2CCTL` writer"]
+        pub type W = crate::W<Gi2cctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GI2CCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gi2cctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gi2cctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Gi2cctlSpec;
+        impl crate::RegisterSpec for Gi2cctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gi2cctl::R`](R) reader structure"]
+        impl crate::Readable for Gi2cctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gi2cctl::W`](W) writer structure"]
+        impl crate::Writable for Gi2cctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GI2CCTL to value 0"]
+        impl crate::Resettable for Gi2cctlSpec {}
+    }
+    #[doc = "GPVNDCTL (rw) register accessor: DOTG_GPVNDCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gpvndctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gpvndctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gpvndctl`] module"]
+    #[doc(alias = "GPVNDCTL")]
+    pub type Gpvndctl = crate::Reg<gpvndctl::GpvndctlSpec>;
+    #[doc = "DOTG_GPVNDCTL"]
+    pub mod gpvndctl {
+        #[doc = "Register `GPVNDCTL` reader"]
+        pub type R = crate::R<GpvndctlSpec>;
+        #[doc = "Register `GPVNDCTL` writer"]
+        pub type W = crate::W<GpvndctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GPVNDCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gpvndctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gpvndctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GpvndctlSpec;
+        impl crate::RegisterSpec for GpvndctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gpvndctl::R`](R) reader structure"]
+        impl crate::Readable for GpvndctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gpvndctl::W`](W) writer structure"]
+        impl crate::Writable for GpvndctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GPVNDCTL to value 0"]
+        impl crate::Resettable for GpvndctlSpec {}
+    }
+    #[doc = "GGPIO (rw) register accessor: DOTG_GGPIO\n\nYou can [`read`](crate::Reg::read) this register and get [`ggpio::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ggpio::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ggpio`] module"]
+    #[doc(alias = "GGPIO")]
+    pub type Ggpio = crate::Reg<ggpio::GgpioSpec>;
+    #[doc = "DOTG_GGPIO"]
+    pub mod ggpio {
+        #[doc = "Register `GGPIO` reader"]
+        pub type R = crate::R<GgpioSpec>;
+        #[doc = "Register `GGPIO` writer"]
+        pub type W = crate::W<GgpioSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GGPIO\n\nYou can [`read`](crate::Reg::read) this register and get [`ggpio::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ggpio::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GgpioSpec;
+        impl crate::RegisterSpec for GgpioSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ggpio::R`](R) reader structure"]
+        impl crate::Readable for GgpioSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ggpio::W`](W) writer structure"]
+        impl crate::Writable for GgpioSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GGPIO to value 0"]
+        impl crate::Resettable for GgpioSpec {}
+    }
+    #[doc = "GUID (rw) register accessor: DOTG_GUID\n\nYou can [`read`](crate::Reg::read) this register and get [`guid::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`guid::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@guid`] module"]
+    #[doc(alias = "GUID")]
+    pub type Guid = crate::Reg<guid::GuidSpec>;
+    #[doc = "DOTG_GUID"]
+    pub mod guid {
+        #[doc = "Register `GUID` reader"]
+        pub type R = crate::R<GuidSpec>;
+        #[doc = "Register `GUID` writer"]
+        pub type W = crate::W<GuidSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GUID\n\nYou can [`read`](crate::Reg::read) this register and get [`guid::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`guid::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GuidSpec;
+        impl crate::RegisterSpec for GuidSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`guid::R`](R) reader structure"]
+        impl crate::Readable for GuidSpec {}
+        #[doc = "`write(|w| ..)` method takes [`guid::W`](W) writer structure"]
+        impl crate::Writable for GuidSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GUID to value 0"]
+        impl crate::Resettable for GuidSpec {}
+    }
+    #[doc = "GSNPSID (rw) register accessor: DOTG_GSNPSID\n\nYou can [`read`](crate::Reg::read) this register and get [`gsnpsid::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gsnpsid::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gsnpsid`] module"]
+    #[doc(alias = "GSNPSID")]
+    pub type Gsnpsid = crate::Reg<gsnpsid::GsnpsidSpec>;
+    #[doc = "DOTG_GSNPSID"]
+    pub mod gsnpsid {
+        #[doc = "Register `GSNPSID` reader"]
+        pub type R = crate::R<GsnpsidSpec>;
+        #[doc = "Register `GSNPSID` writer"]
+        pub type W = crate::W<GsnpsidSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GSNPSID\n\nYou can [`read`](crate::Reg::read) this register and get [`gsnpsid::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gsnpsid::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GsnpsidSpec;
+        impl crate::RegisterSpec for GsnpsidSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gsnpsid::R`](R) reader structure"]
+        impl crate::Readable for GsnpsidSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gsnpsid::W`](W) writer structure"]
+        impl crate::Writable for GsnpsidSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GSNPSID to value 0"]
+        impl crate::Resettable for GsnpsidSpec {}
+    }
+    #[doc = "GHWCFG1 (rw) register accessor: DOTG_GHWCFG1\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ghwcfg1`] module"]
+    #[doc(alias = "GHWCFG1")]
+    pub type Ghwcfg1 = crate::Reg<ghwcfg1::Ghwcfg1Spec>;
+    #[doc = "DOTG_GHWCFG1"]
+    pub mod ghwcfg1 {
+        #[doc = "Register `GHWCFG1` reader"]
+        pub type R = crate::R<Ghwcfg1Spec>;
+        #[doc = "Register `GHWCFG1` writer"]
+        pub type W = crate::W<Ghwcfg1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GHWCFG1\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Ghwcfg1Spec;
+        impl crate::RegisterSpec for Ghwcfg1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ghwcfg1::R`](R) reader structure"]
+        impl crate::Readable for Ghwcfg1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`ghwcfg1::W`](W) writer structure"]
+        impl crate::Writable for Ghwcfg1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GHWCFG1 to value 0"]
+        impl crate::Resettable for Ghwcfg1Spec {}
+    }
+    #[doc = "GHWCFG2 (rw) register accessor: DOTG_GHWCFG2\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ghwcfg2`] module"]
+    #[doc(alias = "GHWCFG2")]
+    pub type Ghwcfg2 = crate::Reg<ghwcfg2::Ghwcfg2Spec>;
+    #[doc = "DOTG_GHWCFG2"]
+    pub mod ghwcfg2 {
+        #[doc = "Register `GHWCFG2` reader"]
+        pub type R = crate::R<Ghwcfg2Spec>;
+        #[doc = "Register `GHWCFG2` writer"]
+        pub type W = crate::W<Ghwcfg2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GHWCFG2\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Ghwcfg2Spec;
+        impl crate::RegisterSpec for Ghwcfg2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ghwcfg2::R`](R) reader structure"]
+        impl crate::Readable for Ghwcfg2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`ghwcfg2::W`](W) writer structure"]
+        impl crate::Writable for Ghwcfg2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GHWCFG2 to value 0"]
+        impl crate::Resettable for Ghwcfg2Spec {}
+    }
+    #[doc = "GHWCFG3 (rw) register accessor: DOTG_GHWCFG3\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ghwcfg3`] module"]
+    #[doc(alias = "GHWCFG3")]
+    pub type Ghwcfg3 = crate::Reg<ghwcfg3::Ghwcfg3Spec>;
+    #[doc = "DOTG_GHWCFG3"]
+    pub mod ghwcfg3 {
+        #[doc = "Register `GHWCFG3` reader"]
+        pub type R = crate::R<Ghwcfg3Spec>;
+        #[doc = "Register `GHWCFG3` writer"]
+        pub type W = crate::W<Ghwcfg3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GHWCFG3\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Ghwcfg3Spec;
+        impl crate::RegisterSpec for Ghwcfg3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ghwcfg3::R`](R) reader structure"]
+        impl crate::Readable for Ghwcfg3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`ghwcfg3::W`](W) writer structure"]
+        impl crate::Writable for Ghwcfg3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GHWCFG3 to value 0"]
+        impl crate::Resettable for Ghwcfg3Spec {}
+    }
+    #[doc = "GHWCFG4 (rw) register accessor: DOTG_GHWCFG4\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ghwcfg4`] module"]
+    #[doc(alias = "GHWCFG4")]
+    pub type Ghwcfg4 = crate::Reg<ghwcfg4::Ghwcfg4Spec>;
+    #[doc = "DOTG_GHWCFG4"]
+    pub mod ghwcfg4 {
+        #[doc = "Register `GHWCFG4` reader"]
+        pub type R = crate::R<Ghwcfg4Spec>;
+        #[doc = "Register `GHWCFG4` writer"]
+        pub type W = crate::W<Ghwcfg4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GHWCFG4\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Ghwcfg4Spec;
+        impl crate::RegisterSpec for Ghwcfg4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ghwcfg4::R`](R) reader structure"]
+        impl crate::Readable for Ghwcfg4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`ghwcfg4::W`](W) writer structure"]
+        impl crate::Writable for Ghwcfg4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GHWCFG4 to value 0"]
+        impl crate::Resettable for Ghwcfg4Spec {}
+    }
+    #[doc = "GLPMCFG (rw) register accessor: DOTG_GLPMCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`glpmcfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`glpmcfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@glpmcfg`] module"]
+    #[doc(alias = "GLPMCFG")]
+    pub type Glpmcfg = crate::Reg<glpmcfg::GlpmcfgSpec>;
+    #[doc = "DOTG_GLPMCFG"]
+    pub mod glpmcfg {
+        #[doc = "Register `GLPMCFG` reader"]
+        pub type R = crate::R<GlpmcfgSpec>;
+        #[doc = "Register `GLPMCFG` writer"]
+        pub type W = crate::W<GlpmcfgSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GLPMCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`glpmcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`glpmcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GlpmcfgSpec;
+        impl crate::RegisterSpec for GlpmcfgSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`glpmcfg::R`](R) reader structure"]
+        impl crate::Readable for GlpmcfgSpec {}
+        #[doc = "`write(|w| ..)` method takes [`glpmcfg::W`](W) writer structure"]
+        impl crate::Writable for GlpmcfgSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GLPMCFG to value 0"]
+        impl crate::Resettable for GlpmcfgSpec {}
+    }
+    #[doc = "GPWRDN (rw) register accessor: DOTG_GPWRDN\n\nYou can [`read`](crate::Reg::read) this register and get [`gpwrdn::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gpwrdn::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gpwrdn`] module"]
+    #[doc(alias = "GPWRDN")]
+    pub type Gpwrdn = crate::Reg<gpwrdn::GpwrdnSpec>;
+    #[doc = "DOTG_GPWRDN"]
+    pub mod gpwrdn {
+        #[doc = "Register `GPWRDN` reader"]
+        pub type R = crate::R<GpwrdnSpec>;
+        #[doc = "Register `GPWRDN` writer"]
+        pub type W = crate::W<GpwrdnSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GPWRDN\n\nYou can [`read`](crate::Reg::read) this register and get [`gpwrdn::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gpwrdn::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GpwrdnSpec;
+        impl crate::RegisterSpec for GpwrdnSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gpwrdn::R`](R) reader structure"]
+        impl crate::Readable for GpwrdnSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gpwrdn::W`](W) writer structure"]
+        impl crate::Writable for GpwrdnSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GPWRDN to value 0"]
+        impl crate::Resettable for GpwrdnSpec {}
+    }
+    #[doc = "GDFIFOCFG (rw) register accessor: DOTG_GDFIFOCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gdfifocfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gdfifocfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gdfifocfg`] module"]
+    #[doc(alias = "GDFIFOCFG")]
+    pub type Gdfifocfg = crate::Reg<gdfifocfg::GdfifocfgSpec>;
+    #[doc = "DOTG_GDFIFOCFG"]
+    pub mod gdfifocfg {
+        #[doc = "Register `GDFIFOCFG` reader"]
+        pub type R = crate::R<GdfifocfgSpec>;
+        #[doc = "Register `GDFIFOCFG` writer"]
+        pub type W = crate::W<GdfifocfgSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GDFIFOCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gdfifocfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gdfifocfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GdfifocfgSpec;
+        impl crate::RegisterSpec for GdfifocfgSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gdfifocfg::R`](R) reader structure"]
+        impl crate::Readable for GdfifocfgSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gdfifocfg::W`](W) writer structure"]
+        impl crate::Writable for GdfifocfgSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GDFIFOCFG to value 0"]
+        impl crate::Resettable for GdfifocfgSpec {}
+    }
+    #[doc = "GADPCTL (rw) register accessor: DOTG_GADPCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gadpctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gadpctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@gadpctl`] module"]
+    #[doc(alias = "GADPCTL")]
+    pub type Gadpctl = crate::Reg<gadpctl::GadpctlSpec>;
+    #[doc = "DOTG_GADPCTL"]
+    pub mod gadpctl {
+        #[doc = "Register `GADPCTL` reader"]
+        pub type R = crate::R<GadpctlSpec>;
+        #[doc = "Register `GADPCTL` writer"]
+        pub type W = crate::W<GadpctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_GADPCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gadpctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gadpctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct GadpctlSpec;
+        impl crate::RegisterSpec for GadpctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`gadpctl::R`](R) reader structure"]
+        impl crate::Readable for GadpctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`gadpctl::W`](W) writer structure"]
+        impl crate::Writable for GadpctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets GADPCTL to value 0"]
+        impl crate::Resettable for GadpctlSpec {}
+    }
+    #[doc = "HPTXFSIZ (rw) register accessor: DOTG_HPTXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`hptxfsiz::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hptxfsiz::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@hptxfsiz`] module"]
+    #[doc(alias = "HPTXFSIZ")]
+    pub type Hptxfsiz = crate::Reg<hptxfsiz::HptxfsizSpec>;
+    #[doc = "DOTG_HPTXFSIZ"]
+    pub mod hptxfsiz {
+        #[doc = "Register `HPTXFSIZ` reader"]
+        pub type R = crate::R<HptxfsizSpec>;
+        #[doc = "Register `HPTXFSIZ` writer"]
+        pub type W = crate::W<HptxfsizSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HPTXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`hptxfsiz::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hptxfsiz::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HptxfsizSpec;
+        impl crate::RegisterSpec for HptxfsizSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`hptxfsiz::R`](R) reader structure"]
+        impl crate::Readable for HptxfsizSpec {}
+        #[doc = "`write(|w| ..)` method takes [`hptxfsiz::W`](W) writer structure"]
+        impl crate::Writable for HptxfsizSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HPTXFSIZ to value 0"]
+        impl crate::Resettable for HptxfsizSpec {}
+    }
+    #[doc = "HCFG (rw) register accessor: DOTG_HCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`hcfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hcfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@hcfg`] module"]
+    #[doc(alias = "HCFG")]
+    pub type Hcfg = crate::Reg<hcfg::HcfgSpec>;
+    #[doc = "DOTG_HCFG"]
+    pub mod hcfg {
+        #[doc = "Register `HCFG` reader"]
+        pub type R = crate::R<HcfgSpec>;
+        #[doc = "Register `HCFG` writer"]
+        pub type W = crate::W<HcfgSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`hcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HcfgSpec;
+        impl crate::RegisterSpec for HcfgSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`hcfg::R`](R) reader structure"]
+        impl crate::Readable for HcfgSpec {}
+        #[doc = "`write(|w| ..)` method takes [`hcfg::W`](W) writer structure"]
+        impl crate::Writable for HcfgSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HCFG to value 0"]
+        impl crate::Resettable for HcfgSpec {}
+    }
+    #[doc = "HFIR (rw) register accessor: DOTG_HFIR\n\nYou can [`read`](crate::Reg::read) this register and get [`hfir::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hfir::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@hfir`] module"]
+    #[doc(alias = "HFIR")]
+    pub type Hfir = crate::Reg<hfir::HfirSpec>;
+    #[doc = "DOTG_HFIR"]
+    pub mod hfir {
+        #[doc = "Register `HFIR` reader"]
+        pub type R = crate::R<HfirSpec>;
+        #[doc = "Register `HFIR` writer"]
+        pub type W = crate::W<HfirSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HFIR\n\nYou can [`read`](crate::Reg::read) this register and get [`hfir::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hfir::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HfirSpec;
+        impl crate::RegisterSpec for HfirSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`hfir::R`](R) reader structure"]
+        impl crate::Readable for HfirSpec {}
+        #[doc = "`write(|w| ..)` method takes [`hfir::W`](W) writer structure"]
+        impl crate::Writable for HfirSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HFIR to value 0"]
+        impl crate::Resettable for HfirSpec {}
+    }
+    #[doc = "HFNUM (rw) register accessor: DOTG_HFNUM\n\nYou can [`read`](crate::Reg::read) this register and get [`hfnum::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hfnum::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@hfnum`] module"]
+    #[doc(alias = "HFNUM")]
+    pub type Hfnum = crate::Reg<hfnum::HfnumSpec>;
+    #[doc = "DOTG_HFNUM"]
+    pub mod hfnum {
+        #[doc = "Register `HFNUM` reader"]
+        pub type R = crate::R<HfnumSpec>;
+        #[doc = "Register `HFNUM` writer"]
+        pub type W = crate::W<HfnumSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HFNUM\n\nYou can [`read`](crate::Reg::read) this register and get [`hfnum::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hfnum::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HfnumSpec;
+        impl crate::RegisterSpec for HfnumSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`hfnum::R`](R) reader structure"]
+        impl crate::Readable for HfnumSpec {}
+        #[doc = "`write(|w| ..)` method takes [`hfnum::W`](W) writer structure"]
+        impl crate::Writable for HfnumSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HFNUM to value 0"]
+        impl crate::Resettable for HfnumSpec {}
+    }
+    #[doc = "HPTXSTS (rw) register accessor: DOTG_HPTXSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`hptxsts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hptxsts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@hptxsts`] module"]
+    #[doc(alias = "HPTXSTS")]
+    pub type Hptxsts = crate::Reg<hptxsts::HptxstsSpec>;
+    #[doc = "DOTG_HPTXSTS"]
+    pub mod hptxsts {
+        #[doc = "Register `HPTXSTS` reader"]
+        pub type R = crate::R<HptxstsSpec>;
+        #[doc = "Register `HPTXSTS` writer"]
+        pub type W = crate::W<HptxstsSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HPTXSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`hptxsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hptxsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HptxstsSpec;
+        impl crate::RegisterSpec for HptxstsSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`hptxsts::R`](R) reader structure"]
+        impl crate::Readable for HptxstsSpec {}
+        #[doc = "`write(|w| ..)` method takes [`hptxsts::W`](W) writer structure"]
+        impl crate::Writable for HptxstsSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HPTXSTS to value 0"]
+        impl crate::Resettable for HptxstsSpec {}
+    }
+    #[doc = "HAINT (rw) register accessor: DOTG_HAINT\n\nYou can [`read`](crate::Reg::read) this register and get [`haint::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`haint::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@haint`] module"]
+    #[doc(alias = "HAINT")]
+    pub type Haint = crate::Reg<haint::HaintSpec>;
+    #[doc = "DOTG_HAINT"]
+    pub mod haint {
+        #[doc = "Register `HAINT` reader"]
+        pub type R = crate::R<HaintSpec>;
+        #[doc = "Register `HAINT` writer"]
+        pub type W = crate::W<HaintSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HAINT\n\nYou can [`read`](crate::Reg::read) this register and get [`haint::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`haint::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HaintSpec;
+        impl crate::RegisterSpec for HaintSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`haint::R`](R) reader structure"]
+        impl crate::Readable for HaintSpec {}
+        #[doc = "`write(|w| ..)` method takes [`haint::W`](W) writer structure"]
+        impl crate::Writable for HaintSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HAINT to value 0"]
+        impl crate::Resettable for HaintSpec {}
+    }
+    #[doc = "HAINTMSK (rw) register accessor: DOTG_HAINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`haintmsk::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`haintmsk::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@haintmsk`] module"]
+    #[doc(alias = "HAINTMSK")]
+    pub type Haintmsk = crate::Reg<haintmsk::HaintmskSpec>;
+    #[doc = "DOTG_HAINTMSK"]
+    pub mod haintmsk {
+        #[doc = "Register `HAINTMSK` reader"]
+        pub type R = crate::R<HaintmskSpec>;
+        #[doc = "Register `HAINTMSK` writer"]
+        pub type W = crate::W<HaintmskSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HAINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`haintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`haintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HaintmskSpec;
+        impl crate::RegisterSpec for HaintmskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`haintmsk::R`](R) reader structure"]
+        impl crate::Readable for HaintmskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`haintmsk::W`](W) writer structure"]
+        impl crate::Writable for HaintmskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HAINTMSK to value 0"]
+        impl crate::Resettable for HaintmskSpec {}
+    }
+    #[doc = "HPRT (rw) register accessor: DOTG_HPRT\n\nYou can [`read`](crate::Reg::read) this register and get [`hprt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hprt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@hprt`] module"]
+    #[doc(alias = "HPRT")]
+    pub type Hprt = crate::Reg<hprt::HprtSpec>;
+    #[doc = "DOTG_HPRT"]
+    pub mod hprt {
+        #[doc = "Register `HPRT` reader"]
+        pub type R = crate::R<HprtSpec>;
+        #[doc = "Register `HPRT` writer"]
+        pub type W = crate::W<HprtSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_HPRT\n\nYou can [`read`](crate::Reg::read) this register and get [`hprt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hprt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct HprtSpec;
+        impl crate::RegisterSpec for HprtSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`hprt::R`](R) reader structure"]
+        impl crate::Readable for HprtSpec {}
+        #[doc = "`write(|w| ..)` method takes [`hprt::W`](W) writer structure"]
+        impl crate::Writable for HprtSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets HPRT to value 0"]
+        impl crate::Resettable for HprtSpec {}
+    }
+    #[doc = "DCFG (rw) register accessor: DOTG_DCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`dcfg::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dcfg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dcfg`] module"]
+    #[doc(alias = "DCFG")]
+    pub type Dcfg = crate::Reg<dcfg::DcfgSpec>;
+    #[doc = "DOTG_DCFG"]
+    pub mod dcfg {
+        #[doc = "Register `DCFG` reader"]
+        pub type R = crate::R<DcfgSpec>;
+        #[doc = "Register `DCFG` writer"]
+        pub type W = crate::W<DcfgSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`dcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DcfgSpec;
+        impl crate::RegisterSpec for DcfgSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dcfg::R`](R) reader structure"]
+        impl crate::Readable for DcfgSpec {}
+        #[doc = "`write(|w| ..)` method takes [`dcfg::W`](W) writer structure"]
+        impl crate::Writable for DcfgSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DCFG to value 0"]
+        impl crate::Resettable for DcfgSpec {}
+    }
+    #[doc = "DCTL (rw) register accessor: DOTG_DCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`dctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dctl`] module"]
+    #[doc(alias = "DCTL")]
+    pub type Dctl = crate::Reg<dctl::DctlSpec>;
+    #[doc = "DOTG_DCTL"]
+    pub mod dctl {
+        #[doc = "Register `DCTL` reader"]
+        pub type R = crate::R<DctlSpec>;
+        #[doc = "Register `DCTL` writer"]
+        pub type W = crate::W<DctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`dctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DctlSpec;
+        impl crate::RegisterSpec for DctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dctl::R`](R) reader structure"]
+        impl crate::Readable for DctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`dctl::W`](W) writer structure"]
+        impl crate::Writable for DctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DCTL to value 0"]
+        impl crate::Resettable for DctlSpec {}
+    }
+    #[doc = "DSTS (rw) register accessor: DOTG_DSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`dsts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dsts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dsts`] module"]
+    #[doc(alias = "DSTS")]
+    pub type Dsts = crate::Reg<dsts::DstsSpec>;
+    #[doc = "DOTG_DSTS"]
+    pub mod dsts {
+        #[doc = "Register `DSTS` reader"]
+        pub type R = crate::R<DstsSpec>;
+        #[doc = "Register `DSTS` writer"]
+        pub type W = crate::W<DstsSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`dsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DstsSpec;
+        impl crate::RegisterSpec for DstsSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dsts::R`](R) reader structure"]
+        impl crate::Readable for DstsSpec {}
+        #[doc = "`write(|w| ..)` method takes [`dsts::W`](W) writer structure"]
+        impl crate::Writable for DstsSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DSTS to value 0"]
+        impl crate::Resettable for DstsSpec {}
+    }
+    #[doc = "DIEPMSK (rw) register accessor: DOTG_DIEPMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`diepmsk::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`diepmsk::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@diepmsk`] module"]
+    #[doc(alias = "DIEPMSK")]
+    pub type Diepmsk = crate::Reg<diepmsk::DiepmskSpec>;
+    #[doc = "DOTG_DIEPMSK"]
+    pub mod diepmsk {
+        #[doc = "Register `DIEPMSK` reader"]
+        pub type R = crate::R<DiepmskSpec>;
+        #[doc = "Register `DIEPMSK` writer"]
+        pub type W = crate::W<DiepmskSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DIEPMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`diepmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`diepmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DiepmskSpec;
+        impl crate::RegisterSpec for DiepmskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`diepmsk::R`](R) reader structure"]
+        impl crate::Readable for DiepmskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`diepmsk::W`](W) writer structure"]
+        impl crate::Writable for DiepmskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DIEPMSK to value 0"]
+        impl crate::Resettable for DiepmskSpec {}
+    }
+    #[doc = "DOEPMSK (rw) register accessor: DOTG_DOEPMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`doepmsk::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`doepmsk::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@doepmsk`] module"]
+    #[doc(alias = "DOEPMSK")]
+    pub type Doepmsk = crate::Reg<doepmsk::DoepmskSpec>;
+    #[doc = "DOTG_DOEPMSK"]
+    pub mod doepmsk {
+        #[doc = "Register `DOEPMSK` reader"]
+        pub type R = crate::R<DoepmskSpec>;
+        #[doc = "Register `DOEPMSK` writer"]
+        pub type W = crate::W<DoepmskSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DOEPMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`doepmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`doepmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DoepmskSpec;
+        impl crate::RegisterSpec for DoepmskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`doepmsk::R`](R) reader structure"]
+        impl crate::Readable for DoepmskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`doepmsk::W`](W) writer structure"]
+        impl crate::Writable for DoepmskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DOEPMSK to value 0"]
+        impl crate::Resettable for DoepmskSpec {}
+    }
+    #[doc = "DAINT (rw) register accessor: DOTG_DAINT\n\nYou can [`read`](crate::Reg::read) this register and get [`daint::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daint::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@daint`] module"]
+    #[doc(alias = "DAINT")]
+    pub type Daint = crate::Reg<daint::DaintSpec>;
+    #[doc = "DOTG_DAINT"]
+    pub mod daint {
+        #[doc = "Register `DAINT` reader"]
+        pub type R = crate::R<DaintSpec>;
+        #[doc = "Register `DAINT` writer"]
+        pub type W = crate::W<DaintSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DAINT\n\nYou can [`read`](crate::Reg::read) this register and get [`daint::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daint::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DaintSpec;
+        impl crate::RegisterSpec for DaintSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`daint::R`](R) reader structure"]
+        impl crate::Readable for DaintSpec {}
+        #[doc = "`write(|w| ..)` method takes [`daint::W`](W) writer structure"]
+        impl crate::Writable for DaintSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DAINT to value 0"]
+        impl crate::Resettable for DaintSpec {}
+    }
+    #[doc = "DAINTMSK (rw) register accessor: DOTG_DAINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`daintmsk::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daintmsk::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@daintmsk`] module"]
+    #[doc(alias = "DAINTMSK")]
+    pub type Daintmsk = crate::Reg<daintmsk::DaintmskSpec>;
+    #[doc = "DOTG_DAINTMSK"]
+    pub mod daintmsk {
+        #[doc = "Register `DAINTMSK` reader"]
+        pub type R = crate::R<DaintmskSpec>;
+        #[doc = "Register `DAINTMSK` writer"]
+        pub type W = crate::W<DaintmskSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DAINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`daintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DaintmskSpec;
+        impl crate::RegisterSpec for DaintmskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`daintmsk::R`](R) reader structure"]
+        impl crate::Readable for DaintmskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`daintmsk::W`](W) writer structure"]
+        impl crate::Writable for DaintmskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DAINTMSK to value 0"]
+        impl crate::Resettable for DaintmskSpec {}
+    }
+    #[doc = "DTKNQR1 (rw) register accessor: DOTG_DTKNQR1\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dtknqr1`] module"]
+    #[doc(alias = "DTKNQR1")]
+    pub type Dtknqr1 = crate::Reg<dtknqr1::Dtknqr1Spec>;
+    #[doc = "DOTG_DTKNQR1"]
+    pub mod dtknqr1 {
+        #[doc = "Register `DTKNQR1` reader"]
+        pub type R = crate::R<Dtknqr1Spec>;
+        #[doc = "Register `DTKNQR1` writer"]
+        pub type W = crate::W<Dtknqr1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DTKNQR1\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Dtknqr1Spec;
+        impl crate::RegisterSpec for Dtknqr1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dtknqr1::R`](R) reader structure"]
+        impl crate::Readable for Dtknqr1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`dtknqr1::W`](W) writer structure"]
+        impl crate::Writable for Dtknqr1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DTKNQR1 to value 0"]
+        impl crate::Resettable for Dtknqr1Spec {}
+    }
+    #[doc = "DTKNQR2 (rw) register accessor: DOTG_DTKNQR2\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dtknqr2`] module"]
+    #[doc(alias = "DTKNQR2")]
+    pub type Dtknqr2 = crate::Reg<dtknqr2::Dtknqr2Spec>;
+    #[doc = "DOTG_DTKNQR2"]
+    pub mod dtknqr2 {
+        #[doc = "Register `DTKNQR2` reader"]
+        pub type R = crate::R<Dtknqr2Spec>;
+        #[doc = "Register `DTKNQR2` writer"]
+        pub type W = crate::W<Dtknqr2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DTKNQR2\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Dtknqr2Spec;
+        impl crate::RegisterSpec for Dtknqr2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dtknqr2::R`](R) reader structure"]
+        impl crate::Readable for Dtknqr2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`dtknqr2::W`](W) writer structure"]
+        impl crate::Writable for Dtknqr2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DTKNQR2 to value 0"]
+        impl crate::Resettable for Dtknqr2Spec {}
+    }
+    #[doc = "DVBUSDIS (rw) register accessor: DOTG_DVBUSDIS\n\nYou can [`read`](crate::Reg::read) this register and get [`dvbusdis::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dvbusdis::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dvbusdis`] module"]
+    #[doc(alias = "DVBUSDIS")]
+    pub type Dvbusdis = crate::Reg<dvbusdis::DvbusdisSpec>;
+    #[doc = "DOTG_DVBUSDIS"]
+    pub mod dvbusdis {
+        #[doc = "Register `DVBUSDIS` reader"]
+        pub type R = crate::R<DvbusdisSpec>;
+        #[doc = "Register `DVBUSDIS` writer"]
+        pub type W = crate::W<DvbusdisSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DVBUSDIS\n\nYou can [`read`](crate::Reg::read) this register and get [`dvbusdis::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dvbusdis::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DvbusdisSpec;
+        impl crate::RegisterSpec for DvbusdisSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dvbusdis::R`](R) reader structure"]
+        impl crate::Readable for DvbusdisSpec {}
+        #[doc = "`write(|w| ..)` method takes [`dvbusdis::W`](W) writer structure"]
+        impl crate::Writable for DvbusdisSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DVBUSDIS to value 0"]
+        impl crate::Resettable for DvbusdisSpec {}
+    }
+    #[doc = "DVBUSPULSE (rw) register accessor: DOTG_DVBUSPULSE\n\nYou can [`read`](crate::Reg::read) this register and get [`dvbuspulse::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dvbuspulse::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dvbuspulse`] module"]
+    #[doc(alias = "DVBUSPULSE")]
+    pub type Dvbuspulse = crate::Reg<dvbuspulse::DvbuspulseSpec>;
+    #[doc = "DOTG_DVBUSPULSE"]
+    pub mod dvbuspulse {
+        #[doc = "Register `DVBUSPULSE` reader"]
+        pub type R = crate::R<DvbuspulseSpec>;
+        #[doc = "Register `DVBUSPULSE` writer"]
+        pub type W = crate::W<DvbuspulseSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DVBUSPULSE\n\nYou can [`read`](crate::Reg::read) this register and get [`dvbuspulse::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dvbuspulse::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DvbuspulseSpec;
+        impl crate::RegisterSpec for DvbuspulseSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dvbuspulse::R`](R) reader structure"]
+        impl crate::Readable for DvbuspulseSpec {}
+        #[doc = "`write(|w| ..)` method takes [`dvbuspulse::W`](W) writer structure"]
+        impl crate::Writable for DvbuspulseSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DVBUSPULSE to value 0"]
+        impl crate::Resettable for DvbuspulseSpec {}
+    }
+    #[doc = "DTHRCTL (rw) register accessor: DOTG_DTHRCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`dthrctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dthrctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dthrctl`] module"]
+    #[doc(alias = "DTHRCTL")]
+    pub type Dthrctl = crate::Reg<dthrctl::DthrctlSpec>;
+    #[doc = "DOTG_DTHRCTL"]
+    pub mod dthrctl {
+        #[doc = "Register `DTHRCTL` reader"]
+        pub type R = crate::R<DthrctlSpec>;
+        #[doc = "Register `DTHRCTL` writer"]
+        pub type W = crate::W<DthrctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DTHRCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`dthrctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dthrctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DthrctlSpec;
+        impl crate::RegisterSpec for DthrctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dthrctl::R`](R) reader structure"]
+        impl crate::Readable for DthrctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`dthrctl::W`](W) writer structure"]
+        impl crate::Writable for DthrctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DTHRCTL to value 0"]
+        impl crate::Resettable for DthrctlSpec {}
+    }
+    #[doc = "DTKNQR4 (rw) register accessor: DOTG_DTKNQR4\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dtknqr4`] module"]
+    #[doc(alias = "DTKNQR4")]
+    pub type Dtknqr4 = crate::Reg<dtknqr4::Dtknqr4Spec>;
+    #[doc = "DOTG_DTKNQR4"]
+    pub mod dtknqr4 {
+        #[doc = "Register `DTKNQR4` reader"]
+        pub type R = crate::R<Dtknqr4Spec>;
+        #[doc = "Register `DTKNQR4` writer"]
+        pub type W = crate::W<Dtknqr4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DTKNQR4\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct Dtknqr4Spec;
+        impl crate::RegisterSpec for Dtknqr4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`dtknqr4::R`](R) reader structure"]
+        impl crate::Readable for Dtknqr4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`dtknqr4::W`](W) writer structure"]
+        impl crate::Writable for Dtknqr4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DTKNQR4 to value 0"]
+        impl crate::Resettable for Dtknqr4Spec {}
+    }
+    #[doc = "DEACHINT (rw) register accessor: DOTG_DEACHINT\n\nYou can [`read`](crate::Reg::read) this register and get [`deachint::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`deachint::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@deachint`] module"]
+    #[doc(alias = "DEACHINT")]
+    pub type Deachint = crate::Reg<deachint::DeachintSpec>;
+    #[doc = "DOTG_DEACHINT"]
+    pub mod deachint {
+        #[doc = "Register `DEACHINT` reader"]
+        pub type R = crate::R<DeachintSpec>;
+        #[doc = "Register `DEACHINT` writer"]
+        pub type W = crate::W<DeachintSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DEACHINT\n\nYou can [`read`](crate::Reg::read) this register and get [`deachint::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`deachint::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DeachintSpec;
+        impl crate::RegisterSpec for DeachintSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`deachint::R`](R) reader structure"]
+        impl crate::Readable for DeachintSpec {}
+        #[doc = "`write(|w| ..)` method takes [`deachint::W`](W) writer structure"]
+        impl crate::Writable for DeachintSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DEACHINT to value 0"]
+        impl crate::Resettable for DeachintSpec {}
+    }
+    #[doc = "DEACHINTMSK (rw) register accessor: DOTG_DEACHINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`deachintmsk::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`deachintmsk::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@deachintmsk`] module"]
+    #[doc(alias = "DEACHINTMSK")]
+    pub type Deachintmsk = crate::Reg<deachintmsk::DeachintmskSpec>;
+    #[doc = "DOTG_DEACHINTMSK"]
+    pub mod deachintmsk {
+        #[doc = "Register `DEACHINTMSK` reader"]
+        pub type R = crate::R<DeachintmskSpec>;
+        #[doc = "Register `DEACHINTMSK` writer"]
+        pub type W = crate::W<DeachintmskSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_DEACHINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`deachintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`deachintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct DeachintmskSpec;
+        impl crate::RegisterSpec for DeachintmskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`deachintmsk::R`](R) reader structure"]
+        impl crate::Readable for DeachintmskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`deachintmsk::W`](W) writer structure"]
+        impl crate::Writable for DeachintmskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets DEACHINTMSK to value 0"]
+        impl crate::Resettable for DeachintmskSpec {}
+    }
+    #[doc = "PCGCCTL (rw) register accessor: DOTG_PCGCCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`pcgcctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pcgcctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pcgcctl`] module"]
+    #[doc(alias = "PCGCCTL")]
+    pub type Pcgcctl = crate::Reg<pcgcctl::PcgcctlSpec>;
+    #[doc = "DOTG_PCGCCTL"]
+    pub mod pcgcctl {
+        #[doc = "Register `PCGCCTL` reader"]
+        pub type R = crate::R<PcgcctlSpec>;
+        #[doc = "Register `PCGCCTL` writer"]
+        pub type W = crate::W<PcgcctlSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "DOTG_PCGCCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`pcgcctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`pcgcctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct PcgcctlSpec;
+        impl crate::RegisterSpec for PcgcctlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`pcgcctl::R`](R) reader structure"]
+        impl crate::Readable for PcgcctlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`pcgcctl::W`](W) writer structure"]
+        impl crate::Writable for PcgcctlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets PCGCCTL to value 0"]
+        impl crate::Resettable for PcgcctlSpec {}
+    }
+}
 #[unsafe(no_mangle)]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals."]
@@ -25329,6 +27067,8 @@ pub struct Peripherals {
     pub pdm: Pdm,
     #[doc = "QDEC"]
     pub qdec: Qdec,
+    #[doc = "USB"]
+    pub usb: Usb,
 }
 impl Peripherals {
     #[doc = r" Returns all the peripherals *once*."]
@@ -25379,6 +27119,7 @@ impl Peripherals {
                 keyscan: Keyscan::steal(),
                 pdm: Pdm::steal(),
                 qdec: Qdec::steal(),
+                usb: Usb::steal(),
             }
         }
     }
