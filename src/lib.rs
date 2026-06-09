@@ -15920,6 +15920,9356 @@ impl core::fmt::Debug for Sdma {
 }
 #[doc = "DMA controller with 4 channels"]
 pub use self::dma as sdma;
+#[doc = "13-bit GADC (general ADC, v153)"]
+pub type Gadc = crate::Periph<gadc::RegisterBlock, 0x5703_6000>;
+impl core::fmt::Debug for Gadc {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Gadc").finish()
+    }
+}
+#[doc = "13-bit GADC (general ADC, v153)"]
+pub mod gadc {
+    #[repr(C)]
+    #[doc = "Register block"]
+    pub struct RegisterBlock {
+        cfg_rstn: CfgRstn,
+        cfg_clken: CfgClken,
+        cfg_prechg_lead: CfgPrechgLead,
+        cfg_clk_div_0: CfgClkDiv0,
+        cfg_clk_div_1: CfgClkDiv1,
+        cfg_manual_clk_0: CfgManualClk0,
+        cfg_manual_clk_1: CfgManualClk1,
+        cfg_iso: CfgIso,
+        _reserved8: [u8; 0x10],
+        cfg_gadc_ctrl_0: CfgGadcCtrl0,
+        cfg_gadc_ctrl_1: CfgGadcCtrl1,
+        cfg_gadc_ctrl_2: CfgGadcCtrl2,
+        cfg_gadc_ctrl_3: CfgGadcCtrl3,
+        cfg_gadc_ctrl_4: CfgGadcCtrl4,
+        rpt_gadc_ctrl_0: RptGadcCtrl0,
+        cfg_gadc_ctrl_5: CfgGadcCtrl5,
+        cfg_gadc_ctrl_6: CfgGadcCtrl6,
+        rpt_gadc_ctrl_1: RptGadcCtrl1,
+        cfg_gadc_ctrl_7: CfgGadcCtrl7,
+        rpt_gadc_ctrl_2: RptGadcCtrl2,
+        cfg_gadc_data_0: CfgGadcData0,
+        cfg_gadc_data_1: CfgGadcData1,
+        rpt_gadc_data_0: RptGadcData0,
+        rpt_gadc_data_1: RptGadcData1,
+        rpt_gadc_data_2: RptGadcData2,
+        rpt_gadc_data_3: RptGadcData3,
+        cfg_gadc_data_3: CfgGadcData3,
+        cfg_gadc_data_4: CfgGadcData4,
+        rpt_gadc_data_4: RptGadcData4,
+        cfg_gadc_data_5: CfgGadcData5,
+        cfg_gadc_data_6: CfgGadcData6,
+        cfg_gadc_data_7: CfgGadcData7,
+        cfg_gadc_data_8: CfgGadcData8,
+        cfg_gadc_data_9: CfgGadcData9,
+        cfg_gadc_data_10: CfgGadcData10,
+        cfg_gadc_data_11: CfgGadcData11,
+        cfg_gadc_data_12: CfgGadcData12,
+        cfg_gadc_data_13: CfgGadcData13,
+        cfg_gadc_data_14: CfgGadcData14,
+        cfg_gadc_data_15: CfgGadcData15,
+        cfg_gadc_data_16: CfgGadcData16,
+        cfg_gadc_data_17: CfgGadcData17,
+        cfg_gadc_data_18: CfgGadcData18,
+        cfg_gadc_data_19: CfgGadcData19,
+        cfg_gadc_data_20: CfgGadcData20,
+        cfg_gadc_data_21: CfgGadcData21,
+        cfg_gadc_data_22: CfgGadcData22,
+        cfg_gadc_data_23: CfgGadcData23,
+        cfg_gadc_data_24: CfgGadcData24,
+        cfg_gadc_data_25: CfgGadcData25,
+        rpt_gadc_data_5: RptGadcData5,
+        rpt_gadc_data_6: RptGadcData6,
+        rpt_gadc_data_7: RptGadcData7,
+        rpt_gadc_data_8: RptGadcData8,
+        rpt_gadc_data_9: RptGadcData9,
+        rpt_gadc_data_10: RptGadcData10,
+        rpt_gadc_data_11: RptGadcData11,
+        rpt_gadc_data_12: RptGadcData12,
+        rpt_gadc_data_13: RptGadcData13,
+        _reserved58: [u8; 0x08],
+        cfg_cmp_os_0: CfgCmpOs0,
+        cfg_cmp_os_1: CfgCmpOs1,
+        cfg_cmp_os_2: CfgCmpOs2,
+        cfg_cmp_os_3: CfgCmpOs3,
+        cfg_cmp_os_4: CfgCmpOs4,
+        cfg_cmp_os_5: CfgCmpOs5,
+        cfg_cmp_os_6: CfgCmpOs6,
+        cfg_cmp_os_7: CfgCmpOs7,
+        cfg_cmp_os_8: CfgCmpOs8,
+        cfg_cmp_os_9: CfgCmpOs9,
+        cfg_cmp_os_10: CfgCmpOs10,
+        rpt_cmp_os_0: RptCmpOs0,
+        cfg_cmp_os_11: CfgCmpOs11,
+        cfg_cmp_os_12: CfgCmpOs12,
+        rpt_cmp_os_2: RptCmpOs2,
+        _reserved73: [u8; 0x14],
+        cfg_cdac_fc0_0: CfgCdacFc0_0,
+        cfg_cdac_fc0_1: CfgCdacFc0_1,
+        cfg_cdac_fc0_2: CfgCdacFc0_2,
+        cfg_cdac_fc0_3: CfgCdacFc0_3,
+        cfg_cdac_fc0_4: CfgCdacFc0_4,
+        cfg_cdac_fc0_5: CfgCdacFc0_5,
+        rpt_cdac_fc0_0: RptCdacFc0_0,
+        cfg_cdac_fc0_6: CfgCdacFc0_6,
+        cfg_cdac_fc0_7: CfgCdacFc0_7,
+        cfg_cdac_fc0_8: CfgCdacFc0_8,
+        cfg_cdac_fc0_9: CfgCdacFc0_9,
+        cfg_cdac_fc0_10: CfgCdacFc0_10,
+        cfg_cdac_fc0_11: CfgCdacFc0_11,
+        cfg_cdac_fc0_12: CfgCdacFc0_12,
+        cfg_cdac_fc0_13: CfgCdacFc0_13,
+        cfg_cdac_fc0_14: CfgCdacFc0_14,
+        cfg_cdac_fc1_0: CfgCdacFc1_0,
+        cfg_cdac_fc1_1: CfgCdacFc1_1,
+        cfg_cdac_fc1_2: CfgCdacFc1_2,
+        cfg_cdac_fc1_3: CfgCdacFc1_3,
+        rpt_cdac_fc1_0: RptCdacFc1_0,
+        rpt_cdac_fc1_3: RptCdacFc1_3,
+        rpt_cdac_fc3_1: RptCdacFc3_1,
+        rpt_cdac_fc3_2: RptCdacFc3_2,
+        rpt_cdac_fc3_3: RptCdacFc3_3,
+        rpt_cdac_fc3_4: RptCdacFc3_4,
+        rpt_cdac_fc3_5: RptCdacFc3_5,
+        rpt_cdac_fc3_6: RptCdacFc3_6,
+        rpt_cdac_fc3_7: RptCdacFc3_7,
+        rpt_cdac_fc3_8: RptCdacFc3_8,
+        rpt_cdac_fc3_9: RptCdacFc3_9,
+        rpt_cdac_fc3_10: RptCdacFc3_10,
+        rpt_cdac_fc3_11: RptCdacFc3_11,
+        rpt_cdac_fc3_12: RptCdacFc3_12,
+        rpt_cdac_fc3_13: RptCdacFc3_13,
+        rpt_cdac_fc3_14: RptCdacFc3_14,
+        rpt_cdac_fc3_15: RptCdacFc3_15,
+        rpt_cdac_fc3_16: RptCdacFc3_16,
+        rpt_cdac_fc3_17: RptCdacFc3_17,
+        rpt_cdac_fc3_18: RptCdacFc3_18,
+        _reserved113: [u8; 0x10],
+        cfg_dcoc_cal_0: CfgDcocCal0,
+        cfg_dcoc_cal_1: CfgDcocCal1,
+        cfg_dcoc_cal_2: CfgDcocCal2,
+        cfg_dcoc_cal_3: CfgDcocCal3,
+        cfg_dcoc_cal_4: CfgDcocCal4,
+        cfg_dcoc_cal_5: CfgDcocCal5,
+        cfg_dcoc_cal_6: CfgDcocCal6,
+        cfg_dcoc_cal_7: CfgDcocCal7,
+        cfg_dcoc_cal_8: CfgDcocCal8,
+        rpt_dcoc_cal_0: RptDcocCal0,
+        cfg_dcoc_cal_12: CfgDcocCal12,
+        cfg_dcoc_cal_13: CfgDcocCal13,
+        rpt_dcoc_cal_1: RptDcocCal1,
+        _reserved126: [u8; 0x0c],
+        cfg_sar_spd_0: CfgSarSpd0,
+        cfg_sar_spd_1: CfgSarSpd1,
+        cfg_sar_spd_2: CfgSarSpd2,
+        cfg_sar_spd_3: CfgSarSpd3,
+        cfg_sar_spd_4: CfgSarSpd4,
+        rpt_sar_spd_0: RptSarSpd0,
+        rpt_sar_spd_1: RptSarSpd1,
+        cfg_sar_spd_6: CfgSarSpd6,
+        rpt_sar_spd_2: RptSarSpd2,
+        _reserved135: [u8; 0x1c],
+        cfg_rc_cal_0: CfgRcCal0,
+        cfg_rc_cal_1: CfgRcCal1,
+        cfg_rc_cal_2: CfgRcCal2,
+        cfg_rc_cal_3: CfgRcCal3,
+        cfg_rc_cal_4: CfgRcCal4,
+        rpt_rc_cal_0: RptRcCal0,
+        rpt_rc_cal_1: RptRcCal1,
+        cfg_rc_cal_5: CfgRcCal5,
+        cfg_rc_cal_6: CfgRcCal6,
+        cfg_rc_cal_7: CfgRcCal7,
+        cfg_rc_cal_8: CfgRcCal8,
+        rpt_rc_cal_2: RptRcCal2,
+        rpt_rc_cal_3: RptRcCal3,
+        _reserved148: [u8; 0x0c],
+        cfg_amux_0: CfgAmux0,
+        cfg_amux_1: CfgAmux1,
+        cfg_amux_2: CfgAmux2,
+        cfg_amux_3: CfgAmux3,
+        cfg_amux_4: CfgAmux4,
+        cfg_amux_5: CfgAmux5,
+        rpt_amux_0: RptAmux0,
+        _reserved155: [u8; 0x14],
+        cfg_tst_0: CfgTst0,
+        cfg_tst_1: CfgTst1,
+        cfg_cmp_0: CfgCmp0,
+        cfg_cmp_1: CfgCmp1,
+        rpt_cmp_0: RptCmp0,
+        rpt_cmp_1: RptCmp1,
+    }
+    impl RegisterBlock {
+        #[doc = "0x00 - cfg_rstn"]
+        #[inline(always)]
+        pub const fn cfg_rstn(&self) -> &CfgRstn {
+            &self.cfg_rstn
+        }
+        #[doc = "0x04 - cfg_clken"]
+        #[inline(always)]
+        pub const fn cfg_clken(&self) -> &CfgClken {
+            &self.cfg_clken
+        }
+        #[doc = "0x08 - cfg_prechg_lead"]
+        #[inline(always)]
+        pub const fn cfg_prechg_lead(&self) -> &CfgPrechgLead {
+            &self.cfg_prechg_lead
+        }
+        #[doc = "0x0c - cfg_clk_div_0"]
+        #[inline(always)]
+        pub const fn cfg_clk_div_0(&self) -> &CfgClkDiv0 {
+            &self.cfg_clk_div_0
+        }
+        #[doc = "0x10 - cfg_clk_div_1"]
+        #[inline(always)]
+        pub const fn cfg_clk_div_1(&self) -> &CfgClkDiv1 {
+            &self.cfg_clk_div_1
+        }
+        #[doc = "0x14 - cfg_manual_clk_0"]
+        #[inline(always)]
+        pub const fn cfg_manual_clk_0(&self) -> &CfgManualClk0 {
+            &self.cfg_manual_clk_0
+        }
+        #[doc = "0x18 - cfg_manual_clk_1"]
+        #[inline(always)]
+        pub const fn cfg_manual_clk_1(&self) -> &CfgManualClk1 {
+            &self.cfg_manual_clk_1
+        }
+        #[doc = "0x1c - cfg_iso"]
+        #[inline(always)]
+        pub const fn cfg_iso(&self) -> &CfgIso {
+            &self.cfg_iso
+        }
+        #[doc = "0x30 - cfg_gadc_ctrl_0"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_0(&self) -> &CfgGadcCtrl0 {
+            &self.cfg_gadc_ctrl_0
+        }
+        #[doc = "0x34 - cfg_gadc_ctrl_1"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_1(&self) -> &CfgGadcCtrl1 {
+            &self.cfg_gadc_ctrl_1
+        }
+        #[doc = "0x38 - cfg_gadc_ctrl_2"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_2(&self) -> &CfgGadcCtrl2 {
+            &self.cfg_gadc_ctrl_2
+        }
+        #[doc = "0x3c - cfg_gadc_ctrl_3"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_3(&self) -> &CfgGadcCtrl3 {
+            &self.cfg_gadc_ctrl_3
+        }
+        #[doc = "0x40 - cfg_gadc_ctrl_4"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_4(&self) -> &CfgGadcCtrl4 {
+            &self.cfg_gadc_ctrl_4
+        }
+        #[doc = "0x44 - rpt_gadc_ctrl_0"]
+        #[inline(always)]
+        pub const fn rpt_gadc_ctrl_0(&self) -> &RptGadcCtrl0 {
+            &self.rpt_gadc_ctrl_0
+        }
+        #[doc = "0x48 - cfg_gadc_ctrl_5"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_5(&self) -> &CfgGadcCtrl5 {
+            &self.cfg_gadc_ctrl_5
+        }
+        #[doc = "0x4c - cfg_gadc_ctrl_6"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_6(&self) -> &CfgGadcCtrl6 {
+            &self.cfg_gadc_ctrl_6
+        }
+        #[doc = "0x50 - rpt_gadc_ctrl_1"]
+        #[inline(always)]
+        pub const fn rpt_gadc_ctrl_1(&self) -> &RptGadcCtrl1 {
+            &self.rpt_gadc_ctrl_1
+        }
+        #[doc = "0x54 - cfg_gadc_ctrl_7"]
+        #[inline(always)]
+        pub const fn cfg_gadc_ctrl_7(&self) -> &CfgGadcCtrl7 {
+            &self.cfg_gadc_ctrl_7
+        }
+        #[doc = "0x58 - rpt_gadc_ctrl_2"]
+        #[inline(always)]
+        pub const fn rpt_gadc_ctrl_2(&self) -> &RptGadcCtrl2 {
+            &self.rpt_gadc_ctrl_2
+        }
+        #[doc = "0x5c - cfg_gadc_data_0"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_0(&self) -> &CfgGadcData0 {
+            &self.cfg_gadc_data_0
+        }
+        #[doc = "0x60 - cfg_gadc_data_1"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_1(&self) -> &CfgGadcData1 {
+            &self.cfg_gadc_data_1
+        }
+        #[doc = "0x64 - rpt_gadc_data_0"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_0(&self) -> &RptGadcData0 {
+            &self.rpt_gadc_data_0
+        }
+        #[doc = "0x68 - rpt_gadc_data_1"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_1(&self) -> &RptGadcData1 {
+            &self.rpt_gadc_data_1
+        }
+        #[doc = "0x6c - rpt_gadc_data_2"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_2(&self) -> &RptGadcData2 {
+            &self.rpt_gadc_data_2
+        }
+        #[doc = "0x70 - rpt_gadc_data_3"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_3(&self) -> &RptGadcData3 {
+            &self.rpt_gadc_data_3
+        }
+        #[doc = "0x74 - cfg_gadc_data_3"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_3(&self) -> &CfgGadcData3 {
+            &self.cfg_gadc_data_3
+        }
+        #[doc = "0x78 - cfg_gadc_data_4"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_4(&self) -> &CfgGadcData4 {
+            &self.cfg_gadc_data_4
+        }
+        #[doc = "0x7c - rpt_gadc_data_4"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_4(&self) -> &RptGadcData4 {
+            &self.rpt_gadc_data_4
+        }
+        #[doc = "0x80 - cfg_gadc_data_5"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_5(&self) -> &CfgGadcData5 {
+            &self.cfg_gadc_data_5
+        }
+        #[doc = "0x84 - cfg_gadc_data_6"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_6(&self) -> &CfgGadcData6 {
+            &self.cfg_gadc_data_6
+        }
+        #[doc = "0x88 - cfg_gadc_data_7"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_7(&self) -> &CfgGadcData7 {
+            &self.cfg_gadc_data_7
+        }
+        #[doc = "0x8c - cfg_gadc_data_8"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_8(&self) -> &CfgGadcData8 {
+            &self.cfg_gadc_data_8
+        }
+        #[doc = "0x90 - cfg_gadc_data_9"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_9(&self) -> &CfgGadcData9 {
+            &self.cfg_gadc_data_9
+        }
+        #[doc = "0x94 - cfg_gadc_data_10"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_10(&self) -> &CfgGadcData10 {
+            &self.cfg_gadc_data_10
+        }
+        #[doc = "0x98 - cfg_gadc_data_11"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_11(&self) -> &CfgGadcData11 {
+            &self.cfg_gadc_data_11
+        }
+        #[doc = "0x9c - cfg_gadc_data_12"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_12(&self) -> &CfgGadcData12 {
+            &self.cfg_gadc_data_12
+        }
+        #[doc = "0xa0 - cfg_gadc_data_13"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_13(&self) -> &CfgGadcData13 {
+            &self.cfg_gadc_data_13
+        }
+        #[doc = "0xa4 - cfg_gadc_data_14"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_14(&self) -> &CfgGadcData14 {
+            &self.cfg_gadc_data_14
+        }
+        #[doc = "0xa8 - cfg_gadc_data_15"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_15(&self) -> &CfgGadcData15 {
+            &self.cfg_gadc_data_15
+        }
+        #[doc = "0xac - cfg_gadc_data_16"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_16(&self) -> &CfgGadcData16 {
+            &self.cfg_gadc_data_16
+        }
+        #[doc = "0xb0 - cfg_gadc_data_17"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_17(&self) -> &CfgGadcData17 {
+            &self.cfg_gadc_data_17
+        }
+        #[doc = "0xb4 - cfg_gadc_data_18"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_18(&self) -> &CfgGadcData18 {
+            &self.cfg_gadc_data_18
+        }
+        #[doc = "0xb8 - cfg_gadc_data_19"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_19(&self) -> &CfgGadcData19 {
+            &self.cfg_gadc_data_19
+        }
+        #[doc = "0xbc - cfg_gadc_data_20"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_20(&self) -> &CfgGadcData20 {
+            &self.cfg_gadc_data_20
+        }
+        #[doc = "0xc0 - cfg_gadc_data_21"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_21(&self) -> &CfgGadcData21 {
+            &self.cfg_gadc_data_21
+        }
+        #[doc = "0xc4 - cfg_gadc_data_22"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_22(&self) -> &CfgGadcData22 {
+            &self.cfg_gadc_data_22
+        }
+        #[doc = "0xc8 - cfg_gadc_data_23"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_23(&self) -> &CfgGadcData23 {
+            &self.cfg_gadc_data_23
+        }
+        #[doc = "0xcc - cfg_gadc_data_24"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_24(&self) -> &CfgGadcData24 {
+            &self.cfg_gadc_data_24
+        }
+        #[doc = "0xd0 - cfg_gadc_data_25"]
+        #[inline(always)]
+        pub const fn cfg_gadc_data_25(&self) -> &CfgGadcData25 {
+            &self.cfg_gadc_data_25
+        }
+        #[doc = "0xd4 - rpt_gadc_data_5"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_5(&self) -> &RptGadcData5 {
+            &self.rpt_gadc_data_5
+        }
+        #[doc = "0xd8 - rpt_gadc_data_6"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_6(&self) -> &RptGadcData6 {
+            &self.rpt_gadc_data_6
+        }
+        #[doc = "0xdc - rpt_gadc_data_7"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_7(&self) -> &RptGadcData7 {
+            &self.rpt_gadc_data_7
+        }
+        #[doc = "0xe0 - rpt_gadc_data_8"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_8(&self) -> &RptGadcData8 {
+            &self.rpt_gadc_data_8
+        }
+        #[doc = "0xe4 - rpt_gadc_data_9"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_9(&self) -> &RptGadcData9 {
+            &self.rpt_gadc_data_9
+        }
+        #[doc = "0xe8 - rpt_gadc_data_10"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_10(&self) -> &RptGadcData10 {
+            &self.rpt_gadc_data_10
+        }
+        #[doc = "0xec - rpt_gadc_data_11"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_11(&self) -> &RptGadcData11 {
+            &self.rpt_gadc_data_11
+        }
+        #[doc = "0xf0 - rpt_gadc_data_12"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_12(&self) -> &RptGadcData12 {
+            &self.rpt_gadc_data_12
+        }
+        #[doc = "0xf4 - rpt_gadc_data_13"]
+        #[inline(always)]
+        pub const fn rpt_gadc_data_13(&self) -> &RptGadcData13 {
+            &self.rpt_gadc_data_13
+        }
+        #[doc = "0x100 - cfg_cmp_os_0"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_0(&self) -> &CfgCmpOs0 {
+            &self.cfg_cmp_os_0
+        }
+        #[doc = "0x104 - cfg_cmp_os_1"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_1(&self) -> &CfgCmpOs1 {
+            &self.cfg_cmp_os_1
+        }
+        #[doc = "0x108 - cfg_cmp_os_2"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_2(&self) -> &CfgCmpOs2 {
+            &self.cfg_cmp_os_2
+        }
+        #[doc = "0x10c - cfg_cmp_os_3"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_3(&self) -> &CfgCmpOs3 {
+            &self.cfg_cmp_os_3
+        }
+        #[doc = "0x110 - cfg_cmp_os_4"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_4(&self) -> &CfgCmpOs4 {
+            &self.cfg_cmp_os_4
+        }
+        #[doc = "0x114 - cfg_cmp_os_5"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_5(&self) -> &CfgCmpOs5 {
+            &self.cfg_cmp_os_5
+        }
+        #[doc = "0x118 - cfg_cmp_os_6"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_6(&self) -> &CfgCmpOs6 {
+            &self.cfg_cmp_os_6
+        }
+        #[doc = "0x11c - cfg_cmp_os_7"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_7(&self) -> &CfgCmpOs7 {
+            &self.cfg_cmp_os_7
+        }
+        #[doc = "0x120 - cfg_cmp_os_8"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_8(&self) -> &CfgCmpOs8 {
+            &self.cfg_cmp_os_8
+        }
+        #[doc = "0x124 - cfg_cmp_os_9"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_9(&self) -> &CfgCmpOs9 {
+            &self.cfg_cmp_os_9
+        }
+        #[doc = "0x128 - cfg_cmp_os_10"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_10(&self) -> &CfgCmpOs10 {
+            &self.cfg_cmp_os_10
+        }
+        #[doc = "0x12c - rpt_cmp_os_0"]
+        #[inline(always)]
+        pub const fn rpt_cmp_os_0(&self) -> &RptCmpOs0 {
+            &self.rpt_cmp_os_0
+        }
+        #[doc = "0x130 - cfg_cmp_os_11"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_11(&self) -> &CfgCmpOs11 {
+            &self.cfg_cmp_os_11
+        }
+        #[doc = "0x134 - cfg_cmp_os_12"]
+        #[inline(always)]
+        pub const fn cfg_cmp_os_12(&self) -> &CfgCmpOs12 {
+            &self.cfg_cmp_os_12
+        }
+        #[doc = "0x138 - rpt_cmp_os_2"]
+        #[inline(always)]
+        pub const fn rpt_cmp_os_2(&self) -> &RptCmpOs2 {
+            &self.rpt_cmp_os_2
+        }
+        #[doc = "0x150 - cfg_cdac_fc0_0"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_0(&self) -> &CfgCdacFc0_0 {
+            &self.cfg_cdac_fc0_0
+        }
+        #[doc = "0x154 - cfg_cdac_fc0_1"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_1(&self) -> &CfgCdacFc0_1 {
+            &self.cfg_cdac_fc0_1
+        }
+        #[doc = "0x158 - cfg_cdac_fc0_2"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_2(&self) -> &CfgCdacFc0_2 {
+            &self.cfg_cdac_fc0_2
+        }
+        #[doc = "0x15c - cfg_cdac_fc0_3"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_3(&self) -> &CfgCdacFc0_3 {
+            &self.cfg_cdac_fc0_3
+        }
+        #[doc = "0x160 - cfg_cdac_fc0_4"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_4(&self) -> &CfgCdacFc0_4 {
+            &self.cfg_cdac_fc0_4
+        }
+        #[doc = "0x164 - cfg_cdac_fc0_5"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_5(&self) -> &CfgCdacFc0_5 {
+            &self.cfg_cdac_fc0_5
+        }
+        #[doc = "0x168 - rpt_cdac_fc0_0"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc0_0(&self) -> &RptCdacFc0_0 {
+            &self.rpt_cdac_fc0_0
+        }
+        #[doc = "0x16c - cfg_cdac_fc0_6"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_6(&self) -> &CfgCdacFc0_6 {
+            &self.cfg_cdac_fc0_6
+        }
+        #[doc = "0x170 - cfg_cdac_fc0_7"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_7(&self) -> &CfgCdacFc0_7 {
+            &self.cfg_cdac_fc0_7
+        }
+        #[doc = "0x174 - cfg_cdac_fc0_8"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_8(&self) -> &CfgCdacFc0_8 {
+            &self.cfg_cdac_fc0_8
+        }
+        #[doc = "0x178 - cfg_cdac_fc0_9"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_9(&self) -> &CfgCdacFc0_9 {
+            &self.cfg_cdac_fc0_9
+        }
+        #[doc = "0x17c - cfg_cdac_fc0_10"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_10(&self) -> &CfgCdacFc0_10 {
+            &self.cfg_cdac_fc0_10
+        }
+        #[doc = "0x180 - cfg_cdac_fc0_11"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_11(&self) -> &CfgCdacFc0_11 {
+            &self.cfg_cdac_fc0_11
+        }
+        #[doc = "0x184 - cfg_cdac_fc0_12"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_12(&self) -> &CfgCdacFc0_12 {
+            &self.cfg_cdac_fc0_12
+        }
+        #[doc = "0x188 - cfg_cdac_fc0_13"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_13(&self) -> &CfgCdacFc0_13 {
+            &self.cfg_cdac_fc0_13
+        }
+        #[doc = "0x18c - cfg_cdac_fc0_14"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc0_14(&self) -> &CfgCdacFc0_14 {
+            &self.cfg_cdac_fc0_14
+        }
+        #[doc = "0x190 - cfg_cdac_fc1_0"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc1_0(&self) -> &CfgCdacFc1_0 {
+            &self.cfg_cdac_fc1_0
+        }
+        #[doc = "0x194 - cfg_cdac_fc1_1"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc1_1(&self) -> &CfgCdacFc1_1 {
+            &self.cfg_cdac_fc1_1
+        }
+        #[doc = "0x198 - cfg_cdac_fc1_2"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc1_2(&self) -> &CfgCdacFc1_2 {
+            &self.cfg_cdac_fc1_2
+        }
+        #[doc = "0x19c - cfg_cdac_fc1_3"]
+        #[inline(always)]
+        pub const fn cfg_cdac_fc1_3(&self) -> &CfgCdacFc1_3 {
+            &self.cfg_cdac_fc1_3
+        }
+        #[doc = "0x1a0 - rpt_cdac_fc1_0"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc1_0(&self) -> &RptCdacFc1_0 {
+            &self.rpt_cdac_fc1_0
+        }
+        #[doc = "0x1a4 - rpt_cdac_fc1_3"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc1_3(&self) -> &RptCdacFc1_3 {
+            &self.rpt_cdac_fc1_3
+        }
+        #[doc = "0x1a8 - rpt_cdac_fc3_1"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_1(&self) -> &RptCdacFc3_1 {
+            &self.rpt_cdac_fc3_1
+        }
+        #[doc = "0x1ac - rpt_cdac_fc3_2"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_2(&self) -> &RptCdacFc3_2 {
+            &self.rpt_cdac_fc3_2
+        }
+        #[doc = "0x1b0 - rpt_cdac_fc3_3"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_3(&self) -> &RptCdacFc3_3 {
+            &self.rpt_cdac_fc3_3
+        }
+        #[doc = "0x1b4 - rpt_cdac_fc3_4"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_4(&self) -> &RptCdacFc3_4 {
+            &self.rpt_cdac_fc3_4
+        }
+        #[doc = "0x1b8 - rpt_cdac_fc3_5"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_5(&self) -> &RptCdacFc3_5 {
+            &self.rpt_cdac_fc3_5
+        }
+        #[doc = "0x1bc - rpt_cdac_fc3_6"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_6(&self) -> &RptCdacFc3_6 {
+            &self.rpt_cdac_fc3_6
+        }
+        #[doc = "0x1c0 - rpt_cdac_fc3_7"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_7(&self) -> &RptCdacFc3_7 {
+            &self.rpt_cdac_fc3_7
+        }
+        #[doc = "0x1c4 - rpt_cdac_fc3_8"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_8(&self) -> &RptCdacFc3_8 {
+            &self.rpt_cdac_fc3_8
+        }
+        #[doc = "0x1c8 - rpt_cdac_fc3_9"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_9(&self) -> &RptCdacFc3_9 {
+            &self.rpt_cdac_fc3_9
+        }
+        #[doc = "0x1cc - rpt_cdac_fc3_10"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_10(&self) -> &RptCdacFc3_10 {
+            &self.rpt_cdac_fc3_10
+        }
+        #[doc = "0x1d0 - rpt_cdac_fc3_11"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_11(&self) -> &RptCdacFc3_11 {
+            &self.rpt_cdac_fc3_11
+        }
+        #[doc = "0x1d4 - rpt_cdac_fc3_12"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_12(&self) -> &RptCdacFc3_12 {
+            &self.rpt_cdac_fc3_12
+        }
+        #[doc = "0x1d8 - rpt_cdac_fc3_13"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_13(&self) -> &RptCdacFc3_13 {
+            &self.rpt_cdac_fc3_13
+        }
+        #[doc = "0x1dc - rpt_cdac_fc3_14"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_14(&self) -> &RptCdacFc3_14 {
+            &self.rpt_cdac_fc3_14
+        }
+        #[doc = "0x1e0 - rpt_cdac_fc3_15"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_15(&self) -> &RptCdacFc3_15 {
+            &self.rpt_cdac_fc3_15
+        }
+        #[doc = "0x1e4 - rpt_cdac_fc3_16"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_16(&self) -> &RptCdacFc3_16 {
+            &self.rpt_cdac_fc3_16
+        }
+        #[doc = "0x1e8 - rpt_cdac_fc3_17"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_17(&self) -> &RptCdacFc3_17 {
+            &self.rpt_cdac_fc3_17
+        }
+        #[doc = "0x1ec - rpt_cdac_fc3_18"]
+        #[inline(always)]
+        pub const fn rpt_cdac_fc3_18(&self) -> &RptCdacFc3_18 {
+            &self.rpt_cdac_fc3_18
+        }
+        #[doc = "0x200 - cfg_dcoc_cal_0"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_0(&self) -> &CfgDcocCal0 {
+            &self.cfg_dcoc_cal_0
+        }
+        #[doc = "0x204 - cfg_dcoc_cal_1"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_1(&self) -> &CfgDcocCal1 {
+            &self.cfg_dcoc_cal_1
+        }
+        #[doc = "0x208 - cfg_dcoc_cal_2"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_2(&self) -> &CfgDcocCal2 {
+            &self.cfg_dcoc_cal_2
+        }
+        #[doc = "0x20c - cfg_dcoc_cal_3"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_3(&self) -> &CfgDcocCal3 {
+            &self.cfg_dcoc_cal_3
+        }
+        #[doc = "0x210 - cfg_dcoc_cal_4"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_4(&self) -> &CfgDcocCal4 {
+            &self.cfg_dcoc_cal_4
+        }
+        #[doc = "0x214 - cfg_dcoc_cal_5"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_5(&self) -> &CfgDcocCal5 {
+            &self.cfg_dcoc_cal_5
+        }
+        #[doc = "0x218 - cfg_dcoc_cal_6"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_6(&self) -> &CfgDcocCal6 {
+            &self.cfg_dcoc_cal_6
+        }
+        #[doc = "0x21c - cfg_dcoc_cal_7"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_7(&self) -> &CfgDcocCal7 {
+            &self.cfg_dcoc_cal_7
+        }
+        #[doc = "0x220 - cfg_dcoc_cal_8"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_8(&self) -> &CfgDcocCal8 {
+            &self.cfg_dcoc_cal_8
+        }
+        #[doc = "0x224 - rpt_dcoc_cal_0"]
+        #[inline(always)]
+        pub const fn rpt_dcoc_cal_0(&self) -> &RptDcocCal0 {
+            &self.rpt_dcoc_cal_0
+        }
+        #[doc = "0x228 - cfg_dcoc_cal_12"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_12(&self) -> &CfgDcocCal12 {
+            &self.cfg_dcoc_cal_12
+        }
+        #[doc = "0x22c - cfg_dcoc_cal_13"]
+        #[inline(always)]
+        pub const fn cfg_dcoc_cal_13(&self) -> &CfgDcocCal13 {
+            &self.cfg_dcoc_cal_13
+        }
+        #[doc = "0x230 - rpt_dcoc_cal_1"]
+        #[inline(always)]
+        pub const fn rpt_dcoc_cal_1(&self) -> &RptDcocCal1 {
+            &self.rpt_dcoc_cal_1
+        }
+        #[doc = "0x240 - cfg_sar_spd_0"]
+        #[inline(always)]
+        pub const fn cfg_sar_spd_0(&self) -> &CfgSarSpd0 {
+            &self.cfg_sar_spd_0
+        }
+        #[doc = "0x244 - cfg_sar_spd_1"]
+        #[inline(always)]
+        pub const fn cfg_sar_spd_1(&self) -> &CfgSarSpd1 {
+            &self.cfg_sar_spd_1
+        }
+        #[doc = "0x248 - cfg_sar_spd_2"]
+        #[inline(always)]
+        pub const fn cfg_sar_spd_2(&self) -> &CfgSarSpd2 {
+            &self.cfg_sar_spd_2
+        }
+        #[doc = "0x24c - cfg_sar_spd_3"]
+        #[inline(always)]
+        pub const fn cfg_sar_spd_3(&self) -> &CfgSarSpd3 {
+            &self.cfg_sar_spd_3
+        }
+        #[doc = "0x250 - cfg_sar_spd_4"]
+        #[inline(always)]
+        pub const fn cfg_sar_spd_4(&self) -> &CfgSarSpd4 {
+            &self.cfg_sar_spd_4
+        }
+        #[doc = "0x254 - rpt_sar_spd_0"]
+        #[inline(always)]
+        pub const fn rpt_sar_spd_0(&self) -> &RptSarSpd0 {
+            &self.rpt_sar_spd_0
+        }
+        #[doc = "0x258 - rpt_sar_spd_1"]
+        #[inline(always)]
+        pub const fn rpt_sar_spd_1(&self) -> &RptSarSpd1 {
+            &self.rpt_sar_spd_1
+        }
+        #[doc = "0x25c - cfg_sar_spd_6"]
+        #[inline(always)]
+        pub const fn cfg_sar_spd_6(&self) -> &CfgSarSpd6 {
+            &self.cfg_sar_spd_6
+        }
+        #[doc = "0x260 - rpt_sar_spd_2"]
+        #[inline(always)]
+        pub const fn rpt_sar_spd_2(&self) -> &RptSarSpd2 {
+            &self.rpt_sar_spd_2
+        }
+        #[doc = "0x280 - cfg_rc_cal_0"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_0(&self) -> &CfgRcCal0 {
+            &self.cfg_rc_cal_0
+        }
+        #[doc = "0x284 - cfg_rc_cal_1"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_1(&self) -> &CfgRcCal1 {
+            &self.cfg_rc_cal_1
+        }
+        #[doc = "0x288 - cfg_rc_cal_2"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_2(&self) -> &CfgRcCal2 {
+            &self.cfg_rc_cal_2
+        }
+        #[doc = "0x28c - cfg_rc_cal_3"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_3(&self) -> &CfgRcCal3 {
+            &self.cfg_rc_cal_3
+        }
+        #[doc = "0x290 - cfg_rc_cal_4"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_4(&self) -> &CfgRcCal4 {
+            &self.cfg_rc_cal_4
+        }
+        #[doc = "0x294 - rpt_rc_cal_0"]
+        #[inline(always)]
+        pub const fn rpt_rc_cal_0(&self) -> &RptRcCal0 {
+            &self.rpt_rc_cal_0
+        }
+        #[doc = "0x298 - rpt_rc_cal_1"]
+        #[inline(always)]
+        pub const fn rpt_rc_cal_1(&self) -> &RptRcCal1 {
+            &self.rpt_rc_cal_1
+        }
+        #[doc = "0x29c - cfg_rc_cal_5"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_5(&self) -> &CfgRcCal5 {
+            &self.cfg_rc_cal_5
+        }
+        #[doc = "0x2a0 - cfg_rc_cal_6"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_6(&self) -> &CfgRcCal6 {
+            &self.cfg_rc_cal_6
+        }
+        #[doc = "0x2a4 - cfg_rc_cal_7"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_7(&self) -> &CfgRcCal7 {
+            &self.cfg_rc_cal_7
+        }
+        #[doc = "0x2a8 - cfg_rc_cal_8"]
+        #[inline(always)]
+        pub const fn cfg_rc_cal_8(&self) -> &CfgRcCal8 {
+            &self.cfg_rc_cal_8
+        }
+        #[doc = "0x2ac - rpt_rc_cal_2"]
+        #[inline(always)]
+        pub const fn rpt_rc_cal_2(&self) -> &RptRcCal2 {
+            &self.rpt_rc_cal_2
+        }
+        #[doc = "0x2b0 - rpt_rc_cal_3"]
+        #[inline(always)]
+        pub const fn rpt_rc_cal_3(&self) -> &RptRcCal3 {
+            &self.rpt_rc_cal_3
+        }
+        #[doc = "0x2c0 - cfg_amux_0"]
+        #[inline(always)]
+        pub const fn cfg_amux_0(&self) -> &CfgAmux0 {
+            &self.cfg_amux_0
+        }
+        #[doc = "0x2c4 - cfg_amux_1"]
+        #[inline(always)]
+        pub const fn cfg_amux_1(&self) -> &CfgAmux1 {
+            &self.cfg_amux_1
+        }
+        #[doc = "0x2c8 - cfg_amux_2"]
+        #[inline(always)]
+        pub const fn cfg_amux_2(&self) -> &CfgAmux2 {
+            &self.cfg_amux_2
+        }
+        #[doc = "0x2cc - cfg_amux_3"]
+        #[inline(always)]
+        pub const fn cfg_amux_3(&self) -> &CfgAmux3 {
+            &self.cfg_amux_3
+        }
+        #[doc = "0x2d0 - cfg_amux_4"]
+        #[inline(always)]
+        pub const fn cfg_amux_4(&self) -> &CfgAmux4 {
+            &self.cfg_amux_4
+        }
+        #[doc = "0x2d4 - cfg_amux_5"]
+        #[inline(always)]
+        pub const fn cfg_amux_5(&self) -> &CfgAmux5 {
+            &self.cfg_amux_5
+        }
+        #[doc = "0x2d8 - rpt_amux_0"]
+        #[inline(always)]
+        pub const fn rpt_amux_0(&self) -> &RptAmux0 {
+            &self.rpt_amux_0
+        }
+        #[doc = "0x2f0 - cfg_tst_0"]
+        #[inline(always)]
+        pub const fn cfg_tst_0(&self) -> &CfgTst0 {
+            &self.cfg_tst_0
+        }
+        #[doc = "0x2f4 - cfg_tst_1"]
+        #[inline(always)]
+        pub const fn cfg_tst_1(&self) -> &CfgTst1 {
+            &self.cfg_tst_1
+        }
+        #[doc = "0x2f8 - cfg_cmp_0"]
+        #[inline(always)]
+        pub const fn cfg_cmp_0(&self) -> &CfgCmp0 {
+            &self.cfg_cmp_0
+        }
+        #[doc = "0x2fc - cfg_cmp_1"]
+        #[inline(always)]
+        pub const fn cfg_cmp_1(&self) -> &CfgCmp1 {
+            &self.cfg_cmp_1
+        }
+        #[doc = "0x300 - rpt_cmp_0"]
+        #[inline(always)]
+        pub const fn rpt_cmp_0(&self) -> &RptCmp0 {
+            &self.rpt_cmp_0
+        }
+        #[doc = "0x304 - rpt_cmp_1"]
+        #[inline(always)]
+        pub const fn rpt_cmp_1(&self) -> &RptCmp1 {
+            &self.rpt_cmp_1
+        }
+    }
+    #[doc = "CFG_RSTN (rw) register accessor: cfg_rstn\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rstn::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rstn::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rstn`] module"]
+    #[doc(alias = "CFG_RSTN")]
+    pub type CfgRstn = crate::Reg<cfg_rstn::CfgRstnSpec>;
+    #[doc = "cfg_rstn"]
+    pub mod cfg_rstn {
+        #[doc = "Register `CFG_RSTN` reader"]
+        pub type R = crate::R<CfgRstnSpec>;
+        #[doc = "Register `CFG_RSTN` writer"]
+        pub type W = crate::W<CfgRstnSpec>;
+        #[doc = "Field `cfg_rstn_tst` reader - "]
+        pub type CfgRstnTstR = crate::BitReader;
+        #[doc = "Field `cfg_rstn_tst` writer - "]
+        pub type CfgRstnTstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_rstn_bc` reader - "]
+        pub type CfgGadcRstnBcR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_rstn_bc` writer - "]
+        pub type CfgGadcRstnBcW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_rstn_fc` reader - "]
+        pub type CfgGadcRstnFcR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_rstn_fc` writer - "]
+        pub type CfgGadcRstnFcW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_rstn_data` reader - "]
+        pub type CfgGadcRstnDataR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_rstn_data` writer - "]
+        pub type CfgGadcRstnDataW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_rstn_ana` reader - "]
+        pub type CfgGadcRstnAnaR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_rstn_ana` writer - "]
+        pub type CfgGadcRstnAnaW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn cfg_rstn_tst(&self) -> CfgRstnTstR {
+                CfgRstnTstR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_bc(&self) -> CfgGadcRstnBcR {
+                CfgGadcRstnBcR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_fc(&self) -> CfgGadcRstnFcR {
+                CfgGadcRstnFcR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_data(&self) -> CfgGadcRstnDataR {
+                CfgGadcRstnDataR::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_ana(&self) -> CfgGadcRstnAnaR {
+                CfgGadcRstnAnaR::new(((self.bits >> 16) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn cfg_rstn_tst(&mut self) -> CfgRstnTstW<'_, CfgRstnSpec> {
+                CfgRstnTstW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_bc(&mut self) -> CfgGadcRstnBcW<'_, CfgRstnSpec> {
+                CfgGadcRstnBcW::new(self, 4)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_fc(&mut self) -> CfgGadcRstnFcW<'_, CfgRstnSpec> {
+                CfgGadcRstnFcW::new(self, 8)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_data(&mut self) -> CfgGadcRstnDataW<'_, CfgRstnSpec> {
+                CfgGadcRstnDataW::new(self, 12)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn cfg_gadc_rstn_ana(&mut self) -> CfgGadcRstnAnaW<'_, CfgRstnSpec> {
+                CfgGadcRstnAnaW::new(self, 16)
+            }
+        }
+        #[doc = "cfg_rstn\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rstn::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rstn::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRstnSpec;
+        impl crate::RegisterSpec for CfgRstnSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rstn::R`](R) reader structure"]
+        impl crate::Readable for CfgRstnSpec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rstn::W`](W) writer structure"]
+        impl crate::Writable for CfgRstnSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RSTN to value 0"]
+        impl crate::Resettable for CfgRstnSpec {}
+    }
+    #[doc = "CFG_CLKEN (rw) register accessor: cfg_clken\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clken::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clken::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_clken`] module"]
+    #[doc(alias = "CFG_CLKEN")]
+    pub type CfgClken = crate::Reg<cfg_clken::CfgClkenSpec>;
+    #[doc = "cfg_clken"]
+    pub mod cfg_clken {
+        #[doc = "Register `CFG_CLKEN` reader"]
+        pub type R = crate::R<CfgClkenSpec>;
+        #[doc = "Register `CFG_CLKEN` writer"]
+        pub type W = crate::W<CfgClkenSpec>;
+        #[doc = "Field `cfg_clken_tst` reader - "]
+        pub type CfgClkenTstR = crate::BitReader;
+        #[doc = "Field `cfg_clken_tst` writer - "]
+        pub type CfgClkenTstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_clken_bc` reader - "]
+        pub type CfgGadcClkenBcR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_clken_bc` writer - "]
+        pub type CfgGadcClkenBcW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_clken_fc` reader - "]
+        pub type CfgGadcClkenFcR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_clken_fc` writer - "]
+        pub type CfgGadcClkenFcW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_clken_byp` reader - "]
+        pub type CfgGadcClkenBypR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_clken_byp` writer - "]
+        pub type CfgGadcClkenBypW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_clken_prechg` reader - "]
+        pub type CfgGadcClkenPrechgR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_clken_prechg` writer - "]
+        pub type CfgGadcClkenPrechgW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cfg_gadc_clken_ctrl` reader - "]
+        pub type CfgGadcClkenCtrlR = crate::BitReader;
+        #[doc = "Field `cfg_gadc_clken_ctrl` writer - "]
+        pub type CfgGadcClkenCtrlW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn cfg_clken_tst(&self) -> CfgClkenTstR {
+                CfgClkenTstR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_bc(&self) -> CfgGadcClkenBcR {
+                CfgGadcClkenBcR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_fc(&self) -> CfgGadcClkenFcR {
+                CfgGadcClkenFcR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_byp(&self) -> CfgGadcClkenBypR {
+                CfgGadcClkenBypR::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_prechg(&self) -> CfgGadcClkenPrechgR {
+                CfgGadcClkenPrechgR::new(((self.bits >> 16) & 1) != 0)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_ctrl(&self) -> CfgGadcClkenCtrlR {
+                CfgGadcClkenCtrlR::new(((self.bits >> 20) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn cfg_clken_tst(&mut self) -> CfgClkenTstW<'_, CfgClkenSpec> {
+                CfgClkenTstW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_bc(&mut self) -> CfgGadcClkenBcW<'_, CfgClkenSpec> {
+                CfgGadcClkenBcW::new(self, 4)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_fc(&mut self) -> CfgGadcClkenFcW<'_, CfgClkenSpec> {
+                CfgGadcClkenFcW::new(self, 8)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_byp(&mut self) -> CfgGadcClkenBypW<'_, CfgClkenSpec> {
+                CfgGadcClkenBypW::new(self, 12)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_prechg(&mut self) -> CfgGadcClkenPrechgW<'_, CfgClkenSpec> {
+                CfgGadcClkenPrechgW::new(self, 16)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn cfg_gadc_clken_ctrl(&mut self) -> CfgGadcClkenCtrlW<'_, CfgClkenSpec> {
+                CfgGadcClkenCtrlW::new(self, 20)
+            }
+        }
+        #[doc = "cfg_clken\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clken::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clken::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgClkenSpec;
+        impl crate::RegisterSpec for CfgClkenSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_clken::R`](R) reader structure"]
+        impl crate::Readable for CfgClkenSpec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_clken::W`](W) writer structure"]
+        impl crate::Writable for CfgClkenSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CLKEN to value 0"]
+        impl crate::Resettable for CfgClkenSpec {}
+    }
+    #[doc = "CFG_PRECHG_LEAD (rw) register accessor: cfg_prechg_lead\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_prechg_lead::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_prechg_lead::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_prechg_lead`] module"]
+    #[doc(alias = "CFG_PRECHG_LEAD")]
+    pub type CfgPrechgLead = crate::Reg<cfg_prechg_lead::CfgPrechgLeadSpec>;
+    #[doc = "cfg_prechg_lead"]
+    pub mod cfg_prechg_lead {
+        #[doc = "Register `CFG_PRECHG_LEAD` reader"]
+        pub type R = crate::R<CfgPrechgLeadSpec>;
+        #[doc = "Register `CFG_PRECHG_LEAD` writer"]
+        pub type W = crate::W<CfgPrechgLeadSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_prechg_lead\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_prechg_lead::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_prechg_lead::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgPrechgLeadSpec;
+        impl crate::RegisterSpec for CfgPrechgLeadSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_prechg_lead::R`](R) reader structure"]
+        impl crate::Readable for CfgPrechgLeadSpec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_prechg_lead::W`](W) writer structure"]
+        impl crate::Writable for CfgPrechgLeadSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_PRECHG_LEAD to value 0"]
+        impl crate::Resettable for CfgPrechgLeadSpec {}
+    }
+    #[doc = "CFG_CLK_DIV_0 (rw) register accessor: cfg_clk_div_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clk_div_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clk_div_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_clk_div_0`] module"]
+    #[doc(alias = "CFG_CLK_DIV_0")]
+    pub type CfgClkDiv0 = crate::Reg<cfg_clk_div_0::CfgClkDiv0Spec>;
+    #[doc = "cfg_clk_div_0"]
+    pub mod cfg_clk_div_0 {
+        #[doc = "Register `CFG_CLK_DIV_0` reader"]
+        pub type R = crate::R<CfgClkDiv0Spec>;
+        #[doc = "Register `CFG_CLK_DIV_0` writer"]
+        pub type W = crate::W<CfgClkDiv0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_clk_div_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clk_div_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clk_div_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgClkDiv0Spec;
+        impl crate::RegisterSpec for CfgClkDiv0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_clk_div_0::R`](R) reader structure"]
+        impl crate::Readable for CfgClkDiv0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_clk_div_0::W`](W) writer structure"]
+        impl crate::Writable for CfgClkDiv0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CLK_DIV_0 to value 0"]
+        impl crate::Resettable for CfgClkDiv0Spec {}
+    }
+    #[doc = "CFG_CLK_DIV_1 (rw) register accessor: cfg_clk_div_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clk_div_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clk_div_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_clk_div_1`] module"]
+    #[doc(alias = "CFG_CLK_DIV_1")]
+    pub type CfgClkDiv1 = crate::Reg<cfg_clk_div_1::CfgClkDiv1Spec>;
+    #[doc = "cfg_clk_div_1"]
+    pub mod cfg_clk_div_1 {
+        #[doc = "Register `CFG_CLK_DIV_1` reader"]
+        pub type R = crate::R<CfgClkDiv1Spec>;
+        #[doc = "Register `CFG_CLK_DIV_1` writer"]
+        pub type W = crate::W<CfgClkDiv1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_clk_div_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clk_div_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clk_div_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgClkDiv1Spec;
+        impl crate::RegisterSpec for CfgClkDiv1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_clk_div_1::R`](R) reader structure"]
+        impl crate::Readable for CfgClkDiv1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_clk_div_1::W`](W) writer structure"]
+        impl crate::Writable for CfgClkDiv1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CLK_DIV_1 to value 0"]
+        impl crate::Resettable for CfgClkDiv1Spec {}
+    }
+    #[doc = "CFG_MANUAL_CLK_0 (rw) register accessor: cfg_manual_clk_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_manual_clk_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_manual_clk_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_manual_clk_0`] module"]
+    #[doc(alias = "CFG_MANUAL_CLK_0")]
+    pub type CfgManualClk0 = crate::Reg<cfg_manual_clk_0::CfgManualClk0Spec>;
+    #[doc = "cfg_manual_clk_0"]
+    pub mod cfg_manual_clk_0 {
+        #[doc = "Register `CFG_MANUAL_CLK_0` reader"]
+        pub type R = crate::R<CfgManualClk0Spec>;
+        #[doc = "Register `CFG_MANUAL_CLK_0` writer"]
+        pub type W = crate::W<CfgManualClk0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_manual_clk_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_manual_clk_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_manual_clk_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgManualClk0Spec;
+        impl crate::RegisterSpec for CfgManualClk0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_manual_clk_0::R`](R) reader structure"]
+        impl crate::Readable for CfgManualClk0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_manual_clk_0::W`](W) writer structure"]
+        impl crate::Writable for CfgManualClk0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_MANUAL_CLK_0 to value 0"]
+        impl crate::Resettable for CfgManualClk0Spec {}
+    }
+    #[doc = "CFG_MANUAL_CLK_1 (rw) register accessor: cfg_manual_clk_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_manual_clk_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_manual_clk_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_manual_clk_1`] module"]
+    #[doc(alias = "CFG_MANUAL_CLK_1")]
+    pub type CfgManualClk1 = crate::Reg<cfg_manual_clk_1::CfgManualClk1Spec>;
+    #[doc = "cfg_manual_clk_1"]
+    pub mod cfg_manual_clk_1 {
+        #[doc = "Register `CFG_MANUAL_CLK_1` reader"]
+        pub type R = crate::R<CfgManualClk1Spec>;
+        #[doc = "Register `CFG_MANUAL_CLK_1` writer"]
+        pub type W = crate::W<CfgManualClk1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_manual_clk_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_manual_clk_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_manual_clk_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgManualClk1Spec;
+        impl crate::RegisterSpec for CfgManualClk1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_manual_clk_1::R`](R) reader structure"]
+        impl crate::Readable for CfgManualClk1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_manual_clk_1::W`](W) writer structure"]
+        impl crate::Writable for CfgManualClk1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_MANUAL_CLK_1 to value 0"]
+        impl crate::Resettable for CfgManualClk1Spec {}
+    }
+    #[doc = "CFG_ISO (rw) register accessor: cfg_iso\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_iso::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_iso::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_iso`] module"]
+    #[doc(alias = "CFG_ISO")]
+    pub type CfgIso = crate::Reg<cfg_iso::CfgIsoSpec>;
+    #[doc = "cfg_iso"]
+    pub mod cfg_iso {
+        #[doc = "Register `CFG_ISO` reader"]
+        pub type R = crate::R<CfgIsoSpec>;
+        #[doc = "Register `CFG_ISO` writer"]
+        pub type W = crate::W<CfgIsoSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_iso\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_iso::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_iso::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgIsoSpec;
+        impl crate::RegisterSpec for CfgIsoSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_iso::R`](R) reader structure"]
+        impl crate::Readable for CfgIsoSpec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_iso::W`](W) writer structure"]
+        impl crate::Writable for CfgIsoSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_ISO to value 0"]
+        impl crate::Resettable for CfgIsoSpec {}
+    }
+    #[doc = "CFG_GADC_CTRL_0 (rw) register accessor: cfg_gadc_ctrl_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_0`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_0")]
+    pub type CfgGadcCtrl0 = crate::Reg<cfg_gadc_ctrl_0::CfgGadcCtrl0Spec>;
+    #[doc = "cfg_gadc_ctrl_0"]
+    pub mod cfg_gadc_ctrl_0 {
+        #[doc = "Register `CFG_GADC_CTRL_0` reader"]
+        pub type R = crate::R<CfgGadcCtrl0Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_0` writer"]
+        pub type W = crate::W<CfgGadcCtrl0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl0Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_0::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_0::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_0 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl0Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_1 (rw) register accessor: cfg_gadc_ctrl_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_1`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_1")]
+    pub type CfgGadcCtrl1 = crate::Reg<cfg_gadc_ctrl_1::CfgGadcCtrl1Spec>;
+    #[doc = "cfg_gadc_ctrl_1"]
+    pub mod cfg_gadc_ctrl_1 {
+        #[doc = "Register `CFG_GADC_CTRL_1` reader"]
+        pub type R = crate::R<CfgGadcCtrl1Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_1` writer"]
+        pub type W = crate::W<CfgGadcCtrl1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl1Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_1::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_1::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_1 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl1Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_2 (rw) register accessor: cfg_gadc_ctrl_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_2`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_2")]
+    pub type CfgGadcCtrl2 = crate::Reg<cfg_gadc_ctrl_2::CfgGadcCtrl2Spec>;
+    #[doc = "cfg_gadc_ctrl_2"]
+    pub mod cfg_gadc_ctrl_2 {
+        #[doc = "Register `CFG_GADC_CTRL_2` reader"]
+        pub type R = crate::R<CfgGadcCtrl2Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_2` writer"]
+        pub type W = crate::W<CfgGadcCtrl2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl2Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_2::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_2::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_2 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl2Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_3 (rw) register accessor: cfg_gadc_ctrl_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_3`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_3")]
+    pub type CfgGadcCtrl3 = crate::Reg<cfg_gadc_ctrl_3::CfgGadcCtrl3Spec>;
+    #[doc = "cfg_gadc_ctrl_3"]
+    pub mod cfg_gadc_ctrl_3 {
+        #[doc = "Register `CFG_GADC_CTRL_3` reader"]
+        pub type R = crate::R<CfgGadcCtrl3Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_3` writer"]
+        pub type W = crate::W<CfgGadcCtrl3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl3Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_3::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_3::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_3 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl3Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_4 (rw) register accessor: cfg_gadc_ctrl_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_4`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_4")]
+    pub type CfgGadcCtrl4 = crate::Reg<cfg_gadc_ctrl_4::CfgGadcCtrl4Spec>;
+    #[doc = "cfg_gadc_ctrl_4"]
+    pub mod cfg_gadc_ctrl_4 {
+        #[doc = "Register `CFG_GADC_CTRL_4` reader"]
+        pub type R = crate::R<CfgGadcCtrl4Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_4` writer"]
+        pub type W = crate::W<CfgGadcCtrl4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl4Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_4::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_4::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_4 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl4Spec {}
+    }
+    #[doc = "RPT_GADC_CTRL_0 (rw) register accessor: rpt_gadc_ctrl_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_ctrl_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_ctrl_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_ctrl_0`] module"]
+    #[doc(alias = "RPT_GADC_CTRL_0")]
+    pub type RptGadcCtrl0 = crate::Reg<rpt_gadc_ctrl_0::RptGadcCtrl0Spec>;
+    #[doc = "rpt_gadc_ctrl_0"]
+    pub mod rpt_gadc_ctrl_0 {
+        #[doc = "Register `RPT_GADC_CTRL_0` reader"]
+        pub type R = crate::R<RptGadcCtrl0Spec>;
+        #[doc = "Register `RPT_GADC_CTRL_0` writer"]
+        pub type W = crate::W<RptGadcCtrl0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_ctrl_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_ctrl_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_ctrl_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcCtrl0Spec;
+        impl crate::RegisterSpec for RptGadcCtrl0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_ctrl_0::R`](R) reader structure"]
+        impl crate::Readable for RptGadcCtrl0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_ctrl_0::W`](W) writer structure"]
+        impl crate::Writable for RptGadcCtrl0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_CTRL_0 to value 0"]
+        impl crate::Resettable for RptGadcCtrl0Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_5 (rw) register accessor: cfg_gadc_ctrl_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_5`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_5")]
+    pub type CfgGadcCtrl5 = crate::Reg<cfg_gadc_ctrl_5::CfgGadcCtrl5Spec>;
+    #[doc = "cfg_gadc_ctrl_5"]
+    pub mod cfg_gadc_ctrl_5 {
+        #[doc = "Register `CFG_GADC_CTRL_5` reader"]
+        pub type R = crate::R<CfgGadcCtrl5Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_5` writer"]
+        pub type W = crate::W<CfgGadcCtrl5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl5Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_5::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_5::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_5 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl5Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_6 (rw) register accessor: cfg_gadc_ctrl_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_6`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_6")]
+    pub type CfgGadcCtrl6 = crate::Reg<cfg_gadc_ctrl_6::CfgGadcCtrl6Spec>;
+    #[doc = "cfg_gadc_ctrl_6"]
+    pub mod cfg_gadc_ctrl_6 {
+        #[doc = "Register `CFG_GADC_CTRL_6` reader"]
+        pub type R = crate::R<CfgGadcCtrl6Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_6` writer"]
+        pub type W = crate::W<CfgGadcCtrl6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl6Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_6::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_6::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_6 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl6Spec {}
+    }
+    #[doc = "RPT_GADC_CTRL_1 (rw) register accessor: rpt_gadc_ctrl_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_ctrl_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_ctrl_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_ctrl_1`] module"]
+    #[doc(alias = "RPT_GADC_CTRL_1")]
+    pub type RptGadcCtrl1 = crate::Reg<rpt_gadc_ctrl_1::RptGadcCtrl1Spec>;
+    #[doc = "rpt_gadc_ctrl_1"]
+    pub mod rpt_gadc_ctrl_1 {
+        #[doc = "Register `RPT_GADC_CTRL_1` reader"]
+        pub type R = crate::R<RptGadcCtrl1Spec>;
+        #[doc = "Register `RPT_GADC_CTRL_1` writer"]
+        pub type W = crate::W<RptGadcCtrl1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_ctrl_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_ctrl_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_ctrl_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcCtrl1Spec;
+        impl crate::RegisterSpec for RptGadcCtrl1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_ctrl_1::R`](R) reader structure"]
+        impl crate::Readable for RptGadcCtrl1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_ctrl_1::W`](W) writer structure"]
+        impl crate::Writable for RptGadcCtrl1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_CTRL_1 to value 0"]
+        impl crate::Resettable for RptGadcCtrl1Spec {}
+    }
+    #[doc = "CFG_GADC_CTRL_7 (rw) register accessor: cfg_gadc_ctrl_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_ctrl_7`] module"]
+    #[doc(alias = "CFG_GADC_CTRL_7")]
+    pub type CfgGadcCtrl7 = crate::Reg<cfg_gadc_ctrl_7::CfgGadcCtrl7Spec>;
+    #[doc = "cfg_gadc_ctrl_7"]
+    pub mod cfg_gadc_ctrl_7 {
+        #[doc = "Register `CFG_GADC_CTRL_7` reader"]
+        pub type R = crate::R<CfgGadcCtrl7Spec>;
+        #[doc = "Register `CFG_GADC_CTRL_7` writer"]
+        pub type W = crate::W<CfgGadcCtrl7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_ctrl_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_ctrl_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_ctrl_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcCtrl7Spec;
+        impl crate::RegisterSpec for CfgGadcCtrl7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_ctrl_7::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcCtrl7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_ctrl_7::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcCtrl7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_CTRL_7 to value 0"]
+        impl crate::Resettable for CfgGadcCtrl7Spec {}
+    }
+    #[doc = "RPT_GADC_CTRL_2 (rw) register accessor: rpt_gadc_ctrl_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_ctrl_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_ctrl_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_ctrl_2`] module"]
+    #[doc(alias = "RPT_GADC_CTRL_2")]
+    pub type RptGadcCtrl2 = crate::Reg<rpt_gadc_ctrl_2::RptGadcCtrl2Spec>;
+    #[doc = "rpt_gadc_ctrl_2"]
+    pub mod rpt_gadc_ctrl_2 {
+        #[doc = "Register `RPT_GADC_CTRL_2` reader"]
+        pub type R = crate::R<RptGadcCtrl2Spec>;
+        #[doc = "Register `RPT_GADC_CTRL_2` writer"]
+        pub type W = crate::W<RptGadcCtrl2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_ctrl_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_ctrl_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_ctrl_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcCtrl2Spec;
+        impl crate::RegisterSpec for RptGadcCtrl2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_ctrl_2::R`](R) reader structure"]
+        impl crate::Readable for RptGadcCtrl2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_ctrl_2::W`](W) writer structure"]
+        impl crate::Writable for RptGadcCtrl2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_CTRL_2 to value 0"]
+        impl crate::Resettable for RptGadcCtrl2Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_0 (rw) register accessor: cfg_gadc_data_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_0`] module"]
+    #[doc(alias = "CFG_GADC_DATA_0")]
+    pub type CfgGadcData0 = crate::Reg<cfg_gadc_data_0::CfgGadcData0Spec>;
+    #[doc = "cfg_gadc_data_0"]
+    pub mod cfg_gadc_data_0 {
+        #[doc = "Register `CFG_GADC_DATA_0` reader"]
+        pub type R = crate::R<CfgGadcData0Spec>;
+        #[doc = "Register `CFG_GADC_DATA_0` writer"]
+        pub type W = crate::W<CfgGadcData0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData0Spec;
+        impl crate::RegisterSpec for CfgGadcData0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_0::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_0::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_0 to value 0"]
+        impl crate::Resettable for CfgGadcData0Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_1 (rw) register accessor: cfg_gadc_data_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_1`] module"]
+    #[doc(alias = "CFG_GADC_DATA_1")]
+    pub type CfgGadcData1 = crate::Reg<cfg_gadc_data_1::CfgGadcData1Spec>;
+    #[doc = "cfg_gadc_data_1"]
+    pub mod cfg_gadc_data_1 {
+        #[doc = "Register `CFG_GADC_DATA_1` reader"]
+        pub type R = crate::R<CfgGadcData1Spec>;
+        #[doc = "Register `CFG_GADC_DATA_1` writer"]
+        pub type W = crate::W<CfgGadcData1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData1Spec;
+        impl crate::RegisterSpec for CfgGadcData1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_1::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_1::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_1 to value 0"]
+        impl crate::Resettable for CfgGadcData1Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_0 (rw) register accessor: rpt_gadc_data_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_0`] module"]
+    #[doc(alias = "RPT_GADC_DATA_0")]
+    pub type RptGadcData0 = crate::Reg<rpt_gadc_data_0::RptGadcData0Spec>;
+    #[doc = "rpt_gadc_data_0"]
+    pub mod rpt_gadc_data_0 {
+        #[doc = "Register `RPT_GADC_DATA_0` reader"]
+        pub type R = crate::R<RptGadcData0Spec>;
+        #[doc = "Register `RPT_GADC_DATA_0` writer"]
+        pub type W = crate::W<RptGadcData0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData0Spec;
+        impl crate::RegisterSpec for RptGadcData0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_0::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_0::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_0 to value 0"]
+        impl crate::Resettable for RptGadcData0Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_1 (rw) register accessor: rpt_gadc_data_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_1`] module"]
+    #[doc(alias = "RPT_GADC_DATA_1")]
+    pub type RptGadcData1 = crate::Reg<rpt_gadc_data_1::RptGadcData1Spec>;
+    #[doc = "rpt_gadc_data_1"]
+    pub mod rpt_gadc_data_1 {
+        #[doc = "Register `RPT_GADC_DATA_1` reader"]
+        pub type R = crate::R<RptGadcData1Spec>;
+        #[doc = "Register `RPT_GADC_DATA_1` writer"]
+        pub type W = crate::W<RptGadcData1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData1Spec;
+        impl crate::RegisterSpec for RptGadcData1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_1::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_1::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_1 to value 0"]
+        impl crate::Resettable for RptGadcData1Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_2 (rw) register accessor: rpt_gadc_data_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_2`] module"]
+    #[doc(alias = "RPT_GADC_DATA_2")]
+    pub type RptGadcData2 = crate::Reg<rpt_gadc_data_2::RptGadcData2Spec>;
+    #[doc = "rpt_gadc_data_2"]
+    pub mod rpt_gadc_data_2 {
+        #[doc = "Register `RPT_GADC_DATA_2` reader"]
+        pub type R = crate::R<RptGadcData2Spec>;
+        #[doc = "Register `RPT_GADC_DATA_2` writer"]
+        pub type W = crate::W<RptGadcData2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData2Spec;
+        impl crate::RegisterSpec for RptGadcData2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_2::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_2::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_2 to value 0"]
+        impl crate::Resettable for RptGadcData2Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_3 (rw) register accessor: rpt_gadc_data_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_3`] module"]
+    #[doc(alias = "RPT_GADC_DATA_3")]
+    pub type RptGadcData3 = crate::Reg<rpt_gadc_data_3::RptGadcData3Spec>;
+    #[doc = "rpt_gadc_data_3"]
+    pub mod rpt_gadc_data_3 {
+        #[doc = "Register `RPT_GADC_DATA_3` reader"]
+        pub type R = crate::R<RptGadcData3Spec>;
+        #[doc = "Register `RPT_GADC_DATA_3` writer"]
+        pub type W = crate::W<RptGadcData3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData3Spec;
+        impl crate::RegisterSpec for RptGadcData3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_3::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_3::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_3 to value 0"]
+        impl crate::Resettable for RptGadcData3Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_3 (rw) register accessor: cfg_gadc_data_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_3`] module"]
+    #[doc(alias = "CFG_GADC_DATA_3")]
+    pub type CfgGadcData3 = crate::Reg<cfg_gadc_data_3::CfgGadcData3Spec>;
+    #[doc = "cfg_gadc_data_3"]
+    pub mod cfg_gadc_data_3 {
+        #[doc = "Register `CFG_GADC_DATA_3` reader"]
+        pub type R = crate::R<CfgGadcData3Spec>;
+        #[doc = "Register `CFG_GADC_DATA_3` writer"]
+        pub type W = crate::W<CfgGadcData3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData3Spec;
+        impl crate::RegisterSpec for CfgGadcData3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_3::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_3::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_3 to value 0"]
+        impl crate::Resettable for CfgGadcData3Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_4 (rw) register accessor: cfg_gadc_data_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_4`] module"]
+    #[doc(alias = "CFG_GADC_DATA_4")]
+    pub type CfgGadcData4 = crate::Reg<cfg_gadc_data_4::CfgGadcData4Spec>;
+    #[doc = "cfg_gadc_data_4"]
+    pub mod cfg_gadc_data_4 {
+        #[doc = "Register `CFG_GADC_DATA_4` reader"]
+        pub type R = crate::R<CfgGadcData4Spec>;
+        #[doc = "Register `CFG_GADC_DATA_4` writer"]
+        pub type W = crate::W<CfgGadcData4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData4Spec;
+        impl crate::RegisterSpec for CfgGadcData4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_4::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_4::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_4 to value 0"]
+        impl crate::Resettable for CfgGadcData4Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_4 (rw) register accessor: rpt_gadc_data_4\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_4`] module"]
+    #[doc(alias = "RPT_GADC_DATA_4")]
+    pub type RptGadcData4 = crate::Reg<rpt_gadc_data_4::RptGadcData4Spec>;
+    #[doc = "rpt_gadc_data_4"]
+    pub mod rpt_gadc_data_4 {
+        #[doc = "Register `RPT_GADC_DATA_4` reader"]
+        pub type R = crate::R<RptGadcData4Spec>;
+        #[doc = "Register `RPT_GADC_DATA_4` writer"]
+        pub type W = crate::W<RptGadcData4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_4\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData4Spec;
+        impl crate::RegisterSpec for RptGadcData4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_4::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_4::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_4 to value 0"]
+        impl crate::Resettable for RptGadcData4Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_5 (rw) register accessor: cfg_gadc_data_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_5`] module"]
+    #[doc(alias = "CFG_GADC_DATA_5")]
+    pub type CfgGadcData5 = crate::Reg<cfg_gadc_data_5::CfgGadcData5Spec>;
+    #[doc = "cfg_gadc_data_5"]
+    pub mod cfg_gadc_data_5 {
+        #[doc = "Register `CFG_GADC_DATA_5` reader"]
+        pub type R = crate::R<CfgGadcData5Spec>;
+        #[doc = "Register `CFG_GADC_DATA_5` writer"]
+        pub type W = crate::W<CfgGadcData5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData5Spec;
+        impl crate::RegisterSpec for CfgGadcData5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_5::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_5::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_5 to value 0"]
+        impl crate::Resettable for CfgGadcData5Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_6 (rw) register accessor: cfg_gadc_data_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_6`] module"]
+    #[doc(alias = "CFG_GADC_DATA_6")]
+    pub type CfgGadcData6 = crate::Reg<cfg_gadc_data_6::CfgGadcData6Spec>;
+    #[doc = "cfg_gadc_data_6"]
+    pub mod cfg_gadc_data_6 {
+        #[doc = "Register `CFG_GADC_DATA_6` reader"]
+        pub type R = crate::R<CfgGadcData6Spec>;
+        #[doc = "Register `CFG_GADC_DATA_6` writer"]
+        pub type W = crate::W<CfgGadcData6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData6Spec;
+        impl crate::RegisterSpec for CfgGadcData6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_6::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_6::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_6 to value 0"]
+        impl crate::Resettable for CfgGadcData6Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_7 (rw) register accessor: cfg_gadc_data_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_7`] module"]
+    #[doc(alias = "CFG_GADC_DATA_7")]
+    pub type CfgGadcData7 = crate::Reg<cfg_gadc_data_7::CfgGadcData7Spec>;
+    #[doc = "cfg_gadc_data_7"]
+    pub mod cfg_gadc_data_7 {
+        #[doc = "Register `CFG_GADC_DATA_7` reader"]
+        pub type R = crate::R<CfgGadcData7Spec>;
+        #[doc = "Register `CFG_GADC_DATA_7` writer"]
+        pub type W = crate::W<CfgGadcData7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData7Spec;
+        impl crate::RegisterSpec for CfgGadcData7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_7::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_7::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_7 to value 0"]
+        impl crate::Resettable for CfgGadcData7Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_8 (rw) register accessor: cfg_gadc_data_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_8`] module"]
+    #[doc(alias = "CFG_GADC_DATA_8")]
+    pub type CfgGadcData8 = crate::Reg<cfg_gadc_data_8::CfgGadcData8Spec>;
+    #[doc = "cfg_gadc_data_8"]
+    pub mod cfg_gadc_data_8 {
+        #[doc = "Register `CFG_GADC_DATA_8` reader"]
+        pub type R = crate::R<CfgGadcData8Spec>;
+        #[doc = "Register `CFG_GADC_DATA_8` writer"]
+        pub type W = crate::W<CfgGadcData8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData8Spec;
+        impl crate::RegisterSpec for CfgGadcData8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_8::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_8::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_8 to value 0"]
+        impl crate::Resettable for CfgGadcData8Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_9 (rw) register accessor: cfg_gadc_data_9\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_9::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_9::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_9`] module"]
+    #[doc(alias = "CFG_GADC_DATA_9")]
+    pub type CfgGadcData9 = crate::Reg<cfg_gadc_data_9::CfgGadcData9Spec>;
+    #[doc = "cfg_gadc_data_9"]
+    pub mod cfg_gadc_data_9 {
+        #[doc = "Register `CFG_GADC_DATA_9` reader"]
+        pub type R = crate::R<CfgGadcData9Spec>;
+        #[doc = "Register `CFG_GADC_DATA_9` writer"]
+        pub type W = crate::W<CfgGadcData9Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_9\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_9::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_9::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData9Spec;
+        impl crate::RegisterSpec for CfgGadcData9Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_9::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData9Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_9::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData9Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_9 to value 0"]
+        impl crate::Resettable for CfgGadcData9Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_10 (rw) register accessor: cfg_gadc_data_10\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_10::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_10::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_10`] module"]
+    #[doc(alias = "CFG_GADC_DATA_10")]
+    pub type CfgGadcData10 = crate::Reg<cfg_gadc_data_10::CfgGadcData10Spec>;
+    #[doc = "cfg_gadc_data_10"]
+    pub mod cfg_gadc_data_10 {
+        #[doc = "Register `CFG_GADC_DATA_10` reader"]
+        pub type R = crate::R<CfgGadcData10Spec>;
+        #[doc = "Register `CFG_GADC_DATA_10` writer"]
+        pub type W = crate::W<CfgGadcData10Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_10\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_10::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_10::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData10Spec;
+        impl crate::RegisterSpec for CfgGadcData10Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_10::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData10Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_10::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData10Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_10 to value 0"]
+        impl crate::Resettable for CfgGadcData10Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_11 (rw) register accessor: cfg_gadc_data_11\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_11::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_11::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_11`] module"]
+    #[doc(alias = "CFG_GADC_DATA_11")]
+    pub type CfgGadcData11 = crate::Reg<cfg_gadc_data_11::CfgGadcData11Spec>;
+    #[doc = "cfg_gadc_data_11"]
+    pub mod cfg_gadc_data_11 {
+        #[doc = "Register `CFG_GADC_DATA_11` reader"]
+        pub type R = crate::R<CfgGadcData11Spec>;
+        #[doc = "Register `CFG_GADC_DATA_11` writer"]
+        pub type W = crate::W<CfgGadcData11Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_11\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_11::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_11::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData11Spec;
+        impl crate::RegisterSpec for CfgGadcData11Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_11::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData11Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_11::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData11Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_11 to value 0"]
+        impl crate::Resettable for CfgGadcData11Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_12 (rw) register accessor: cfg_gadc_data_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_12::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_12::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_12`] module"]
+    #[doc(alias = "CFG_GADC_DATA_12")]
+    pub type CfgGadcData12 = crate::Reg<cfg_gadc_data_12::CfgGadcData12Spec>;
+    #[doc = "cfg_gadc_data_12"]
+    pub mod cfg_gadc_data_12 {
+        #[doc = "Register `CFG_GADC_DATA_12` reader"]
+        pub type R = crate::R<CfgGadcData12Spec>;
+        #[doc = "Register `CFG_GADC_DATA_12` writer"]
+        pub type W = crate::W<CfgGadcData12Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_12::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_12::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData12Spec;
+        impl crate::RegisterSpec for CfgGadcData12Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_12::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData12Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_12::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData12Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_12 to value 0"]
+        impl crate::Resettable for CfgGadcData12Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_13 (rw) register accessor: cfg_gadc_data_13\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_13::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_13::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_13`] module"]
+    #[doc(alias = "CFG_GADC_DATA_13")]
+    pub type CfgGadcData13 = crate::Reg<cfg_gadc_data_13::CfgGadcData13Spec>;
+    #[doc = "cfg_gadc_data_13"]
+    pub mod cfg_gadc_data_13 {
+        #[doc = "Register `CFG_GADC_DATA_13` reader"]
+        pub type R = crate::R<CfgGadcData13Spec>;
+        #[doc = "Register `CFG_GADC_DATA_13` writer"]
+        pub type W = crate::W<CfgGadcData13Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_13\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_13::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_13::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData13Spec;
+        impl crate::RegisterSpec for CfgGadcData13Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_13::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData13Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_13::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData13Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_13 to value 0"]
+        impl crate::Resettable for CfgGadcData13Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_14 (rw) register accessor: cfg_gadc_data_14\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_14::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_14::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_14`] module"]
+    #[doc(alias = "CFG_GADC_DATA_14")]
+    pub type CfgGadcData14 = crate::Reg<cfg_gadc_data_14::CfgGadcData14Spec>;
+    #[doc = "cfg_gadc_data_14"]
+    pub mod cfg_gadc_data_14 {
+        #[doc = "Register `CFG_GADC_DATA_14` reader"]
+        pub type R = crate::R<CfgGadcData14Spec>;
+        #[doc = "Register `CFG_GADC_DATA_14` writer"]
+        pub type W = crate::W<CfgGadcData14Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_14\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_14::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_14::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData14Spec;
+        impl crate::RegisterSpec for CfgGadcData14Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_14::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData14Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_14::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData14Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_14 to value 0"]
+        impl crate::Resettable for CfgGadcData14Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_15 (rw) register accessor: cfg_gadc_data_15\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_15::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_15::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_15`] module"]
+    #[doc(alias = "CFG_GADC_DATA_15")]
+    pub type CfgGadcData15 = crate::Reg<cfg_gadc_data_15::CfgGadcData15Spec>;
+    #[doc = "cfg_gadc_data_15"]
+    pub mod cfg_gadc_data_15 {
+        #[doc = "Register `CFG_GADC_DATA_15` reader"]
+        pub type R = crate::R<CfgGadcData15Spec>;
+        #[doc = "Register `CFG_GADC_DATA_15` writer"]
+        pub type W = crate::W<CfgGadcData15Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_15\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_15::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_15::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData15Spec;
+        impl crate::RegisterSpec for CfgGadcData15Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_15::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData15Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_15::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData15Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_15 to value 0"]
+        impl crate::Resettable for CfgGadcData15Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_16 (rw) register accessor: cfg_gadc_data_16\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_16::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_16::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_16`] module"]
+    #[doc(alias = "CFG_GADC_DATA_16")]
+    pub type CfgGadcData16 = crate::Reg<cfg_gadc_data_16::CfgGadcData16Spec>;
+    #[doc = "cfg_gadc_data_16"]
+    pub mod cfg_gadc_data_16 {
+        #[doc = "Register `CFG_GADC_DATA_16` reader"]
+        pub type R = crate::R<CfgGadcData16Spec>;
+        #[doc = "Register `CFG_GADC_DATA_16` writer"]
+        pub type W = crate::W<CfgGadcData16Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_16\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_16::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_16::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData16Spec;
+        impl crate::RegisterSpec for CfgGadcData16Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_16::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData16Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_16::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData16Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_16 to value 0"]
+        impl crate::Resettable for CfgGadcData16Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_17 (rw) register accessor: cfg_gadc_data_17\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_17::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_17::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_17`] module"]
+    #[doc(alias = "CFG_GADC_DATA_17")]
+    pub type CfgGadcData17 = crate::Reg<cfg_gadc_data_17::CfgGadcData17Spec>;
+    #[doc = "cfg_gadc_data_17"]
+    pub mod cfg_gadc_data_17 {
+        #[doc = "Register `CFG_GADC_DATA_17` reader"]
+        pub type R = crate::R<CfgGadcData17Spec>;
+        #[doc = "Register `CFG_GADC_DATA_17` writer"]
+        pub type W = crate::W<CfgGadcData17Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_17\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_17::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_17::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData17Spec;
+        impl crate::RegisterSpec for CfgGadcData17Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_17::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData17Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_17::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData17Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_17 to value 0"]
+        impl crate::Resettable for CfgGadcData17Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_18 (rw) register accessor: cfg_gadc_data_18\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_18::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_18::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_18`] module"]
+    #[doc(alias = "CFG_GADC_DATA_18")]
+    pub type CfgGadcData18 = crate::Reg<cfg_gadc_data_18::CfgGadcData18Spec>;
+    #[doc = "cfg_gadc_data_18"]
+    pub mod cfg_gadc_data_18 {
+        #[doc = "Register `CFG_GADC_DATA_18` reader"]
+        pub type R = crate::R<CfgGadcData18Spec>;
+        #[doc = "Register `CFG_GADC_DATA_18` writer"]
+        pub type W = crate::W<CfgGadcData18Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_18\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_18::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_18::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData18Spec;
+        impl crate::RegisterSpec for CfgGadcData18Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_18::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData18Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_18::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData18Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_18 to value 0"]
+        impl crate::Resettable for CfgGadcData18Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_19 (rw) register accessor: cfg_gadc_data_19\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_19::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_19::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_19`] module"]
+    #[doc(alias = "CFG_GADC_DATA_19")]
+    pub type CfgGadcData19 = crate::Reg<cfg_gadc_data_19::CfgGadcData19Spec>;
+    #[doc = "cfg_gadc_data_19"]
+    pub mod cfg_gadc_data_19 {
+        #[doc = "Register `CFG_GADC_DATA_19` reader"]
+        pub type R = crate::R<CfgGadcData19Spec>;
+        #[doc = "Register `CFG_GADC_DATA_19` writer"]
+        pub type W = crate::W<CfgGadcData19Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_19\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_19::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_19::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData19Spec;
+        impl crate::RegisterSpec for CfgGadcData19Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_19::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData19Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_19::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData19Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_19 to value 0"]
+        impl crate::Resettable for CfgGadcData19Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_20 (rw) register accessor: cfg_gadc_data_20\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_20::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_20::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_20`] module"]
+    #[doc(alias = "CFG_GADC_DATA_20")]
+    pub type CfgGadcData20 = crate::Reg<cfg_gadc_data_20::CfgGadcData20Spec>;
+    #[doc = "cfg_gadc_data_20"]
+    pub mod cfg_gadc_data_20 {
+        #[doc = "Register `CFG_GADC_DATA_20` reader"]
+        pub type R = crate::R<CfgGadcData20Spec>;
+        #[doc = "Register `CFG_GADC_DATA_20` writer"]
+        pub type W = crate::W<CfgGadcData20Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_20\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_20::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_20::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData20Spec;
+        impl crate::RegisterSpec for CfgGadcData20Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_20::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData20Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_20::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData20Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_20 to value 0"]
+        impl crate::Resettable for CfgGadcData20Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_21 (rw) register accessor: cfg_gadc_data_21\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_21::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_21::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_21`] module"]
+    #[doc(alias = "CFG_GADC_DATA_21")]
+    pub type CfgGadcData21 = crate::Reg<cfg_gadc_data_21::CfgGadcData21Spec>;
+    #[doc = "cfg_gadc_data_21"]
+    pub mod cfg_gadc_data_21 {
+        #[doc = "Register `CFG_GADC_DATA_21` reader"]
+        pub type R = crate::R<CfgGadcData21Spec>;
+        #[doc = "Register `CFG_GADC_DATA_21` writer"]
+        pub type W = crate::W<CfgGadcData21Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_21\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_21::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_21::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData21Spec;
+        impl crate::RegisterSpec for CfgGadcData21Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_21::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData21Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_21::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData21Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_21 to value 0"]
+        impl crate::Resettable for CfgGadcData21Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_22 (rw) register accessor: cfg_gadc_data_22\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_22::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_22::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_22`] module"]
+    #[doc(alias = "CFG_GADC_DATA_22")]
+    pub type CfgGadcData22 = crate::Reg<cfg_gadc_data_22::CfgGadcData22Spec>;
+    #[doc = "cfg_gadc_data_22"]
+    pub mod cfg_gadc_data_22 {
+        #[doc = "Register `CFG_GADC_DATA_22` reader"]
+        pub type R = crate::R<CfgGadcData22Spec>;
+        #[doc = "Register `CFG_GADC_DATA_22` writer"]
+        pub type W = crate::W<CfgGadcData22Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_22\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_22::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_22::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData22Spec;
+        impl crate::RegisterSpec for CfgGadcData22Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_22::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData22Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_22::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData22Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_22 to value 0"]
+        impl crate::Resettable for CfgGadcData22Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_23 (rw) register accessor: cfg_gadc_data_23\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_23::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_23::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_23`] module"]
+    #[doc(alias = "CFG_GADC_DATA_23")]
+    pub type CfgGadcData23 = crate::Reg<cfg_gadc_data_23::CfgGadcData23Spec>;
+    #[doc = "cfg_gadc_data_23"]
+    pub mod cfg_gadc_data_23 {
+        #[doc = "Register `CFG_GADC_DATA_23` reader"]
+        pub type R = crate::R<CfgGadcData23Spec>;
+        #[doc = "Register `CFG_GADC_DATA_23` writer"]
+        pub type W = crate::W<CfgGadcData23Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_23\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_23::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_23::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData23Spec;
+        impl crate::RegisterSpec for CfgGadcData23Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_23::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData23Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_23::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData23Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_23 to value 0"]
+        impl crate::Resettable for CfgGadcData23Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_24 (rw) register accessor: cfg_gadc_data_24\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_24::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_24::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_24`] module"]
+    #[doc(alias = "CFG_GADC_DATA_24")]
+    pub type CfgGadcData24 = crate::Reg<cfg_gadc_data_24::CfgGadcData24Spec>;
+    #[doc = "cfg_gadc_data_24"]
+    pub mod cfg_gadc_data_24 {
+        #[doc = "Register `CFG_GADC_DATA_24` reader"]
+        pub type R = crate::R<CfgGadcData24Spec>;
+        #[doc = "Register `CFG_GADC_DATA_24` writer"]
+        pub type W = crate::W<CfgGadcData24Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_24\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_24::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_24::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData24Spec;
+        impl crate::RegisterSpec for CfgGadcData24Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_24::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData24Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_24::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData24Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_24 to value 0"]
+        impl crate::Resettable for CfgGadcData24Spec {}
+    }
+    #[doc = "CFG_GADC_DATA_25 (rw) register accessor: cfg_gadc_data_25\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_25::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_25::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_gadc_data_25`] module"]
+    #[doc(alias = "CFG_GADC_DATA_25")]
+    pub type CfgGadcData25 = crate::Reg<cfg_gadc_data_25::CfgGadcData25Spec>;
+    #[doc = "cfg_gadc_data_25"]
+    pub mod cfg_gadc_data_25 {
+        #[doc = "Register `CFG_GADC_DATA_25` reader"]
+        pub type R = crate::R<CfgGadcData25Spec>;
+        #[doc = "Register `CFG_GADC_DATA_25` writer"]
+        pub type W = crate::W<CfgGadcData25Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_gadc_data_25\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_25::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_25::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgGadcData25Spec;
+        impl crate::RegisterSpec for CfgGadcData25Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_gadc_data_25::R`](R) reader structure"]
+        impl crate::Readable for CfgGadcData25Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_gadc_data_25::W`](W) writer structure"]
+        impl crate::Writable for CfgGadcData25Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_GADC_DATA_25 to value 0"]
+        impl crate::Resettable for CfgGadcData25Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_5 (rw) register accessor: rpt_gadc_data_5\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_5`] module"]
+    #[doc(alias = "RPT_GADC_DATA_5")]
+    pub type RptGadcData5 = crate::Reg<rpt_gadc_data_5::RptGadcData5Spec>;
+    #[doc = "rpt_gadc_data_5"]
+    pub mod rpt_gadc_data_5 {
+        #[doc = "Register `RPT_GADC_DATA_5` reader"]
+        pub type R = crate::R<RptGadcData5Spec>;
+        #[doc = "Register `RPT_GADC_DATA_5` writer"]
+        pub type W = crate::W<RptGadcData5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_5\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData5Spec;
+        impl crate::RegisterSpec for RptGadcData5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_5::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_5::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_5 to value 0"]
+        impl crate::Resettable for RptGadcData5Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_6 (rw) register accessor: rpt_gadc_data_6\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_6`] module"]
+    #[doc(alias = "RPT_GADC_DATA_6")]
+    pub type RptGadcData6 = crate::Reg<rpt_gadc_data_6::RptGadcData6Spec>;
+    #[doc = "rpt_gadc_data_6"]
+    pub mod rpt_gadc_data_6 {
+        #[doc = "Register `RPT_GADC_DATA_6` reader"]
+        pub type R = crate::R<RptGadcData6Spec>;
+        #[doc = "Register `RPT_GADC_DATA_6` writer"]
+        pub type W = crate::W<RptGadcData6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_6\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData6Spec;
+        impl crate::RegisterSpec for RptGadcData6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_6::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_6::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_6 to value 0"]
+        impl crate::Resettable for RptGadcData6Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_7 (rw) register accessor: rpt_gadc_data_7\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_7`] module"]
+    #[doc(alias = "RPT_GADC_DATA_7")]
+    pub type RptGadcData7 = crate::Reg<rpt_gadc_data_7::RptGadcData7Spec>;
+    #[doc = "rpt_gadc_data_7"]
+    pub mod rpt_gadc_data_7 {
+        #[doc = "Register `RPT_GADC_DATA_7` reader"]
+        pub type R = crate::R<RptGadcData7Spec>;
+        #[doc = "Register `RPT_GADC_DATA_7` writer"]
+        pub type W = crate::W<RptGadcData7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_7\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData7Spec;
+        impl crate::RegisterSpec for RptGadcData7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_7::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_7::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_7 to value 0"]
+        impl crate::Resettable for RptGadcData7Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_8 (rw) register accessor: rpt_gadc_data_8\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_8`] module"]
+    #[doc(alias = "RPT_GADC_DATA_8")]
+    pub type RptGadcData8 = crate::Reg<rpt_gadc_data_8::RptGadcData8Spec>;
+    #[doc = "rpt_gadc_data_8"]
+    pub mod rpt_gadc_data_8 {
+        #[doc = "Register `RPT_GADC_DATA_8` reader"]
+        pub type R = crate::R<RptGadcData8Spec>;
+        #[doc = "Register `RPT_GADC_DATA_8` writer"]
+        pub type W = crate::W<RptGadcData8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_8\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData8Spec;
+        impl crate::RegisterSpec for RptGadcData8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_8::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_8::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_8 to value 0"]
+        impl crate::Resettable for RptGadcData8Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_9 (rw) register accessor: rpt_gadc_data_9\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_9::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_9::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_9`] module"]
+    #[doc(alias = "RPT_GADC_DATA_9")]
+    pub type RptGadcData9 = crate::Reg<rpt_gadc_data_9::RptGadcData9Spec>;
+    #[doc = "rpt_gadc_data_9"]
+    pub mod rpt_gadc_data_9 {
+        #[doc = "Register `RPT_GADC_DATA_9` reader"]
+        pub type R = crate::R<RptGadcData9Spec>;
+        #[doc = "Register `RPT_GADC_DATA_9` writer"]
+        pub type W = crate::W<RptGadcData9Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_9\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_9::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_9::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData9Spec;
+        impl crate::RegisterSpec for RptGadcData9Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_9::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData9Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_9::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData9Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_9 to value 0"]
+        impl crate::Resettable for RptGadcData9Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_10 (rw) register accessor: rpt_gadc_data_10\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_10::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_10::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_10`] module"]
+    #[doc(alias = "RPT_GADC_DATA_10")]
+    pub type RptGadcData10 = crate::Reg<rpt_gadc_data_10::RptGadcData10Spec>;
+    #[doc = "rpt_gadc_data_10"]
+    pub mod rpt_gadc_data_10 {
+        #[doc = "Register `RPT_GADC_DATA_10` reader"]
+        pub type R = crate::R<RptGadcData10Spec>;
+        #[doc = "Register `RPT_GADC_DATA_10` writer"]
+        pub type W = crate::W<RptGadcData10Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_10\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_10::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_10::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData10Spec;
+        impl crate::RegisterSpec for RptGadcData10Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_10::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData10Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_10::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData10Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_10 to value 0"]
+        impl crate::Resettable for RptGadcData10Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_11 (rw) register accessor: rpt_gadc_data_11\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_11::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_11::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_11`] module"]
+    #[doc(alias = "RPT_GADC_DATA_11")]
+    pub type RptGadcData11 = crate::Reg<rpt_gadc_data_11::RptGadcData11Spec>;
+    #[doc = "rpt_gadc_data_11"]
+    pub mod rpt_gadc_data_11 {
+        #[doc = "Register `RPT_GADC_DATA_11` reader"]
+        pub type R = crate::R<RptGadcData11Spec>;
+        #[doc = "Register `RPT_GADC_DATA_11` writer"]
+        pub type W = crate::W<RptGadcData11Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_11\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_11::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_11::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData11Spec;
+        impl crate::RegisterSpec for RptGadcData11Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_11::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData11Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_11::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData11Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_11 to value 0"]
+        impl crate::Resettable for RptGadcData11Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_12 (rw) register accessor: rpt_gadc_data_12\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_12::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_12::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_12`] module"]
+    #[doc(alias = "RPT_GADC_DATA_12")]
+    pub type RptGadcData12 = crate::Reg<rpt_gadc_data_12::RptGadcData12Spec>;
+    #[doc = "rpt_gadc_data_12"]
+    pub mod rpt_gadc_data_12 {
+        #[doc = "Register `RPT_GADC_DATA_12` reader"]
+        pub type R = crate::R<RptGadcData12Spec>;
+        #[doc = "Register `RPT_GADC_DATA_12` writer"]
+        pub type W = crate::W<RptGadcData12Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_12\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_12::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_12::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData12Spec;
+        impl crate::RegisterSpec for RptGadcData12Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_12::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData12Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_12::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData12Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_12 to value 0"]
+        impl crate::Resettable for RptGadcData12Spec {}
+    }
+    #[doc = "RPT_GADC_DATA_13 (rw) register accessor: rpt_gadc_data_13\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_13::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_13::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_gadc_data_13`] module"]
+    #[doc(alias = "RPT_GADC_DATA_13")]
+    pub type RptGadcData13 = crate::Reg<rpt_gadc_data_13::RptGadcData13Spec>;
+    #[doc = "rpt_gadc_data_13"]
+    pub mod rpt_gadc_data_13 {
+        #[doc = "Register `RPT_GADC_DATA_13` reader"]
+        pub type R = crate::R<RptGadcData13Spec>;
+        #[doc = "Register `RPT_GADC_DATA_13` writer"]
+        pub type W = crate::W<RptGadcData13Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_gadc_data_13\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_gadc_data_13::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_gadc_data_13::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptGadcData13Spec;
+        impl crate::RegisterSpec for RptGadcData13Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_gadc_data_13::R`](R) reader structure"]
+        impl crate::Readable for RptGadcData13Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_gadc_data_13::W`](W) writer structure"]
+        impl crate::Writable for RptGadcData13Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_GADC_DATA_13 to value 0"]
+        impl crate::Resettable for RptGadcData13Spec {}
+    }
+    #[doc = "CFG_CMP_OS_0 (rw) register accessor: cfg_cmp_os_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_0`] module"]
+    #[doc(alias = "CFG_CMP_OS_0")]
+    pub type CfgCmpOs0 = crate::Reg<cfg_cmp_os_0::CfgCmpOs0Spec>;
+    #[doc = "cfg_cmp_os_0"]
+    pub mod cfg_cmp_os_0 {
+        #[doc = "Register `CFG_CMP_OS_0` reader"]
+        pub type R = crate::R<CfgCmpOs0Spec>;
+        #[doc = "Register `CFG_CMP_OS_0` writer"]
+        pub type W = crate::W<CfgCmpOs0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs0Spec;
+        impl crate::RegisterSpec for CfgCmpOs0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_0::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_0::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_0 to value 0"]
+        impl crate::Resettable for CfgCmpOs0Spec {}
+    }
+    #[doc = "CFG_CMP_OS_1 (rw) register accessor: cfg_cmp_os_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_1`] module"]
+    #[doc(alias = "CFG_CMP_OS_1")]
+    pub type CfgCmpOs1 = crate::Reg<cfg_cmp_os_1::CfgCmpOs1Spec>;
+    #[doc = "cfg_cmp_os_1"]
+    pub mod cfg_cmp_os_1 {
+        #[doc = "Register `CFG_CMP_OS_1` reader"]
+        pub type R = crate::R<CfgCmpOs1Spec>;
+        #[doc = "Register `CFG_CMP_OS_1` writer"]
+        pub type W = crate::W<CfgCmpOs1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs1Spec;
+        impl crate::RegisterSpec for CfgCmpOs1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_1::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_1::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_1 to value 0"]
+        impl crate::Resettable for CfgCmpOs1Spec {}
+    }
+    #[doc = "CFG_CMP_OS_2 (rw) register accessor: cfg_cmp_os_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_2`] module"]
+    #[doc(alias = "CFG_CMP_OS_2")]
+    pub type CfgCmpOs2 = crate::Reg<cfg_cmp_os_2::CfgCmpOs2Spec>;
+    #[doc = "cfg_cmp_os_2"]
+    pub mod cfg_cmp_os_2 {
+        #[doc = "Register `CFG_CMP_OS_2` reader"]
+        pub type R = crate::R<CfgCmpOs2Spec>;
+        #[doc = "Register `CFG_CMP_OS_2` writer"]
+        pub type W = crate::W<CfgCmpOs2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs2Spec;
+        impl crate::RegisterSpec for CfgCmpOs2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_2::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_2::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_2 to value 0"]
+        impl crate::Resettable for CfgCmpOs2Spec {}
+    }
+    #[doc = "CFG_CMP_OS_3 (rw) register accessor: cfg_cmp_os_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_3`] module"]
+    #[doc(alias = "CFG_CMP_OS_3")]
+    pub type CfgCmpOs3 = crate::Reg<cfg_cmp_os_3::CfgCmpOs3Spec>;
+    #[doc = "cfg_cmp_os_3"]
+    pub mod cfg_cmp_os_3 {
+        #[doc = "Register `CFG_CMP_OS_3` reader"]
+        pub type R = crate::R<CfgCmpOs3Spec>;
+        #[doc = "Register `CFG_CMP_OS_3` writer"]
+        pub type W = crate::W<CfgCmpOs3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs3Spec;
+        impl crate::RegisterSpec for CfgCmpOs3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_3::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_3::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_3 to value 0"]
+        impl crate::Resettable for CfgCmpOs3Spec {}
+    }
+    #[doc = "CFG_CMP_OS_4 (rw) register accessor: cfg_cmp_os_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_4`] module"]
+    #[doc(alias = "CFG_CMP_OS_4")]
+    pub type CfgCmpOs4 = crate::Reg<cfg_cmp_os_4::CfgCmpOs4Spec>;
+    #[doc = "cfg_cmp_os_4"]
+    pub mod cfg_cmp_os_4 {
+        #[doc = "Register `CFG_CMP_OS_4` reader"]
+        pub type R = crate::R<CfgCmpOs4Spec>;
+        #[doc = "Register `CFG_CMP_OS_4` writer"]
+        pub type W = crate::W<CfgCmpOs4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs4Spec;
+        impl crate::RegisterSpec for CfgCmpOs4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_4::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_4::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_4 to value 0"]
+        impl crate::Resettable for CfgCmpOs4Spec {}
+    }
+    #[doc = "CFG_CMP_OS_5 (rw) register accessor: cfg_cmp_os_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_5`] module"]
+    #[doc(alias = "CFG_CMP_OS_5")]
+    pub type CfgCmpOs5 = crate::Reg<cfg_cmp_os_5::CfgCmpOs5Spec>;
+    #[doc = "cfg_cmp_os_5"]
+    pub mod cfg_cmp_os_5 {
+        #[doc = "Register `CFG_CMP_OS_5` reader"]
+        pub type R = crate::R<CfgCmpOs5Spec>;
+        #[doc = "Register `CFG_CMP_OS_5` writer"]
+        pub type W = crate::W<CfgCmpOs5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs5Spec;
+        impl crate::RegisterSpec for CfgCmpOs5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_5::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_5::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_5 to value 0"]
+        impl crate::Resettable for CfgCmpOs5Spec {}
+    }
+    #[doc = "CFG_CMP_OS_6 (rw) register accessor: cfg_cmp_os_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_6`] module"]
+    #[doc(alias = "CFG_CMP_OS_6")]
+    pub type CfgCmpOs6 = crate::Reg<cfg_cmp_os_6::CfgCmpOs6Spec>;
+    #[doc = "cfg_cmp_os_6"]
+    pub mod cfg_cmp_os_6 {
+        #[doc = "Register `CFG_CMP_OS_6` reader"]
+        pub type R = crate::R<CfgCmpOs6Spec>;
+        #[doc = "Register `CFG_CMP_OS_6` writer"]
+        pub type W = crate::W<CfgCmpOs6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs6Spec;
+        impl crate::RegisterSpec for CfgCmpOs6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_6::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_6::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_6 to value 0"]
+        impl crate::Resettable for CfgCmpOs6Spec {}
+    }
+    #[doc = "CFG_CMP_OS_7 (rw) register accessor: cfg_cmp_os_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_7`] module"]
+    #[doc(alias = "CFG_CMP_OS_7")]
+    pub type CfgCmpOs7 = crate::Reg<cfg_cmp_os_7::CfgCmpOs7Spec>;
+    #[doc = "cfg_cmp_os_7"]
+    pub mod cfg_cmp_os_7 {
+        #[doc = "Register `CFG_CMP_OS_7` reader"]
+        pub type R = crate::R<CfgCmpOs7Spec>;
+        #[doc = "Register `CFG_CMP_OS_7` writer"]
+        pub type W = crate::W<CfgCmpOs7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs7Spec;
+        impl crate::RegisterSpec for CfgCmpOs7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_7::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_7::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_7 to value 0"]
+        impl crate::Resettable for CfgCmpOs7Spec {}
+    }
+    #[doc = "CFG_CMP_OS_8 (rw) register accessor: cfg_cmp_os_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_8`] module"]
+    #[doc(alias = "CFG_CMP_OS_8")]
+    pub type CfgCmpOs8 = crate::Reg<cfg_cmp_os_8::CfgCmpOs8Spec>;
+    #[doc = "cfg_cmp_os_8"]
+    pub mod cfg_cmp_os_8 {
+        #[doc = "Register `CFG_CMP_OS_8` reader"]
+        pub type R = crate::R<CfgCmpOs8Spec>;
+        #[doc = "Register `CFG_CMP_OS_8` writer"]
+        pub type W = crate::W<CfgCmpOs8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs8Spec;
+        impl crate::RegisterSpec for CfgCmpOs8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_8::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_8::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_8 to value 0"]
+        impl crate::Resettable for CfgCmpOs8Spec {}
+    }
+    #[doc = "CFG_CMP_OS_9 (rw) register accessor: cfg_cmp_os_9\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_9::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_9::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_9`] module"]
+    #[doc(alias = "CFG_CMP_OS_9")]
+    pub type CfgCmpOs9 = crate::Reg<cfg_cmp_os_9::CfgCmpOs9Spec>;
+    #[doc = "cfg_cmp_os_9"]
+    pub mod cfg_cmp_os_9 {
+        #[doc = "Register `CFG_CMP_OS_9` reader"]
+        pub type R = crate::R<CfgCmpOs9Spec>;
+        #[doc = "Register `CFG_CMP_OS_9` writer"]
+        pub type W = crate::W<CfgCmpOs9Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_9\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_9::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_9::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs9Spec;
+        impl crate::RegisterSpec for CfgCmpOs9Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_9::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs9Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_9::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs9Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_9 to value 0"]
+        impl crate::Resettable for CfgCmpOs9Spec {}
+    }
+    #[doc = "CFG_CMP_OS_10 (rw) register accessor: cfg_cmp_os_10\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_10::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_10::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_10`] module"]
+    #[doc(alias = "CFG_CMP_OS_10")]
+    pub type CfgCmpOs10 = crate::Reg<cfg_cmp_os_10::CfgCmpOs10Spec>;
+    #[doc = "cfg_cmp_os_10"]
+    pub mod cfg_cmp_os_10 {
+        #[doc = "Register `CFG_CMP_OS_10` reader"]
+        pub type R = crate::R<CfgCmpOs10Spec>;
+        #[doc = "Register `CFG_CMP_OS_10` writer"]
+        pub type W = crate::W<CfgCmpOs10Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_10\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_10::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_10::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs10Spec;
+        impl crate::RegisterSpec for CfgCmpOs10Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_10::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs10Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_10::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs10Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_10 to value 0"]
+        impl crate::Resettable for CfgCmpOs10Spec {}
+    }
+    #[doc = "RPT_CMP_OS_0 (rw) register accessor: rpt_cmp_os_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_os_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_os_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cmp_os_0`] module"]
+    #[doc(alias = "RPT_CMP_OS_0")]
+    pub type RptCmpOs0 = crate::Reg<rpt_cmp_os_0::RptCmpOs0Spec>;
+    #[doc = "rpt_cmp_os_0"]
+    pub mod rpt_cmp_os_0 {
+        #[doc = "Register `RPT_CMP_OS_0` reader"]
+        pub type R = crate::R<RptCmpOs0Spec>;
+        #[doc = "Register `RPT_CMP_OS_0` writer"]
+        pub type W = crate::W<RptCmpOs0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cmp_os_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_os_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_os_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCmpOs0Spec;
+        impl crate::RegisterSpec for RptCmpOs0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cmp_os_0::R`](R) reader structure"]
+        impl crate::Readable for RptCmpOs0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cmp_os_0::W`](W) writer structure"]
+        impl crate::Writable for RptCmpOs0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CMP_OS_0 to value 0"]
+        impl crate::Resettable for RptCmpOs0Spec {}
+    }
+    #[doc = "CFG_CMP_OS_11 (rw) register accessor: cfg_cmp_os_11\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_11::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_11::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_11`] module"]
+    #[doc(alias = "CFG_CMP_OS_11")]
+    pub type CfgCmpOs11 = crate::Reg<cfg_cmp_os_11::CfgCmpOs11Spec>;
+    #[doc = "cfg_cmp_os_11"]
+    pub mod cfg_cmp_os_11 {
+        #[doc = "Register `CFG_CMP_OS_11` reader"]
+        pub type R = crate::R<CfgCmpOs11Spec>;
+        #[doc = "Register `CFG_CMP_OS_11` writer"]
+        pub type W = crate::W<CfgCmpOs11Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_os_11\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_11::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_11::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs11Spec;
+        impl crate::RegisterSpec for CfgCmpOs11Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_11::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs11Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_11::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs11Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_11 to value 0"]
+        impl crate::Resettable for CfgCmpOs11Spec {}
+    }
+    #[doc = "CFG_CMP_OS_12 (rw) register accessor: cfg_cmp_os_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_12::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_12::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_os_12`] module"]
+    #[doc(alias = "CFG_CMP_OS_12")]
+    pub type CfgCmpOs12 = crate::Reg<cfg_cmp_os_12::CfgCmpOs12Spec>;
+    #[doc = "cfg_cmp_os_12"]
+    pub mod cfg_cmp_os_12 {
+        #[doc = "Register `CFG_CMP_OS_12` reader"]
+        pub type R = crate::R<CfgCmpOs12Spec>;
+        #[doc = "Register `CFG_CMP_OS_12` writer"]
+        pub type W = crate::W<CfgCmpOs12Spec>;
+        #[doc = "Field `cfg_manual_cmp_os_code` reader - "]
+        pub type CfgManualCmpOsCodeR = crate::FieldReader;
+        #[doc = "Field `cfg_manual_cmp_os_code` writer - "]
+        pub type CfgManualCmpOsCodeW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+        #[doc = "Field `cfg_manual_cmp_os_update` reader - "]
+        pub type CfgManualCmpOsUpdateR = crate::BitReader;
+        #[doc = "Field `cfg_manual_cmp_os_update` writer - "]
+        pub type CfgManualCmpOsUpdateW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:6"]
+            #[inline(always)]
+            pub fn cfg_manual_cmp_os_code(&self) -> CfgManualCmpOsCodeR {
+                CfgManualCmpOsCodeR::new((self.bits & 0x7f) as u8)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_manual_cmp_os_update(&self) -> CfgManualCmpOsUpdateR {
+                CfgManualCmpOsUpdateR::new(((self.bits >> 8) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:6"]
+            #[inline(always)]
+            pub fn cfg_manual_cmp_os_code(&mut self) -> CfgManualCmpOsCodeW<'_, CfgCmpOs12Spec> {
+                CfgManualCmpOsCodeW::new(self, 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_manual_cmp_os_update(
+                &mut self,
+            ) -> CfgManualCmpOsUpdateW<'_, CfgCmpOs12Spec> {
+                CfgManualCmpOsUpdateW::new(self, 8)
+            }
+        }
+        #[doc = "cfg_cmp_os_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_os_12::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_os_12::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmpOs12Spec;
+        impl crate::RegisterSpec for CfgCmpOs12Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_os_12::R`](R) reader structure"]
+        impl crate::Readable for CfgCmpOs12Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_os_12::W`](W) writer structure"]
+        impl crate::Writable for CfgCmpOs12Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_OS_12 to value 0"]
+        impl crate::Resettable for CfgCmpOs12Spec {}
+    }
+    #[doc = "RPT_CMP_OS_2 (rw) register accessor: rpt_cmp_os_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_os_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_os_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cmp_os_2`] module"]
+    #[doc(alias = "RPT_CMP_OS_2")]
+    pub type RptCmpOs2 = crate::Reg<rpt_cmp_os_2::RptCmpOs2Spec>;
+    #[doc = "rpt_cmp_os_2"]
+    pub mod rpt_cmp_os_2 {
+        #[doc = "Register `RPT_CMP_OS_2` reader"]
+        pub type R = crate::R<RptCmpOs2Spec>;
+        #[doc = "Register `RPT_CMP_OS_2` writer"]
+        pub type W = crate::W<RptCmpOs2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cmp_os_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_os_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_os_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCmpOs2Spec;
+        impl crate::RegisterSpec for RptCmpOs2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cmp_os_2::R`](R) reader structure"]
+        impl crate::Readable for RptCmpOs2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cmp_os_2::W`](W) writer structure"]
+        impl crate::Writable for RptCmpOs2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CMP_OS_2 to value 0"]
+        impl crate::Resettable for RptCmpOs2Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_0 (rw) register accessor: cfg_cdac_fc0_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_0`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_0")]
+    pub type CfgCdacFc0_0 = crate::Reg<cfg_cdac_fc0_0::CfgCdacFc0_0Spec>;
+    #[doc = "cfg_cdac_fc0_0"]
+    pub mod cfg_cdac_fc0_0 {
+        #[doc = "Register `CFG_CDAC_FC0_0` reader"]
+        pub type R = crate::R<CfgCdacFc0_0Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_0` writer"]
+        pub type W = crate::W<CfgCdacFc0_0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_0Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_0::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_0::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_0 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_0Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_1 (rw) register accessor: cfg_cdac_fc0_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_1`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_1")]
+    pub type CfgCdacFc0_1 = crate::Reg<cfg_cdac_fc0_1::CfgCdacFc0_1Spec>;
+    #[doc = "cfg_cdac_fc0_1"]
+    pub mod cfg_cdac_fc0_1 {
+        #[doc = "Register `CFG_CDAC_FC0_1` reader"]
+        pub type R = crate::R<CfgCdacFc0_1Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_1` writer"]
+        pub type W = crate::W<CfgCdacFc0_1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_1Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_1::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_1::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_1 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_1Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_2 (rw) register accessor: cfg_cdac_fc0_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_2`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_2")]
+    pub type CfgCdacFc0_2 = crate::Reg<cfg_cdac_fc0_2::CfgCdacFc0_2Spec>;
+    #[doc = "cfg_cdac_fc0_2"]
+    pub mod cfg_cdac_fc0_2 {
+        #[doc = "Register `CFG_CDAC_FC0_2` reader"]
+        pub type R = crate::R<CfgCdacFc0_2Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_2` writer"]
+        pub type W = crate::W<CfgCdacFc0_2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_2Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_2::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_2::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_2 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_2Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_3 (rw) register accessor: cfg_cdac_fc0_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_3`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_3")]
+    pub type CfgCdacFc0_3 = crate::Reg<cfg_cdac_fc0_3::CfgCdacFc0_3Spec>;
+    #[doc = "cfg_cdac_fc0_3"]
+    pub mod cfg_cdac_fc0_3 {
+        #[doc = "Register `CFG_CDAC_FC0_3` reader"]
+        pub type R = crate::R<CfgCdacFc0_3Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_3` writer"]
+        pub type W = crate::W<CfgCdacFc0_3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_3Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_3::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_3::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_3 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_3Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_4 (rw) register accessor: cfg_cdac_fc0_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_4`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_4")]
+    pub type CfgCdacFc0_4 = crate::Reg<cfg_cdac_fc0_4::CfgCdacFc0_4Spec>;
+    #[doc = "cfg_cdac_fc0_4"]
+    pub mod cfg_cdac_fc0_4 {
+        #[doc = "Register `CFG_CDAC_FC0_4` reader"]
+        pub type R = crate::R<CfgCdacFc0_4Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_4` writer"]
+        pub type W = crate::W<CfgCdacFc0_4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_4Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_4::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_4::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_4 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_4Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_5 (rw) register accessor: cfg_cdac_fc0_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_5`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_5")]
+    pub type CfgCdacFc0_5 = crate::Reg<cfg_cdac_fc0_5::CfgCdacFc0_5Spec>;
+    #[doc = "cfg_cdac_fc0_5"]
+    pub mod cfg_cdac_fc0_5 {
+        #[doc = "Register `CFG_CDAC_FC0_5` reader"]
+        pub type R = crate::R<CfgCdacFc0_5Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_5` writer"]
+        pub type W = crate::W<CfgCdacFc0_5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_5Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_5::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_5::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_5 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_5Spec {}
+    }
+    #[doc = "RPT_CDAC_FC0_0 (rw) register accessor: rpt_cdac_fc0_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc0_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc0_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc0_0`] module"]
+    #[doc(alias = "RPT_CDAC_FC0_0")]
+    pub type RptCdacFc0_0 = crate::Reg<rpt_cdac_fc0_0::RptCdacFc0_0Spec>;
+    #[doc = "rpt_cdac_fc0_0"]
+    pub mod rpt_cdac_fc0_0 {
+        #[doc = "Register `RPT_CDAC_FC0_0` reader"]
+        pub type R = crate::R<RptCdacFc0_0Spec>;
+        #[doc = "Register `RPT_CDAC_FC0_0` writer"]
+        pub type W = crate::W<RptCdacFc0_0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc0_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc0_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc0_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc0_0Spec;
+        impl crate::RegisterSpec for RptCdacFc0_0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc0_0::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc0_0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc0_0::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc0_0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC0_0 to value 0"]
+        impl crate::Resettable for RptCdacFc0_0Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_6 (rw) register accessor: cfg_cdac_fc0_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_6`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_6")]
+    pub type CfgCdacFc0_6 = crate::Reg<cfg_cdac_fc0_6::CfgCdacFc0_6Spec>;
+    #[doc = "cfg_cdac_fc0_6"]
+    pub mod cfg_cdac_fc0_6 {
+        #[doc = "Register `CFG_CDAC_FC0_6` reader"]
+        pub type R = crate::R<CfgCdacFc0_6Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_6` writer"]
+        pub type W = crate::W<CfgCdacFc0_6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_6Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_6::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_6::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_6 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_6Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_7 (rw) register accessor: cfg_cdac_fc0_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_7`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_7")]
+    pub type CfgCdacFc0_7 = crate::Reg<cfg_cdac_fc0_7::CfgCdacFc0_7Spec>;
+    #[doc = "cfg_cdac_fc0_7"]
+    pub mod cfg_cdac_fc0_7 {
+        #[doc = "Register `CFG_CDAC_FC0_7` reader"]
+        pub type R = crate::R<CfgCdacFc0_7Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_7` writer"]
+        pub type W = crate::W<CfgCdacFc0_7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_7Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_7::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_7::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_7 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_7Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_8 (rw) register accessor: cfg_cdac_fc0_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_8`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_8")]
+    pub type CfgCdacFc0_8 = crate::Reg<cfg_cdac_fc0_8::CfgCdacFc0_8Spec>;
+    #[doc = "cfg_cdac_fc0_8"]
+    pub mod cfg_cdac_fc0_8 {
+        #[doc = "Register `CFG_CDAC_FC0_8` reader"]
+        pub type R = crate::R<CfgCdacFc0_8Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_8` writer"]
+        pub type W = crate::W<CfgCdacFc0_8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_8Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_8::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_8::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_8 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_8Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_9 (rw) register accessor: cfg_cdac_fc0_9\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_9::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_9::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_9`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_9")]
+    pub type CfgCdacFc0_9 = crate::Reg<cfg_cdac_fc0_9::CfgCdacFc0_9Spec>;
+    #[doc = "cfg_cdac_fc0_9"]
+    pub mod cfg_cdac_fc0_9 {
+        #[doc = "Register `CFG_CDAC_FC0_9` reader"]
+        pub type R = crate::R<CfgCdacFc0_9Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_9` writer"]
+        pub type W = crate::W<CfgCdacFc0_9Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_9\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_9::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_9::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_9Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_9Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_9::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_9Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_9::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_9Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_9 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_9Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_10 (rw) register accessor: cfg_cdac_fc0_10\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_10::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_10::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_10`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_10")]
+    pub type CfgCdacFc0_10 = crate::Reg<cfg_cdac_fc0_10::CfgCdacFc0_10Spec>;
+    #[doc = "cfg_cdac_fc0_10"]
+    pub mod cfg_cdac_fc0_10 {
+        #[doc = "Register `CFG_CDAC_FC0_10` reader"]
+        pub type R = crate::R<CfgCdacFc0_10Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_10` writer"]
+        pub type W = crate::W<CfgCdacFc0_10Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_10\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_10::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_10::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_10Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_10Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_10::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_10Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_10::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_10Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_10 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_10Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_11 (rw) register accessor: cfg_cdac_fc0_11\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_11::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_11::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_11`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_11")]
+    pub type CfgCdacFc0_11 = crate::Reg<cfg_cdac_fc0_11::CfgCdacFc0_11Spec>;
+    #[doc = "cfg_cdac_fc0_11"]
+    pub mod cfg_cdac_fc0_11 {
+        #[doc = "Register `CFG_CDAC_FC0_11` reader"]
+        pub type R = crate::R<CfgCdacFc0_11Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_11` writer"]
+        pub type W = crate::W<CfgCdacFc0_11Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_11\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_11::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_11::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_11Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_11Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_11::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_11Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_11::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_11Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_11 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_11Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_12 (rw) register accessor: cfg_cdac_fc0_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_12::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_12::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_12`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_12")]
+    pub type CfgCdacFc0_12 = crate::Reg<cfg_cdac_fc0_12::CfgCdacFc0_12Spec>;
+    #[doc = "cfg_cdac_fc0_12"]
+    pub mod cfg_cdac_fc0_12 {
+        #[doc = "Register `CFG_CDAC_FC0_12` reader"]
+        pub type R = crate::R<CfgCdacFc0_12Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_12` writer"]
+        pub type W = crate::W<CfgCdacFc0_12Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_12::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_12::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_12Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_12Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_12::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_12Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_12::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_12Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_12 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_12Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_13 (rw) register accessor: cfg_cdac_fc0_13\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_13::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_13::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_13`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_13")]
+    pub type CfgCdacFc0_13 = crate::Reg<cfg_cdac_fc0_13::CfgCdacFc0_13Spec>;
+    #[doc = "cfg_cdac_fc0_13"]
+    pub mod cfg_cdac_fc0_13 {
+        #[doc = "Register `CFG_CDAC_FC0_13` reader"]
+        pub type R = crate::R<CfgCdacFc0_13Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_13` writer"]
+        pub type W = crate::W<CfgCdacFc0_13Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_13\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_13::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_13::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_13Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_13Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_13::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_13Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_13::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_13Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_13 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_13Spec {}
+    }
+    #[doc = "CFG_CDAC_FC0_14 (rw) register accessor: cfg_cdac_fc0_14\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_14::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_14::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc0_14`] module"]
+    #[doc(alias = "CFG_CDAC_FC0_14")]
+    pub type CfgCdacFc0_14 = crate::Reg<cfg_cdac_fc0_14::CfgCdacFc0_14Spec>;
+    #[doc = "cfg_cdac_fc0_14"]
+    pub mod cfg_cdac_fc0_14 {
+        #[doc = "Register `CFG_CDAC_FC0_14` reader"]
+        pub type R = crate::R<CfgCdacFc0_14Spec>;
+        #[doc = "Register `CFG_CDAC_FC0_14` writer"]
+        pub type W = crate::W<CfgCdacFc0_14Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc0_14\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc0_14::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc0_14::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc0_14Spec;
+        impl crate::RegisterSpec for CfgCdacFc0_14Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc0_14::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc0_14Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc0_14::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc0_14Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC0_14 to value 0"]
+        impl crate::Resettable for CfgCdacFc0_14Spec {}
+    }
+    #[doc = "CFG_CDAC_FC1_0 (rw) register accessor: cfg_cdac_fc1_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc1_0`] module"]
+    #[doc(alias = "CFG_CDAC_FC1_0")]
+    pub type CfgCdacFc1_0 = crate::Reg<cfg_cdac_fc1_0::CfgCdacFc1_0Spec>;
+    #[doc = "cfg_cdac_fc1_0"]
+    pub mod cfg_cdac_fc1_0 {
+        #[doc = "Register `CFG_CDAC_FC1_0` reader"]
+        pub type R = crate::R<CfgCdacFc1_0Spec>;
+        #[doc = "Register `CFG_CDAC_FC1_0` writer"]
+        pub type W = crate::W<CfgCdacFc1_0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc1_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc1_0Spec;
+        impl crate::RegisterSpec for CfgCdacFc1_0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc1_0::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc1_0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc1_0::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc1_0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC1_0 to value 0"]
+        impl crate::Resettable for CfgCdacFc1_0Spec {}
+    }
+    #[doc = "CFG_CDAC_FC1_1 (rw) register accessor: cfg_cdac_fc1_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc1_1`] module"]
+    #[doc(alias = "CFG_CDAC_FC1_1")]
+    pub type CfgCdacFc1_1 = crate::Reg<cfg_cdac_fc1_1::CfgCdacFc1_1Spec>;
+    #[doc = "cfg_cdac_fc1_1"]
+    pub mod cfg_cdac_fc1_1 {
+        #[doc = "Register `CFG_CDAC_FC1_1` reader"]
+        pub type R = crate::R<CfgCdacFc1_1Spec>;
+        #[doc = "Register `CFG_CDAC_FC1_1` writer"]
+        pub type W = crate::W<CfgCdacFc1_1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc1_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc1_1Spec;
+        impl crate::RegisterSpec for CfgCdacFc1_1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc1_1::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc1_1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc1_1::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc1_1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC1_1 to value 0"]
+        impl crate::Resettable for CfgCdacFc1_1Spec {}
+    }
+    #[doc = "CFG_CDAC_FC1_2 (rw) register accessor: cfg_cdac_fc1_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc1_2`] module"]
+    #[doc(alias = "CFG_CDAC_FC1_2")]
+    pub type CfgCdacFc1_2 = crate::Reg<cfg_cdac_fc1_2::CfgCdacFc1_2Spec>;
+    #[doc = "cfg_cdac_fc1_2"]
+    pub mod cfg_cdac_fc1_2 {
+        #[doc = "Register `CFG_CDAC_FC1_2` reader"]
+        pub type R = crate::R<CfgCdacFc1_2Spec>;
+        #[doc = "Register `CFG_CDAC_FC1_2` writer"]
+        pub type W = crate::W<CfgCdacFc1_2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc1_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc1_2Spec;
+        impl crate::RegisterSpec for CfgCdacFc1_2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc1_2::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc1_2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc1_2::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc1_2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC1_2 to value 0"]
+        impl crate::Resettable for CfgCdacFc1_2Spec {}
+    }
+    #[doc = "CFG_CDAC_FC1_3 (rw) register accessor: cfg_cdac_fc1_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cdac_fc1_3`] module"]
+    #[doc(alias = "CFG_CDAC_FC1_3")]
+    pub type CfgCdacFc1_3 = crate::Reg<cfg_cdac_fc1_3::CfgCdacFc1_3Spec>;
+    #[doc = "cfg_cdac_fc1_3"]
+    pub mod cfg_cdac_fc1_3 {
+        #[doc = "Register `CFG_CDAC_FC1_3` reader"]
+        pub type R = crate::R<CfgCdacFc1_3Spec>;
+        #[doc = "Register `CFG_CDAC_FC1_3` writer"]
+        pub type W = crate::W<CfgCdacFc1_3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cdac_fc1_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cdac_fc1_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cdac_fc1_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCdacFc1_3Spec;
+        impl crate::RegisterSpec for CfgCdacFc1_3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cdac_fc1_3::R`](R) reader structure"]
+        impl crate::Readable for CfgCdacFc1_3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cdac_fc1_3::W`](W) writer structure"]
+        impl crate::Writable for CfgCdacFc1_3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CDAC_FC1_3 to value 0"]
+        impl crate::Resettable for CfgCdacFc1_3Spec {}
+    }
+    #[doc = "RPT_CDAC_FC1_0 (rw) register accessor: rpt_cdac_fc1_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc1_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc1_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc1_0`] module"]
+    #[doc(alias = "RPT_CDAC_FC1_0")]
+    pub type RptCdacFc1_0 = crate::Reg<rpt_cdac_fc1_0::RptCdacFc1_0Spec>;
+    #[doc = "rpt_cdac_fc1_0"]
+    pub mod rpt_cdac_fc1_0 {
+        #[doc = "Register `RPT_CDAC_FC1_0` reader"]
+        pub type R = crate::R<RptCdacFc1_0Spec>;
+        #[doc = "Register `RPT_CDAC_FC1_0` writer"]
+        pub type W = crate::W<RptCdacFc1_0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc1_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc1_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc1_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc1_0Spec;
+        impl crate::RegisterSpec for RptCdacFc1_0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc1_0::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc1_0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc1_0::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc1_0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC1_0 to value 0"]
+        impl crate::Resettable for RptCdacFc1_0Spec {}
+    }
+    #[doc = "RPT_CDAC_FC1_3 (rw) register accessor: rpt_cdac_fc1_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc1_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc1_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc1_3`] module"]
+    #[doc(alias = "RPT_CDAC_FC1_3")]
+    pub type RptCdacFc1_3 = crate::Reg<rpt_cdac_fc1_3::RptCdacFc1_3Spec>;
+    #[doc = "rpt_cdac_fc1_3"]
+    pub mod rpt_cdac_fc1_3 {
+        #[doc = "Register `RPT_CDAC_FC1_3` reader"]
+        pub type R = crate::R<RptCdacFc1_3Spec>;
+        #[doc = "Register `RPT_CDAC_FC1_3` writer"]
+        pub type W = crate::W<RptCdacFc1_3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc1_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc1_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc1_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc1_3Spec;
+        impl crate::RegisterSpec for RptCdacFc1_3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc1_3::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc1_3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc1_3::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc1_3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC1_3 to value 0"]
+        impl crate::Resettable for RptCdacFc1_3Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_1 (rw) register accessor: rpt_cdac_fc3_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_1`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_1")]
+    pub type RptCdacFc3_1 = crate::Reg<rpt_cdac_fc3_1::RptCdacFc3_1Spec>;
+    #[doc = "rpt_cdac_fc3_1"]
+    pub mod rpt_cdac_fc3_1 {
+        #[doc = "Register `RPT_CDAC_FC3_1` reader"]
+        pub type R = crate::R<RptCdacFc3_1Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_1` writer"]
+        pub type W = crate::W<RptCdacFc3_1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_1Spec;
+        impl crate::RegisterSpec for RptCdacFc3_1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_1::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_1::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_1 to value 0"]
+        impl crate::Resettable for RptCdacFc3_1Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_2 (rw) register accessor: rpt_cdac_fc3_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_2`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_2")]
+    pub type RptCdacFc3_2 = crate::Reg<rpt_cdac_fc3_2::RptCdacFc3_2Spec>;
+    #[doc = "rpt_cdac_fc3_2"]
+    pub mod rpt_cdac_fc3_2 {
+        #[doc = "Register `RPT_CDAC_FC3_2` reader"]
+        pub type R = crate::R<RptCdacFc3_2Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_2` writer"]
+        pub type W = crate::W<RptCdacFc3_2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_2Spec;
+        impl crate::RegisterSpec for RptCdacFc3_2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_2::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_2::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_2 to value 0"]
+        impl crate::Resettable for RptCdacFc3_2Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_3 (rw) register accessor: rpt_cdac_fc3_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_3`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_3")]
+    pub type RptCdacFc3_3 = crate::Reg<rpt_cdac_fc3_3::RptCdacFc3_3Spec>;
+    #[doc = "rpt_cdac_fc3_3"]
+    pub mod rpt_cdac_fc3_3 {
+        #[doc = "Register `RPT_CDAC_FC3_3` reader"]
+        pub type R = crate::R<RptCdacFc3_3Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_3` writer"]
+        pub type W = crate::W<RptCdacFc3_3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_3Spec;
+        impl crate::RegisterSpec for RptCdacFc3_3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_3::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_3::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_3 to value 0"]
+        impl crate::Resettable for RptCdacFc3_3Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_4 (rw) register accessor: rpt_cdac_fc3_4\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_4`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_4")]
+    pub type RptCdacFc3_4 = crate::Reg<rpt_cdac_fc3_4::RptCdacFc3_4Spec>;
+    #[doc = "rpt_cdac_fc3_4"]
+    pub mod rpt_cdac_fc3_4 {
+        #[doc = "Register `RPT_CDAC_FC3_4` reader"]
+        pub type R = crate::R<RptCdacFc3_4Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_4` writer"]
+        pub type W = crate::W<RptCdacFc3_4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_4\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_4Spec;
+        impl crate::RegisterSpec for RptCdacFc3_4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_4::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_4::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_4 to value 0"]
+        impl crate::Resettable for RptCdacFc3_4Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_5 (rw) register accessor: rpt_cdac_fc3_5\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_5`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_5")]
+    pub type RptCdacFc3_5 = crate::Reg<rpt_cdac_fc3_5::RptCdacFc3_5Spec>;
+    #[doc = "rpt_cdac_fc3_5"]
+    pub mod rpt_cdac_fc3_5 {
+        #[doc = "Register `RPT_CDAC_FC3_5` reader"]
+        pub type R = crate::R<RptCdacFc3_5Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_5` writer"]
+        pub type W = crate::W<RptCdacFc3_5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_5\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_5Spec;
+        impl crate::RegisterSpec for RptCdacFc3_5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_5::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_5::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_5 to value 0"]
+        impl crate::Resettable for RptCdacFc3_5Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_6 (rw) register accessor: rpt_cdac_fc3_6\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_6`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_6")]
+    pub type RptCdacFc3_6 = crate::Reg<rpt_cdac_fc3_6::RptCdacFc3_6Spec>;
+    #[doc = "rpt_cdac_fc3_6"]
+    pub mod rpt_cdac_fc3_6 {
+        #[doc = "Register `RPT_CDAC_FC3_6` reader"]
+        pub type R = crate::R<RptCdacFc3_6Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_6` writer"]
+        pub type W = crate::W<RptCdacFc3_6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_6\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_6Spec;
+        impl crate::RegisterSpec for RptCdacFc3_6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_6::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_6::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_6 to value 0"]
+        impl crate::Resettable for RptCdacFc3_6Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_7 (rw) register accessor: rpt_cdac_fc3_7\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_7`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_7")]
+    pub type RptCdacFc3_7 = crate::Reg<rpt_cdac_fc3_7::RptCdacFc3_7Spec>;
+    #[doc = "rpt_cdac_fc3_7"]
+    pub mod rpt_cdac_fc3_7 {
+        #[doc = "Register `RPT_CDAC_FC3_7` reader"]
+        pub type R = crate::R<RptCdacFc3_7Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_7` writer"]
+        pub type W = crate::W<RptCdacFc3_7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_7\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_7Spec;
+        impl crate::RegisterSpec for RptCdacFc3_7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_7::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_7::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_7 to value 0"]
+        impl crate::Resettable for RptCdacFc3_7Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_8 (rw) register accessor: rpt_cdac_fc3_8\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_8`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_8")]
+    pub type RptCdacFc3_8 = crate::Reg<rpt_cdac_fc3_8::RptCdacFc3_8Spec>;
+    #[doc = "rpt_cdac_fc3_8"]
+    pub mod rpt_cdac_fc3_8 {
+        #[doc = "Register `RPT_CDAC_FC3_8` reader"]
+        pub type R = crate::R<RptCdacFc3_8Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_8` writer"]
+        pub type W = crate::W<RptCdacFc3_8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_8\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_8Spec;
+        impl crate::RegisterSpec for RptCdacFc3_8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_8::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_8::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_8 to value 0"]
+        impl crate::Resettable for RptCdacFc3_8Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_9 (rw) register accessor: rpt_cdac_fc3_9\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_9::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_9::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_9`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_9")]
+    pub type RptCdacFc3_9 = crate::Reg<rpt_cdac_fc3_9::RptCdacFc3_9Spec>;
+    #[doc = "rpt_cdac_fc3_9"]
+    pub mod rpt_cdac_fc3_9 {
+        #[doc = "Register `RPT_CDAC_FC3_9` reader"]
+        pub type R = crate::R<RptCdacFc3_9Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_9` writer"]
+        pub type W = crate::W<RptCdacFc3_9Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_9\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_9::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_9::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_9Spec;
+        impl crate::RegisterSpec for RptCdacFc3_9Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_9::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_9Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_9::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_9Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_9 to value 0"]
+        impl crate::Resettable for RptCdacFc3_9Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_10 (rw) register accessor: rpt_cdac_fc3_10\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_10::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_10::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_10`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_10")]
+    pub type RptCdacFc3_10 = crate::Reg<rpt_cdac_fc3_10::RptCdacFc3_10Spec>;
+    #[doc = "rpt_cdac_fc3_10"]
+    pub mod rpt_cdac_fc3_10 {
+        #[doc = "Register `RPT_CDAC_FC3_10` reader"]
+        pub type R = crate::R<RptCdacFc3_10Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_10` writer"]
+        pub type W = crate::W<RptCdacFc3_10Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_10\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_10::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_10::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_10Spec;
+        impl crate::RegisterSpec for RptCdacFc3_10Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_10::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_10Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_10::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_10Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_10 to value 0"]
+        impl crate::Resettable for RptCdacFc3_10Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_11 (rw) register accessor: rpt_cdac_fc3_11\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_11::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_11::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_11`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_11")]
+    pub type RptCdacFc3_11 = crate::Reg<rpt_cdac_fc3_11::RptCdacFc3_11Spec>;
+    #[doc = "rpt_cdac_fc3_11"]
+    pub mod rpt_cdac_fc3_11 {
+        #[doc = "Register `RPT_CDAC_FC3_11` reader"]
+        pub type R = crate::R<RptCdacFc3_11Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_11` writer"]
+        pub type W = crate::W<RptCdacFc3_11Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_11\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_11::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_11::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_11Spec;
+        impl crate::RegisterSpec for RptCdacFc3_11Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_11::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_11Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_11::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_11Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_11 to value 0"]
+        impl crate::Resettable for RptCdacFc3_11Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_12 (rw) register accessor: rpt_cdac_fc3_12\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_12::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_12::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_12`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_12")]
+    pub type RptCdacFc3_12 = crate::Reg<rpt_cdac_fc3_12::RptCdacFc3_12Spec>;
+    #[doc = "rpt_cdac_fc3_12"]
+    pub mod rpt_cdac_fc3_12 {
+        #[doc = "Register `RPT_CDAC_FC3_12` reader"]
+        pub type R = crate::R<RptCdacFc3_12Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_12` writer"]
+        pub type W = crate::W<RptCdacFc3_12Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_12\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_12::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_12::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_12Spec;
+        impl crate::RegisterSpec for RptCdacFc3_12Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_12::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_12Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_12::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_12Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_12 to value 0"]
+        impl crate::Resettable for RptCdacFc3_12Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_13 (rw) register accessor: rpt_cdac_fc3_13\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_13::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_13::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_13`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_13")]
+    pub type RptCdacFc3_13 = crate::Reg<rpt_cdac_fc3_13::RptCdacFc3_13Spec>;
+    #[doc = "rpt_cdac_fc3_13"]
+    pub mod rpt_cdac_fc3_13 {
+        #[doc = "Register `RPT_CDAC_FC3_13` reader"]
+        pub type R = crate::R<RptCdacFc3_13Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_13` writer"]
+        pub type W = crate::W<RptCdacFc3_13Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_13\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_13::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_13::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_13Spec;
+        impl crate::RegisterSpec for RptCdacFc3_13Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_13::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_13Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_13::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_13Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_13 to value 0"]
+        impl crate::Resettable for RptCdacFc3_13Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_14 (rw) register accessor: rpt_cdac_fc3_14\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_14::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_14::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_14`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_14")]
+    pub type RptCdacFc3_14 = crate::Reg<rpt_cdac_fc3_14::RptCdacFc3_14Spec>;
+    #[doc = "rpt_cdac_fc3_14"]
+    pub mod rpt_cdac_fc3_14 {
+        #[doc = "Register `RPT_CDAC_FC3_14` reader"]
+        pub type R = crate::R<RptCdacFc3_14Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_14` writer"]
+        pub type W = crate::W<RptCdacFc3_14Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_14\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_14::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_14::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_14Spec;
+        impl crate::RegisterSpec for RptCdacFc3_14Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_14::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_14Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_14::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_14Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_14 to value 0"]
+        impl crate::Resettable for RptCdacFc3_14Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_15 (rw) register accessor: rpt_cdac_fc3_15\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_15::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_15::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_15`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_15")]
+    pub type RptCdacFc3_15 = crate::Reg<rpt_cdac_fc3_15::RptCdacFc3_15Spec>;
+    #[doc = "rpt_cdac_fc3_15"]
+    pub mod rpt_cdac_fc3_15 {
+        #[doc = "Register `RPT_CDAC_FC3_15` reader"]
+        pub type R = crate::R<RptCdacFc3_15Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_15` writer"]
+        pub type W = crate::W<RptCdacFc3_15Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_15\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_15::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_15::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_15Spec;
+        impl crate::RegisterSpec for RptCdacFc3_15Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_15::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_15Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_15::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_15Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_15 to value 0"]
+        impl crate::Resettable for RptCdacFc3_15Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_16 (rw) register accessor: rpt_cdac_fc3_16\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_16::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_16::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_16`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_16")]
+    pub type RptCdacFc3_16 = crate::Reg<rpt_cdac_fc3_16::RptCdacFc3_16Spec>;
+    #[doc = "rpt_cdac_fc3_16"]
+    pub mod rpt_cdac_fc3_16 {
+        #[doc = "Register `RPT_CDAC_FC3_16` reader"]
+        pub type R = crate::R<RptCdacFc3_16Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_16` writer"]
+        pub type W = crate::W<RptCdacFc3_16Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_16\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_16::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_16::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_16Spec;
+        impl crate::RegisterSpec for RptCdacFc3_16Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_16::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_16Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_16::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_16Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_16 to value 0"]
+        impl crate::Resettable for RptCdacFc3_16Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_17 (rw) register accessor: rpt_cdac_fc3_17\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_17::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_17::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_17`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_17")]
+    pub type RptCdacFc3_17 = crate::Reg<rpt_cdac_fc3_17::RptCdacFc3_17Spec>;
+    #[doc = "rpt_cdac_fc3_17"]
+    pub mod rpt_cdac_fc3_17 {
+        #[doc = "Register `RPT_CDAC_FC3_17` reader"]
+        pub type R = crate::R<RptCdacFc3_17Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_17` writer"]
+        pub type W = crate::W<RptCdacFc3_17Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_17\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_17::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_17::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_17Spec;
+        impl crate::RegisterSpec for RptCdacFc3_17Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_17::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_17Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_17::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_17Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_17 to value 0"]
+        impl crate::Resettable for RptCdacFc3_17Spec {}
+    }
+    #[doc = "RPT_CDAC_FC3_18 (rw) register accessor: rpt_cdac_fc3_18\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_18::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_18::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cdac_fc3_18`] module"]
+    #[doc(alias = "RPT_CDAC_FC3_18")]
+    pub type RptCdacFc3_18 = crate::Reg<rpt_cdac_fc3_18::RptCdacFc3_18Spec>;
+    #[doc = "rpt_cdac_fc3_18"]
+    pub mod rpt_cdac_fc3_18 {
+        #[doc = "Register `RPT_CDAC_FC3_18` reader"]
+        pub type R = crate::R<RptCdacFc3_18Spec>;
+        #[doc = "Register `RPT_CDAC_FC3_18` writer"]
+        pub type W = crate::W<RptCdacFc3_18Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cdac_fc3_18\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cdac_fc3_18::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cdac_fc3_18::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCdacFc3_18Spec;
+        impl crate::RegisterSpec for RptCdacFc3_18Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cdac_fc3_18::R`](R) reader structure"]
+        impl crate::Readable for RptCdacFc3_18Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cdac_fc3_18::W`](W) writer structure"]
+        impl crate::Writable for RptCdacFc3_18Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CDAC_FC3_18 to value 0"]
+        impl crate::Resettable for RptCdacFc3_18Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_0 (rw) register accessor: cfg_dcoc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_0`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_0")]
+    pub type CfgDcocCal0 = crate::Reg<cfg_dcoc_cal_0::CfgDcocCal0Spec>;
+    #[doc = "cfg_dcoc_cal_0"]
+    pub mod cfg_dcoc_cal_0 {
+        #[doc = "Register `CFG_DCOC_CAL_0` reader"]
+        pub type R = crate::R<CfgDcocCal0Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_0` writer"]
+        pub type W = crate::W<CfgDcocCal0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal0Spec;
+        impl crate::RegisterSpec for CfgDcocCal0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_0::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_0::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_0 to value 0"]
+        impl crate::Resettable for CfgDcocCal0Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_1 (rw) register accessor: cfg_dcoc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_1`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_1")]
+    pub type CfgDcocCal1 = crate::Reg<cfg_dcoc_cal_1::CfgDcocCal1Spec>;
+    #[doc = "cfg_dcoc_cal_1"]
+    pub mod cfg_dcoc_cal_1 {
+        #[doc = "Register `CFG_DCOC_CAL_1` reader"]
+        pub type R = crate::R<CfgDcocCal1Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_1` writer"]
+        pub type W = crate::W<CfgDcocCal1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal1Spec;
+        impl crate::RegisterSpec for CfgDcocCal1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_1::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_1::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_1 to value 0"]
+        impl crate::Resettable for CfgDcocCal1Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_2 (rw) register accessor: cfg_dcoc_cal_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_2`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_2")]
+    pub type CfgDcocCal2 = crate::Reg<cfg_dcoc_cal_2::CfgDcocCal2Spec>;
+    #[doc = "cfg_dcoc_cal_2"]
+    pub mod cfg_dcoc_cal_2 {
+        #[doc = "Register `CFG_DCOC_CAL_2` reader"]
+        pub type R = crate::R<CfgDcocCal2Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_2` writer"]
+        pub type W = crate::W<CfgDcocCal2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal2Spec;
+        impl crate::RegisterSpec for CfgDcocCal2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_2::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_2::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_2 to value 0"]
+        impl crate::Resettable for CfgDcocCal2Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_3 (rw) register accessor: cfg_dcoc_cal_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_3`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_3")]
+    pub type CfgDcocCal3 = crate::Reg<cfg_dcoc_cal_3::CfgDcocCal3Spec>;
+    #[doc = "cfg_dcoc_cal_3"]
+    pub mod cfg_dcoc_cal_3 {
+        #[doc = "Register `CFG_DCOC_CAL_3` reader"]
+        pub type R = crate::R<CfgDcocCal3Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_3` writer"]
+        pub type W = crate::W<CfgDcocCal3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal3Spec;
+        impl crate::RegisterSpec for CfgDcocCal3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_3::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_3::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_3 to value 0"]
+        impl crate::Resettable for CfgDcocCal3Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_4 (rw) register accessor: cfg_dcoc_cal_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_4`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_4")]
+    pub type CfgDcocCal4 = crate::Reg<cfg_dcoc_cal_4::CfgDcocCal4Spec>;
+    #[doc = "cfg_dcoc_cal_4"]
+    pub mod cfg_dcoc_cal_4 {
+        #[doc = "Register `CFG_DCOC_CAL_4` reader"]
+        pub type R = crate::R<CfgDcocCal4Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_4` writer"]
+        pub type W = crate::W<CfgDcocCal4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal4Spec;
+        impl crate::RegisterSpec for CfgDcocCal4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_4::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_4::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_4 to value 0"]
+        impl crate::Resettable for CfgDcocCal4Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_5 (rw) register accessor: cfg_dcoc_cal_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_5`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_5")]
+    pub type CfgDcocCal5 = crate::Reg<cfg_dcoc_cal_5::CfgDcocCal5Spec>;
+    #[doc = "cfg_dcoc_cal_5"]
+    pub mod cfg_dcoc_cal_5 {
+        #[doc = "Register `CFG_DCOC_CAL_5` reader"]
+        pub type R = crate::R<CfgDcocCal5Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_5` writer"]
+        pub type W = crate::W<CfgDcocCal5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal5Spec;
+        impl crate::RegisterSpec for CfgDcocCal5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_5::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_5::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_5 to value 0"]
+        impl crate::Resettable for CfgDcocCal5Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_6 (rw) register accessor: cfg_dcoc_cal_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_6`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_6")]
+    pub type CfgDcocCal6 = crate::Reg<cfg_dcoc_cal_6::CfgDcocCal6Spec>;
+    #[doc = "cfg_dcoc_cal_6"]
+    pub mod cfg_dcoc_cal_6 {
+        #[doc = "Register `CFG_DCOC_CAL_6` reader"]
+        pub type R = crate::R<CfgDcocCal6Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_6` writer"]
+        pub type W = crate::W<CfgDcocCal6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal6Spec;
+        impl crate::RegisterSpec for CfgDcocCal6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_6::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_6::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_6 to value 0"]
+        impl crate::Resettable for CfgDcocCal6Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_7 (rw) register accessor: cfg_dcoc_cal_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_7`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_7")]
+    pub type CfgDcocCal7 = crate::Reg<cfg_dcoc_cal_7::CfgDcocCal7Spec>;
+    #[doc = "cfg_dcoc_cal_7"]
+    pub mod cfg_dcoc_cal_7 {
+        #[doc = "Register `CFG_DCOC_CAL_7` reader"]
+        pub type R = crate::R<CfgDcocCal7Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_7` writer"]
+        pub type W = crate::W<CfgDcocCal7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal7Spec;
+        impl crate::RegisterSpec for CfgDcocCal7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_7::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_7::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_7 to value 0"]
+        impl crate::Resettable for CfgDcocCal7Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_8 (rw) register accessor: cfg_dcoc_cal_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_8`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_8")]
+    pub type CfgDcocCal8 = crate::Reg<cfg_dcoc_cal_8::CfgDcocCal8Spec>;
+    #[doc = "cfg_dcoc_cal_8"]
+    pub mod cfg_dcoc_cal_8 {
+        #[doc = "Register `CFG_DCOC_CAL_8` reader"]
+        pub type R = crate::R<CfgDcocCal8Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_8` writer"]
+        pub type W = crate::W<CfgDcocCal8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal8Spec;
+        impl crate::RegisterSpec for CfgDcocCal8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_8::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_8::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_8 to value 0"]
+        impl crate::Resettable for CfgDcocCal8Spec {}
+    }
+    #[doc = "RPT_DCOC_CAL_0 (rw) register accessor: rpt_dcoc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_dcoc_cal_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_dcoc_cal_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_dcoc_cal_0`] module"]
+    #[doc(alias = "RPT_DCOC_CAL_0")]
+    pub type RptDcocCal0 = crate::Reg<rpt_dcoc_cal_0::RptDcocCal0Spec>;
+    #[doc = "rpt_dcoc_cal_0"]
+    pub mod rpt_dcoc_cal_0 {
+        #[doc = "Register `RPT_DCOC_CAL_0` reader"]
+        pub type R = crate::R<RptDcocCal0Spec>;
+        #[doc = "Register `RPT_DCOC_CAL_0` writer"]
+        pub type W = crate::W<RptDcocCal0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_dcoc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_dcoc_cal_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_dcoc_cal_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptDcocCal0Spec;
+        impl crate::RegisterSpec for RptDcocCal0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_dcoc_cal_0::R`](R) reader structure"]
+        impl crate::Readable for RptDcocCal0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_dcoc_cal_0::W`](W) writer structure"]
+        impl crate::Writable for RptDcocCal0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_DCOC_CAL_0 to value 0"]
+        impl crate::Resettable for RptDcocCal0Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_12 (rw) register accessor: cfg_dcoc_cal_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_12::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_12::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_12`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_12")]
+    pub type CfgDcocCal12 = crate::Reg<cfg_dcoc_cal_12::CfgDcocCal12Spec>;
+    #[doc = "cfg_dcoc_cal_12"]
+    pub mod cfg_dcoc_cal_12 {
+        #[doc = "Register `CFG_DCOC_CAL_12` reader"]
+        pub type R = crate::R<CfgDcocCal12Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_12` writer"]
+        pub type W = crate::W<CfgDcocCal12Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_dcoc_cal_12\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_12::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_12::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal12Spec;
+        impl crate::RegisterSpec for CfgDcocCal12Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_12::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal12Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_12::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal12Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_12 to value 0"]
+        impl crate::Resettable for CfgDcocCal12Spec {}
+    }
+    #[doc = "CFG_DCOC_CAL_13 (rw) register accessor: cfg_dcoc_cal_13\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_13::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_13::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_dcoc_cal_13`] module"]
+    #[doc(alias = "CFG_DCOC_CAL_13")]
+    pub type CfgDcocCal13 = crate::Reg<cfg_dcoc_cal_13::CfgDcocCal13Spec>;
+    #[doc = "cfg_dcoc_cal_13"]
+    pub mod cfg_dcoc_cal_13 {
+        #[doc = "Register `CFG_DCOC_CAL_13` reader"]
+        pub type R = crate::R<CfgDcocCal13Spec>;
+        #[doc = "Register `CFG_DCOC_CAL_13` writer"]
+        pub type W = crate::W<CfgDcocCal13Spec>;
+        #[doc = "Field `cfg_manual_preamp_os_code` reader - "]
+        pub type CfgManualPreampOsCodeR = crate::FieldReader;
+        #[doc = "Field `cfg_manual_preamp_os_code` writer - "]
+        pub type CfgManualPreampOsCodeW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+        #[doc = "Field `cfg_manual_preamp_os_update` reader - "]
+        pub type CfgManualPreampOsUpdateR = crate::BitReader;
+        #[doc = "Field `cfg_manual_preamp_os_update` writer - "]
+        pub type CfgManualPreampOsUpdateW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn cfg_manual_preamp_os_code(&self) -> CfgManualPreampOsCodeR {
+                CfgManualPreampOsCodeR::new((self.bits & 0x3f) as u8)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_manual_preamp_os_update(&self) -> CfgManualPreampOsUpdateR {
+                CfgManualPreampOsUpdateR::new(((self.bits >> 8) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn cfg_manual_preamp_os_code(
+                &mut self,
+            ) -> CfgManualPreampOsCodeW<'_, CfgDcocCal13Spec> {
+                CfgManualPreampOsCodeW::new(self, 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cfg_manual_preamp_os_update(
+                &mut self,
+            ) -> CfgManualPreampOsUpdateW<'_, CfgDcocCal13Spec> {
+                CfgManualPreampOsUpdateW::new(self, 8)
+            }
+        }
+        #[doc = "cfg_dcoc_cal_13\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_dcoc_cal_13::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_dcoc_cal_13::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgDcocCal13Spec;
+        impl crate::RegisterSpec for CfgDcocCal13Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_dcoc_cal_13::R`](R) reader structure"]
+        impl crate::Readable for CfgDcocCal13Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_dcoc_cal_13::W`](W) writer structure"]
+        impl crate::Writable for CfgDcocCal13Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_DCOC_CAL_13 to value 0"]
+        impl crate::Resettable for CfgDcocCal13Spec {}
+    }
+    #[doc = "RPT_DCOC_CAL_1 (rw) register accessor: rpt_dcoc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_dcoc_cal_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_dcoc_cal_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_dcoc_cal_1`] module"]
+    #[doc(alias = "RPT_DCOC_CAL_1")]
+    pub type RptDcocCal1 = crate::Reg<rpt_dcoc_cal_1::RptDcocCal1Spec>;
+    #[doc = "rpt_dcoc_cal_1"]
+    pub mod rpt_dcoc_cal_1 {
+        #[doc = "Register `RPT_DCOC_CAL_1` reader"]
+        pub type R = crate::R<RptDcocCal1Spec>;
+        #[doc = "Register `RPT_DCOC_CAL_1` writer"]
+        pub type W = crate::W<RptDcocCal1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_dcoc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_dcoc_cal_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_dcoc_cal_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptDcocCal1Spec;
+        impl crate::RegisterSpec for RptDcocCal1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_dcoc_cal_1::R`](R) reader structure"]
+        impl crate::Readable for RptDcocCal1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_dcoc_cal_1::W`](W) writer structure"]
+        impl crate::Writable for RptDcocCal1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_DCOC_CAL_1 to value 0"]
+        impl crate::Resettable for RptDcocCal1Spec {}
+    }
+    #[doc = "CFG_SAR_SPD_0 (rw) register accessor: cfg_sar_spd_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_sar_spd_0`] module"]
+    #[doc(alias = "CFG_SAR_SPD_0")]
+    pub type CfgSarSpd0 = crate::Reg<cfg_sar_spd_0::CfgSarSpd0Spec>;
+    #[doc = "cfg_sar_spd_0"]
+    pub mod cfg_sar_spd_0 {
+        #[doc = "Register `CFG_SAR_SPD_0` reader"]
+        pub type R = crate::R<CfgSarSpd0Spec>;
+        #[doc = "Register `CFG_SAR_SPD_0` writer"]
+        pub type W = crate::W<CfgSarSpd0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_sar_spd_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgSarSpd0Spec;
+        impl crate::RegisterSpec for CfgSarSpd0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_sar_spd_0::R`](R) reader structure"]
+        impl crate::Readable for CfgSarSpd0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_sar_spd_0::W`](W) writer structure"]
+        impl crate::Writable for CfgSarSpd0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_SAR_SPD_0 to value 0"]
+        impl crate::Resettable for CfgSarSpd0Spec {}
+    }
+    #[doc = "CFG_SAR_SPD_1 (rw) register accessor: cfg_sar_spd_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_sar_spd_1`] module"]
+    #[doc(alias = "CFG_SAR_SPD_1")]
+    pub type CfgSarSpd1 = crate::Reg<cfg_sar_spd_1::CfgSarSpd1Spec>;
+    #[doc = "cfg_sar_spd_1"]
+    pub mod cfg_sar_spd_1 {
+        #[doc = "Register `CFG_SAR_SPD_1` reader"]
+        pub type R = crate::R<CfgSarSpd1Spec>;
+        #[doc = "Register `CFG_SAR_SPD_1` writer"]
+        pub type W = crate::W<CfgSarSpd1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_sar_spd_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgSarSpd1Spec;
+        impl crate::RegisterSpec for CfgSarSpd1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_sar_spd_1::R`](R) reader structure"]
+        impl crate::Readable for CfgSarSpd1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_sar_spd_1::W`](W) writer structure"]
+        impl crate::Writable for CfgSarSpd1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_SAR_SPD_1 to value 0"]
+        impl crate::Resettable for CfgSarSpd1Spec {}
+    }
+    #[doc = "CFG_SAR_SPD_2 (rw) register accessor: cfg_sar_spd_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_sar_spd_2`] module"]
+    #[doc(alias = "CFG_SAR_SPD_2")]
+    pub type CfgSarSpd2 = crate::Reg<cfg_sar_spd_2::CfgSarSpd2Spec>;
+    #[doc = "cfg_sar_spd_2"]
+    pub mod cfg_sar_spd_2 {
+        #[doc = "Register `CFG_SAR_SPD_2` reader"]
+        pub type R = crate::R<CfgSarSpd2Spec>;
+        #[doc = "Register `CFG_SAR_SPD_2` writer"]
+        pub type W = crate::W<CfgSarSpd2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_sar_spd_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgSarSpd2Spec;
+        impl crate::RegisterSpec for CfgSarSpd2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_sar_spd_2::R`](R) reader structure"]
+        impl crate::Readable for CfgSarSpd2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_sar_spd_2::W`](W) writer structure"]
+        impl crate::Writable for CfgSarSpd2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_SAR_SPD_2 to value 0"]
+        impl crate::Resettable for CfgSarSpd2Spec {}
+    }
+    #[doc = "CFG_SAR_SPD_3 (rw) register accessor: cfg_sar_spd_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_sar_spd_3`] module"]
+    #[doc(alias = "CFG_SAR_SPD_3")]
+    pub type CfgSarSpd3 = crate::Reg<cfg_sar_spd_3::CfgSarSpd3Spec>;
+    #[doc = "cfg_sar_spd_3"]
+    pub mod cfg_sar_spd_3 {
+        #[doc = "Register `CFG_SAR_SPD_3` reader"]
+        pub type R = crate::R<CfgSarSpd3Spec>;
+        #[doc = "Register `CFG_SAR_SPD_3` writer"]
+        pub type W = crate::W<CfgSarSpd3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_sar_spd_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgSarSpd3Spec;
+        impl crate::RegisterSpec for CfgSarSpd3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_sar_spd_3::R`](R) reader structure"]
+        impl crate::Readable for CfgSarSpd3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_sar_spd_3::W`](W) writer structure"]
+        impl crate::Writable for CfgSarSpd3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_SAR_SPD_3 to value 0"]
+        impl crate::Resettable for CfgSarSpd3Spec {}
+    }
+    #[doc = "CFG_SAR_SPD_4 (rw) register accessor: cfg_sar_spd_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_sar_spd_4`] module"]
+    #[doc(alias = "CFG_SAR_SPD_4")]
+    pub type CfgSarSpd4 = crate::Reg<cfg_sar_spd_4::CfgSarSpd4Spec>;
+    #[doc = "cfg_sar_spd_4"]
+    pub mod cfg_sar_spd_4 {
+        #[doc = "Register `CFG_SAR_SPD_4` reader"]
+        pub type R = crate::R<CfgSarSpd4Spec>;
+        #[doc = "Register `CFG_SAR_SPD_4` writer"]
+        pub type W = crate::W<CfgSarSpd4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_sar_spd_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgSarSpd4Spec;
+        impl crate::RegisterSpec for CfgSarSpd4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_sar_spd_4::R`](R) reader structure"]
+        impl crate::Readable for CfgSarSpd4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_sar_spd_4::W`](W) writer structure"]
+        impl crate::Writable for CfgSarSpd4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_SAR_SPD_4 to value 0"]
+        impl crate::Resettable for CfgSarSpd4Spec {}
+    }
+    #[doc = "RPT_SAR_SPD_0 (rw) register accessor: rpt_sar_spd_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_sar_spd_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_sar_spd_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_sar_spd_0`] module"]
+    #[doc(alias = "RPT_SAR_SPD_0")]
+    pub type RptSarSpd0 = crate::Reg<rpt_sar_spd_0::RptSarSpd0Spec>;
+    #[doc = "rpt_sar_spd_0"]
+    pub mod rpt_sar_spd_0 {
+        #[doc = "Register `RPT_SAR_SPD_0` reader"]
+        pub type R = crate::R<RptSarSpd0Spec>;
+        #[doc = "Register `RPT_SAR_SPD_0` writer"]
+        pub type W = crate::W<RptSarSpd0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_sar_spd_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_sar_spd_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_sar_spd_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptSarSpd0Spec;
+        impl crate::RegisterSpec for RptSarSpd0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_sar_spd_0::R`](R) reader structure"]
+        impl crate::Readable for RptSarSpd0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_sar_spd_0::W`](W) writer structure"]
+        impl crate::Writable for RptSarSpd0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_SAR_SPD_0 to value 0"]
+        impl crate::Resettable for RptSarSpd0Spec {}
+    }
+    #[doc = "RPT_SAR_SPD_1 (rw) register accessor: rpt_sar_spd_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_sar_spd_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_sar_spd_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_sar_spd_1`] module"]
+    #[doc(alias = "RPT_SAR_SPD_1")]
+    pub type RptSarSpd1 = crate::Reg<rpt_sar_spd_1::RptSarSpd1Spec>;
+    #[doc = "rpt_sar_spd_1"]
+    pub mod rpt_sar_spd_1 {
+        #[doc = "Register `RPT_SAR_SPD_1` reader"]
+        pub type R = crate::R<RptSarSpd1Spec>;
+        #[doc = "Register `RPT_SAR_SPD_1` writer"]
+        pub type W = crate::W<RptSarSpd1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_sar_spd_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_sar_spd_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_sar_spd_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptSarSpd1Spec;
+        impl crate::RegisterSpec for RptSarSpd1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_sar_spd_1::R`](R) reader structure"]
+        impl crate::Readable for RptSarSpd1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_sar_spd_1::W`](W) writer structure"]
+        impl crate::Writable for RptSarSpd1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_SAR_SPD_1 to value 0"]
+        impl crate::Resettable for RptSarSpd1Spec {}
+    }
+    #[doc = "CFG_SAR_SPD_6 (rw) register accessor: cfg_sar_spd_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_sar_spd_6`] module"]
+    #[doc(alias = "CFG_SAR_SPD_6")]
+    pub type CfgSarSpd6 = crate::Reg<cfg_sar_spd_6::CfgSarSpd6Spec>;
+    #[doc = "cfg_sar_spd_6"]
+    pub mod cfg_sar_spd_6 {
+        #[doc = "Register `CFG_SAR_SPD_6` reader"]
+        pub type R = crate::R<CfgSarSpd6Spec>;
+        #[doc = "Register `CFG_SAR_SPD_6` writer"]
+        pub type W = crate::W<CfgSarSpd6Spec>;
+        #[doc = "Field `cfg_manual_sar_spd_dly_code` reader - "]
+        pub type CfgManualSarSpdDlyCodeR = crate::FieldReader;
+        #[doc = "Field `cfg_manual_sar_spd_dly_code` writer - "]
+        pub type CfgManualSarSpdDlyCodeW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `cfg_manual_sar_spd_update` reader - "]
+        pub type CfgManualSarSpdUpdateR = crate::BitReader;
+        #[doc = "Field `cfg_manual_sar_spd_update` writer - "]
+        pub type CfgManualSarSpdUpdateW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn cfg_manual_sar_spd_dly_code(&self) -> CfgManualSarSpdDlyCodeR {
+                CfgManualSarSpdDlyCodeR::new((self.bits & 7) as u8)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn cfg_manual_sar_spd_update(&self) -> CfgManualSarSpdUpdateR {
+                CfgManualSarSpdUpdateR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn cfg_manual_sar_spd_dly_code(
+                &mut self,
+            ) -> CfgManualSarSpdDlyCodeW<'_, CfgSarSpd6Spec> {
+                CfgManualSarSpdDlyCodeW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn cfg_manual_sar_spd_update(
+                &mut self,
+            ) -> CfgManualSarSpdUpdateW<'_, CfgSarSpd6Spec> {
+                CfgManualSarSpdUpdateW::new(self, 4)
+            }
+        }
+        #[doc = "cfg_sar_spd_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_sar_spd_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_sar_spd_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgSarSpd6Spec;
+        impl crate::RegisterSpec for CfgSarSpd6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_sar_spd_6::R`](R) reader structure"]
+        impl crate::Readable for CfgSarSpd6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_sar_spd_6::W`](W) writer structure"]
+        impl crate::Writable for CfgSarSpd6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_SAR_SPD_6 to value 0"]
+        impl crate::Resettable for CfgSarSpd6Spec {}
+    }
+    #[doc = "RPT_SAR_SPD_2 (rw) register accessor: rpt_sar_spd_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_sar_spd_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_sar_spd_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_sar_spd_2`] module"]
+    #[doc(alias = "RPT_SAR_SPD_2")]
+    pub type RptSarSpd2 = crate::Reg<rpt_sar_spd_2::RptSarSpd2Spec>;
+    #[doc = "rpt_sar_spd_2"]
+    pub mod rpt_sar_spd_2 {
+        #[doc = "Register `RPT_SAR_SPD_2` reader"]
+        pub type R = crate::R<RptSarSpd2Spec>;
+        #[doc = "Register `RPT_SAR_SPD_2` writer"]
+        pub type W = crate::W<RptSarSpd2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_sar_spd_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_sar_spd_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_sar_spd_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptSarSpd2Spec;
+        impl crate::RegisterSpec for RptSarSpd2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_sar_spd_2::R`](R) reader structure"]
+        impl crate::Readable for RptSarSpd2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_sar_spd_2::W`](W) writer structure"]
+        impl crate::Writable for RptSarSpd2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_SAR_SPD_2 to value 0"]
+        impl crate::Resettable for RptSarSpd2Spec {}
+    }
+    #[doc = "CFG_RC_CAL_0 (rw) register accessor: cfg_rc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_0`] module"]
+    #[doc(alias = "CFG_RC_CAL_0")]
+    pub type CfgRcCal0 = crate::Reg<cfg_rc_cal_0::CfgRcCal0Spec>;
+    #[doc = "cfg_rc_cal_0"]
+    pub mod cfg_rc_cal_0 {
+        #[doc = "Register `CFG_RC_CAL_0` reader"]
+        pub type R = crate::R<CfgRcCal0Spec>;
+        #[doc = "Register `CFG_RC_CAL_0` writer"]
+        pub type W = crate::W<CfgRcCal0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal0Spec;
+        impl crate::RegisterSpec for CfgRcCal0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_0::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_0::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_0 to value 0"]
+        impl crate::Resettable for CfgRcCal0Spec {}
+    }
+    #[doc = "CFG_RC_CAL_1 (rw) register accessor: cfg_rc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_1`] module"]
+    #[doc(alias = "CFG_RC_CAL_1")]
+    pub type CfgRcCal1 = crate::Reg<cfg_rc_cal_1::CfgRcCal1Spec>;
+    #[doc = "cfg_rc_cal_1"]
+    pub mod cfg_rc_cal_1 {
+        #[doc = "Register `CFG_RC_CAL_1` reader"]
+        pub type R = crate::R<CfgRcCal1Spec>;
+        #[doc = "Register `CFG_RC_CAL_1` writer"]
+        pub type W = crate::W<CfgRcCal1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal1Spec;
+        impl crate::RegisterSpec for CfgRcCal1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_1::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_1::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_1 to value 0"]
+        impl crate::Resettable for CfgRcCal1Spec {}
+    }
+    #[doc = "CFG_RC_CAL_2 (rw) register accessor: cfg_rc_cal_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_2`] module"]
+    #[doc(alias = "CFG_RC_CAL_2")]
+    pub type CfgRcCal2 = crate::Reg<cfg_rc_cal_2::CfgRcCal2Spec>;
+    #[doc = "cfg_rc_cal_2"]
+    pub mod cfg_rc_cal_2 {
+        #[doc = "Register `CFG_RC_CAL_2` reader"]
+        pub type R = crate::R<CfgRcCal2Spec>;
+        #[doc = "Register `CFG_RC_CAL_2` writer"]
+        pub type W = crate::W<CfgRcCal2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal2Spec;
+        impl crate::RegisterSpec for CfgRcCal2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_2::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_2::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_2 to value 0"]
+        impl crate::Resettable for CfgRcCal2Spec {}
+    }
+    #[doc = "CFG_RC_CAL_3 (rw) register accessor: cfg_rc_cal_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_3`] module"]
+    #[doc(alias = "CFG_RC_CAL_3")]
+    pub type CfgRcCal3 = crate::Reg<cfg_rc_cal_3::CfgRcCal3Spec>;
+    #[doc = "cfg_rc_cal_3"]
+    pub mod cfg_rc_cal_3 {
+        #[doc = "Register `CFG_RC_CAL_3` reader"]
+        pub type R = crate::R<CfgRcCal3Spec>;
+        #[doc = "Register `CFG_RC_CAL_3` writer"]
+        pub type W = crate::W<CfgRcCal3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal3Spec;
+        impl crate::RegisterSpec for CfgRcCal3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_3::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_3::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_3 to value 0"]
+        impl crate::Resettable for CfgRcCal3Spec {}
+    }
+    #[doc = "CFG_RC_CAL_4 (rw) register accessor: cfg_rc_cal_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_4`] module"]
+    #[doc(alias = "CFG_RC_CAL_4")]
+    pub type CfgRcCal4 = crate::Reg<cfg_rc_cal_4::CfgRcCal4Spec>;
+    #[doc = "cfg_rc_cal_4"]
+    pub mod cfg_rc_cal_4 {
+        #[doc = "Register `CFG_RC_CAL_4` reader"]
+        pub type R = crate::R<CfgRcCal4Spec>;
+        #[doc = "Register `CFG_RC_CAL_4` writer"]
+        pub type W = crate::W<CfgRcCal4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal4Spec;
+        impl crate::RegisterSpec for CfgRcCal4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_4::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_4::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_4 to value 0"]
+        impl crate::Resettable for CfgRcCal4Spec {}
+    }
+    #[doc = "RPT_RC_CAL_0 (rw) register accessor: rpt_rc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_rc_cal_0`] module"]
+    #[doc(alias = "RPT_RC_CAL_0")]
+    pub type RptRcCal0 = crate::Reg<rpt_rc_cal_0::RptRcCal0Spec>;
+    #[doc = "rpt_rc_cal_0"]
+    pub mod rpt_rc_cal_0 {
+        #[doc = "Register `RPT_RC_CAL_0` reader"]
+        pub type R = crate::R<RptRcCal0Spec>;
+        #[doc = "Register `RPT_RC_CAL_0` writer"]
+        pub type W = crate::W<RptRcCal0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_rc_cal_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptRcCal0Spec;
+        impl crate::RegisterSpec for RptRcCal0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_rc_cal_0::R`](R) reader structure"]
+        impl crate::Readable for RptRcCal0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_rc_cal_0::W`](W) writer structure"]
+        impl crate::Writable for RptRcCal0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_RC_CAL_0 to value 0"]
+        impl crate::Resettable for RptRcCal0Spec {}
+    }
+    #[doc = "RPT_RC_CAL_1 (rw) register accessor: rpt_rc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_rc_cal_1`] module"]
+    #[doc(alias = "RPT_RC_CAL_1")]
+    pub type RptRcCal1 = crate::Reg<rpt_rc_cal_1::RptRcCal1Spec>;
+    #[doc = "rpt_rc_cal_1"]
+    pub mod rpt_rc_cal_1 {
+        #[doc = "Register `RPT_RC_CAL_1` reader"]
+        pub type R = crate::R<RptRcCal1Spec>;
+        #[doc = "Register `RPT_RC_CAL_1` writer"]
+        pub type W = crate::W<RptRcCal1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_rc_cal_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptRcCal1Spec;
+        impl crate::RegisterSpec for RptRcCal1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_rc_cal_1::R`](R) reader structure"]
+        impl crate::Readable for RptRcCal1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_rc_cal_1::W`](W) writer structure"]
+        impl crate::Writable for RptRcCal1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_RC_CAL_1 to value 0"]
+        impl crate::Resettable for RptRcCal1Spec {}
+    }
+    #[doc = "CFG_RC_CAL_5 (rw) register accessor: cfg_rc_cal_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_5`] module"]
+    #[doc(alias = "CFG_RC_CAL_5")]
+    pub type CfgRcCal5 = crate::Reg<cfg_rc_cal_5::CfgRcCal5Spec>;
+    #[doc = "cfg_rc_cal_5"]
+    pub mod cfg_rc_cal_5 {
+        #[doc = "Register `CFG_RC_CAL_5` reader"]
+        pub type R = crate::R<CfgRcCal5Spec>;
+        #[doc = "Register `CFG_RC_CAL_5` writer"]
+        pub type W = crate::W<CfgRcCal5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal5Spec;
+        impl crate::RegisterSpec for CfgRcCal5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_5::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_5::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_5 to value 0"]
+        impl crate::Resettable for CfgRcCal5Spec {}
+    }
+    #[doc = "CFG_RC_CAL_6 (rw) register accessor: cfg_rc_cal_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_6::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_6::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_6`] module"]
+    #[doc(alias = "CFG_RC_CAL_6")]
+    pub type CfgRcCal6 = crate::Reg<cfg_rc_cal_6::CfgRcCal6Spec>;
+    #[doc = "cfg_rc_cal_6"]
+    pub mod cfg_rc_cal_6 {
+        #[doc = "Register `CFG_RC_CAL_6` reader"]
+        pub type R = crate::R<CfgRcCal6Spec>;
+        #[doc = "Register `CFG_RC_CAL_6` writer"]
+        pub type W = crate::W<CfgRcCal6Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_6\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_6::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_6::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal6Spec;
+        impl crate::RegisterSpec for CfgRcCal6Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_6::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal6Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_6::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal6Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_6 to value 0"]
+        impl crate::Resettable for CfgRcCal6Spec {}
+    }
+    #[doc = "CFG_RC_CAL_7 (rw) register accessor: cfg_rc_cal_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_7::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_7::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_7`] module"]
+    #[doc(alias = "CFG_RC_CAL_7")]
+    pub type CfgRcCal7 = crate::Reg<cfg_rc_cal_7::CfgRcCal7Spec>;
+    #[doc = "cfg_rc_cal_7"]
+    pub mod cfg_rc_cal_7 {
+        #[doc = "Register `CFG_RC_CAL_7` reader"]
+        pub type R = crate::R<CfgRcCal7Spec>;
+        #[doc = "Register `CFG_RC_CAL_7` writer"]
+        pub type W = crate::W<CfgRcCal7Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_7\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_7::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_7::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal7Spec;
+        impl crate::RegisterSpec for CfgRcCal7Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_7::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal7Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_7::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal7Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_7 to value 0"]
+        impl crate::Resettable for CfgRcCal7Spec {}
+    }
+    #[doc = "CFG_RC_CAL_8 (rw) register accessor: cfg_rc_cal_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_8::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_8::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_rc_cal_8`] module"]
+    #[doc(alias = "CFG_RC_CAL_8")]
+    pub type CfgRcCal8 = crate::Reg<cfg_rc_cal_8::CfgRcCal8Spec>;
+    #[doc = "cfg_rc_cal_8"]
+    pub mod cfg_rc_cal_8 {
+        #[doc = "Register `CFG_RC_CAL_8` reader"]
+        pub type R = crate::R<CfgRcCal8Spec>;
+        #[doc = "Register `CFG_RC_CAL_8` writer"]
+        pub type W = crate::W<CfgRcCal8Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_rc_cal_8\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_rc_cal_8::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_rc_cal_8::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgRcCal8Spec;
+        impl crate::RegisterSpec for CfgRcCal8Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_rc_cal_8::R`](R) reader structure"]
+        impl crate::Readable for CfgRcCal8Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_rc_cal_8::W`](W) writer structure"]
+        impl crate::Writable for CfgRcCal8Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_RC_CAL_8 to value 0"]
+        impl crate::Resettable for CfgRcCal8Spec {}
+    }
+    #[doc = "RPT_RC_CAL_2 (rw) register accessor: rpt_rc_cal_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_rc_cal_2`] module"]
+    #[doc(alias = "RPT_RC_CAL_2")]
+    pub type RptRcCal2 = crate::Reg<rpt_rc_cal_2::RptRcCal2Spec>;
+    #[doc = "rpt_rc_cal_2"]
+    pub mod rpt_rc_cal_2 {
+        #[doc = "Register `RPT_RC_CAL_2` reader"]
+        pub type R = crate::R<RptRcCal2Spec>;
+        #[doc = "Register `RPT_RC_CAL_2` writer"]
+        pub type W = crate::W<RptRcCal2Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_rc_cal_2\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptRcCal2Spec;
+        impl crate::RegisterSpec for RptRcCal2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_rc_cal_2::R`](R) reader structure"]
+        impl crate::Readable for RptRcCal2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_rc_cal_2::W`](W) writer structure"]
+        impl crate::Writable for RptRcCal2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_RC_CAL_2 to value 0"]
+        impl crate::Resettable for RptRcCal2Spec {}
+    }
+    #[doc = "RPT_RC_CAL_3 (rw) register accessor: rpt_rc_cal_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_rc_cal_3`] module"]
+    #[doc(alias = "RPT_RC_CAL_3")]
+    pub type RptRcCal3 = crate::Reg<rpt_rc_cal_3::RptRcCal3Spec>;
+    #[doc = "rpt_rc_cal_3"]
+    pub mod rpt_rc_cal_3 {
+        #[doc = "Register `RPT_RC_CAL_3` reader"]
+        pub type R = crate::R<RptRcCal3Spec>;
+        #[doc = "Register `RPT_RC_CAL_3` writer"]
+        pub type W = crate::W<RptRcCal3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_rc_cal_3\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_rc_cal_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_rc_cal_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptRcCal3Spec;
+        impl crate::RegisterSpec for RptRcCal3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_rc_cal_3::R`](R) reader structure"]
+        impl crate::Readable for RptRcCal3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_rc_cal_3::W`](W) writer structure"]
+        impl crate::Writable for RptRcCal3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_RC_CAL_3 to value 0"]
+        impl crate::Resettable for RptRcCal3Spec {}
+    }
+    #[doc = "CFG_AMUX_0 (rw) register accessor: cfg_amux_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_amux_0`] module"]
+    #[doc(alias = "CFG_AMUX_0")]
+    pub type CfgAmux0 = crate::Reg<cfg_amux_0::CfgAmux0Spec>;
+    #[doc = "cfg_amux_0"]
+    pub mod cfg_amux_0 {
+        #[doc = "Register `CFG_AMUX_0` reader"]
+        pub type R = crate::R<CfgAmux0Spec>;
+        #[doc = "Register `CFG_AMUX_0` writer"]
+        pub type W = crate::W<CfgAmux0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_amux_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgAmux0Spec;
+        impl crate::RegisterSpec for CfgAmux0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_amux_0::R`](R) reader structure"]
+        impl crate::Readable for CfgAmux0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_amux_0::W`](W) writer structure"]
+        impl crate::Writable for CfgAmux0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_AMUX_0 to value 0"]
+        impl crate::Resettable for CfgAmux0Spec {}
+    }
+    #[doc = "CFG_AMUX_1 (rw) register accessor: cfg_amux_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_amux_1`] module"]
+    #[doc(alias = "CFG_AMUX_1")]
+    pub type CfgAmux1 = crate::Reg<cfg_amux_1::CfgAmux1Spec>;
+    #[doc = "cfg_amux_1"]
+    pub mod cfg_amux_1 {
+        #[doc = "Register `CFG_AMUX_1` reader"]
+        pub type R = crate::R<CfgAmux1Spec>;
+        #[doc = "Register `CFG_AMUX_1` writer"]
+        pub type W = crate::W<CfgAmux1Spec>;
+        #[doc = "Field `amuxn_sensor_ch_sel` reader - "]
+        pub type AmuxnSensorChSelR = crate::FieldReader<u16>;
+        #[doc = "Field `amuxn_sensor_ch_sel` writer - "]
+        pub type AmuxnSensorChSelW<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
+        #[doc = "Field `amuxn_devide_disable` reader - "]
+        pub type AmuxnDevideDisableR = crate::BitReader;
+        #[doc = "Field `amuxn_devide_disable` writer - "]
+        pub type AmuxnDevideDisableW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `amuxp_sensor_ch_sel` reader - "]
+        pub type AmuxpSensorChSelR = crate::FieldReader<u16>;
+        #[doc = "Field `amuxp_sensor_ch_sel` writer - "]
+        pub type AmuxpSensorChSelW<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
+        #[doc = "Field `amuxp_devide_disable` reader - "]
+        pub type AmuxpDevideDisableR = crate::BitReader;
+        #[doc = "Field `amuxp_devide_disable` writer - "]
+        pub type AmuxpDevideDisableW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:10"]
+            #[inline(always)]
+            pub fn amuxn_sensor_ch_sel(&self) -> AmuxnSensorChSelR {
+                AmuxnSensorChSelR::new((self.bits & 0x07ff) as u16)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn amuxn_devide_disable(&self) -> AmuxnDevideDisableR {
+                AmuxnDevideDisableR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bits 12:22"]
+            #[inline(always)]
+            pub fn amuxp_sensor_ch_sel(&self) -> AmuxpSensorChSelR {
+                AmuxpSensorChSelR::new(((self.bits >> 12) & 0x07ff) as u16)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn amuxp_devide_disable(&self) -> AmuxpDevideDisableR {
+                AmuxpDevideDisableR::new(((self.bits >> 23) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:10"]
+            #[inline(always)]
+            pub fn amuxn_sensor_ch_sel(&mut self) -> AmuxnSensorChSelW<'_, CfgAmux1Spec> {
+                AmuxnSensorChSelW::new(self, 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn amuxn_devide_disable(&mut self) -> AmuxnDevideDisableW<'_, CfgAmux1Spec> {
+                AmuxnDevideDisableW::new(self, 11)
+            }
+            #[doc = "Bits 12:22"]
+            #[inline(always)]
+            pub fn amuxp_sensor_ch_sel(&mut self) -> AmuxpSensorChSelW<'_, CfgAmux1Spec> {
+                AmuxpSensorChSelW::new(self, 12)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn amuxp_devide_disable(&mut self) -> AmuxpDevideDisableW<'_, CfgAmux1Spec> {
+                AmuxpDevideDisableW::new(self, 23)
+            }
+        }
+        #[doc = "cfg_amux_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgAmux1Spec;
+        impl crate::RegisterSpec for CfgAmux1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_amux_1::R`](R) reader structure"]
+        impl crate::Readable for CfgAmux1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_amux_1::W`](W) writer structure"]
+        impl crate::Writable for CfgAmux1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_AMUX_1 to value 0"]
+        impl crate::Resettable for CfgAmux1Spec {}
+    }
+    #[doc = "CFG_AMUX_2 (rw) register accessor: cfg_amux_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_amux_2`] module"]
+    #[doc(alias = "CFG_AMUX_2")]
+    pub type CfgAmux2 = crate::Reg<cfg_amux_2::CfgAmux2Spec>;
+    #[doc = "cfg_amux_2"]
+    pub mod cfg_amux_2 {
+        #[doc = "Register `CFG_AMUX_2` reader"]
+        pub type R = crate::R<CfgAmux2Spec>;
+        #[doc = "Register `CFG_AMUX_2` writer"]
+        pub type W = crate::W<CfgAmux2Spec>;
+        #[doc = "Field `cfg_amuxn_audio_ch_sel` reader - "]
+        pub type CfgAmuxnAudioChSelR = crate::FieldReader;
+        #[doc = "Field `cfg_amuxn_audio_ch_sel` writer - "]
+        pub type CfgAmuxnAudioChSelW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `cfg_amuxp_audio_ch_sel` reader - "]
+        pub type CfgAmuxpAudioChSelR = crate::FieldReader;
+        #[doc = "Field `cfg_amuxp_audio_ch_sel` writer - "]
+        pub type CfgAmuxpAudioChSelW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn cfg_amuxn_audio_ch_sel(&self) -> CfgAmuxnAudioChSelR {
+                CfgAmuxnAudioChSelR::new((self.bits & 0x0f) as u8)
+            }
+            #[doc = "Bits 4:7"]
+            #[inline(always)]
+            pub fn cfg_amuxp_audio_ch_sel(&self) -> CfgAmuxpAudioChSelR {
+                CfgAmuxpAudioChSelR::new(((self.bits >> 4) & 0x0f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn cfg_amuxn_audio_ch_sel(&mut self) -> CfgAmuxnAudioChSelW<'_, CfgAmux2Spec> {
+                CfgAmuxnAudioChSelW::new(self, 0)
+            }
+            #[doc = "Bits 4:7"]
+            #[inline(always)]
+            pub fn cfg_amuxp_audio_ch_sel(&mut self) -> CfgAmuxpAudioChSelW<'_, CfgAmux2Spec> {
+                CfgAmuxpAudioChSelW::new(self, 4)
+            }
+        }
+        #[doc = "cfg_amux_2\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgAmux2Spec;
+        impl crate::RegisterSpec for CfgAmux2Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_amux_2::R`](R) reader structure"]
+        impl crate::Readable for CfgAmux2Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_amux_2::W`](W) writer structure"]
+        impl crate::Writable for CfgAmux2Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_AMUX_2 to value 0"]
+        impl crate::Resettable for CfgAmux2Spec {}
+    }
+    #[doc = "CFG_AMUX_3 (rw) register accessor: cfg_amux_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_3::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_amux_3`] module"]
+    #[doc(alias = "CFG_AMUX_3")]
+    pub type CfgAmux3 = crate::Reg<cfg_amux_3::CfgAmux3Spec>;
+    #[doc = "cfg_amux_3"]
+    pub mod cfg_amux_3 {
+        #[doc = "Register `CFG_AMUX_3` reader"]
+        pub type R = crate::R<CfgAmux3Spec>;
+        #[doc = "Register `CFG_AMUX_3` writer"]
+        pub type W = crate::W<CfgAmux3Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_amux_3\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgAmux3Spec;
+        impl crate::RegisterSpec for CfgAmux3Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_amux_3::R`](R) reader structure"]
+        impl crate::Readable for CfgAmux3Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_amux_3::W`](W) writer structure"]
+        impl crate::Writable for CfgAmux3Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_AMUX_3 to value 0"]
+        impl crate::Resettable for CfgAmux3Spec {}
+    }
+    #[doc = "CFG_AMUX_4 (rw) register accessor: cfg_amux_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_4::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_4::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_amux_4`] module"]
+    #[doc(alias = "CFG_AMUX_4")]
+    pub type CfgAmux4 = crate::Reg<cfg_amux_4::CfgAmux4Spec>;
+    #[doc = "cfg_amux_4"]
+    pub mod cfg_amux_4 {
+        #[doc = "Register `CFG_AMUX_4` reader"]
+        pub type R = crate::R<CfgAmux4Spec>;
+        #[doc = "Register `CFG_AMUX_4` writer"]
+        pub type W = crate::W<CfgAmux4Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_amux_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgAmux4Spec;
+        impl crate::RegisterSpec for CfgAmux4Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_amux_4::R`](R) reader structure"]
+        impl crate::Readable for CfgAmux4Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_amux_4::W`](W) writer structure"]
+        impl crate::Writable for CfgAmux4Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_AMUX_4 to value 0"]
+        impl crate::Resettable for CfgAmux4Spec {}
+    }
+    #[doc = "CFG_AMUX_5 (rw) register accessor: cfg_amux_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_5::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_5::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_amux_5`] module"]
+    #[doc(alias = "CFG_AMUX_5")]
+    pub type CfgAmux5 = crate::Reg<cfg_amux_5::CfgAmux5Spec>;
+    #[doc = "cfg_amux_5"]
+    pub mod cfg_amux_5 {
+        #[doc = "Register `CFG_AMUX_5` reader"]
+        pub type R = crate::R<CfgAmux5Spec>;
+        #[doc = "Register `CFG_AMUX_5` writer"]
+        pub type W = crate::W<CfgAmux5Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_amux_5\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_amux_5::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_amux_5::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgAmux5Spec;
+        impl crate::RegisterSpec for CfgAmux5Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_amux_5::R`](R) reader structure"]
+        impl crate::Readable for CfgAmux5Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_amux_5::W`](W) writer structure"]
+        impl crate::Writable for CfgAmux5Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_AMUX_5 to value 0"]
+        impl crate::Resettable for CfgAmux5Spec {}
+    }
+    #[doc = "RPT_AMUX_0 (rw) register accessor: rpt_amux_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_amux_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_amux_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_amux_0`] module"]
+    #[doc(alias = "RPT_AMUX_0")]
+    pub type RptAmux0 = crate::Reg<rpt_amux_0::RptAmux0Spec>;
+    #[doc = "rpt_amux_0"]
+    pub mod rpt_amux_0 {
+        #[doc = "Register `RPT_AMUX_0` reader"]
+        pub type R = crate::R<RptAmux0Spec>;
+        #[doc = "Register `RPT_AMUX_0` writer"]
+        pub type W = crate::W<RptAmux0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_amux_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_amux_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_amux_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptAmux0Spec;
+        impl crate::RegisterSpec for RptAmux0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_amux_0::R`](R) reader structure"]
+        impl crate::Readable for RptAmux0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_amux_0::W`](W) writer structure"]
+        impl crate::Writable for RptAmux0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_AMUX_0 to value 0"]
+        impl crate::Resettable for RptAmux0Spec {}
+    }
+    #[doc = "CFG_TST_0 (rw) register accessor: cfg_tst_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_tst_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_tst_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_tst_0`] module"]
+    #[doc(alias = "CFG_TST_0")]
+    pub type CfgTst0 = crate::Reg<cfg_tst_0::CfgTst0Spec>;
+    #[doc = "cfg_tst_0"]
+    pub mod cfg_tst_0 {
+        #[doc = "Register `CFG_TST_0` reader"]
+        pub type R = crate::R<CfgTst0Spec>;
+        #[doc = "Register `CFG_TST_0` writer"]
+        pub type W = crate::W<CfgTst0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_tst_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_tst_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_tst_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgTst0Spec;
+        impl crate::RegisterSpec for CfgTst0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_tst_0::R`](R) reader structure"]
+        impl crate::Readable for CfgTst0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_tst_0::W`](W) writer structure"]
+        impl crate::Writable for CfgTst0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_TST_0 to value 0"]
+        impl crate::Resettable for CfgTst0Spec {}
+    }
+    #[doc = "CFG_TST_1 (rw) register accessor: cfg_tst_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_tst_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_tst_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_tst_1`] module"]
+    #[doc(alias = "CFG_TST_1")]
+    pub type CfgTst1 = crate::Reg<cfg_tst_1::CfgTst1Spec>;
+    #[doc = "cfg_tst_1"]
+    pub mod cfg_tst_1 {
+        #[doc = "Register `CFG_TST_1` reader"]
+        pub type R = crate::R<CfgTst1Spec>;
+        #[doc = "Register `CFG_TST_1` writer"]
+        pub type W = crate::W<CfgTst1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_tst_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_tst_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_tst_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgTst1Spec;
+        impl crate::RegisterSpec for CfgTst1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_tst_1::R`](R) reader structure"]
+        impl crate::Readable for CfgTst1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_tst_1::W`](W) writer structure"]
+        impl crate::Writable for CfgTst1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_TST_1 to value 0"]
+        impl crate::Resettable for CfgTst1Spec {}
+    }
+    #[doc = "CFG_CMP_0 (rw) register accessor: cfg_cmp_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_0`] module"]
+    #[doc(alias = "CFG_CMP_0")]
+    pub type CfgCmp0 = crate::Reg<cfg_cmp_0::CfgCmp0Spec>;
+    #[doc = "cfg_cmp_0"]
+    pub mod cfg_cmp_0 {
+        #[doc = "Register `CFG_CMP_0` reader"]
+        pub type R = crate::R<CfgCmp0Spec>;
+        #[doc = "Register `CFG_CMP_0` writer"]
+        pub type W = crate::W<CfgCmp0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmp0Spec;
+        impl crate::RegisterSpec for CfgCmp0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_0::R`](R) reader structure"]
+        impl crate::Readable for CfgCmp0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_0::W`](W) writer structure"]
+        impl crate::Writable for CfgCmp0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_0 to value 0"]
+        impl crate::Resettable for CfgCmp0Spec {}
+    }
+    #[doc = "CFG_CMP_1 (rw) register accessor: cfg_cmp_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cfg_cmp_1`] module"]
+    #[doc(alias = "CFG_CMP_1")]
+    pub type CfgCmp1 = crate::Reg<cfg_cmp_1::CfgCmp1Spec>;
+    #[doc = "cfg_cmp_1"]
+    pub mod cfg_cmp_1 {
+        #[doc = "Register `CFG_CMP_1` reader"]
+        pub type R = crate::R<CfgCmp1Spec>;
+        #[doc = "Register `CFG_CMP_1` writer"]
+        pub type W = crate::W<CfgCmp1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "cfg_cmp_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_cmp_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_cmp_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CfgCmp1Spec;
+        impl crate::RegisterSpec for CfgCmp1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cfg_cmp_1::R`](R) reader structure"]
+        impl crate::Readable for CfgCmp1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`cfg_cmp_1::W`](W) writer structure"]
+        impl crate::Writable for CfgCmp1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CFG_CMP_1 to value 0"]
+        impl crate::Resettable for CfgCmp1Spec {}
+    }
+    #[doc = "RPT_CMP_0 (rw) register accessor: rpt_cmp_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_0::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cmp_0`] module"]
+    #[doc(alias = "RPT_CMP_0")]
+    pub type RptCmp0 = crate::Reg<rpt_cmp_0::RptCmp0Spec>;
+    #[doc = "rpt_cmp_0"]
+    pub mod rpt_cmp_0 {
+        #[doc = "Register `RPT_CMP_0` reader"]
+        pub type R = crate::R<RptCmp0Spec>;
+        #[doc = "Register `RPT_CMP_0` writer"]
+        pub type W = crate::W<RptCmp0Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cmp_0\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCmp0Spec;
+        impl crate::RegisterSpec for RptCmp0Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cmp_0::R`](R) reader structure"]
+        impl crate::Readable for RptCmp0Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cmp_0::W`](W) writer structure"]
+        impl crate::Writable for RptCmp0Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CMP_0 to value 0"]
+        impl crate::Resettable for RptCmp0Spec {}
+    }
+    #[doc = "RPT_CMP_1 (rw) register accessor: rpt_cmp_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rpt_cmp_1`] module"]
+    #[doc(alias = "RPT_CMP_1")]
+    pub type RptCmp1 = crate::Reg<rpt_cmp_1::RptCmp1Spec>;
+    #[doc = "rpt_cmp_1"]
+    pub mod rpt_cmp_1 {
+        #[doc = "Register `RPT_CMP_1` reader"]
+        pub type R = crate::R<RptCmp1Spec>;
+        #[doc = "Register `RPT_CMP_1` writer"]
+        pub type W = crate::W<RptCmp1Spec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "rpt_cmp_1\n\nYou can [`read`](crate::Reg::read) this register and get [`rpt_cmp_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rpt_cmp_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct RptCmp1Spec;
+        impl crate::RegisterSpec for RptCmp1Spec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`rpt_cmp_1::R`](R) reader structure"]
+        impl crate::Readable for RptCmp1Spec {}
+        #[doc = "`write(|w| ..)` method takes [`rpt_cmp_1::W`](W) writer structure"]
+        impl crate::Writable for RptCmp1Spec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets RPT_CMP_1 to value 0"]
+        impl crate::Resettable for RptCmp1Spec {}
+    }
+}
+#[doc = "Key-scan matrix controller (v150)"]
+pub type Keyscan = crate::Periph<keyscan::RegisterBlock, 0x5208_d000>;
+impl core::fmt::Debug for Keyscan {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Keyscan").finish()
+    }
+}
+#[doc = "Key-scan matrix controller (v150)"]
+pub mod keyscan {
+    #[repr(C)]
+    #[doc = "Register block"]
+    pub struct RegisterBlock {
+        _reserved0: [u8; 0x04],
+        keyscan_lp_ctl: KeyscanLpCtl,
+        keyscan_enable: KeyscanEnable,
+        keyscan_clk_ena: KeyscanClkEna,
+        keyscan_start: KeyscanStart,
+        _reserved4: [u8; 0x0c],
+        keyscan_int_en: KeyscanIntEn,
+        keyscan_event_clr: KeyscanEventClr,
+        keyscan_event_sts: KeyscanEventSts,
+        _reserved7: [u8; 0x04],
+        keyscan_pin_num: KeyscanPinNum,
+        keyscan_mode: KeyscanMode,
+        keyscan_pulse: KeyscanPulse,
+        _reserved10: [u8; 0x14],
+        keyscan_de: KeyscanDe,
+        _reserved11: [u8; 0x40],
+        key_value_fifo: KeyValueFifo,
+    }
+    impl RegisterBlock {
+        #[doc = "0x04 - keyscan_lp_ctl"]
+        #[inline(always)]
+        pub const fn keyscan_lp_ctl(&self) -> &KeyscanLpCtl {
+            &self.keyscan_lp_ctl
+        }
+        #[doc = "0x08 - keyscan_enable"]
+        #[inline(always)]
+        pub const fn keyscan_enable(&self) -> &KeyscanEnable {
+            &self.keyscan_enable
+        }
+        #[doc = "0x0c - keyscan_clk_ena"]
+        #[inline(always)]
+        pub const fn keyscan_clk_ena(&self) -> &KeyscanClkEna {
+            &self.keyscan_clk_ena
+        }
+        #[doc = "0x10 - keyscan_start"]
+        #[inline(always)]
+        pub const fn keyscan_start(&self) -> &KeyscanStart {
+            &self.keyscan_start
+        }
+        #[doc = "0x20 - keyscan_int_en"]
+        #[inline(always)]
+        pub const fn keyscan_int_en(&self) -> &KeyscanIntEn {
+            &self.keyscan_int_en
+        }
+        #[doc = "0x24 - keyscan_event_clr"]
+        #[inline(always)]
+        pub const fn keyscan_event_clr(&self) -> &KeyscanEventClr {
+            &self.keyscan_event_clr
+        }
+        #[doc = "0x28 - keyscan_event_sts"]
+        #[inline(always)]
+        pub const fn keyscan_event_sts(&self) -> &KeyscanEventSts {
+            &self.keyscan_event_sts
+        }
+        #[doc = "0x30 - keyscan_pin_num"]
+        #[inline(always)]
+        pub const fn keyscan_pin_num(&self) -> &KeyscanPinNum {
+            &self.keyscan_pin_num
+        }
+        #[doc = "0x34 - keyscan_mode"]
+        #[inline(always)]
+        pub const fn keyscan_mode(&self) -> &KeyscanMode {
+            &self.keyscan_mode
+        }
+        #[doc = "0x38 - keyscan_pulse"]
+        #[inline(always)]
+        pub const fn keyscan_pulse(&self) -> &KeyscanPulse {
+            &self.keyscan_pulse
+        }
+        #[doc = "0x50 - keyscan_de"]
+        #[inline(always)]
+        pub const fn keyscan_de(&self) -> &KeyscanDe {
+            &self.keyscan_de
+        }
+        #[doc = "0x94 - key_value_fifo"]
+        #[inline(always)]
+        pub const fn key_value_fifo(&self) -> &KeyValueFifo {
+            &self.key_value_fifo
+        }
+    }
+    #[doc = "KEYSCAN_LP_CTL (rw) register accessor: keyscan_lp_ctl\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_lp_ctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_lp_ctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_lp_ctl`] module"]
+    #[doc(alias = "KEYSCAN_LP_CTL")]
+    pub type KeyscanLpCtl = crate::Reg<keyscan_lp_ctl::KeyscanLpCtlSpec>;
+    #[doc = "keyscan_lp_ctl"]
+    pub mod keyscan_lp_ctl {
+        #[doc = "Register `KEYSCAN_LP_CTL` reader"]
+        pub type R = crate::R<KeyscanLpCtlSpec>;
+        #[doc = "Register `KEYSCAN_LP_CTL` writer"]
+        pub type W = crate::W<KeyscanLpCtlSpec>;
+        #[doc = "Field `alow_slp` reader - "]
+        pub type AlowSlpR = crate::BitReader;
+        #[doc = "Field `alow_slp` writer - "]
+        pub type AlowSlpW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `slp_req` reader - "]
+        pub type SlpReqR = crate::BitReader;
+        #[doc = "Field `slp_req` writer - "]
+        pub type SlpReqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `slp_ack` reader - "]
+        pub type SlpAckR = crate::BitReader;
+        #[doc = "Field `slp_ack` writer - "]
+        pub type SlpAckW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn alow_slp(&self) -> AlowSlpR {
+                AlowSlpR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn slp_req(&self) -> SlpReqR {
+                SlpReqR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn slp_ack(&self) -> SlpAckR {
+                SlpAckR::new(((self.bits >> 8) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn alow_slp(&mut self) -> AlowSlpW<'_, KeyscanLpCtlSpec> {
+                AlowSlpW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn slp_req(&mut self) -> SlpReqW<'_, KeyscanLpCtlSpec> {
+                SlpReqW::new(self, 4)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn slp_ack(&mut self) -> SlpAckW<'_, KeyscanLpCtlSpec> {
+                SlpAckW::new(self, 8)
+            }
+        }
+        #[doc = "keyscan_lp_ctl\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_lp_ctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_lp_ctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanLpCtlSpec;
+        impl crate::RegisterSpec for KeyscanLpCtlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_lp_ctl::R`](R) reader structure"]
+        impl crate::Readable for KeyscanLpCtlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_lp_ctl::W`](W) writer structure"]
+        impl crate::Writable for KeyscanLpCtlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_LP_CTL to value 0"]
+        impl crate::Resettable for KeyscanLpCtlSpec {}
+    }
+    #[doc = "KEYSCAN_ENABLE (rw) register accessor: keyscan_enable\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_enable::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_enable::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_enable`] module"]
+    #[doc(alias = "KEYSCAN_ENABLE")]
+    pub type KeyscanEnable = crate::Reg<keyscan_enable::KeyscanEnableSpec>;
+    #[doc = "keyscan_enable"]
+    pub mod keyscan_enable {
+        #[doc = "Register `KEYSCAN_ENABLE` reader"]
+        pub type R = crate::R<KeyscanEnableSpec>;
+        #[doc = "Register `KEYSCAN_ENABLE` writer"]
+        pub type W = crate::W<KeyscanEnableSpec>;
+        #[doc = "Field `ena` reader - "]
+        pub type EnaR = crate::BitReader;
+        #[doc = "Field `ena` writer - "]
+        pub type EnaW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn ena(&self) -> EnaR {
+                EnaR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn ena(&mut self) -> EnaW<'_, KeyscanEnableSpec> {
+                EnaW::new(self, 0)
+            }
+        }
+        #[doc = "keyscan_enable\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_enable::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_enable::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanEnableSpec;
+        impl crate::RegisterSpec for KeyscanEnableSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_enable::R`](R) reader structure"]
+        impl crate::Readable for KeyscanEnableSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_enable::W`](W) writer structure"]
+        impl crate::Writable for KeyscanEnableSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_ENABLE to value 0"]
+        impl crate::Resettable for KeyscanEnableSpec {}
+    }
+    #[doc = "KEYSCAN_CLK_ENA (rw) register accessor: keyscan_clk_ena\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_clk_ena::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_clk_ena::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_clk_ena`] module"]
+    #[doc(alias = "KEYSCAN_CLK_ENA")]
+    pub type KeyscanClkEna = crate::Reg<keyscan_clk_ena::KeyscanClkEnaSpec>;
+    #[doc = "keyscan_clk_ena"]
+    pub mod keyscan_clk_ena {
+        #[doc = "Register `KEYSCAN_CLK_ENA` reader"]
+        pub type R = crate::R<KeyscanClkEnaSpec>;
+        #[doc = "Register `KEYSCAN_CLK_ENA` writer"]
+        pub type W = crate::W<KeyscanClkEnaSpec>;
+        #[doc = "Field `fifo_rd_clken` reader - "]
+        pub type FifoRdClkenR = crate::BitReader;
+        #[doc = "Field `fifo_rd_clken` writer - "]
+        pub type FifoRdClkenW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn fifo_rd_clken(&self) -> FifoRdClkenR {
+                FifoRdClkenR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn fifo_rd_clken(&mut self) -> FifoRdClkenW<'_, KeyscanClkEnaSpec> {
+                FifoRdClkenW::new(self, 0)
+            }
+        }
+        #[doc = "keyscan_clk_ena\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_clk_ena::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_clk_ena::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanClkEnaSpec;
+        impl crate::RegisterSpec for KeyscanClkEnaSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_clk_ena::R`](R) reader structure"]
+        impl crate::Readable for KeyscanClkEnaSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_clk_ena::W`](W) writer structure"]
+        impl crate::Writable for KeyscanClkEnaSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_CLK_ENA to value 0"]
+        impl crate::Resettable for KeyscanClkEnaSpec {}
+    }
+    #[doc = "KEYSCAN_START (rw) register accessor: keyscan_start\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_start::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_start::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_start`] module"]
+    #[doc(alias = "KEYSCAN_START")]
+    pub type KeyscanStart = crate::Reg<keyscan_start::KeyscanStartSpec>;
+    #[doc = "keyscan_start"]
+    pub mod keyscan_start {
+        #[doc = "Register `KEYSCAN_START` reader"]
+        pub type R = crate::R<KeyscanStartSpec>;
+        #[doc = "Register `KEYSCAN_START` writer"]
+        pub type W = crate::W<KeyscanStartSpec>;
+        #[doc = "Field `task_start` reader - "]
+        pub type TaskStartR = crate::BitReader;
+        #[doc = "Field `task_start` writer - "]
+        pub type TaskStartW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn task_start(&self) -> TaskStartR {
+                TaskStartR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn task_start(&mut self) -> TaskStartW<'_, KeyscanStartSpec> {
+                TaskStartW::new(self, 0)
+            }
+        }
+        #[doc = "keyscan_start\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_start::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_start::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanStartSpec;
+        impl crate::RegisterSpec for KeyscanStartSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_start::R`](R) reader structure"]
+        impl crate::Readable for KeyscanStartSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_start::W`](W) writer structure"]
+        impl crate::Writable for KeyscanStartSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_START to value 0"]
+        impl crate::Resettable for KeyscanStartSpec {}
+    }
+    #[doc = "KEYSCAN_INT_EN (rw) register accessor: keyscan_int_en\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_int_en::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_int_en::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_int_en`] module"]
+    #[doc(alias = "KEYSCAN_INT_EN")]
+    pub type KeyscanIntEn = crate::Reg<keyscan_int_en::KeyscanIntEnSpec>;
+    #[doc = "keyscan_int_en"]
+    pub mod keyscan_int_en {
+        #[doc = "Register `KEYSCAN_INT_EN` reader"]
+        pub type R = crate::R<KeyscanIntEnSpec>;
+        #[doc = "Register `KEYSCAN_INT_EN` writer"]
+        pub type W = crate::W<KeyscanIntEnSpec>;
+        #[doc = "Field `event_fifo_full_int_en` reader - "]
+        pub type EventFifoFullIntEnR = crate::BitReader;
+        #[doc = "Field `event_fifo_full_int_en` writer - "]
+        pub type EventFifoFullIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_press_int_en` reader - "]
+        pub type EventKeyPressIntEnR = crate::BitReader;
+        #[doc = "Field `event_key_press_int_en` writer - "]
+        pub type EventKeyPressIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_release_int_en` reader - "]
+        pub type EventKeyReleaseIntEnR = crate::BitReader;
+        #[doc = "Field `event_key_release_int_en` writer - "]
+        pub type EventKeyReleaseIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_value_rdy_int_en` reader - "]
+        pub type EventKeyValueRdyIntEnR = crate::BitReader;
+        #[doc = "Field `event_key_value_rdy_int_en` writer - "]
+        pub type EventKeyValueRdyIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_stopped_int_en` reader - "]
+        pub type EventKeyStoppedIntEnR = crate::BitReader;
+        #[doc = "Field `event_key_stopped_int_en` writer - "]
+        pub type EventKeyStoppedIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_keyscan_one_int_en` reader - "]
+        pub type EventKeyscanOneIntEnR = crate::BitReader;
+        #[doc = "Field `event_keyscan_one_int_en` writer - "]
+        pub type EventKeyscanOneIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_fifo_afull_int_en` reader - "]
+        pub type EventFifoAfullIntEnR = crate::BitReader;
+        #[doc = "Field `event_fifo_afull_int_en` writer - "]
+        pub type EventFifoAfullIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_press_aon_int_en` reader - "]
+        pub type EventKeyPressAonIntEnR = crate::BitReader;
+        #[doc = "Field `event_key_press_aon_int_en` writer - "]
+        pub type EventKeyPressAonIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn event_fifo_full_int_en(&self) -> EventFifoFullIntEnR {
+                EventFifoFullIntEnR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn event_key_press_int_en(&self) -> EventKeyPressIntEnR {
+                EventKeyPressIntEnR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn event_key_release_int_en(&self) -> EventKeyReleaseIntEnR {
+                EventKeyReleaseIntEnR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn event_key_value_rdy_int_en(&self) -> EventKeyValueRdyIntEnR {
+                EventKeyValueRdyIntEnR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn event_key_stopped_int_en(&self) -> EventKeyStoppedIntEnR {
+                EventKeyStoppedIntEnR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn event_keyscan_one_int_en(&self) -> EventKeyscanOneIntEnR {
+                EventKeyscanOneIntEnR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn event_fifo_afull_int_en(&self) -> EventFifoAfullIntEnR {
+                EventFifoAfullIntEnR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn event_key_press_aon_int_en(&self) -> EventKeyPressAonIntEnR {
+                EventKeyPressAonIntEnR::new(((self.bits >> 7) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn event_fifo_full_int_en(&mut self) -> EventFifoFullIntEnW<'_, KeyscanIntEnSpec> {
+                EventFifoFullIntEnW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn event_key_press_int_en(&mut self) -> EventKeyPressIntEnW<'_, KeyscanIntEnSpec> {
+                EventKeyPressIntEnW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn event_key_release_int_en(
+                &mut self,
+            ) -> EventKeyReleaseIntEnW<'_, KeyscanIntEnSpec> {
+                EventKeyReleaseIntEnW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn event_key_value_rdy_int_en(
+                &mut self,
+            ) -> EventKeyValueRdyIntEnW<'_, KeyscanIntEnSpec> {
+                EventKeyValueRdyIntEnW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn event_key_stopped_int_en(
+                &mut self,
+            ) -> EventKeyStoppedIntEnW<'_, KeyscanIntEnSpec> {
+                EventKeyStoppedIntEnW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn event_keyscan_one_int_en(
+                &mut self,
+            ) -> EventKeyscanOneIntEnW<'_, KeyscanIntEnSpec> {
+                EventKeyscanOneIntEnW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn event_fifo_afull_int_en(
+                &mut self,
+            ) -> EventFifoAfullIntEnW<'_, KeyscanIntEnSpec> {
+                EventFifoAfullIntEnW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn event_key_press_aon_int_en(
+                &mut self,
+            ) -> EventKeyPressAonIntEnW<'_, KeyscanIntEnSpec> {
+                EventKeyPressAonIntEnW::new(self, 7)
+            }
+        }
+        #[doc = "keyscan_int_en\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_int_en::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_int_en::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanIntEnSpec;
+        impl crate::RegisterSpec for KeyscanIntEnSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_int_en::R`](R) reader structure"]
+        impl crate::Readable for KeyscanIntEnSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_int_en::W`](W) writer structure"]
+        impl crate::Writable for KeyscanIntEnSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_INT_EN to value 0"]
+        impl crate::Resettable for KeyscanIntEnSpec {}
+    }
+    #[doc = "KEYSCAN_EVENT_CLR (rw) register accessor: keyscan_event_clr\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_event_clr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_event_clr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_event_clr`] module"]
+    #[doc(alias = "KEYSCAN_EVENT_CLR")]
+    pub type KeyscanEventClr = crate::Reg<keyscan_event_clr::KeyscanEventClrSpec>;
+    #[doc = "keyscan_event_clr"]
+    pub mod keyscan_event_clr {
+        #[doc = "Register `KEYSCAN_EVENT_CLR` reader"]
+        pub type R = crate::R<KeyscanEventClrSpec>;
+        #[doc = "Register `KEYSCAN_EVENT_CLR` writer"]
+        pub type W = crate::W<KeyscanEventClrSpec>;
+        #[doc = "Field `event_fifo_full_clr` reader - "]
+        pub type EventFifoFullClrR = crate::BitReader;
+        #[doc = "Field `event_fifo_full_clr` writer - "]
+        pub type EventFifoFullClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_press_clr` reader - "]
+        pub type EventKeyPressClrR = crate::BitReader;
+        #[doc = "Field `event_key_press_clr` writer - "]
+        pub type EventKeyPressClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_release_clr` reader - "]
+        pub type EventKeyReleaseClrR = crate::BitReader;
+        #[doc = "Field `event_key_release_clr` writer - "]
+        pub type EventKeyReleaseClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_value_rdy_clr` reader - "]
+        pub type EventKeyValueRdyClrR = crate::BitReader;
+        #[doc = "Field `event_key_value_rdy_clr` writer - "]
+        pub type EventKeyValueRdyClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_stopped_clr` reader - "]
+        pub type EventKeyStoppedClrR = crate::BitReader;
+        #[doc = "Field `event_key_stopped_clr` writer - "]
+        pub type EventKeyStoppedClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_keyscan_one_clr` reader - "]
+        pub type EventKeyscanOneClrR = crate::BitReader;
+        #[doc = "Field `event_keyscan_one_clr` writer - "]
+        pub type EventKeyscanOneClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_fifo_afull_clr` reader - "]
+        pub type EventFifoAfullClrR = crate::BitReader;
+        #[doc = "Field `event_fifo_afull_clr` writer - "]
+        pub type EventFifoAfullClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_press_aon_clr` reader - "]
+        pub type EventKeyPressAonClrR = crate::BitReader;
+        #[doc = "Field `event_key_press_aon_clr` writer - "]
+        pub type EventKeyPressAonClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn event_fifo_full_clr(&self) -> EventFifoFullClrR {
+                EventFifoFullClrR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn event_key_press_clr(&self) -> EventKeyPressClrR {
+                EventKeyPressClrR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn event_key_release_clr(&self) -> EventKeyReleaseClrR {
+                EventKeyReleaseClrR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn event_key_value_rdy_clr(&self) -> EventKeyValueRdyClrR {
+                EventKeyValueRdyClrR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn event_key_stopped_clr(&self) -> EventKeyStoppedClrR {
+                EventKeyStoppedClrR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn event_keyscan_one_clr(&self) -> EventKeyscanOneClrR {
+                EventKeyscanOneClrR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn event_fifo_afull_clr(&self) -> EventFifoAfullClrR {
+                EventFifoAfullClrR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn event_key_press_aon_clr(&self) -> EventKeyPressAonClrR {
+                EventKeyPressAonClrR::new(((self.bits >> 7) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn event_fifo_full_clr(&mut self) -> EventFifoFullClrW<'_, KeyscanEventClrSpec> {
+                EventFifoFullClrW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn event_key_press_clr(&mut self) -> EventKeyPressClrW<'_, KeyscanEventClrSpec> {
+                EventKeyPressClrW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn event_key_release_clr(
+                &mut self,
+            ) -> EventKeyReleaseClrW<'_, KeyscanEventClrSpec> {
+                EventKeyReleaseClrW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn event_key_value_rdy_clr(
+                &mut self,
+            ) -> EventKeyValueRdyClrW<'_, KeyscanEventClrSpec> {
+                EventKeyValueRdyClrW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn event_key_stopped_clr(
+                &mut self,
+            ) -> EventKeyStoppedClrW<'_, KeyscanEventClrSpec> {
+                EventKeyStoppedClrW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn event_keyscan_one_clr(
+                &mut self,
+            ) -> EventKeyscanOneClrW<'_, KeyscanEventClrSpec> {
+                EventKeyscanOneClrW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn event_fifo_afull_clr(&mut self) -> EventFifoAfullClrW<'_, KeyscanEventClrSpec> {
+                EventFifoAfullClrW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn event_key_press_aon_clr(
+                &mut self,
+            ) -> EventKeyPressAonClrW<'_, KeyscanEventClrSpec> {
+                EventKeyPressAonClrW::new(self, 7)
+            }
+        }
+        #[doc = "keyscan_event_clr\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_event_clr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_event_clr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanEventClrSpec;
+        impl crate::RegisterSpec for KeyscanEventClrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_event_clr::R`](R) reader structure"]
+        impl crate::Readable for KeyscanEventClrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_event_clr::W`](W) writer structure"]
+        impl crate::Writable for KeyscanEventClrSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_EVENT_CLR to value 0"]
+        impl crate::Resettable for KeyscanEventClrSpec {}
+    }
+    #[doc = "KEYSCAN_EVENT_STS (rw) register accessor: keyscan_event_sts\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_event_sts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_event_sts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_event_sts`] module"]
+    #[doc(alias = "KEYSCAN_EVENT_STS")]
+    pub type KeyscanEventSts = crate::Reg<keyscan_event_sts::KeyscanEventStsSpec>;
+    #[doc = "keyscan_event_sts"]
+    pub mod keyscan_event_sts {
+        #[doc = "Register `KEYSCAN_EVENT_STS` reader"]
+        pub type R = crate::R<KeyscanEventStsSpec>;
+        #[doc = "Register `KEYSCAN_EVENT_STS` writer"]
+        pub type W = crate::W<KeyscanEventStsSpec>;
+        #[doc = "Field `event_fifo_full` reader - "]
+        pub type EventFifoFullR = crate::BitReader;
+        #[doc = "Field `event_fifo_full` writer - "]
+        pub type EventFifoFullW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_press` reader - "]
+        pub type EventKeyPressR = crate::BitReader;
+        #[doc = "Field `event_key_press` writer - "]
+        pub type EventKeyPressW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_release` reader - "]
+        pub type EventKeyReleaseR = crate::BitReader;
+        #[doc = "Field `event_key_release` writer - "]
+        pub type EventKeyReleaseW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_value_rdy` reader - "]
+        pub type EventKeyValueRdyR = crate::BitReader;
+        #[doc = "Field `event_key_value_rdy` writer - "]
+        pub type EventKeyValueRdyW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_stopped` reader - "]
+        pub type EventKeyStoppedR = crate::BitReader;
+        #[doc = "Field `event_key_stopped` writer - "]
+        pub type EventKeyStoppedW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_keyscan_one` reader - "]
+        pub type EventKeyscanOneR = crate::BitReader;
+        #[doc = "Field `event_keyscan_one` writer - "]
+        pub type EventKeyscanOneW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_fifo_afull` reader - "]
+        pub type EventFifoAfullR = crate::BitReader;
+        #[doc = "Field `event_fifo_afull` writer - "]
+        pub type EventFifoAfullW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `event_key_press_aon` reader - "]
+        pub type EventKeyPressAonR = crate::BitReader;
+        #[doc = "Field `event_key_press_aon` writer - "]
+        pub type EventKeyPressAonW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn event_fifo_full(&self) -> EventFifoFullR {
+                EventFifoFullR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn event_key_press(&self) -> EventKeyPressR {
+                EventKeyPressR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn event_key_release(&self) -> EventKeyReleaseR {
+                EventKeyReleaseR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn event_key_value_rdy(&self) -> EventKeyValueRdyR {
+                EventKeyValueRdyR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn event_key_stopped(&self) -> EventKeyStoppedR {
+                EventKeyStoppedR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn event_keyscan_one(&self) -> EventKeyscanOneR {
+                EventKeyscanOneR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn event_fifo_afull(&self) -> EventFifoAfullR {
+                EventFifoAfullR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn event_key_press_aon(&self) -> EventKeyPressAonR {
+                EventKeyPressAonR::new(((self.bits >> 7) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn event_fifo_full(&mut self) -> EventFifoFullW<'_, KeyscanEventStsSpec> {
+                EventFifoFullW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn event_key_press(&mut self) -> EventKeyPressW<'_, KeyscanEventStsSpec> {
+                EventKeyPressW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn event_key_release(&mut self) -> EventKeyReleaseW<'_, KeyscanEventStsSpec> {
+                EventKeyReleaseW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn event_key_value_rdy(&mut self) -> EventKeyValueRdyW<'_, KeyscanEventStsSpec> {
+                EventKeyValueRdyW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn event_key_stopped(&mut self) -> EventKeyStoppedW<'_, KeyscanEventStsSpec> {
+                EventKeyStoppedW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn event_keyscan_one(&mut self) -> EventKeyscanOneW<'_, KeyscanEventStsSpec> {
+                EventKeyscanOneW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn event_fifo_afull(&mut self) -> EventFifoAfullW<'_, KeyscanEventStsSpec> {
+                EventFifoAfullW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn event_key_press_aon(&mut self) -> EventKeyPressAonW<'_, KeyscanEventStsSpec> {
+                EventKeyPressAonW::new(self, 7)
+            }
+        }
+        #[doc = "keyscan_event_sts\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_event_sts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_event_sts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanEventStsSpec;
+        impl crate::RegisterSpec for KeyscanEventStsSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_event_sts::R`](R) reader structure"]
+        impl crate::Readable for KeyscanEventStsSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_event_sts::W`](W) writer structure"]
+        impl crate::Writable for KeyscanEventStsSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_EVENT_STS to value 0"]
+        impl crate::Resettable for KeyscanEventStsSpec {}
+    }
+    #[doc = "KEYSCAN_PIN_NUM (rw) register accessor: keyscan_pin_num\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_pin_num::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_pin_num::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_pin_num`] module"]
+    #[doc(alias = "KEYSCAN_PIN_NUM")]
+    pub type KeyscanPinNum = crate::Reg<keyscan_pin_num::KeyscanPinNumSpec>;
+    #[doc = "keyscan_pin_num"]
+    pub mod keyscan_pin_num {
+        #[doc = "Register `KEYSCAN_PIN_NUM` reader"]
+        pub type R = crate::R<KeyscanPinNumSpec>;
+        #[doc = "Register `KEYSCAN_PIN_NUM` writer"]
+        pub type W = crate::W<KeyscanPinNumSpec>;
+        #[doc = "Field `clo_pin_en` reader - "]
+        pub type CloPinEnR = crate::FieldReader;
+        #[doc = "Field `clo_pin_en` writer - "]
+        pub type CloPinEnW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `row_pin_en` reader - "]
+        pub type RowPinEnR = crate::FieldReader;
+        #[doc = "Field `row_pin_en` writer - "]
+        pub type RowPinEnW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn clo_pin_en(&self) -> CloPinEnR {
+                CloPinEnR::new((self.bits & 7) as u8)
+            }
+            #[doc = "Bits 4:8"]
+            #[inline(always)]
+            pub fn row_pin_en(&self) -> RowPinEnR {
+                RowPinEnR::new(((self.bits >> 4) & 0x1f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn clo_pin_en(&mut self) -> CloPinEnW<'_, KeyscanPinNumSpec> {
+                CloPinEnW::new(self, 0)
+            }
+            #[doc = "Bits 4:8"]
+            #[inline(always)]
+            pub fn row_pin_en(&mut self) -> RowPinEnW<'_, KeyscanPinNumSpec> {
+                RowPinEnW::new(self, 4)
+            }
+        }
+        #[doc = "keyscan_pin_num\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_pin_num::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_pin_num::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanPinNumSpec;
+        impl crate::RegisterSpec for KeyscanPinNumSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_pin_num::R`](R) reader structure"]
+        impl crate::Readable for KeyscanPinNumSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_pin_num::W`](W) writer structure"]
+        impl crate::Writable for KeyscanPinNumSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_PIN_NUM to value 0"]
+        impl crate::Resettable for KeyscanPinNumSpec {}
+    }
+    #[doc = "KEYSCAN_MODE (rw) register accessor: keyscan_mode\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_mode::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_mode::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_mode`] module"]
+    #[doc(alias = "KEYSCAN_MODE")]
+    pub type KeyscanMode = crate::Reg<keyscan_mode::KeyscanModeSpec>;
+    #[doc = "keyscan_mode"]
+    pub mod keyscan_mode {
+        #[doc = "Register `KEYSCAN_MODE` reader"]
+        pub type R = crate::R<KeyscanModeSpec>;
+        #[doc = "Register `KEYSCAN_MODE` writer"]
+        pub type W = crate::W<KeyscanModeSpec>;
+        #[doc = "Field `scan_dir` reader - "]
+        pub type ScanDirR = crate::BitReader;
+        #[doc = "Field `scan_dir` writer - "]
+        pub type ScanDirW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `scan_mode` reader - "]
+        pub type ScanModeR = crate::FieldReader;
+        #[doc = "Field `scan_mode` writer - "]
+        pub type ScanModeW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn scan_dir(&self) -> ScanDirR {
+                ScanDirR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bits 4:5"]
+            #[inline(always)]
+            pub fn scan_mode(&self) -> ScanModeR {
+                ScanModeR::new(((self.bits >> 4) & 3) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn scan_dir(&mut self) -> ScanDirW<'_, KeyscanModeSpec> {
+                ScanDirW::new(self, 0)
+            }
+            #[doc = "Bits 4:5"]
+            #[inline(always)]
+            pub fn scan_mode(&mut self) -> ScanModeW<'_, KeyscanModeSpec> {
+                ScanModeW::new(self, 4)
+            }
+        }
+        #[doc = "keyscan_mode\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_mode::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_mode::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanModeSpec;
+        impl crate::RegisterSpec for KeyscanModeSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_mode::R`](R) reader structure"]
+        impl crate::Readable for KeyscanModeSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_mode::W`](W) writer structure"]
+        impl crate::Writable for KeyscanModeSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_MODE to value 0"]
+        impl crate::Resettable for KeyscanModeSpec {}
+    }
+    #[doc = "KEYSCAN_PULSE (rw) register accessor: keyscan_pulse\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_pulse::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_pulse::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_pulse`] module"]
+    #[doc(alias = "KEYSCAN_PULSE")]
+    pub type KeyscanPulse = crate::Reg<keyscan_pulse::KeyscanPulseSpec>;
+    #[doc = "keyscan_pulse"]
+    pub mod keyscan_pulse {
+        #[doc = "Register `KEYSCAN_PULSE` reader"]
+        pub type R = crate::R<KeyscanPulseSpec>;
+        #[doc = "Register `KEYSCAN_PULSE` writer"]
+        pub type W = crate::W<KeyscanPulseSpec>;
+        #[doc = "Field `tpulse` reader - "]
+        pub type TpulseR = crate::FieldReader;
+        #[doc = "Field `tpulse` writer - "]
+        pub type TpulseW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `ttern` reader - "]
+        pub type TternR = crate::FieldReader;
+        #[doc = "Field `ttern` writer - "]
+        pub type TternW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `tidle` reader - "]
+        pub type TidleR = crate::FieldReader;
+        #[doc = "Field `tidle` writer - "]
+        pub type TidleW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        impl R {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn tpulse(&self) -> TpulseR {
+                TpulseR::new((self.bits & 3) as u8)
+            }
+            #[doc = "Bits 4:5"]
+            #[inline(always)]
+            pub fn ttern(&self) -> TternR {
+                TternR::new(((self.bits >> 4) & 3) as u8)
+            }
+            #[doc = "Bits 8:10"]
+            #[inline(always)]
+            pub fn tidle(&self) -> TidleR {
+                TidleR::new(((self.bits >> 8) & 7) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn tpulse(&mut self) -> TpulseW<'_, KeyscanPulseSpec> {
+                TpulseW::new(self, 0)
+            }
+            #[doc = "Bits 4:5"]
+            #[inline(always)]
+            pub fn ttern(&mut self) -> TternW<'_, KeyscanPulseSpec> {
+                TternW::new(self, 4)
+            }
+            #[doc = "Bits 8:10"]
+            #[inline(always)]
+            pub fn tidle(&mut self) -> TidleW<'_, KeyscanPulseSpec> {
+                TidleW::new(self, 8)
+            }
+        }
+        #[doc = "keyscan_pulse\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_pulse::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_pulse::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanPulseSpec;
+        impl crate::RegisterSpec for KeyscanPulseSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_pulse::R`](R) reader structure"]
+        impl crate::Readable for KeyscanPulseSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_pulse::W`](W) writer structure"]
+        impl crate::Writable for KeyscanPulseSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_PULSE to value 0"]
+        impl crate::Resettable for KeyscanPulseSpec {}
+    }
+    #[doc = "KEYSCAN_DE (rw) register accessor: keyscan_de\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_de::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_de::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@keyscan_de`] module"]
+    #[doc(alias = "KEYSCAN_DE")]
+    pub type KeyscanDe = crate::Reg<keyscan_de::KeyscanDeSpec>;
+    #[doc = "keyscan_de"]
+    pub mod keyscan_de {
+        #[doc = "Register `KEYSCAN_DE` reader"]
+        pub type R = crate::R<KeyscanDeSpec>;
+        #[doc = "Register `KEYSCAN_DE` writer"]
+        pub type W = crate::W<KeyscanDeSpec>;
+        #[doc = "Field `scan_num` reader - "]
+        pub type ScanNumR = crate::FieldReader;
+        #[doc = "Field `scan_num` writer - "]
+        pub type ScanNumW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `ghost` reader - "]
+        pub type GhostR = crate::BitReader;
+        #[doc = "Field `ghost` writer - "]
+        pub type GhostW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `io_de` reader - "]
+        pub type IoDeR = crate::BitReader;
+        #[doc = "Field `io_de` writer - "]
+        pub type IoDeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `key_num_sel` reader - "]
+        pub type KeyNumSelR = crate::FieldReader;
+        #[doc = "Field `key_num_sel` writer - "]
+        pub type KeyNumSelW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `rep_all_key` reader - "]
+        pub type RepAllKeyR = crate::BitReader;
+        #[doc = "Field `rep_all_key` writer - "]
+        pub type RepAllKeyW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn scan_num(&self) -> ScanNumR {
+                ScanNumR::new((self.bits & 3) as u8)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn ghost(&self) -> GhostR {
+                GhostR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn io_de(&self) -> IoDeR {
+                IoDeR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bits 12:13"]
+            #[inline(always)]
+            pub fn key_num_sel(&self) -> KeyNumSelR {
+                KeyNumSelR::new(((self.bits >> 12) & 3) as u8)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn rep_all_key(&self) -> RepAllKeyR {
+                RepAllKeyR::new(((self.bits >> 14) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn scan_num(&mut self) -> ScanNumW<'_, KeyscanDeSpec> {
+                ScanNumW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn ghost(&mut self) -> GhostW<'_, KeyscanDeSpec> {
+                GhostW::new(self, 4)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn io_de(&mut self) -> IoDeW<'_, KeyscanDeSpec> {
+                IoDeW::new(self, 8)
+            }
+            #[doc = "Bits 12:13"]
+            #[inline(always)]
+            pub fn key_num_sel(&mut self) -> KeyNumSelW<'_, KeyscanDeSpec> {
+                KeyNumSelW::new(self, 12)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn rep_all_key(&mut self) -> RepAllKeyW<'_, KeyscanDeSpec> {
+                RepAllKeyW::new(self, 14)
+            }
+        }
+        #[doc = "keyscan_de\n\nYou can [`read`](crate::Reg::read) this register and get [`keyscan_de::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`keyscan_de::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyscanDeSpec;
+        impl crate::RegisterSpec for KeyscanDeSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`keyscan_de::R`](R) reader structure"]
+        impl crate::Readable for KeyscanDeSpec {}
+        #[doc = "`write(|w| ..)` method takes [`keyscan_de::W`](W) writer structure"]
+        impl crate::Writable for KeyscanDeSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEYSCAN_DE to value 0"]
+        impl crate::Resettable for KeyscanDeSpec {}
+    }
+    #[doc = "KEY_VALUE_FIFO (rw) register accessor: key_value_fifo\n\nYou can [`read`](crate::Reg::read) this register and get [`key_value_fifo::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`key_value_fifo::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@key_value_fifo`] module"]
+    #[doc(alias = "KEY_VALUE_FIFO")]
+    pub type KeyValueFifo = crate::Reg<key_value_fifo::KeyValueFifoSpec>;
+    #[doc = "key_value_fifo"]
+    pub mod key_value_fifo {
+        #[doc = "Register `KEY_VALUE_FIFO` reader"]
+        pub type R = crate::R<KeyValueFifoSpec>;
+        #[doc = "Register `KEY_VALUE_FIFO` writer"]
+        pub type W = crate::W<KeyValueFifoSpec>;
+        #[doc = "Field `key_value` reader - "]
+        pub type KeyValueR = crate::FieldReader<u16>;
+        #[doc = "Field `key_value` writer - "]
+        pub type KeyValueW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+        impl R {
+            #[doc = "Bits 0:8"]
+            #[inline(always)]
+            pub fn key_value(&self) -> KeyValueR {
+                KeyValueR::new((self.bits & 0x01ff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:8"]
+            #[inline(always)]
+            pub fn key_value(&mut self) -> KeyValueW<'_, KeyValueFifoSpec> {
+                KeyValueW::new(self, 0)
+            }
+        }
+        #[doc = "key_value_fifo\n\nYou can [`read`](crate::Reg::read) this register and get [`key_value_fifo::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`key_value_fifo::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct KeyValueFifoSpec;
+        impl crate::RegisterSpec for KeyValueFifoSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`key_value_fifo::R`](R) reader structure"]
+        impl crate::Readable for KeyValueFifoSpec {}
+        #[doc = "`write(|w| ..)` method takes [`key_value_fifo::W`](W) writer structure"]
+        impl crate::Writable for KeyValueFifoSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets KEY_VALUE_FIFO to value 0"]
+        impl crate::Resettable for KeyValueFifoSpec {}
+    }
+}
+#[doc = "PDM microphone interface (v150)"]
+pub type Pdm = crate::Periph<pdm::RegisterBlock, 0x5208_e000>;
+impl core::fmt::Debug for Pdm {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Pdm").finish()
+    }
+}
+#[doc = "PDM microphone interface (v150)"]
+pub mod pdm {
+    #[repr(C)]
+    #[doc = "Register block"]
+    pub struct RegisterBlock {
+        version: Version,
+        clk_rst_en: ClkRstEn,
+        ch_ctrl: ChCtrl,
+        mic_ctrl: MicCtrl,
+        cic_ctrl: CicCtrl,
+        compd_ctrl: CompdCtrl,
+        _reserved6: [u8; 0x08],
+        srcdn_ctrl: SrcdnCtrl,
+        up_fifo_ctrl: UpFifoCtrl,
+        up_fifo_st_ctrl: UpFifoStCtrl,
+        up_fifo_st_clr: UpFifoStClr,
+    }
+    impl RegisterBlock {
+        #[doc = "0x00 - version"]
+        #[inline(always)]
+        pub const fn version(&self) -> &Version {
+            &self.version
+        }
+        #[doc = "0x04 - clk_rst_en"]
+        #[inline(always)]
+        pub const fn clk_rst_en(&self) -> &ClkRstEn {
+            &self.clk_rst_en
+        }
+        #[doc = "0x08 - ch_ctrl"]
+        #[inline(always)]
+        pub const fn ch_ctrl(&self) -> &ChCtrl {
+            &self.ch_ctrl
+        }
+        #[doc = "0x0c - mic_ctrl"]
+        #[inline(always)]
+        pub const fn mic_ctrl(&self) -> &MicCtrl {
+            &self.mic_ctrl
+        }
+        #[doc = "0x10 - cic_ctrl"]
+        #[inline(always)]
+        pub const fn cic_ctrl(&self) -> &CicCtrl {
+            &self.cic_ctrl
+        }
+        #[doc = "0x14 - compd_ctrl"]
+        #[inline(always)]
+        pub const fn compd_ctrl(&self) -> &CompdCtrl {
+            &self.compd_ctrl
+        }
+        #[doc = "0x20 - srcdn_ctrl"]
+        #[inline(always)]
+        pub const fn srcdn_ctrl(&self) -> &SrcdnCtrl {
+            &self.srcdn_ctrl
+        }
+        #[doc = "0x24 - up_fifo_ctrl"]
+        #[inline(always)]
+        pub const fn up_fifo_ctrl(&self) -> &UpFifoCtrl {
+            &self.up_fifo_ctrl
+        }
+        #[doc = "0x28 - up_fifo_st_ctrl"]
+        #[inline(always)]
+        pub const fn up_fifo_st_ctrl(&self) -> &UpFifoStCtrl {
+            &self.up_fifo_st_ctrl
+        }
+        #[doc = "0x2c - up_fifo_st_clr"]
+        #[inline(always)]
+        pub const fn up_fifo_st_clr(&self) -> &UpFifoStClr {
+            &self.up_fifo_st_clr
+        }
+    }
+    #[doc = "VERSION (rw) register accessor: version\n\nYou can [`read`](crate::Reg::read) this register and get [`version::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`version::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@version`] module"]
+    #[doc(alias = "VERSION")]
+    pub type Version = crate::Reg<version::VersionSpec>;
+    #[doc = "version"]
+    pub mod version {
+        #[doc = "Register `VERSION` reader"]
+        pub type R = crate::R<VersionSpec>;
+        #[doc = "Register `VERSION` writer"]
+        pub type W = crate::W<VersionSpec>;
+        impl core::fmt::Debug for R {
+            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+                write!(f, "{}", self.bits())
+            }
+        }
+        impl W {}
+        #[doc = "version\n\nYou can [`read`](crate::Reg::read) this register and get [`version::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`version::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct VersionSpec;
+        impl crate::RegisterSpec for VersionSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`version::R`](R) reader structure"]
+        impl crate::Readable for VersionSpec {}
+        #[doc = "`write(|w| ..)` method takes [`version::W`](W) writer structure"]
+        impl crate::Writable for VersionSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets VERSION to value 0"]
+        impl crate::Resettable for VersionSpec {}
+    }
+    #[doc = "CLK_RST_EN (rw) register accessor: clk_rst_en\n\nYou can [`read`](crate::Reg::read) this register and get [`clk_rst_en::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`clk_rst_en::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@clk_rst_en`] module"]
+    #[doc(alias = "CLK_RST_EN")]
+    pub type ClkRstEn = crate::Reg<clk_rst_en::ClkRstEnSpec>;
+    #[doc = "clk_rst_en"]
+    pub mod clk_rst_en {
+        #[doc = "Register `CLK_RST_EN` reader"]
+        pub type R = crate::R<ClkRstEnSpec>;
+        #[doc = "Register `CLK_RST_EN` writer"]
+        pub type W = crate::W<ClkRstEnSpec>;
+        #[doc = "Field `pdm_dp_rst_n` reader - "]
+        pub type PdmDpRstNR = crate::BitReader;
+        #[doc = "Field `pdm_dp_rst_n` writer - "]
+        pub type PdmDpRstNW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `clk_freq_sel` reader - "]
+        pub type ClkFreqSelR = crate::BitReader;
+        #[doc = "Field `clk_freq_sel` writer - "]
+        pub type ClkFreqSelW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `func_up_en` reader - "]
+        pub type FuncUpEnR = crate::BitReader;
+        #[doc = "Field `func_up_en` writer - "]
+        pub type FuncUpEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `dmic_clken` reader - "]
+        pub type DmicClkenR = crate::BitReader;
+        #[doc = "Field `dmic_clken` writer - "]
+        pub type DmicClkenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `saradc_clken` reader - "]
+        pub type SaradcClkenR = crate::BitReader;
+        #[doc = "Field `saradc_clken` writer - "]
+        pub type SaradcClkenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ckdiv_6144k_clken` reader - "]
+        pub type Ckdiv6144kClkenR = crate::BitReader;
+        #[doc = "Field `ckdiv_6144k_clken` writer - "]
+        pub type Ckdiv6144kClkenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_clken` reader - "]
+        pub type UpFifoClkenR = crate::BitReader;
+        #[doc = "Field `up_fifo_clken` writer - "]
+        pub type UpFifoClkenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `func_up_ch_en_0` reader - "]
+        pub type FuncUpChEn0R = crate::BitReader;
+        #[doc = "Field `func_up_ch_en_0` writer - "]
+        pub type FuncUpChEn0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cic_clken_0` reader - "]
+        pub type CicClken0R = crate::BitReader;
+        #[doc = "Field `cic_clken_0` writer - "]
+        pub type CicClken0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `compd_clken_0` reader - "]
+        pub type CompdClken0R = crate::BitReader;
+        #[doc = "Field `compd_clken_0` writer - "]
+        pub type CompdClken0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `hpf_clken_0` reader - "]
+        pub type HpfClken0R = crate::BitReader;
+        #[doc = "Field `hpf_clken_0` writer - "]
+        pub type HpfClken0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `srcdn_clken_0` reader - "]
+        pub type SrcdnClken0R = crate::BitReader;
+        #[doc = "Field `srcdn_clken_0` writer - "]
+        pub type SrcdnClken0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `func_up_ch_en_1` reader - "]
+        pub type FuncUpChEn1R = crate::BitReader;
+        #[doc = "Field `func_up_ch_en_1` writer - "]
+        pub type FuncUpChEn1W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cic_clken_1` reader - "]
+        pub type CicClken1R = crate::BitReader;
+        #[doc = "Field `cic_clken_1` writer - "]
+        pub type CicClken1W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `compd_clken_1` reader - "]
+        pub type CompdClken1R = crate::BitReader;
+        #[doc = "Field `compd_clken_1` writer - "]
+        pub type CompdClken1W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `hpf_clken_1` reader - "]
+        pub type HpfClken1R = crate::BitReader;
+        #[doc = "Field `hpf_clken_1` writer - "]
+        pub type HpfClken1W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `srcdn_clken_1` reader - "]
+        pub type SrcdnClken1R = crate::BitReader;
+        #[doc = "Field `srcdn_clken_1` writer - "]
+        pub type SrcdnClken1W<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn pdm_dp_rst_n(&self) -> PdmDpRstNR {
+                PdmDpRstNR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn clk_freq_sel(&self) -> ClkFreqSelR {
+                ClkFreqSelR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn func_up_en(&self) -> FuncUpEnR {
+                FuncUpEnR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn dmic_clken(&self) -> DmicClkenR {
+                DmicClkenR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn saradc_clken(&self) -> SaradcClkenR {
+                SaradcClkenR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn ckdiv_6144k_clken(&self) -> Ckdiv6144kClkenR {
+                Ckdiv6144kClkenR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn up_fifo_clken(&self) -> UpFifoClkenR {
+                UpFifoClkenR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn func_up_ch_en_0(&self) -> FuncUpChEn0R {
+                FuncUpChEn0R::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn cic_clken_0(&self) -> CicClken0R {
+                CicClken0R::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn compd_clken_0(&self) -> CompdClken0R {
+                CompdClken0R::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn hpf_clken_0(&self) -> HpfClken0R {
+                HpfClken0R::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn srcdn_clken_0(&self) -> SrcdnClken0R {
+                SrcdnClken0R::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn func_up_ch_en_1(&self) -> FuncUpChEn1R {
+                FuncUpChEn1R::new(((self.bits >> 16) & 1) != 0)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn cic_clken_1(&self) -> CicClken1R {
+                CicClken1R::new(((self.bits >> 17) & 1) != 0)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn compd_clken_1(&self) -> CompdClken1R {
+                CompdClken1R::new(((self.bits >> 18) & 1) != 0)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn hpf_clken_1(&self) -> HpfClken1R {
+                HpfClken1R::new(((self.bits >> 19) & 1) != 0)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn srcdn_clken_1(&self) -> SrcdnClken1R {
+                SrcdnClken1R::new(((self.bits >> 20) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn pdm_dp_rst_n(&mut self) -> PdmDpRstNW<'_, ClkRstEnSpec> {
+                PdmDpRstNW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn clk_freq_sel(&mut self) -> ClkFreqSelW<'_, ClkRstEnSpec> {
+                ClkFreqSelW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn func_up_en(&mut self) -> FuncUpEnW<'_, ClkRstEnSpec> {
+                FuncUpEnW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn dmic_clken(&mut self) -> DmicClkenW<'_, ClkRstEnSpec> {
+                DmicClkenW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn saradc_clken(&mut self) -> SaradcClkenW<'_, ClkRstEnSpec> {
+                SaradcClkenW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn ckdiv_6144k_clken(&mut self) -> Ckdiv6144kClkenW<'_, ClkRstEnSpec> {
+                Ckdiv6144kClkenW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn up_fifo_clken(&mut self) -> UpFifoClkenW<'_, ClkRstEnSpec> {
+                UpFifoClkenW::new(self, 6)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn func_up_ch_en_0(&mut self) -> FuncUpChEn0W<'_, ClkRstEnSpec> {
+                FuncUpChEn0W::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn cic_clken_0(&mut self) -> CicClken0W<'_, ClkRstEnSpec> {
+                CicClken0W::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn compd_clken_0(&mut self) -> CompdClken0W<'_, ClkRstEnSpec> {
+                CompdClken0W::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn hpf_clken_0(&mut self) -> HpfClken0W<'_, ClkRstEnSpec> {
+                HpfClken0W::new(self, 11)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn srcdn_clken_0(&mut self) -> SrcdnClken0W<'_, ClkRstEnSpec> {
+                SrcdnClken0W::new(self, 12)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn func_up_ch_en_1(&mut self) -> FuncUpChEn1W<'_, ClkRstEnSpec> {
+                FuncUpChEn1W::new(self, 16)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn cic_clken_1(&mut self) -> CicClken1W<'_, ClkRstEnSpec> {
+                CicClken1W::new(self, 17)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn compd_clken_1(&mut self) -> CompdClken1W<'_, ClkRstEnSpec> {
+                CompdClken1W::new(self, 18)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn hpf_clken_1(&mut self) -> HpfClken1W<'_, ClkRstEnSpec> {
+                HpfClken1W::new(self, 19)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn srcdn_clken_1(&mut self) -> SrcdnClken1W<'_, ClkRstEnSpec> {
+                SrcdnClken1W::new(self, 20)
+            }
+        }
+        #[doc = "clk_rst_en\n\nYou can [`read`](crate::Reg::read) this register and get [`clk_rst_en::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`clk_rst_en::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct ClkRstEnSpec;
+        impl crate::RegisterSpec for ClkRstEnSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`clk_rst_en::R`](R) reader structure"]
+        impl crate::Readable for ClkRstEnSpec {}
+        #[doc = "`write(|w| ..)` method takes [`clk_rst_en::W`](W) writer structure"]
+        impl crate::Writable for ClkRstEnSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CLK_RST_EN to value 0"]
+        impl crate::Resettable for ClkRstEnSpec {}
+    }
+    #[doc = "CH_CTRL (rw) register accessor: ch_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`ch_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ch_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ch_ctrl`] module"]
+    #[doc(alias = "CH_CTRL")]
+    pub type ChCtrl = crate::Reg<ch_ctrl::ChCtrlSpec>;
+    #[doc = "ch_ctrl"]
+    pub mod ch_ctrl {
+        #[doc = "Register `CH_CTRL` reader"]
+        pub type R = crate::R<ChCtrlSpec>;
+        #[doc = "Register `CH_CTRL` writer"]
+        pub type W = crate::W<ChCtrlSpec>;
+        #[doc = "Field `mic_sel` reader - "]
+        pub type MicSelR = crate::BitReader;
+        #[doc = "Field `mic_sel` writer - "]
+        pub type MicSelW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fs_sel_0` reader - "]
+        pub type UpFsSel0R = crate::BitReader;
+        #[doc = "Field `up_fs_sel_0` writer - "]
+        pub type UpFsSel0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fs_sel_1` reader - "]
+        pub type UpFsSel1R = crate::BitReader;
+        #[doc = "Field `up_fs_sel_1` writer - "]
+        pub type UpFsSel1W<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn mic_sel(&self) -> MicSelR {
+                MicSelR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn up_fs_sel_0(&self) -> UpFsSel0R {
+                UpFsSel0R::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn up_fs_sel_1(&self) -> UpFsSel1R {
+                UpFsSel1R::new(((self.bits >> 5) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn mic_sel(&mut self) -> MicSelW<'_, ChCtrlSpec> {
+                MicSelW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn up_fs_sel_0(&mut self) -> UpFsSel0W<'_, ChCtrlSpec> {
+                UpFsSel0W::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn up_fs_sel_1(&mut self) -> UpFsSel1W<'_, ChCtrlSpec> {
+                UpFsSel1W::new(self, 5)
+            }
+        }
+        #[doc = "ch_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`ch_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ch_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct ChCtrlSpec;
+        impl crate::RegisterSpec for ChCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ch_ctrl::R`](R) reader structure"]
+        impl crate::Readable for ChCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ch_ctrl::W`](W) writer structure"]
+        impl crate::Writable for ChCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CH_CTRL to value 0"]
+        impl crate::Resettable for ChCtrlSpec {}
+    }
+    #[doc = "MIC_CTRL (rw) register accessor: mic_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`mic_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`mic_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@mic_ctrl`] module"]
+    #[doc(alias = "MIC_CTRL")]
+    pub type MicCtrl = crate::Reg<mic_ctrl::MicCtrlSpec>;
+    #[doc = "mic_ctrl"]
+    pub mod mic_ctrl {
+        #[doc = "Register `MIC_CTRL` reader"]
+        pub type R = crate::R<MicCtrlSpec>;
+        #[doc = "Register `MIC_CTRL` writer"]
+        pub type W = crate::W<MicCtrlSpec>;
+        #[doc = "Field `dmic_clk_sel` reader - "]
+        pub type DmicClkSelR = crate::FieldReader;
+        #[doc = "Field `dmic_clk_sel` writer - "]
+        pub type DmicClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `dmic_mode` reader - "]
+        pub type DmicModeR = crate::BitReader;
+        #[doc = "Field `dmic_mode` writer - "]
+        pub type DmicModeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `dmic_reverse` reader - "]
+        pub type DmicReverseR = crate::BitReader;
+        #[doc = "Field `dmic_reverse` writer - "]
+        pub type DmicReverseW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `saradc_gain` reader - "]
+        pub type SaradcGainR = crate::FieldReader;
+        #[doc = "Field `saradc_gain` writer - "]
+        pub type SaradcGainW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        impl R {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn dmic_clk_sel(&self) -> DmicClkSelR {
+                DmicClkSelR::new((self.bits & 3) as u8)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dmic_mode(&self) -> DmicModeR {
+                DmicModeR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn dmic_reverse(&self) -> DmicReverseR {
+                DmicReverseR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn saradc_gain(&self) -> SaradcGainR {
+                SaradcGainR::new(((self.bits >> 8) & 0xff) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn dmic_clk_sel(&mut self) -> DmicClkSelW<'_, MicCtrlSpec> {
+                DmicClkSelW::new(self, 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dmic_mode(&mut self) -> DmicModeW<'_, MicCtrlSpec> {
+                DmicModeW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn dmic_reverse(&mut self) -> DmicReverseW<'_, MicCtrlSpec> {
+                DmicReverseW::new(self, 3)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn saradc_gain(&mut self) -> SaradcGainW<'_, MicCtrlSpec> {
+                SaradcGainW::new(self, 8)
+            }
+        }
+        #[doc = "mic_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`mic_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`mic_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct MicCtrlSpec;
+        impl crate::RegisterSpec for MicCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`mic_ctrl::R`](R) reader structure"]
+        impl crate::Readable for MicCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`mic_ctrl::W`](W) writer structure"]
+        impl crate::Writable for MicCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets MIC_CTRL to value 0"]
+        impl crate::Resettable for MicCtrlSpec {}
+    }
+    #[doc = "CIC_CTRL (rw) register accessor: cic_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`cic_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cic_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cic_ctrl`] module"]
+    #[doc(alias = "CIC_CTRL")]
+    pub type CicCtrl = crate::Reg<cic_ctrl::CicCtrlSpec>;
+    #[doc = "cic_ctrl"]
+    pub mod cic_ctrl {
+        #[doc = "Register `CIC_CTRL` reader"]
+        pub type R = crate::R<CicCtrlSpec>;
+        #[doc = "Register `CIC_CTRL` writer"]
+        pub type W = crate::W<CicCtrlSpec>;
+        #[doc = "Field `cic_en_0` reader - "]
+        pub type CicEn0R = crate::BitReader;
+        #[doc = "Field `cic_en_0` writer - "]
+        pub type CicEn0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cic_en_1` reader - "]
+        pub type CicEn1R = crate::BitReader;
+        #[doc = "Field `cic_en_1` writer - "]
+        pub type CicEn1W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `cic_gain_0` reader - "]
+        pub type CicGain0R = crate::FieldReader;
+        #[doc = "Field `cic_gain_0` writer - "]
+        pub type CicGain0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `cic_gain_1` reader - "]
+        pub type CicGain1R = crate::FieldReader;
+        #[doc = "Field `cic_gain_1` writer - "]
+        pub type CicGain1W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn cic_en_0(&self) -> CicEn0R {
+                CicEn0R::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn cic_en_1(&self) -> CicEn1R {
+                CicEn1R::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn cic_gain_0(&self) -> CicGain0R {
+                CicGain0R::new(((self.bits >> 8) & 0xff) as u8)
+            }
+            #[doc = "Bits 16:23"]
+            #[inline(always)]
+            pub fn cic_gain_1(&self) -> CicGain1R {
+                CicGain1R::new(((self.bits >> 16) & 0xff) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn cic_en_0(&mut self) -> CicEn0W<'_, CicCtrlSpec> {
+                CicEn0W::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn cic_en_1(&mut self) -> CicEn1W<'_, CicCtrlSpec> {
+                CicEn1W::new(self, 1)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn cic_gain_0(&mut self) -> CicGain0W<'_, CicCtrlSpec> {
+                CicGain0W::new(self, 8)
+            }
+            #[doc = "Bits 16:23"]
+            #[inline(always)]
+            pub fn cic_gain_1(&mut self) -> CicGain1W<'_, CicCtrlSpec> {
+                CicGain1W::new(self, 16)
+            }
+        }
+        #[doc = "cic_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`cic_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cic_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CicCtrlSpec;
+        impl crate::RegisterSpec for CicCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`cic_ctrl::R`](R) reader structure"]
+        impl crate::Readable for CicCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`cic_ctrl::W`](W) writer structure"]
+        impl crate::Writable for CicCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets CIC_CTRL to value 0"]
+        impl crate::Resettable for CicCtrlSpec {}
+    }
+    #[doc = "COMPD_CTRL (rw) register accessor: compd_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`compd_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`compd_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@compd_ctrl`] module"]
+    #[doc(alias = "COMPD_CTRL")]
+    pub type CompdCtrl = crate::Reg<compd_ctrl::CompdCtrlSpec>;
+    #[doc = "compd_ctrl"]
+    pub mod compd_ctrl {
+        #[doc = "Register `COMPD_CTRL` reader"]
+        pub type R = crate::R<CompdCtrlSpec>;
+        #[doc = "Register `COMPD_CTRL` writer"]
+        pub type W = crate::W<CompdCtrlSpec>;
+        #[doc = "Field `compd_bypass_en_0` reader - "]
+        pub type CompdBypassEn0R = crate::BitReader;
+        #[doc = "Field `compd_bypass_en_0` writer - "]
+        pub type CompdBypassEn0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `compd_bypass_en_1` reader - "]
+        pub type CompdBypassEn1R = crate::BitReader;
+        #[doc = "Field `compd_bypass_en_1` writer - "]
+        pub type CompdBypassEn1W<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn compd_bypass_en_0(&self) -> CompdBypassEn0R {
+                CompdBypassEn0R::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn compd_bypass_en_1(&self) -> CompdBypassEn1R {
+                CompdBypassEn1R::new(((self.bits >> 1) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn compd_bypass_en_0(&mut self) -> CompdBypassEn0W<'_, CompdCtrlSpec> {
+                CompdBypassEn0W::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn compd_bypass_en_1(&mut self) -> CompdBypassEn1W<'_, CompdCtrlSpec> {
+                CompdBypassEn1W::new(self, 1)
+            }
+        }
+        #[doc = "compd_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`compd_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`compd_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct CompdCtrlSpec;
+        impl crate::RegisterSpec for CompdCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`compd_ctrl::R`](R) reader structure"]
+        impl crate::Readable for CompdCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`compd_ctrl::W`](W) writer structure"]
+        impl crate::Writable for CompdCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets COMPD_CTRL to value 0"]
+        impl crate::Resettable for CompdCtrlSpec {}
+    }
+    #[doc = "SRCDN_CTRL (rw) register accessor: srcdn_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`srcdn_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`srcdn_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@srcdn_ctrl`] module"]
+    #[doc(alias = "SRCDN_CTRL")]
+    pub type SrcdnCtrl = crate::Reg<srcdn_ctrl::SrcdnCtrlSpec>;
+    #[doc = "srcdn_ctrl"]
+    pub mod srcdn_ctrl {
+        #[doc = "Register `SRCDN_CTRL` reader"]
+        pub type R = crate::R<SrcdnCtrlSpec>;
+        #[doc = "Register `SRCDN_CTRL` writer"]
+        pub type W = crate::W<SrcdnCtrlSpec>;
+        #[doc = "Field `srcdn_bypass_en_0` reader - "]
+        pub type SrcdnBypassEn0R = crate::BitReader;
+        #[doc = "Field `srcdn_bypass_en_0` writer - "]
+        pub type SrcdnBypassEn0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `srcdn_bypass_en_1` reader - "]
+        pub type SrcdnBypassEn1R = crate::BitReader;
+        #[doc = "Field `srcdn_bypass_en_1` writer - "]
+        pub type SrcdnBypassEn1W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `srcdn_mode_0` reader - "]
+        pub type SrcdnMode0R = crate::FieldReader;
+        #[doc = "Field `srcdn_mode_0` writer - "]
+        pub type SrcdnMode0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `srcdn_mode_1` reader - "]
+        pub type SrcdnMode1R = crate::FieldReader;
+        #[doc = "Field `srcdn_mode_1` writer - "]
+        pub type SrcdnMode1W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `srcdn_fifo_clr_0` reader - "]
+        pub type SrcdnFifoClr0R = crate::BitReader;
+        #[doc = "Field `srcdn_fifo_clr_0` writer - "]
+        pub type SrcdnFifoClr0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `srcdn_fifo_clr_1` reader - "]
+        pub type SrcdnFifoClr1R = crate::BitReader;
+        #[doc = "Field `srcdn_fifo_clr_1` writer - "]
+        pub type SrcdnFifoClr1W<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn srcdn_bypass_en_0(&self) -> SrcdnBypassEn0R {
+                SrcdnBypassEn0R::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn srcdn_bypass_en_1(&self) -> SrcdnBypassEn1R {
+                SrcdnBypassEn1R::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bits 4:5"]
+            #[inline(always)]
+            pub fn srcdn_mode_0(&self) -> SrcdnMode0R {
+                SrcdnMode0R::new(((self.bits >> 4) & 3) as u8)
+            }
+            #[doc = "Bits 6:7"]
+            #[inline(always)]
+            pub fn srcdn_mode_1(&self) -> SrcdnMode1R {
+                SrcdnMode1R::new(((self.bits >> 6) & 3) as u8)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn srcdn_fifo_clr_0(&self) -> SrcdnFifoClr0R {
+                SrcdnFifoClr0R::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn srcdn_fifo_clr_1(&self) -> SrcdnFifoClr1R {
+                SrcdnFifoClr1R::new(((self.bits >> 9) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn srcdn_bypass_en_0(&mut self) -> SrcdnBypassEn0W<'_, SrcdnCtrlSpec> {
+                SrcdnBypassEn0W::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn srcdn_bypass_en_1(&mut self) -> SrcdnBypassEn1W<'_, SrcdnCtrlSpec> {
+                SrcdnBypassEn1W::new(self, 1)
+            }
+            #[doc = "Bits 4:5"]
+            #[inline(always)]
+            pub fn srcdn_mode_0(&mut self) -> SrcdnMode0W<'_, SrcdnCtrlSpec> {
+                SrcdnMode0W::new(self, 4)
+            }
+            #[doc = "Bits 6:7"]
+            #[inline(always)]
+            pub fn srcdn_mode_1(&mut self) -> SrcdnMode1W<'_, SrcdnCtrlSpec> {
+                SrcdnMode1W::new(self, 6)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn srcdn_fifo_clr_0(&mut self) -> SrcdnFifoClr0W<'_, SrcdnCtrlSpec> {
+                SrcdnFifoClr0W::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn srcdn_fifo_clr_1(&mut self) -> SrcdnFifoClr1W<'_, SrcdnCtrlSpec> {
+                SrcdnFifoClr1W::new(self, 9)
+            }
+        }
+        #[doc = "srcdn_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`srcdn_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`srcdn_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct SrcdnCtrlSpec;
+        impl crate::RegisterSpec for SrcdnCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`srcdn_ctrl::R`](R) reader structure"]
+        impl crate::Readable for SrcdnCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`srcdn_ctrl::W`](W) writer structure"]
+        impl crate::Writable for SrcdnCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets SRCDN_CTRL to value 0"]
+        impl crate::Resettable for SrcdnCtrlSpec {}
+    }
+    #[doc = "UP_FIFO_CTRL (rw) register accessor: up_fifo_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`up_fifo_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`up_fifo_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@up_fifo_ctrl`] module"]
+    #[doc(alias = "UP_FIFO_CTRL")]
+    pub type UpFifoCtrl = crate::Reg<up_fifo_ctrl::UpFifoCtrlSpec>;
+    #[doc = "up_fifo_ctrl"]
+    pub mod up_fifo_ctrl {
+        #[doc = "Register `UP_FIFO_CTRL` reader"]
+        pub type R = crate::R<UpFifoCtrlSpec>;
+        #[doc = "Register `UP_FIFO_CTRL` writer"]
+        pub type W = crate::W<UpFifoCtrlSpec>;
+        #[doc = "Field `up_fifo_aempty_th` reader - "]
+        pub type UpFifoAemptyThR = crate::FieldReader;
+        #[doc = "Field `up_fifo_aempty_th` writer - "]
+        pub type UpFifoAemptyThW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        #[doc = "Field `up_fifo_afull_th` reader - "]
+        pub type UpFifoAfullThR = crate::FieldReader;
+        #[doc = "Field `up_fifo_afull_th` writer - "]
+        pub type UpFifoAfullThW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        impl R {
+            #[doc = "Bits 0:4"]
+            #[inline(always)]
+            pub fn up_fifo_aempty_th(&self) -> UpFifoAemptyThR {
+                UpFifoAemptyThR::new((self.bits & 0x1f) as u8)
+            }
+            #[doc = "Bits 8:12"]
+            #[inline(always)]
+            pub fn up_fifo_afull_th(&self) -> UpFifoAfullThR {
+                UpFifoAfullThR::new(((self.bits >> 8) & 0x1f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:4"]
+            #[inline(always)]
+            pub fn up_fifo_aempty_th(&mut self) -> UpFifoAemptyThW<'_, UpFifoCtrlSpec> {
+                UpFifoAemptyThW::new(self, 0)
+            }
+            #[doc = "Bits 8:12"]
+            #[inline(always)]
+            pub fn up_fifo_afull_th(&mut self) -> UpFifoAfullThW<'_, UpFifoCtrlSpec> {
+                UpFifoAfullThW::new(self, 8)
+            }
+        }
+        #[doc = "up_fifo_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`up_fifo_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`up_fifo_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct UpFifoCtrlSpec;
+        impl crate::RegisterSpec for UpFifoCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`up_fifo_ctrl::R`](R) reader structure"]
+        impl crate::Readable for UpFifoCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`up_fifo_ctrl::W`](W) writer structure"]
+        impl crate::Writable for UpFifoCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets UP_FIFO_CTRL to value 0"]
+        impl crate::Resettable for UpFifoCtrlSpec {}
+    }
+    #[doc = "UP_FIFO_ST_CTRL (rw) register accessor: up_fifo_st_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`up_fifo_st_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`up_fifo_st_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@up_fifo_st_ctrl`] module"]
+    #[doc(alias = "UP_FIFO_ST_CTRL")]
+    pub type UpFifoStCtrl = crate::Reg<up_fifo_st_ctrl::UpFifoStCtrlSpec>;
+    #[doc = "up_fifo_st_ctrl"]
+    pub mod up_fifo_st_ctrl {
+        #[doc = "Register `UP_FIFO_ST_CTRL` reader"]
+        pub type R = crate::R<UpFifoStCtrlSpec>;
+        #[doc = "Register `UP_FIFO_ST_CTRL` writer"]
+        pub type W = crate::W<UpFifoStCtrlSpec>;
+        #[doc = "Field `up_fifo_full_int_en` reader - "]
+        pub type UpFifoFullIntEnR = crate::BitReader;
+        #[doc = "Field `up_fifo_full_int_en` writer - "]
+        pub type UpFifoFullIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_afull_int_en` reader - "]
+        pub type UpFifoAfullIntEnR = crate::BitReader;
+        #[doc = "Field `up_fifo_afull_int_en` writer - "]
+        pub type UpFifoAfullIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_empty_int_en` reader - "]
+        pub type UpFifoEmptyIntEnR = crate::BitReader;
+        #[doc = "Field `up_fifo_empty_int_en` writer - "]
+        pub type UpFifoEmptyIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_aempty_int_en` reader - "]
+        pub type UpFifoAemptyIntEnR = crate::BitReader;
+        #[doc = "Field `up_fifo_aempty_int_en` writer - "]
+        pub type UpFifoAemptyIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn up_fifo_full_int_en(&self) -> UpFifoFullIntEnR {
+                UpFifoFullIntEnR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn up_fifo_afull_int_en(&self) -> UpFifoAfullIntEnR {
+                UpFifoAfullIntEnR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn up_fifo_empty_int_en(&self) -> UpFifoEmptyIntEnR {
+                UpFifoEmptyIntEnR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn up_fifo_aempty_int_en(&self) -> UpFifoAemptyIntEnR {
+                UpFifoAemptyIntEnR::new(((self.bits >> 3) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn up_fifo_full_int_en(&mut self) -> UpFifoFullIntEnW<'_, UpFifoStCtrlSpec> {
+                UpFifoFullIntEnW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn up_fifo_afull_int_en(&mut self) -> UpFifoAfullIntEnW<'_, UpFifoStCtrlSpec> {
+                UpFifoAfullIntEnW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn up_fifo_empty_int_en(&mut self) -> UpFifoEmptyIntEnW<'_, UpFifoStCtrlSpec> {
+                UpFifoEmptyIntEnW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn up_fifo_aempty_int_en(&mut self) -> UpFifoAemptyIntEnW<'_, UpFifoStCtrlSpec> {
+                UpFifoAemptyIntEnW::new(self, 3)
+            }
+        }
+        #[doc = "up_fifo_st_ctrl\n\nYou can [`read`](crate::Reg::read) this register and get [`up_fifo_st_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`up_fifo_st_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct UpFifoStCtrlSpec;
+        impl crate::RegisterSpec for UpFifoStCtrlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`up_fifo_st_ctrl::R`](R) reader structure"]
+        impl crate::Readable for UpFifoStCtrlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`up_fifo_st_ctrl::W`](W) writer structure"]
+        impl crate::Writable for UpFifoStCtrlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets UP_FIFO_ST_CTRL to value 0"]
+        impl crate::Resettable for UpFifoStCtrlSpec {}
+    }
+    #[doc = "UP_FIFO_ST_CLR (rw) register accessor: up_fifo_st_clr\n\nYou can [`read`](crate::Reg::read) this register and get [`up_fifo_st_clr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`up_fifo_st_clr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@up_fifo_st_clr`] module"]
+    #[doc(alias = "UP_FIFO_ST_CLR")]
+    pub type UpFifoStClr = crate::Reg<up_fifo_st_clr::UpFifoStClrSpec>;
+    #[doc = "up_fifo_st_clr"]
+    pub mod up_fifo_st_clr {
+        #[doc = "Register `UP_FIFO_ST_CLR` reader"]
+        pub type R = crate::R<UpFifoStClrSpec>;
+        #[doc = "Register `UP_FIFO_ST_CLR` writer"]
+        pub type W = crate::W<UpFifoStClrSpec>;
+        #[doc = "Field `up_fifo_full_int_clr` reader - "]
+        pub type UpFifoFullIntClrR = crate::BitReader;
+        #[doc = "Field `up_fifo_full_int_clr` writer - "]
+        pub type UpFifoFullIntClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_afull_int_clr` reader - "]
+        pub type UpFifoAfullIntClrR = crate::BitReader;
+        #[doc = "Field `up_fifo_afull_int_clr` writer - "]
+        pub type UpFifoAfullIntClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_empty_int_clr` reader - "]
+        pub type UpFifoEmptyIntClrR = crate::BitReader;
+        #[doc = "Field `up_fifo_empty_int_clr` writer - "]
+        pub type UpFifoEmptyIntClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_aempty_int_clr` reader - "]
+        pub type UpFifoAemptyIntClrR = crate::BitReader;
+        #[doc = "Field `up_fifo_aempty_int_clr` writer - "]
+        pub type UpFifoAemptyIntClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `up_fifo_clr` reader - "]
+        pub type UpFifoClrR = crate::BitReader;
+        #[doc = "Field `up_fifo_clr` writer - "]
+        pub type UpFifoClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn up_fifo_full_int_clr(&self) -> UpFifoFullIntClrR {
+                UpFifoFullIntClrR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn up_fifo_afull_int_clr(&self) -> UpFifoAfullIntClrR {
+                UpFifoAfullIntClrR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn up_fifo_empty_int_clr(&self) -> UpFifoEmptyIntClrR {
+                UpFifoEmptyIntClrR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn up_fifo_aempty_int_clr(&self) -> UpFifoAemptyIntClrR {
+                UpFifoAemptyIntClrR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn up_fifo_clr(&self) -> UpFifoClrR {
+                UpFifoClrR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn up_fifo_full_int_clr(&mut self) -> UpFifoFullIntClrW<'_, UpFifoStClrSpec> {
+                UpFifoFullIntClrW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn up_fifo_afull_int_clr(&mut self) -> UpFifoAfullIntClrW<'_, UpFifoStClrSpec> {
+                UpFifoAfullIntClrW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn up_fifo_empty_int_clr(&mut self) -> UpFifoEmptyIntClrW<'_, UpFifoStClrSpec> {
+                UpFifoEmptyIntClrW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn up_fifo_aempty_int_clr(&mut self) -> UpFifoAemptyIntClrW<'_, UpFifoStClrSpec> {
+                UpFifoAemptyIntClrW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn up_fifo_clr(&mut self) -> UpFifoClrW<'_, UpFifoStClrSpec> {
+                UpFifoClrW::new(self, 4)
+            }
+        }
+        #[doc = "up_fifo_st_clr\n\nYou can [`read`](crate::Reg::read) this register and get [`up_fifo_st_clr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`up_fifo_st_clr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct UpFifoStClrSpec;
+        impl crate::RegisterSpec for UpFifoStClrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`up_fifo_st_clr::R`](R) reader structure"]
+        impl crate::Readable for UpFifoStClrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`up_fifo_st_clr::W`](W) writer structure"]
+        impl crate::Writable for UpFifoStClrSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets UP_FIFO_ST_CLR to value 0"]
+        impl crate::Resettable for UpFifoStClrSpec {}
+    }
+}
+#[doc = "Quadrature decoder (v150)"]
+pub type Qdec = crate::Periph<qdec::RegisterBlock, 0x5200_0200>;
+impl core::fmt::Debug for Qdec {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Qdec").finish()
+    }
+}
+#[doc = "Quadrature decoder (v150)"]
+pub mod qdec {
+    #[repr(C)]
+    #[doc = "Register block"]
+    pub struct RegisterBlock {
+        _reserved0: [u8; 0x04],
+        qdec_task_start: QdecTaskStart,
+        qdec_task_stop: QdecTaskStop,
+        qdec_task_readclr_acc: QdecTaskReadclrAcc,
+        qdec_task_rd_clr_acc: QdecTaskRdClrAcc,
+        qdec_task_rd_clr_dbl: QdecTaskRdClrDbl,
+        qdec_enable: QdecEnable,
+        _reserved6: [u8; 0x04],
+        qdec_event_int_sts: QdecEventIntSts,
+        _reserved7: [u8; 0x10],
+        qdec_int_en: QdecIntEn,
+        qdec_int_clr: QdecIntClr,
+        qdec_ledpol_data: QdecLedpolData,
+        qdec_sampleper_data: QdecSampleperData,
+        qdec_reporter_data: QdecReporterData,
+        qdec_defen_data: QdecDefenData,
+        qdec_ledpre_data: QdecLedpreData,
+        qdec_sample_data: QdecSampleData,
+        qdec_acc_data: QdecAccData,
+        qdec_accdbl_data: QdecAccdblData,
+        qdec_acc_read: QdecAccRead,
+        qdec_accdbl_read: QdecAccdblRead,
+        qdec_acc_event: QdecAccEvent,
+        qdec_fpga_io_sel: QdecFpgaIoSel,
+        _reserved21: [u8; 0x04],
+        qdec_clk_ctl: QdecClkCtl,
+        qdec_soft_rst: QdecSoftRst,
+    }
+    impl RegisterBlock {
+        #[doc = "0x04 - qdec_task_start"]
+        #[inline(always)]
+        pub const fn qdec_task_start(&self) -> &QdecTaskStart {
+            &self.qdec_task_start
+        }
+        #[doc = "0x08 - qdec_task_stop"]
+        #[inline(always)]
+        pub const fn qdec_task_stop(&self) -> &QdecTaskStop {
+            &self.qdec_task_stop
+        }
+        #[doc = "0x0c - qdec_task_readclr_acc"]
+        #[inline(always)]
+        pub const fn qdec_task_readclr_acc(&self) -> &QdecTaskReadclrAcc {
+            &self.qdec_task_readclr_acc
+        }
+        #[doc = "0x10 - qdec_task_rd_clr_acc"]
+        #[inline(always)]
+        pub const fn qdec_task_rd_clr_acc(&self) -> &QdecTaskRdClrAcc {
+            &self.qdec_task_rd_clr_acc
+        }
+        #[doc = "0x14 - qdec_task_rd_clr_dbl"]
+        #[inline(always)]
+        pub const fn qdec_task_rd_clr_dbl(&self) -> &QdecTaskRdClrDbl {
+            &self.qdec_task_rd_clr_dbl
+        }
+        #[doc = "0x18 - qdec_enable"]
+        #[inline(always)]
+        pub const fn qdec_enable(&self) -> &QdecEnable {
+            &self.qdec_enable
+        }
+        #[doc = "0x20 - qdec_event_int_sts"]
+        #[inline(always)]
+        pub const fn qdec_event_int_sts(&self) -> &QdecEventIntSts {
+            &self.qdec_event_int_sts
+        }
+        #[doc = "0x34 - qdec_int_en"]
+        #[inline(always)]
+        pub const fn qdec_int_en(&self) -> &QdecIntEn {
+            &self.qdec_int_en
+        }
+        #[doc = "0x38 - qdec_int_clr"]
+        #[inline(always)]
+        pub const fn qdec_int_clr(&self) -> &QdecIntClr {
+            &self.qdec_int_clr
+        }
+        #[doc = "0x3c - qdec_ledpol_data"]
+        #[inline(always)]
+        pub const fn qdec_ledpol_data(&self) -> &QdecLedpolData {
+            &self.qdec_ledpol_data
+        }
+        #[doc = "0x40 - qdec_sampleper_data"]
+        #[inline(always)]
+        pub const fn qdec_sampleper_data(&self) -> &QdecSampleperData {
+            &self.qdec_sampleper_data
+        }
+        #[doc = "0x44 - qdec_reporter_data"]
+        #[inline(always)]
+        pub const fn qdec_reporter_data(&self) -> &QdecReporterData {
+            &self.qdec_reporter_data
+        }
+        #[doc = "0x48 - qdec_defen_data"]
+        #[inline(always)]
+        pub const fn qdec_defen_data(&self) -> &QdecDefenData {
+            &self.qdec_defen_data
+        }
+        #[doc = "0x4c - qdec_ledpre_data"]
+        #[inline(always)]
+        pub const fn qdec_ledpre_data(&self) -> &QdecLedpreData {
+            &self.qdec_ledpre_data
+        }
+        #[doc = "0x50 - qdec_sample_data"]
+        #[inline(always)]
+        pub const fn qdec_sample_data(&self) -> &QdecSampleData {
+            &self.qdec_sample_data
+        }
+        #[doc = "0x54 - qdec_acc_data"]
+        #[inline(always)]
+        pub const fn qdec_acc_data(&self) -> &QdecAccData {
+            &self.qdec_acc_data
+        }
+        #[doc = "0x58 - qdec_accdbl_data"]
+        #[inline(always)]
+        pub const fn qdec_accdbl_data(&self) -> &QdecAccdblData {
+            &self.qdec_accdbl_data
+        }
+        #[doc = "0x5c - qdec_acc_read"]
+        #[inline(always)]
+        pub const fn qdec_acc_read(&self) -> &QdecAccRead {
+            &self.qdec_acc_read
+        }
+        #[doc = "0x60 - qdec_accdbl_read"]
+        #[inline(always)]
+        pub const fn qdec_accdbl_read(&self) -> &QdecAccdblRead {
+            &self.qdec_accdbl_read
+        }
+        #[doc = "0x64 - qdec_acc_event"]
+        #[inline(always)]
+        pub const fn qdec_acc_event(&self) -> &QdecAccEvent {
+            &self.qdec_acc_event
+        }
+        #[doc = "0x68 - qdec_fpga_io_sel"]
+        #[inline(always)]
+        pub const fn qdec_fpga_io_sel(&self) -> &QdecFpgaIoSel {
+            &self.qdec_fpga_io_sel
+        }
+        #[doc = "0x70 - qdec_clk_ctl"]
+        #[inline(always)]
+        pub const fn qdec_clk_ctl(&self) -> &QdecClkCtl {
+            &self.qdec_clk_ctl
+        }
+        #[doc = "0x74 - qdec_soft_rst"]
+        #[inline(always)]
+        pub const fn qdec_soft_rst(&self) -> &QdecSoftRst {
+            &self.qdec_soft_rst
+        }
+    }
+    #[doc = "QDEC_TASK_START (rw) register accessor: qdec_task_start\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_start::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_start::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_task_start`] module"]
+    #[doc(alias = "QDEC_TASK_START")]
+    pub type QdecTaskStart = crate::Reg<qdec_task_start::QdecTaskStartSpec>;
+    #[doc = "qdec_task_start"]
+    pub mod qdec_task_start {
+        #[doc = "Register `QDEC_TASK_START` reader"]
+        pub type R = crate::R<QdecTaskStartSpec>;
+        #[doc = "Register `QDEC_TASK_START` writer"]
+        pub type W = crate::W<QdecTaskStartSpec>;
+        #[doc = "Field `start` reader - "]
+        pub type StartR = crate::BitReader;
+        #[doc = "Field `start` writer - "]
+        pub type StartW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn start(&self) -> StartR {
+                StartR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn start(&mut self) -> StartW<'_, QdecTaskStartSpec> {
+                StartW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_task_start\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_start::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_start::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecTaskStartSpec;
+        impl crate::RegisterSpec for QdecTaskStartSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_task_start::R`](R) reader structure"]
+        impl crate::Readable for QdecTaskStartSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_task_start::W`](W) writer structure"]
+        impl crate::Writable for QdecTaskStartSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_TASK_START to value 0"]
+        impl crate::Resettable for QdecTaskStartSpec {}
+    }
+    #[doc = "QDEC_TASK_STOP (rw) register accessor: qdec_task_stop\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_stop::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_stop::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_task_stop`] module"]
+    #[doc(alias = "QDEC_TASK_STOP")]
+    pub type QdecTaskStop = crate::Reg<qdec_task_stop::QdecTaskStopSpec>;
+    #[doc = "qdec_task_stop"]
+    pub mod qdec_task_stop {
+        #[doc = "Register `QDEC_TASK_STOP` reader"]
+        pub type R = crate::R<QdecTaskStopSpec>;
+        #[doc = "Register `QDEC_TASK_STOP` writer"]
+        pub type W = crate::W<QdecTaskStopSpec>;
+        #[doc = "Field `stop` reader - "]
+        pub type StopR = crate::BitReader;
+        #[doc = "Field `stop` writer - "]
+        pub type StopW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn stop(&self) -> StopR {
+                StopR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn stop(&mut self) -> StopW<'_, QdecTaskStopSpec> {
+                StopW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_task_stop\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_stop::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_stop::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecTaskStopSpec;
+        impl crate::RegisterSpec for QdecTaskStopSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_task_stop::R`](R) reader structure"]
+        impl crate::Readable for QdecTaskStopSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_task_stop::W`](W) writer structure"]
+        impl crate::Writable for QdecTaskStopSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_TASK_STOP to value 0"]
+        impl crate::Resettable for QdecTaskStopSpec {}
+    }
+    #[doc = "QDEC_TASK_READCLR_ACC (rw) register accessor: qdec_task_readclr_acc\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_readclr_acc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_readclr_acc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_task_readclr_acc`] module"]
+    #[doc(alias = "QDEC_TASK_READCLR_ACC")]
+    pub type QdecTaskReadclrAcc = crate::Reg<qdec_task_readclr_acc::QdecTaskReadclrAccSpec>;
+    #[doc = "qdec_task_readclr_acc"]
+    pub mod qdec_task_readclr_acc {
+        #[doc = "Register `QDEC_TASK_READCLR_ACC` reader"]
+        pub type R = crate::R<QdecTaskReadclrAccSpec>;
+        #[doc = "Register `QDEC_TASK_READCLR_ACC` writer"]
+        pub type W = crate::W<QdecTaskReadclrAccSpec>;
+        #[doc = "Field `readclr_acc` reader - "]
+        pub type ReadclrAccR = crate::BitReader;
+        #[doc = "Field `readclr_acc` writer - "]
+        pub type ReadclrAccW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn readclr_acc(&self) -> ReadclrAccR {
+                ReadclrAccR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn readclr_acc(&mut self) -> ReadclrAccW<'_, QdecTaskReadclrAccSpec> {
+                ReadclrAccW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_task_readclr_acc\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_readclr_acc::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_readclr_acc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecTaskReadclrAccSpec;
+        impl crate::RegisterSpec for QdecTaskReadclrAccSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_task_readclr_acc::R`](R) reader structure"]
+        impl crate::Readable for QdecTaskReadclrAccSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_task_readclr_acc::W`](W) writer structure"]
+        impl crate::Writable for QdecTaskReadclrAccSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_TASK_READCLR_ACC to value 0"]
+        impl crate::Resettable for QdecTaskReadclrAccSpec {}
+    }
+    #[doc = "QDEC_TASK_RD_CLR_ACC (rw) register accessor: qdec_task_rd_clr_acc\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_rd_clr_acc::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_rd_clr_acc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_task_rd_clr_acc`] module"]
+    #[doc(alias = "QDEC_TASK_RD_CLR_ACC")]
+    pub type QdecTaskRdClrAcc = crate::Reg<qdec_task_rd_clr_acc::QdecTaskRdClrAccSpec>;
+    #[doc = "qdec_task_rd_clr_acc"]
+    pub mod qdec_task_rd_clr_acc {
+        #[doc = "Register `QDEC_TASK_RD_CLR_ACC` reader"]
+        pub type R = crate::R<QdecTaskRdClrAccSpec>;
+        #[doc = "Register `QDEC_TASK_RD_CLR_ACC` writer"]
+        pub type W = crate::W<QdecTaskRdClrAccSpec>;
+        #[doc = "Field `rd_clr_acc` reader - "]
+        pub type RdClrAccR = crate::BitReader;
+        #[doc = "Field `rd_clr_acc` writer - "]
+        pub type RdClrAccW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rd_clr_acc(&self) -> RdClrAccR {
+                RdClrAccR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rd_clr_acc(&mut self) -> RdClrAccW<'_, QdecTaskRdClrAccSpec> {
+                RdClrAccW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_task_rd_clr_acc\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_rd_clr_acc::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_rd_clr_acc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecTaskRdClrAccSpec;
+        impl crate::RegisterSpec for QdecTaskRdClrAccSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_task_rd_clr_acc::R`](R) reader structure"]
+        impl crate::Readable for QdecTaskRdClrAccSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_task_rd_clr_acc::W`](W) writer structure"]
+        impl crate::Writable for QdecTaskRdClrAccSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_TASK_RD_CLR_ACC to value 0"]
+        impl crate::Resettable for QdecTaskRdClrAccSpec {}
+    }
+    #[doc = "QDEC_TASK_RD_CLR_DBL (rw) register accessor: qdec_task_rd_clr_dbl\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_rd_clr_dbl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_rd_clr_dbl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_task_rd_clr_dbl`] module"]
+    #[doc(alias = "QDEC_TASK_RD_CLR_DBL")]
+    pub type QdecTaskRdClrDbl = crate::Reg<qdec_task_rd_clr_dbl::QdecTaskRdClrDblSpec>;
+    #[doc = "qdec_task_rd_clr_dbl"]
+    pub mod qdec_task_rd_clr_dbl {
+        #[doc = "Register `QDEC_TASK_RD_CLR_DBL` reader"]
+        pub type R = crate::R<QdecTaskRdClrDblSpec>;
+        #[doc = "Register `QDEC_TASK_RD_CLR_DBL` writer"]
+        pub type W = crate::W<QdecTaskRdClrDblSpec>;
+        #[doc = "Field `rd_clr_dbl` reader - "]
+        pub type RdClrDblR = crate::BitReader;
+        #[doc = "Field `rd_clr_dbl` writer - "]
+        pub type RdClrDblW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rd_clr_dbl(&self) -> RdClrDblR {
+                RdClrDblR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rd_clr_dbl(&mut self) -> RdClrDblW<'_, QdecTaskRdClrDblSpec> {
+                RdClrDblW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_task_rd_clr_dbl\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_task_rd_clr_dbl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_task_rd_clr_dbl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecTaskRdClrDblSpec;
+        impl crate::RegisterSpec for QdecTaskRdClrDblSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_task_rd_clr_dbl::R`](R) reader structure"]
+        impl crate::Readable for QdecTaskRdClrDblSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_task_rd_clr_dbl::W`](W) writer structure"]
+        impl crate::Writable for QdecTaskRdClrDblSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_TASK_RD_CLR_DBL to value 0"]
+        impl crate::Resettable for QdecTaskRdClrDblSpec {}
+    }
+    #[doc = "QDEC_ENABLE (rw) register accessor: qdec_enable\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_enable::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_enable::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_enable`] module"]
+    #[doc(alias = "QDEC_ENABLE")]
+    pub type QdecEnable = crate::Reg<qdec_enable::QdecEnableSpec>;
+    #[doc = "qdec_enable"]
+    pub mod qdec_enable {
+        #[doc = "Register `QDEC_ENABLE` reader"]
+        pub type R = crate::R<QdecEnableSpec>;
+        #[doc = "Register `QDEC_ENABLE` writer"]
+        pub type W = crate::W<QdecEnableSpec>;
+        #[doc = "Field `en` reader - "]
+        pub type EnR = crate::BitReader;
+        #[doc = "Field `en` writer - "]
+        pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn en(&self) -> EnR {
+                EnR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn en(&mut self) -> EnW<'_, QdecEnableSpec> {
+                EnW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_enable\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_enable::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_enable::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecEnableSpec;
+        impl crate::RegisterSpec for QdecEnableSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_enable::R`](R) reader structure"]
+        impl crate::Readable for QdecEnableSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_enable::W`](W) writer structure"]
+        impl crate::Writable for QdecEnableSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_ENABLE to value 0"]
+        impl crate::Resettable for QdecEnableSpec {}
+    }
+    #[doc = "QDEC_EVENT_INT_STS (rw) register accessor: qdec_event_int_sts\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_event_int_sts::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_event_int_sts::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_event_int_sts`] module"]
+    #[doc(alias = "QDEC_EVENT_INT_STS")]
+    pub type QdecEventIntSts = crate::Reg<qdec_event_int_sts::QdecEventIntStsSpec>;
+    #[doc = "qdec_event_int_sts"]
+    pub mod qdec_event_int_sts {
+        #[doc = "Register `QDEC_EVENT_INT_STS` reader"]
+        pub type R = crate::R<QdecEventIntStsSpec>;
+        #[doc = "Register `QDEC_EVENT_INT_STS` writer"]
+        pub type W = crate::W<QdecEventIntStsSpec>;
+        #[doc = "Field `events_stopped` reader - "]
+        pub type EventsStoppedR = crate::BitReader;
+        #[doc = "Field `events_stopped` writer - "]
+        pub type EventsStoppedW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `acc_rdy` reader - "]
+        pub type AccRdyR = crate::BitReader;
+        #[doc = "Field `acc_rdy` writer - "]
+        pub type AccRdyW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `dbl_rdy` reader - "]
+        pub type DblRdyR = crate::BitReader;
+        #[doc = "Field `dbl_rdy` writer - "]
+        pub type DblRdyW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `report_rdy` reader - "]
+        pub type ReportRdyR = crate::BitReader;
+        #[doc = "Field `report_rdy` writer - "]
+        pub type ReportRdyW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `sample_rdy` reader - "]
+        pub type SampleRdyR = crate::BitReader;
+        #[doc = "Field `sample_rdy` writer - "]
+        pub type SampleRdyW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn events_stopped(&self) -> EventsStoppedR {
+                EventsStoppedR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn acc_rdy(&self) -> AccRdyR {
+                AccRdyR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dbl_rdy(&self) -> DblRdyR {
+                DblRdyR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn report_rdy(&self) -> ReportRdyR {
+                ReportRdyR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn sample_rdy(&self) -> SampleRdyR {
+                SampleRdyR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn events_stopped(&mut self) -> EventsStoppedW<'_, QdecEventIntStsSpec> {
+                EventsStoppedW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn acc_rdy(&mut self) -> AccRdyW<'_, QdecEventIntStsSpec> {
+                AccRdyW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dbl_rdy(&mut self) -> DblRdyW<'_, QdecEventIntStsSpec> {
+                DblRdyW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn report_rdy(&mut self) -> ReportRdyW<'_, QdecEventIntStsSpec> {
+                ReportRdyW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn sample_rdy(&mut self) -> SampleRdyW<'_, QdecEventIntStsSpec> {
+                SampleRdyW::new(self, 4)
+            }
+        }
+        #[doc = "qdec_event_int_sts\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_event_int_sts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_event_int_sts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecEventIntStsSpec;
+        impl crate::RegisterSpec for QdecEventIntStsSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_event_int_sts::R`](R) reader structure"]
+        impl crate::Readable for QdecEventIntStsSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_event_int_sts::W`](W) writer structure"]
+        impl crate::Writable for QdecEventIntStsSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_EVENT_INT_STS to value 0"]
+        impl crate::Resettable for QdecEventIntStsSpec {}
+    }
+    #[doc = "QDEC_INT_EN (rw) register accessor: qdec_int_en\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_int_en::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_int_en::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_int_en`] module"]
+    #[doc(alias = "QDEC_INT_EN")]
+    pub type QdecIntEn = crate::Reg<qdec_int_en::QdecIntEnSpec>;
+    #[doc = "qdec_int_en"]
+    pub mod qdec_int_en {
+        #[doc = "Register `QDEC_INT_EN` reader"]
+        pub type R = crate::R<QdecIntEnSpec>;
+        #[doc = "Register `QDEC_INT_EN` writer"]
+        pub type W = crate::W<QdecIntEnSpec>;
+        #[doc = "Field `stopped` reader - "]
+        pub type StoppedR = crate::BitReader;
+        #[doc = "Field `stopped` writer - "]
+        pub type StoppedW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `acc_en` reader - "]
+        pub type AccEnR = crate::BitReader;
+        #[doc = "Field `acc_en` writer - "]
+        pub type AccEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `dbl_en` reader - "]
+        pub type DblEnR = crate::BitReader;
+        #[doc = "Field `dbl_en` writer - "]
+        pub type DblEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `report_en` reader - "]
+        pub type ReportEnR = crate::BitReader;
+        #[doc = "Field `report_en` writer - "]
+        pub type ReportEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `sample_en` reader - "]
+        pub type SampleEnR = crate::BitReader;
+        #[doc = "Field `sample_en` writer - "]
+        pub type SampleEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn stopped(&self) -> StoppedR {
+                StoppedR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn acc_en(&self) -> AccEnR {
+                AccEnR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dbl_en(&self) -> DblEnR {
+                DblEnR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn report_en(&self) -> ReportEnR {
+                ReportEnR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn sample_en(&self) -> SampleEnR {
+                SampleEnR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn stopped(&mut self) -> StoppedW<'_, QdecIntEnSpec> {
+                StoppedW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn acc_en(&mut self) -> AccEnW<'_, QdecIntEnSpec> {
+                AccEnW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dbl_en(&mut self) -> DblEnW<'_, QdecIntEnSpec> {
+                DblEnW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn report_en(&mut self) -> ReportEnW<'_, QdecIntEnSpec> {
+                ReportEnW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn sample_en(&mut self) -> SampleEnW<'_, QdecIntEnSpec> {
+                SampleEnW::new(self, 4)
+            }
+        }
+        #[doc = "qdec_int_en\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_int_en::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_int_en::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecIntEnSpec;
+        impl crate::RegisterSpec for QdecIntEnSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_int_en::R`](R) reader structure"]
+        impl crate::Readable for QdecIntEnSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_int_en::W`](W) writer structure"]
+        impl crate::Writable for QdecIntEnSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_INT_EN to value 0"]
+        impl crate::Resettable for QdecIntEnSpec {}
+    }
+    #[doc = "QDEC_INT_CLR (rw) register accessor: qdec_int_clr\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_int_clr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_int_clr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_int_clr`] module"]
+    #[doc(alias = "QDEC_INT_CLR")]
+    pub type QdecIntClr = crate::Reg<qdec_int_clr::QdecIntClrSpec>;
+    #[doc = "qdec_int_clr"]
+    pub mod qdec_int_clr {
+        #[doc = "Register `QDEC_INT_CLR` reader"]
+        pub type R = crate::R<QdecIntClrSpec>;
+        #[doc = "Register `QDEC_INT_CLR` writer"]
+        pub type W = crate::W<QdecIntClrSpec>;
+        #[doc = "Field `stop_int_clr` reader - "]
+        pub type StopIntClrR = crate::BitReader;
+        #[doc = "Field `stop_int_clr` writer - "]
+        pub type StopIntClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `acc_clr` reader - "]
+        pub type AccClrR = crate::BitReader;
+        #[doc = "Field `acc_clr` writer - "]
+        pub type AccClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `dbl_clr` reader - "]
+        pub type DblClrR = crate::BitReader;
+        #[doc = "Field `dbl_clr` writer - "]
+        pub type DblClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `report_clr` reader - "]
+        pub type ReportClrR = crate::BitReader;
+        #[doc = "Field `report_clr` writer - "]
+        pub type ReportClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `sample_clr` reader - "]
+        pub type SampleClrR = crate::BitReader;
+        #[doc = "Field `sample_clr` writer - "]
+        pub type SampleClrW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn stop_int_clr(&self) -> StopIntClrR {
+                StopIntClrR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn acc_clr(&self) -> AccClrR {
+                AccClrR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dbl_clr(&self) -> DblClrR {
+                DblClrR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn report_clr(&self) -> ReportClrR {
+                ReportClrR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn sample_clr(&self) -> SampleClrR {
+                SampleClrR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn stop_int_clr(&mut self) -> StopIntClrW<'_, QdecIntClrSpec> {
+                StopIntClrW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn acc_clr(&mut self) -> AccClrW<'_, QdecIntClrSpec> {
+                AccClrW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn dbl_clr(&mut self) -> DblClrW<'_, QdecIntClrSpec> {
+                DblClrW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn report_clr(&mut self) -> ReportClrW<'_, QdecIntClrSpec> {
+                ReportClrW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn sample_clr(&mut self) -> SampleClrW<'_, QdecIntClrSpec> {
+                SampleClrW::new(self, 4)
+            }
+        }
+        #[doc = "qdec_int_clr\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_int_clr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_int_clr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecIntClrSpec;
+        impl crate::RegisterSpec for QdecIntClrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_int_clr::R`](R) reader structure"]
+        impl crate::Readable for QdecIntClrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_int_clr::W`](W) writer structure"]
+        impl crate::Writable for QdecIntClrSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_INT_CLR to value 0"]
+        impl crate::Resettable for QdecIntClrSpec {}
+    }
+    #[doc = "QDEC_LEDPOL_DATA (rw) register accessor: qdec_ledpol_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_ledpol_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_ledpol_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_ledpol_data`] module"]
+    #[doc(alias = "QDEC_LEDPOL_DATA")]
+    pub type QdecLedpolData = crate::Reg<qdec_ledpol_data::QdecLedpolDataSpec>;
+    #[doc = "qdec_ledpol_data"]
+    pub mod qdec_ledpol_data {
+        #[doc = "Register `QDEC_LEDPOL_DATA` reader"]
+        pub type R = crate::R<QdecLedpolDataSpec>;
+        #[doc = "Register `QDEC_LEDPOL_DATA` writer"]
+        pub type W = crate::W<QdecLedpolDataSpec>;
+        #[doc = "Field `pol` reader - "]
+        pub type PolR = crate::BitReader;
+        #[doc = "Field `pol` writer - "]
+        pub type PolW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `en` reader - "]
+        pub type EnR = crate::BitReader;
+        #[doc = "Field `en` writer - "]
+        pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn pol(&self) -> PolR {
+                PolR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn en(&self) -> EnR {
+                EnR::new(((self.bits >> 1) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn pol(&mut self) -> PolW<'_, QdecLedpolDataSpec> {
+                PolW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn en(&mut self) -> EnW<'_, QdecLedpolDataSpec> {
+                EnW::new(self, 1)
+            }
+        }
+        #[doc = "qdec_ledpol_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_ledpol_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_ledpol_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecLedpolDataSpec;
+        impl crate::RegisterSpec for QdecLedpolDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_ledpol_data::R`](R) reader structure"]
+        impl crate::Readable for QdecLedpolDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_ledpol_data::W`](W) writer structure"]
+        impl crate::Writable for QdecLedpolDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_LEDPOL_DATA to value 0"]
+        impl crate::Resettable for QdecLedpolDataSpec {}
+    }
+    #[doc = "QDEC_SAMPLEPER_DATA (rw) register accessor: qdec_sampleper_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_sampleper_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_sampleper_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_sampleper_data`] module"]
+    #[doc(alias = "QDEC_SAMPLEPER_DATA")]
+    pub type QdecSampleperData = crate::Reg<qdec_sampleper_data::QdecSampleperDataSpec>;
+    #[doc = "qdec_sampleper_data"]
+    pub mod qdec_sampleper_data {
+        #[doc = "Register `QDEC_SAMPLEPER_DATA` reader"]
+        pub type R = crate::R<QdecSampleperDataSpec>;
+        #[doc = "Register `QDEC_SAMPLEPER_DATA` writer"]
+        pub type W = crate::W<QdecSampleperDataSpec>;
+        #[doc = "Field `period` reader - "]
+        pub type PeriodR = crate::FieldReader;
+        #[doc = "Field `period` writer - "]
+        pub type PeriodW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `clk_freq` reader - "]
+        pub type ClkFreqR = crate::BitReader;
+        #[doc = "Field `clk_freq` writer - "]
+        pub type ClkFreqW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn period(&self) -> PeriodR {
+                PeriodR::new((self.bits & 0x0f) as u8)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn clk_freq(&self) -> ClkFreqR {
+                ClkFreqR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn period(&mut self) -> PeriodW<'_, QdecSampleperDataSpec> {
+                PeriodW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn clk_freq(&mut self) -> ClkFreqW<'_, QdecSampleperDataSpec> {
+                ClkFreqW::new(self, 4)
+            }
+        }
+        #[doc = "qdec_sampleper_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_sampleper_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_sampleper_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecSampleperDataSpec;
+        impl crate::RegisterSpec for QdecSampleperDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_sampleper_data::R`](R) reader structure"]
+        impl crate::Readable for QdecSampleperDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_sampleper_data::W`](W) writer structure"]
+        impl crate::Writable for QdecSampleperDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_SAMPLEPER_DATA to value 0"]
+        impl crate::Resettable for QdecSampleperDataSpec {}
+    }
+    #[doc = "QDEC_REPORTER_DATA (rw) register accessor: qdec_reporter_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_reporter_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_reporter_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_reporter_data`] module"]
+    #[doc(alias = "QDEC_REPORTER_DATA")]
+    pub type QdecReporterData = crate::Reg<qdec_reporter_data::QdecReporterDataSpec>;
+    #[doc = "qdec_reporter_data"]
+    pub mod qdec_reporter_data {
+        #[doc = "Register `QDEC_REPORTER_DATA` reader"]
+        pub type R = crate::R<QdecReporterDataSpec>;
+        #[doc = "Register `QDEC_REPORTER_DATA` writer"]
+        pub type W = crate::W<QdecReporterDataSpec>;
+        #[doc = "Field `samlple_repo_val` reader - "]
+        pub type SamlpleRepoValR = crate::FieldReader;
+        #[doc = "Field `samlple_repo_val` writer - "]
+        pub type SamlpleRepoValW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn samlple_repo_val(&self) -> SamlpleRepoValR {
+                SamlpleRepoValR::new((self.bits & 7) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn samlple_repo_val(&mut self) -> SamlpleRepoValW<'_, QdecReporterDataSpec> {
+                SamlpleRepoValW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_reporter_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_reporter_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_reporter_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecReporterDataSpec;
+        impl crate::RegisterSpec for QdecReporterDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_reporter_data::R`](R) reader structure"]
+        impl crate::Readable for QdecReporterDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_reporter_data::W`](W) writer structure"]
+        impl crate::Writable for QdecReporterDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_REPORTER_DATA to value 0"]
+        impl crate::Resettable for QdecReporterDataSpec {}
+    }
+    #[doc = "QDEC_DEFEN_DATA (rw) register accessor: qdec_defen_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_defen_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_defen_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_defen_data`] module"]
+    #[doc(alias = "QDEC_DEFEN_DATA")]
+    pub type QdecDefenData = crate::Reg<qdec_defen_data::QdecDefenDataSpec>;
+    #[doc = "qdec_defen_data"]
+    pub mod qdec_defen_data {
+        #[doc = "Register `QDEC_DEFEN_DATA` reader"]
+        pub type R = crate::R<QdecDefenDataSpec>;
+        #[doc = "Register `QDEC_DEFEN_DATA` writer"]
+        pub type W = crate::W<QdecDefenDataSpec>;
+        #[doc = "Field `en` reader - "]
+        pub type EnR = crate::BitReader;
+        #[doc = "Field `en` writer - "]
+        pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `defen_num` reader - "]
+        pub type DefenNumR = crate::FieldReader;
+        #[doc = "Field `defen_num` writer - "]
+        pub type DefenNumW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn en(&self) -> EnR {
+                EnR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn defen_num(&self) -> DefenNumR {
+                DefenNumR::new(((self.bits >> 4) & 7) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn en(&mut self) -> EnW<'_, QdecDefenDataSpec> {
+                EnW::new(self, 0)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn defen_num(&mut self) -> DefenNumW<'_, QdecDefenDataSpec> {
+                DefenNumW::new(self, 4)
+            }
+        }
+        #[doc = "qdec_defen_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_defen_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_defen_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecDefenDataSpec;
+        impl crate::RegisterSpec for QdecDefenDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_defen_data::R`](R) reader structure"]
+        impl crate::Readable for QdecDefenDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_defen_data::W`](W) writer structure"]
+        impl crate::Writable for QdecDefenDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_DEFEN_DATA to value 0"]
+        impl crate::Resettable for QdecDefenDataSpec {}
+    }
+    #[doc = "QDEC_LEDPRE_DATA (rw) register accessor: qdec_ledpre_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_ledpre_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_ledpre_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_ledpre_data`] module"]
+    #[doc(alias = "QDEC_LEDPRE_DATA")]
+    pub type QdecLedpreData = crate::Reg<qdec_ledpre_data::QdecLedpreDataSpec>;
+    #[doc = "qdec_ledpre_data"]
+    pub mod qdec_ledpre_data {
+        #[doc = "Register `QDEC_LEDPRE_DATA` reader"]
+        pub type R = crate::R<QdecLedpreDataSpec>;
+        #[doc = "Register `QDEC_LEDPRE_DATA` writer"]
+        pub type W = crate::W<QdecLedpreDataSpec>;
+        #[doc = "Field `led_pre` reader - "]
+        pub type LedPreR = crate::FieldReader<u16>;
+        #[doc = "Field `led_pre` writer - "]
+        pub type LedPreW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
+        impl R {
+            #[doc = "Bits 0:9"]
+            #[inline(always)]
+            pub fn led_pre(&self) -> LedPreR {
+                LedPreR::new((self.bits & 0x03ff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:9"]
+            #[inline(always)]
+            pub fn led_pre(&mut self) -> LedPreW<'_, QdecLedpreDataSpec> {
+                LedPreW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_ledpre_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_ledpre_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_ledpre_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecLedpreDataSpec;
+        impl crate::RegisterSpec for QdecLedpreDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_ledpre_data::R`](R) reader structure"]
+        impl crate::Readable for QdecLedpreDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_ledpre_data::W`](W) writer structure"]
+        impl crate::Writable for QdecLedpreDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_LEDPRE_DATA to value 0"]
+        impl crate::Resettable for QdecLedpreDataSpec {}
+    }
+    #[doc = "QDEC_SAMPLE_DATA (rw) register accessor: qdec_sample_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_sample_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_sample_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_sample_data`] module"]
+    #[doc(alias = "QDEC_SAMPLE_DATA")]
+    pub type QdecSampleData = crate::Reg<qdec_sample_data::QdecSampleDataSpec>;
+    #[doc = "qdec_sample_data"]
+    pub mod qdec_sample_data {
+        #[doc = "Register `QDEC_SAMPLE_DATA` reader"]
+        pub type R = crate::R<QdecSampleDataSpec>;
+        #[doc = "Register `QDEC_SAMPLE_DATA` writer"]
+        pub type W = crate::W<QdecSampleDataSpec>;
+        #[doc = "Field `sample_val` reader - "]
+        pub type SampleValR = crate::FieldReader;
+        #[doc = "Field `sample_val` writer - "]
+        pub type SampleValW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn sample_val(&self) -> SampleValR {
+                SampleValR::new((self.bits & 7) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn sample_val(&mut self) -> SampleValW<'_, QdecSampleDataSpec> {
+                SampleValW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_sample_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_sample_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_sample_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecSampleDataSpec;
+        impl crate::RegisterSpec for QdecSampleDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_sample_data::R`](R) reader structure"]
+        impl crate::Readable for QdecSampleDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_sample_data::W`](W) writer structure"]
+        impl crate::Writable for QdecSampleDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_SAMPLE_DATA to value 0"]
+        impl crate::Resettable for QdecSampleDataSpec {}
+    }
+    #[doc = "QDEC_ACC_DATA (rw) register accessor: qdec_acc_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_acc_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_acc_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_acc_data`] module"]
+    #[doc(alias = "QDEC_ACC_DATA")]
+    pub type QdecAccData = crate::Reg<qdec_acc_data::QdecAccDataSpec>;
+    #[doc = "qdec_acc_data"]
+    pub mod qdec_acc_data {
+        #[doc = "Register `QDEC_ACC_DATA` reader"]
+        pub type R = crate::R<QdecAccDataSpec>;
+        #[doc = "Register `QDEC_ACC_DATA` writer"]
+        pub type W = crate::W<QdecAccDataSpec>;
+        #[doc = "Field `acc_rd_val` reader - "]
+        pub type AccRdValR = crate::FieldReader<u16>;
+        #[doc = "Field `acc_rd_val` writer - "]
+        pub type AccRdValW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn acc_rd_val(&self) -> AccRdValR {
+                AccRdValR::new((self.bits & 0xffff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn acc_rd_val(&mut self) -> AccRdValW<'_, QdecAccDataSpec> {
+                AccRdValW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_acc_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_acc_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_acc_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecAccDataSpec;
+        impl crate::RegisterSpec for QdecAccDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_acc_data::R`](R) reader structure"]
+        impl crate::Readable for QdecAccDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_acc_data::W`](W) writer structure"]
+        impl crate::Writable for QdecAccDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_ACC_DATA to value 0"]
+        impl crate::Resettable for QdecAccDataSpec {}
+    }
+    #[doc = "QDEC_ACCDBL_DATA (rw) register accessor: qdec_accdbl_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_accdbl_data::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_accdbl_data::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_accdbl_data`] module"]
+    #[doc(alias = "QDEC_ACCDBL_DATA")]
+    pub type QdecAccdblData = crate::Reg<qdec_accdbl_data::QdecAccdblDataSpec>;
+    #[doc = "qdec_accdbl_data"]
+    pub mod qdec_accdbl_data {
+        #[doc = "Register `QDEC_ACCDBL_DATA` reader"]
+        pub type R = crate::R<QdecAccdblDataSpec>;
+        #[doc = "Register `QDEC_ACCDBL_DATA` writer"]
+        pub type W = crate::W<QdecAccdblDataSpec>;
+        #[doc = "Field `dbl_rd_val` reader - "]
+        pub type DblRdValR = crate::FieldReader;
+        #[doc = "Field `dbl_rd_val` writer - "]
+        pub type DblRdValW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn dbl_rd_val(&self) -> DblRdValR {
+                DblRdValR::new((self.bits & 0x0f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn dbl_rd_val(&mut self) -> DblRdValW<'_, QdecAccdblDataSpec> {
+                DblRdValW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_accdbl_data\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_accdbl_data::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_accdbl_data::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecAccdblDataSpec;
+        impl crate::RegisterSpec for QdecAccdblDataSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_accdbl_data::R`](R) reader structure"]
+        impl crate::Readable for QdecAccdblDataSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_accdbl_data::W`](W) writer structure"]
+        impl crate::Writable for QdecAccdblDataSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_ACCDBL_DATA to value 0"]
+        impl crate::Resettable for QdecAccdblDataSpec {}
+    }
+    #[doc = "QDEC_ACC_READ (rw) register accessor: qdec_acc_read\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_acc_read::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_acc_read::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_acc_read`] module"]
+    #[doc(alias = "QDEC_ACC_READ")]
+    pub type QdecAccRead = crate::Reg<qdec_acc_read::QdecAccReadSpec>;
+    #[doc = "qdec_acc_read"]
+    pub mod qdec_acc_read {
+        #[doc = "Register `QDEC_ACC_READ` reader"]
+        pub type R = crate::R<QdecAccReadSpec>;
+        #[doc = "Register `QDEC_ACC_READ` writer"]
+        pub type W = crate::W<QdecAccReadSpec>;
+        #[doc = "Field `acc_rd_val_shadow` reader - "]
+        pub type AccRdValShadowR = crate::FieldReader<u16>;
+        #[doc = "Field `acc_rd_val_shadow` writer - "]
+        pub type AccRdValShadowW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn acc_rd_val_shadow(&self) -> AccRdValShadowR {
+                AccRdValShadowR::new((self.bits & 0xffff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn acc_rd_val_shadow(&mut self) -> AccRdValShadowW<'_, QdecAccReadSpec> {
+                AccRdValShadowW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_acc_read\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_acc_read::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_acc_read::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecAccReadSpec;
+        impl crate::RegisterSpec for QdecAccReadSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_acc_read::R`](R) reader structure"]
+        impl crate::Readable for QdecAccReadSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_acc_read::W`](W) writer structure"]
+        impl crate::Writable for QdecAccReadSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_ACC_READ to value 0"]
+        impl crate::Resettable for QdecAccReadSpec {}
+    }
+    #[doc = "QDEC_ACCDBL_READ (rw) register accessor: qdec_accdbl_read\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_accdbl_read::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_accdbl_read::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_accdbl_read`] module"]
+    #[doc(alias = "QDEC_ACCDBL_READ")]
+    pub type QdecAccdblRead = crate::Reg<qdec_accdbl_read::QdecAccdblReadSpec>;
+    #[doc = "qdec_accdbl_read"]
+    pub mod qdec_accdbl_read {
+        #[doc = "Register `QDEC_ACCDBL_READ` reader"]
+        pub type R = crate::R<QdecAccdblReadSpec>;
+        #[doc = "Register `QDEC_ACCDBL_READ` writer"]
+        pub type W = crate::W<QdecAccdblReadSpec>;
+        #[doc = "Field `dbl_rd_val_shadow` reader - "]
+        pub type DblRdValShadowR = crate::FieldReader;
+        #[doc = "Field `dbl_rd_val_shadow` writer - "]
+        pub type DblRdValShadowW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn dbl_rd_val_shadow(&self) -> DblRdValShadowR {
+                DblRdValShadowR::new((self.bits & 0x0f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn dbl_rd_val_shadow(&mut self) -> DblRdValShadowW<'_, QdecAccdblReadSpec> {
+                DblRdValShadowW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_accdbl_read\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_accdbl_read::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_accdbl_read::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecAccdblReadSpec;
+        impl crate::RegisterSpec for QdecAccdblReadSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_accdbl_read::R`](R) reader structure"]
+        impl crate::Readable for QdecAccdblReadSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_accdbl_read::W`](W) writer structure"]
+        impl crate::Writable for QdecAccdblReadSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_ACCDBL_READ to value 0"]
+        impl crate::Resettable for QdecAccdblReadSpec {}
+    }
+    #[doc = "QDEC_ACC_EVENT (rw) register accessor: qdec_acc_event\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_acc_event::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_acc_event::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_acc_event`] module"]
+    #[doc(alias = "QDEC_ACC_EVENT")]
+    pub type QdecAccEvent = crate::Reg<qdec_acc_event::QdecAccEventSpec>;
+    #[doc = "qdec_acc_event"]
+    pub mod qdec_acc_event {
+        #[doc = "Register `QDEC_ACC_EVENT` reader"]
+        pub type R = crate::R<QdecAccEventSpec>;
+        #[doc = "Register `QDEC_ACC_EVENT` writer"]
+        pub type W = crate::W<QdecAccEventSpec>;
+        #[doc = "Field `acc_event_cnt` reader - "]
+        pub type AccEventCntR = crate::FieldReader<u16>;
+        #[doc = "Field `acc_event_cnt` writer - "]
+        pub type AccEventCntW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+        impl R {
+            #[doc = "Bits 0:8"]
+            #[inline(always)]
+            pub fn acc_event_cnt(&self) -> AccEventCntR {
+                AccEventCntR::new((self.bits & 0x01ff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:8"]
+            #[inline(always)]
+            pub fn acc_event_cnt(&mut self) -> AccEventCntW<'_, QdecAccEventSpec> {
+                AccEventCntW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_acc_event\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_acc_event::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_acc_event::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecAccEventSpec;
+        impl crate::RegisterSpec for QdecAccEventSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_acc_event::R`](R) reader structure"]
+        impl crate::Readable for QdecAccEventSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_acc_event::W`](W) writer structure"]
+        impl crate::Writable for QdecAccEventSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_ACC_EVENT to value 0"]
+        impl crate::Resettable for QdecAccEventSpec {}
+    }
+    #[doc = "QDEC_FPGA_IO_SEL (rw) register accessor: qdec_fpga_io_sel\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_fpga_io_sel::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_fpga_io_sel::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_fpga_io_sel`] module"]
+    #[doc(alias = "QDEC_FPGA_IO_SEL")]
+    pub type QdecFpgaIoSel = crate::Reg<qdec_fpga_io_sel::QdecFpgaIoSelSpec>;
+    #[doc = "qdec_fpga_io_sel"]
+    pub mod qdec_fpga_io_sel {
+        #[doc = "Register `QDEC_FPGA_IO_SEL` reader"]
+        pub type R = crate::R<QdecFpgaIoSelSpec>;
+        #[doc = "Register `QDEC_FPGA_IO_SEL` writer"]
+        pub type W = crate::W<QdecFpgaIoSelSpec>;
+        #[doc = "Field `fpga_io_src` reader - "]
+        pub type FpgaIoSrcR = crate::BitReader;
+        #[doc = "Field `fpga_io_src` writer - "]
+        pub type FpgaIoSrcW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn fpga_io_src(&self) -> FpgaIoSrcR {
+                FpgaIoSrcR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn fpga_io_src(&mut self) -> FpgaIoSrcW<'_, QdecFpgaIoSelSpec> {
+                FpgaIoSrcW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_fpga_io_sel\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_fpga_io_sel::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_fpga_io_sel::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecFpgaIoSelSpec;
+        impl crate::RegisterSpec for QdecFpgaIoSelSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_fpga_io_sel::R`](R) reader structure"]
+        impl crate::Readable for QdecFpgaIoSelSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_fpga_io_sel::W`](W) writer structure"]
+        impl crate::Writable for QdecFpgaIoSelSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_FPGA_IO_SEL to value 0"]
+        impl crate::Resettable for QdecFpgaIoSelSpec {}
+    }
+    #[doc = "QDEC_CLK_CTL (rw) register accessor: qdec_clk_ctl\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_clk_ctl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_clk_ctl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_clk_ctl`] module"]
+    #[doc(alias = "QDEC_CLK_CTL")]
+    pub type QdecClkCtl = crate::Reg<qdec_clk_ctl::QdecClkCtlSpec>;
+    #[doc = "qdec_clk_ctl"]
+    pub mod qdec_clk_ctl {
+        #[doc = "Register `QDEC_CLK_CTL` reader"]
+        pub type R = crate::R<QdecClkCtlSpec>;
+        #[doc = "Register `QDEC_CLK_CTL` writer"]
+        pub type W = crate::W<QdecClkCtlSpec>;
+        #[doc = "Field `sel` reader - "]
+        pub type SelR = crate::BitReader;
+        #[doc = "Field `sel` writer - "]
+        pub type SelW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `en` reader - "]
+        pub type EnR = crate::BitReader;
+        #[doc = "Field `en` writer - "]
+        pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn sel(&self) -> SelR {
+                SelR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn en(&self) -> EnR {
+                EnR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn sel(&mut self) -> SelW<'_, QdecClkCtlSpec> {
+                SelW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn en(&mut self) -> EnW<'_, QdecClkCtlSpec> {
+                EnW::new(self, 4)
+            }
+        }
+        #[doc = "qdec_clk_ctl\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_clk_ctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_clk_ctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecClkCtlSpec;
+        impl crate::RegisterSpec for QdecClkCtlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_clk_ctl::R`](R) reader structure"]
+        impl crate::Readable for QdecClkCtlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_clk_ctl::W`](W) writer structure"]
+        impl crate::Writable for QdecClkCtlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_CLK_CTL to value 0"]
+        impl crate::Resettable for QdecClkCtlSpec {}
+    }
+    #[doc = "QDEC_SOFT_RST (rw) register accessor: qdec_soft_rst\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_soft_rst::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_soft_rst::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@qdec_soft_rst`] module"]
+    #[doc(alias = "QDEC_SOFT_RST")]
+    pub type QdecSoftRst = crate::Reg<qdec_soft_rst::QdecSoftRstSpec>;
+    #[doc = "qdec_soft_rst"]
+    pub mod qdec_soft_rst {
+        #[doc = "Register `QDEC_SOFT_RST` reader"]
+        pub type R = crate::R<QdecSoftRstSpec>;
+        #[doc = "Register `QDEC_SOFT_RST` writer"]
+        pub type W = crate::W<QdecSoftRstSpec>;
+        #[doc = "Field `soft_rst` reader - "]
+        pub type SoftRstR = crate::BitReader;
+        #[doc = "Field `soft_rst` writer - "]
+        pub type SoftRstW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn soft_rst(&self) -> SoftRstR {
+                SoftRstR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn soft_rst(&mut self) -> SoftRstW<'_, QdecSoftRstSpec> {
+                SoftRstW::new(self, 0)
+            }
+        }
+        #[doc = "qdec_soft_rst\n\nYou can [`read`](crate::Reg::read) this register and get [`qdec_soft_rst::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`qdec_soft_rst::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct QdecSoftRstSpec;
+        impl crate::RegisterSpec for QdecSoftRstSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`qdec_soft_rst::R`](R) reader structure"]
+        impl crate::Readable for QdecSoftRstSpec {}
+        #[doc = "`write(|w| ..)` method takes [`qdec_soft_rst::W`](W) writer structure"]
+        impl crate::Writable for QdecSoftRstSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets QDEC_SOFT_RST to value 0"]
+        impl crate::Resettable for QdecSoftRstSpec {}
+    }
+}
 #[unsafe(no_mangle)]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals."]
@@ -15971,6 +25321,14 @@ pub struct Peripherals {
     pub spi2: Spi2,
     #[doc = "SDMA"]
     pub sdma: Sdma,
+    #[doc = "GADC"]
+    pub gadc: Gadc,
+    #[doc = "KEYSCAN"]
+    pub keyscan: Keyscan,
+    #[doc = "PDM"]
+    pub pdm: Pdm,
+    #[doc = "QDEC"]
+    pub qdec: Qdec,
 }
 impl Peripherals {
     #[doc = r" Returns all the peripherals *once*."]
@@ -16017,6 +25375,10 @@ impl Peripherals {
                 spi1: Spi1::steal(),
                 spi2: Spi2::steal(),
                 sdma: Sdma::steal(),
+                gadc: Gadc::steal(),
+                keyscan: Keyscan::steal(),
+                pdm: Pdm::steal(),
+                qdec: Qdec::steal(),
             }
         }
     }
