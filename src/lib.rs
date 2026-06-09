@@ -17184,12 +17184,38 @@ pub mod gadc {
         pub type R = crate::R<CfgClkDiv1Spec>;
         #[doc = "Register `CFG_CLK_DIV_1` writer"]
         pub type W = crate::W<CfgClkDiv1Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `ana_div_th` reader - "]
+        pub type AnaDivThR = crate::FieldReader<u16>;
+        #[doc = "Field `ana_div_th` writer - "]
+        pub type AnaDivThW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+        #[doc = "Field `prechg_div_th` reader - "]
+        pub type PrechgDivThR = crate::FieldReader<u16>;
+        #[doc = "Field `prechg_div_th` writer - "]
+        pub type PrechgDivThW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+        impl R {
+            #[doc = "Bits 0:11"]
+            #[inline(always)]
+            pub fn ana_div_th(&self) -> AnaDivThR {
+                AnaDivThR::new((self.bits & 0x0fff) as u16)
+            }
+            #[doc = "Bits 12:23"]
+            #[inline(always)]
+            pub fn prechg_div_th(&self) -> PrechgDivThR {
+                PrechgDivThR::new(((self.bits >> 12) & 0x0fff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:11"]
+            #[inline(always)]
+            pub fn ana_div_th(&mut self) -> AnaDivThW<'_, CfgClkDiv1Spec> {
+                AnaDivThW::new(self, 0)
+            }
+            #[doc = "Bits 12:23"]
+            #[inline(always)]
+            pub fn prechg_div_th(&mut self) -> PrechgDivThW<'_, CfgClkDiv1Spec> {
+                PrechgDivThW::new(self, 12)
+            }
+        }
         #[doc = "cfg_clk_div_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_clk_div_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_clk_div_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct CfgClkDiv1Spec;
         impl crate::RegisterSpec for CfgClkDiv1Spec {
@@ -17619,12 +17645,38 @@ pub mod gadc {
         pub type R = crate::R<CfgGadcData0Spec>;
         #[doc = "Register `CFG_GADC_DATA_0` writer"]
         pub type W = crate::W<CfgGadcData0Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `data_num` reader - "]
+        pub type DataNumR = crate::FieldReader<u16>;
+        #[doc = "Field `data_num` writer - "]
+        pub type DataNumW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
+        #[doc = "Field `wait_num` reader - "]
+        pub type WaitNumR = crate::FieldReader;
+        #[doc = "Field `wait_num` writer - "]
+        pub type WaitNumW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        impl R {
+            #[doc = "Bits 0:9"]
+            #[inline(always)]
+            pub fn data_num(&self) -> DataNumR {
+                DataNumR::new((self.bits & 0x03ff) as u16)
+            }
+            #[doc = "Bits 12:14"]
+            #[inline(always)]
+            pub fn wait_num(&self) -> WaitNumR {
+                WaitNumR::new(((self.bits >> 12) & 7) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:9"]
+            #[inline(always)]
+            pub fn data_num(&mut self) -> DataNumW<'_, CfgGadcData0Spec> {
+                DataNumW::new(self, 0)
+            }
+            #[doc = "Bits 12:14"]
+            #[inline(always)]
+            pub fn wait_num(&mut self) -> WaitNumW<'_, CfgGadcData0Spec> {
+                WaitNumW::new(self, 12)
+            }
+        }
         #[doc = "cfg_gadc_data_0\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_0::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_0::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct CfgGadcData0Spec;
         impl crate::RegisterSpec for CfgGadcData0Spec {
@@ -17648,12 +17700,52 @@ pub mod gadc {
         pub type R = crate::R<CfgGadcData1Spec>;
         #[doc = "Register `CFG_GADC_DATA_1` writer"]
         pub type W = crate::W<CfgGadcData1Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `osr_len` reader - "]
+        pub type OsrLenR = crate::FieldReader;
+        #[doc = "Field `osr_len` writer - "]
+        pub type OsrLenW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `osr_sel` reader - "]
+        pub type OsrSelR = crate::FieldReader;
+        #[doc = "Field `osr_sel` writer - "]
+        pub type OsrSelW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `osr_wait_num` reader - "]
+        pub type OsrWaitNumR = crate::FieldReader;
+        #[doc = "Field `osr_wait_num` writer - "]
+        pub type OsrWaitNumW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn osr_len(&self) -> OsrLenR {
+                OsrLenR::new((self.bits & 7) as u8)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn osr_sel(&self) -> OsrSelR {
+                OsrSelR::new(((self.bits >> 4) & 7) as u8)
+            }
+            #[doc = "Bits 8:13"]
+            #[inline(always)]
+            pub fn osr_wait_num(&self) -> OsrWaitNumR {
+                OsrWaitNumR::new(((self.bits >> 8) & 0x3f) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn osr_len(&mut self) -> OsrLenW<'_, CfgGadcData1Spec> {
+                OsrLenW::new(self, 0)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn osr_sel(&mut self) -> OsrSelW<'_, CfgGadcData1Spec> {
+                OsrSelW::new(self, 4)
+            }
+            #[doc = "Bits 8:13"]
+            #[inline(always)]
+            pub fn osr_wait_num(&mut self) -> OsrWaitNumW<'_, CfgGadcData1Spec> {
+                OsrWaitNumW::new(self, 8)
+            }
+        }
         #[doc = "cfg_gadc_data_1\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct CfgGadcData1Spec;
         impl crate::RegisterSpec for CfgGadcData1Spec {
@@ -17822,12 +17914,38 @@ pub mod gadc {
         pub type R = crate::R<CfgGadcData4Spec>;
         #[doc = "Register `CFG_GADC_DATA_4` writer"]
         pub type W = crate::W<CfgGadcData4Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `adc_cdac_fc_scale_div` reader - "]
+        pub type AdcCdacFcScaleDivR = crate::FieldReader<u16>;
+        #[doc = "Field `adc_cdac_fc_scale_div` writer - "]
+        pub type AdcCdacFcScaleDivW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+        #[doc = "Field `adc_cdac_scale_div_sel` reader - "]
+        pub type AdcCdacScaleDivSelR = crate::BitReader;
+        #[doc = "Field `adc_cdac_scale_div_sel` writer - "]
+        pub type AdcCdacScaleDivSelW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:8"]
+            #[inline(always)]
+            pub fn adc_cdac_fc_scale_div(&self) -> AdcCdacFcScaleDivR {
+                AdcCdacFcScaleDivR::new((self.bits & 0x01ff) as u16)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn adc_cdac_scale_div_sel(&self) -> AdcCdacScaleDivSelR {
+                AdcCdacScaleDivSelR::new(((self.bits >> 12) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:8"]
+            #[inline(always)]
+            pub fn adc_cdac_fc_scale_div(&mut self) -> AdcCdacFcScaleDivW<'_, CfgGadcData4Spec> {
+                AdcCdacFcScaleDivW::new(self, 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn adc_cdac_scale_div_sel(&mut self) -> AdcCdacScaleDivSelW<'_, CfgGadcData4Spec> {
+                AdcCdacScaleDivSelW::new(self, 12)
+            }
+        }
         #[doc = "cfg_gadc_data_4\n\nYou can [`read`](crate::Reg::read) this register and get [`cfg_gadc_data_4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cfg_gadc_data_4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct CfgGadcData4Spec;
         impl crate::RegisterSpec for CfgGadcData4Spec {
@@ -25595,12 +25713,178 @@ pub mod usb {
         pub type R = crate::R<GotgctlSpec>;
         #[doc = "Register `GOTGCTL` writer"]
         pub type W = crate::W<GotgctlSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `SESREQSCS` reader - "]
+        pub type SesreqscsR = crate::BitReader;
+        #[doc = "Field `SESREQSCS` writer - "]
+        pub type SesreqscsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SESREQ` reader - "]
+        pub type SesreqR = crate::BitReader;
+        #[doc = "Field `SESREQ` writer - "]
+        pub type SesreqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SESENDDET` reader - "]
+        pub type SesenddetR = crate::BitReader;
+        #[doc = "Field `SESENDDET` writer - "]
+        pub type SesenddetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HSTNEGSCS` reader - "]
+        pub type HstnegscsR = crate::BitReader;
+        #[doc = "Field `HSTNEGSCS` writer - "]
+        pub type HstnegscsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HNPREQ` reader - "]
+        pub type HnpreqR = crate::BitReader;
+        #[doc = "Field `HNPREQ` writer - "]
+        pub type HnpreqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HSTSETHNPEN` reader - "]
+        pub type HstsethnpenR = crate::BitReader;
+        #[doc = "Field `HSTSETHNPEN` writer - "]
+        pub type HstsethnpenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DEVHNPEN` reader - "]
+        pub type DevhnpenR = crate::BitReader;
+        #[doc = "Field `DEVHNPEN` writer - "]
+        pub type DevhnpenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CONIDSTS` reader - "]
+        pub type ConidstsR = crate::BitReader;
+        #[doc = "Field `CONIDSTS` writer - "]
+        pub type ConidstsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DBNCTIME` reader - "]
+        pub type DbnctimeR = crate::BitReader;
+        #[doc = "Field `DBNCTIME` writer - "]
+        pub type DbnctimeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ASESVLD` reader - "]
+        pub type AsesvldR = crate::BitReader;
+        #[doc = "Field `ASESVLD` writer - "]
+        pub type AsesvldW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `BSESVLD` reader - "]
+        pub type BsesvldR = crate::BitReader;
+        #[doc = "Field `BSESVLD` writer - "]
+        pub type BsesvldW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CHIRP_ON` reader - "]
+        pub type ChirpOnR = crate::BitReader;
+        #[doc = "Field `CHIRP_ON` writer - "]
+        pub type ChirpOnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn sesreqscs(&self) -> SesreqscsR {
+                SesreqscsR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn sesreq(&self) -> SesreqR {
+                SesreqR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn sesenddet(&self) -> SesenddetR {
+                SesenddetR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn hstnegscs(&self) -> HstnegscsR {
+                HstnegscsR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn hnpreq(&self) -> HnpreqR {
+                HnpreqR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn hstsethnpen(&self) -> HstsethnpenR {
+                HstsethnpenR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn devhnpen(&self) -> DevhnpenR {
+                DevhnpenR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn conidsts(&self) -> ConidstsR {
+                ConidstsR::new(((self.bits >> 16) & 1) != 0)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn dbnctime(&self) -> DbnctimeR {
+                DbnctimeR::new(((self.bits >> 17) & 1) != 0)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn asesvld(&self) -> AsesvldR {
+                AsesvldR::new(((self.bits >> 18) & 1) != 0)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn bsesvld(&self) -> BsesvldR {
+                BsesvldR::new(((self.bits >> 19) & 1) != 0)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn chirp_on(&self) -> ChirpOnR {
+                ChirpOnR::new(((self.bits >> 27) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn sesreqscs(&mut self) -> SesreqscsW<'_, GotgctlSpec> {
+                SesreqscsW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn sesreq(&mut self) -> SesreqW<'_, GotgctlSpec> {
+                SesreqW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn sesenddet(&mut self) -> SesenddetW<'_, GotgctlSpec> {
+                SesenddetW::new(self, 2)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn hstnegscs(&mut self) -> HstnegscsW<'_, GotgctlSpec> {
+                HstnegscsW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn hnpreq(&mut self) -> HnpreqW<'_, GotgctlSpec> {
+                HnpreqW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn hstsethnpen(&mut self) -> HstsethnpenW<'_, GotgctlSpec> {
+                HstsethnpenW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn devhnpen(&mut self) -> DevhnpenW<'_, GotgctlSpec> {
+                DevhnpenW::new(self, 11)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn conidsts(&mut self) -> ConidstsW<'_, GotgctlSpec> {
+                ConidstsW::new(self, 16)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn dbnctime(&mut self) -> DbnctimeW<'_, GotgctlSpec> {
+                DbnctimeW::new(self, 17)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn asesvld(&mut self) -> AsesvldW<'_, GotgctlSpec> {
+                AsesvldW::new(self, 18)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn bsesvld(&mut self) -> BsesvldW<'_, GotgctlSpec> {
+                BsesvldW::new(self, 19)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn chirp_on(&mut self) -> ChirpOnW<'_, GotgctlSpec> {
+                ChirpOnW::new(self, 27)
+            }
+        }
         #[doc = "DOTG_GOTGCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gotgctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gotgctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GotgctlSpec;
         impl crate::RegisterSpec for GotgctlSpec {
@@ -25653,12 +25937,80 @@ pub mod usb {
         pub type R = crate::R<GahbcfgSpec>;
         #[doc = "Register `GAHBCFG` writer"]
         pub type W = crate::W<GahbcfgSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `GLBLINTRMSK` reader - "]
+        pub type GlblintrmskR = crate::BitReader;
+        #[doc = "Field `GLBLINTRMSK` writer - "]
+        pub type GlblintrmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HBSTLEN` reader - "]
+        pub type HbstlenR = crate::FieldReader;
+        #[doc = "Field `HBSTLEN` writer - "]
+        pub type HbstlenW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `DMAEN` reader - "]
+        pub type DmaenR = crate::BitReader;
+        #[doc = "Field `DMAEN` writer - "]
+        pub type DmaenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `NPTXFEMPLVL` reader - "]
+        pub type NptxfemplvlR = crate::BitReader;
+        #[doc = "Field `NPTXFEMPLVL` writer - "]
+        pub type NptxfemplvlW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PTXFEMPLVL` reader - "]
+        pub type PtxfemplvlR = crate::BitReader;
+        #[doc = "Field `PTXFEMPLVL` writer - "]
+        pub type PtxfemplvlW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn glblintrmsk(&self) -> GlblintrmskR {
+                GlblintrmskR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bits 1:4"]
+            #[inline(always)]
+            pub fn hbstlen(&self) -> HbstlenR {
+                HbstlenR::new(((self.bits >> 1) & 0x0f) as u8)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn dmaen(&self) -> DmaenR {
+                DmaenR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn nptxfemplvl(&self) -> NptxfemplvlR {
+                NptxfemplvlR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn ptxfemplvl(&self) -> PtxfemplvlR {
+                PtxfemplvlR::new(((self.bits >> 8) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn glblintrmsk(&mut self) -> GlblintrmskW<'_, GahbcfgSpec> {
+                GlblintrmskW::new(self, 0)
+            }
+            #[doc = "Bits 1:4"]
+            #[inline(always)]
+            pub fn hbstlen(&mut self) -> HbstlenW<'_, GahbcfgSpec> {
+                HbstlenW::new(self, 1)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn dmaen(&mut self) -> DmaenW<'_, GahbcfgSpec> {
+                DmaenW::new(self, 5)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn nptxfemplvl(&mut self) -> NptxfemplvlW<'_, GahbcfgSpec> {
+                NptxfemplvlW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn ptxfemplvl(&mut self) -> PtxfemplvlW<'_, GahbcfgSpec> {
+                PtxfemplvlW::new(self, 8)
+            }
+        }
         #[doc = "DOTG_GAHBCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gahbcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gahbcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GahbcfgSpec;
         impl crate::RegisterSpec for GahbcfgSpec {
@@ -25682,12 +26034,318 @@ pub mod usb {
         pub type R = crate::R<GusbcfgSpec>;
         #[doc = "Register `GUSBCFG` writer"]
         pub type W = crate::W<GusbcfgSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `TOUTCAL` reader - "]
+        pub type ToutcalR = crate::FieldReader;
+        #[doc = "Field `TOUTCAL` writer - "]
+        pub type ToutcalW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `PHYIF` reader - "]
+        pub type PhyifR = crate::BitReader;
+        #[doc = "Field `PHYIF` writer - "]
+        pub type PhyifW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPI_UTMI_SEL` reader - "]
+        pub type UlpiUtmiSelR = crate::BitReader;
+        #[doc = "Field `ULPI_UTMI_SEL` writer - "]
+        pub type UlpiUtmiSelW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FSINTF` reader - "]
+        pub type FsintfR = crate::BitReader;
+        #[doc = "Field `FSINTF` writer - "]
+        pub type FsintfW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PHYSEL` reader - "]
+        pub type PhyselR = crate::BitReader;
+        #[doc = "Field `PHYSEL` writer - "]
+        pub type PhyselW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DDRSEL` reader - "]
+        pub type DdrselR = crate::BitReader;
+        #[doc = "Field `DDRSEL` writer - "]
+        pub type DdrselW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SRPCAP` reader - "]
+        pub type SrpcapR = crate::BitReader;
+        #[doc = "Field `SRPCAP` writer - "]
+        pub type SrpcapW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HNPCAP` reader - "]
+        pub type HnpcapR = crate::BitReader;
+        #[doc = "Field `HNPCAP` writer - "]
+        pub type HnpcapW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `USBTRDTIM` reader - "]
+        pub type UsbtrdtimR = crate::FieldReader;
+        #[doc = "Field `USBTRDTIM` writer - "]
+        pub type UsbtrdtimW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `PHYLPWRCLKSEL` reader - "]
+        pub type PhylpwrclkselR = crate::BitReader;
+        #[doc = "Field `PHYLPWRCLKSEL` writer - "]
+        pub type PhylpwrclkselW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OTGI2CSEL` reader - "]
+        pub type Otgi2cselR = crate::BitReader;
+        #[doc = "Field `OTGI2CSEL` writer - "]
+        pub type Otgi2cselW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPIFSLS` reader - "]
+        pub type UlpifslsR = crate::BitReader;
+        #[doc = "Field `ULPIFSLS` writer - "]
+        pub type UlpifslsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPIAUTORES` reader - "]
+        pub type UlpiautoresR = crate::BitReader;
+        #[doc = "Field `ULPIAUTORES` writer - "]
+        pub type UlpiautoresW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPICLKSUSM` reader - "]
+        pub type UlpiclksusmR = crate::BitReader;
+        #[doc = "Field `ULPICLKSUSM` writer - "]
+        pub type UlpiclksusmW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPIEXTVBUSDRV` reader - "]
+        pub type UlpiextvbusdrvR = crate::BitReader;
+        #[doc = "Field `ULPIEXTVBUSDRV` writer - "]
+        pub type UlpiextvbusdrvW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPIEXTVBUSINDICATOR` reader - "]
+        pub type UlpiextvbusindicatorR = crate::BitReader;
+        #[doc = "Field `ULPIEXTVBUSINDICATOR` writer - "]
+        pub type UlpiextvbusindicatorW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TERMSELDLPULSE` reader - "]
+        pub type TermseldlpulseR = crate::BitReader;
+        #[doc = "Field `TERMSELDLPULSE` writer - "]
+        pub type TermseldlpulseW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `IC_USB_CAP` reader - "]
+        pub type IcUsbCapR = crate::BitReader;
+        #[doc = "Field `IC_USB_CAP` writer - "]
+        pub type IcUsbCapW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `NO_PULLUP` reader - "]
+        pub type NoPullupR = crate::BitReader;
+        #[doc = "Field `NO_PULLUP` writer - "]
+        pub type NoPullupW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FORCEHOSTMODE` reader - "]
+        pub type ForcehostmodeR = crate::BitReader;
+        #[doc = "Field `FORCEHOSTMODE` writer - "]
+        pub type ForcehostmodeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FORCEDEVMODE` reader - "]
+        pub type ForcedevmodeR = crate::BitReader;
+        #[doc = "Field `FORCEDEVMODE` writer - "]
+        pub type ForcedevmodeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CORRUPTTXPACKET` reader - "]
+        pub type CorrupttxpacketR = crate::BitReader;
+        #[doc = "Field `CORRUPTTXPACKET` writer - "]
+        pub type CorrupttxpacketW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn toutcal(&self) -> ToutcalR {
+                ToutcalR::new((self.bits & 7) as u8)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn phyif(&self) -> PhyifR {
+                PhyifR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn ulpi_utmi_sel(&self) -> UlpiUtmiSelR {
+                UlpiUtmiSelR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn fsintf(&self) -> FsintfR {
+                FsintfR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn physel(&self) -> PhyselR {
+                PhyselR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn ddrsel(&self) -> DdrselR {
+                DdrselR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn srpcap(&self) -> SrpcapR {
+                SrpcapR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn hnpcap(&self) -> HnpcapR {
+                HnpcapR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bits 10:13"]
+            #[inline(always)]
+            pub fn usbtrdtim(&self) -> UsbtrdtimR {
+                UsbtrdtimR::new(((self.bits >> 10) & 0x0f) as u8)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn phylpwrclksel(&self) -> PhylpwrclkselR {
+                PhylpwrclkselR::new(((self.bits >> 15) & 1) != 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn otgi2csel(&self) -> Otgi2cselR {
+                Otgi2cselR::new(((self.bits >> 16) & 1) != 0)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn ulpifsls(&self) -> UlpifslsR {
+                UlpifslsR::new(((self.bits >> 17) & 1) != 0)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn ulpiautores(&self) -> UlpiautoresR {
+                UlpiautoresR::new(((self.bits >> 18) & 1) != 0)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn ulpiclksusm(&self) -> UlpiclksusmR {
+                UlpiclksusmR::new(((self.bits >> 19) & 1) != 0)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn ulpiextvbusdrv(&self) -> UlpiextvbusdrvR {
+                UlpiextvbusdrvR::new(((self.bits >> 20) & 1) != 0)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn ulpiextvbusindicator(&self) -> UlpiextvbusindicatorR {
+                UlpiextvbusindicatorR::new(((self.bits >> 21) & 1) != 0)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn termseldlpulse(&self) -> TermseldlpulseR {
+                TermseldlpulseR::new(((self.bits >> 22) & 1) != 0)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn ic_usb_cap(&self) -> IcUsbCapR {
+                IcUsbCapR::new(((self.bits >> 26) & 1) != 0)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn no_pullup(&self) -> NoPullupR {
+                NoPullupR::new(((self.bits >> 27) & 1) != 0)
+            }
+            #[doc = "Bit 29"]
+            #[inline(always)]
+            pub fn forcehostmode(&self) -> ForcehostmodeR {
+                ForcehostmodeR::new(((self.bits >> 29) & 1) != 0)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn forcedevmode(&self) -> ForcedevmodeR {
+                ForcedevmodeR::new(((self.bits >> 30) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn corrupttxpacket(&self) -> CorrupttxpacketR {
+                CorrupttxpacketR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn toutcal(&mut self) -> ToutcalW<'_, GusbcfgSpec> {
+                ToutcalW::new(self, 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn phyif(&mut self) -> PhyifW<'_, GusbcfgSpec> {
+                PhyifW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn ulpi_utmi_sel(&mut self) -> UlpiUtmiSelW<'_, GusbcfgSpec> {
+                UlpiUtmiSelW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn fsintf(&mut self) -> FsintfW<'_, GusbcfgSpec> {
+                FsintfW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn physel(&mut self) -> PhyselW<'_, GusbcfgSpec> {
+                PhyselW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn ddrsel(&mut self) -> DdrselW<'_, GusbcfgSpec> {
+                DdrselW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn srpcap(&mut self) -> SrpcapW<'_, GusbcfgSpec> {
+                SrpcapW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn hnpcap(&mut self) -> HnpcapW<'_, GusbcfgSpec> {
+                HnpcapW::new(self, 9)
+            }
+            #[doc = "Bits 10:13"]
+            #[inline(always)]
+            pub fn usbtrdtim(&mut self) -> UsbtrdtimW<'_, GusbcfgSpec> {
+                UsbtrdtimW::new(self, 10)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn phylpwrclksel(&mut self) -> PhylpwrclkselW<'_, GusbcfgSpec> {
+                PhylpwrclkselW::new(self, 15)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn otgi2csel(&mut self) -> Otgi2cselW<'_, GusbcfgSpec> {
+                Otgi2cselW::new(self, 16)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn ulpifsls(&mut self) -> UlpifslsW<'_, GusbcfgSpec> {
+                UlpifslsW::new(self, 17)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn ulpiautores(&mut self) -> UlpiautoresW<'_, GusbcfgSpec> {
+                UlpiautoresW::new(self, 18)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn ulpiclksusm(&mut self) -> UlpiclksusmW<'_, GusbcfgSpec> {
+                UlpiclksusmW::new(self, 19)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn ulpiextvbusdrv(&mut self) -> UlpiextvbusdrvW<'_, GusbcfgSpec> {
+                UlpiextvbusdrvW::new(self, 20)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn ulpiextvbusindicator(&mut self) -> UlpiextvbusindicatorW<'_, GusbcfgSpec> {
+                UlpiextvbusindicatorW::new(self, 21)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn termseldlpulse(&mut self) -> TermseldlpulseW<'_, GusbcfgSpec> {
+                TermseldlpulseW::new(self, 22)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn ic_usb_cap(&mut self) -> IcUsbCapW<'_, GusbcfgSpec> {
+                IcUsbCapW::new(self, 26)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn no_pullup(&mut self) -> NoPullupW<'_, GusbcfgSpec> {
+                NoPullupW::new(self, 27)
+            }
+            #[doc = "Bit 29"]
+            #[inline(always)]
+            pub fn forcehostmode(&mut self) -> ForcehostmodeW<'_, GusbcfgSpec> {
+                ForcehostmodeW::new(self, 29)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn forcedevmode(&mut self) -> ForcedevmodeW<'_, GusbcfgSpec> {
+                ForcedevmodeW::new(self, 30)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn corrupttxpacket(&mut self) -> CorrupttxpacketW<'_, GusbcfgSpec> {
+                CorrupttxpacketW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_GUSBCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`gusbcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gusbcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GusbcfgSpec;
         impl crate::RegisterSpec for GusbcfgSpec {
@@ -25711,12 +26369,136 @@ pub mod usb {
         pub type R = crate::R<GrstctlSpec>;
         #[doc = "Register `GRSTCTL` writer"]
         pub type W = crate::W<GrstctlSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `CSFTRST` reader - "]
+        pub type CsftrstR = crate::BitReader;
+        #[doc = "Field `CSFTRST` writer - "]
+        pub type CsftrstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HSFTRST` reader - "]
+        pub type HsftrstR = crate::BitReader;
+        #[doc = "Field `HSFTRST` writer - "]
+        pub type HsftrstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FRMCNTRRST` reader - "]
+        pub type FrmcntrrstR = crate::BitReader;
+        #[doc = "Field `FRMCNTRRST` writer - "]
+        pub type FrmcntrrstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INTKNQFLSH` reader - "]
+        pub type IntknqflshR = crate::BitReader;
+        #[doc = "Field `INTKNQFLSH` writer - "]
+        pub type IntknqflshW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RXFFLSH` reader - "]
+        pub type RxfflshR = crate::BitReader;
+        #[doc = "Field `RXFFLSH` writer - "]
+        pub type RxfflshW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TXFFLSH` reader - "]
+        pub type TxfflshR = crate::BitReader;
+        #[doc = "Field `TXFFLSH` writer - "]
+        pub type TxfflshW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TXFNUM` reader - "]
+        pub type TxfnumR = crate::FieldReader;
+        #[doc = "Field `TXFNUM` writer - "]
+        pub type TxfnumW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        #[doc = "Field `DMAREQ` reader - "]
+        pub type DmareqR = crate::BitReader;
+        #[doc = "Field `DMAREQ` writer - "]
+        pub type DmareqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `AHBIDLE` reader - "]
+        pub type AhbidleR = crate::BitReader;
+        #[doc = "Field `AHBIDLE` writer - "]
+        pub type AhbidleW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn csftrst(&self) -> CsftrstR {
+                CsftrstR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn hsftrst(&self) -> HsftrstR {
+                HsftrstR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn frmcntrrst(&self) -> FrmcntrrstR {
+                FrmcntrrstR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn intknqflsh(&self) -> IntknqflshR {
+                IntknqflshR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn rxfflsh(&self) -> RxfflshR {
+                RxfflshR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn txfflsh(&self) -> TxfflshR {
+                TxfflshR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bits 6:10"]
+            #[inline(always)]
+            pub fn txfnum(&self) -> TxfnumR {
+                TxfnumR::new(((self.bits >> 6) & 0x1f) as u8)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn dmareq(&self) -> DmareqR {
+                DmareqR::new(((self.bits >> 30) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn ahbidle(&self) -> AhbidleR {
+                AhbidleR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn csftrst(&mut self) -> CsftrstW<'_, GrstctlSpec> {
+                CsftrstW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn hsftrst(&mut self) -> HsftrstW<'_, GrstctlSpec> {
+                HsftrstW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn frmcntrrst(&mut self) -> FrmcntrrstW<'_, GrstctlSpec> {
+                FrmcntrrstW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn intknqflsh(&mut self) -> IntknqflshW<'_, GrstctlSpec> {
+                IntknqflshW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn rxfflsh(&mut self) -> RxfflshW<'_, GrstctlSpec> {
+                RxfflshW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn txfflsh(&mut self) -> TxfflshW<'_, GrstctlSpec> {
+                TxfflshW::new(self, 5)
+            }
+            #[doc = "Bits 6:10"]
+            #[inline(always)]
+            pub fn txfnum(&mut self) -> TxfnumW<'_, GrstctlSpec> {
+                TxfnumW::new(self, 6)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn dmareq(&mut self) -> DmareqW<'_, GrstctlSpec> {
+                DmareqW::new(self, 30)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn ahbidle(&mut self) -> AhbidleW<'_, GrstctlSpec> {
+                AhbidleW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_GRSTCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`grstctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grstctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GrstctlSpec;
         impl crate::RegisterSpec for GrstctlSpec {
@@ -25740,12 +26522,458 @@ pub mod usb {
         pub type R = crate::R<GintstsSpec>;
         #[doc = "Register `GINTSTS` writer"]
         pub type W = crate::W<GintstsSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `CURMOD` reader - "]
+        pub type CurmodR = crate::BitReader;
+        #[doc = "Field `CURMOD` writer - "]
+        pub type CurmodW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `MODEMIS` reader - "]
+        pub type ModemisR = crate::BitReader;
+        #[doc = "Field `MODEMIS` writer - "]
+        pub type ModemisW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OTGINT` reader - "]
+        pub type OtgintR = crate::BitReader;
+        #[doc = "Field `OTGINT` writer - "]
+        pub type OtgintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SOF` reader - "]
+        pub type SofR = crate::BitReader;
+        #[doc = "Field `SOF` writer - "]
+        pub type SofW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RXFLVL` reader - "]
+        pub type RxflvlR = crate::BitReader;
+        #[doc = "Field `RXFLVL` writer - "]
+        pub type RxflvlW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `NPTXFEMP` reader - "]
+        pub type NptxfempR = crate::BitReader;
+        #[doc = "Field `NPTXFEMP` writer - "]
+        pub type NptxfempW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GINNAKEFF` reader - "]
+        pub type GinnakeffR = crate::BitReader;
+        #[doc = "Field `GINNAKEFF` writer - "]
+        pub type GinnakeffW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GOUTNAKEFF` reader - "]
+        pub type GoutnakeffR = crate::BitReader;
+        #[doc = "Field `GOUTNAKEFF` writer - "]
+        pub type GoutnakeffW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPICKINT` reader - "]
+        pub type UlpickintR = crate::BitReader;
+        #[doc = "Field `ULPICKINT` writer - "]
+        pub type UlpickintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `I2CINT` reader - "]
+        pub type I2cintR = crate::BitReader;
+        #[doc = "Field `I2CINT` writer - "]
+        pub type I2cintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ERLYSUSP` reader - "]
+        pub type ErlysuspR = crate::BitReader;
+        #[doc = "Field `ERLYSUSP` writer - "]
+        pub type ErlysuspW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `USBSUSP` reader - "]
+        pub type UsbsuspR = crate::BitReader;
+        #[doc = "Field `USBSUSP` writer - "]
+        pub type UsbsuspW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `USBRST` reader - "]
+        pub type UsbrstR = crate::BitReader;
+        #[doc = "Field `USBRST` writer - "]
+        pub type UsbrstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ENUMDONE` reader - "]
+        pub type EnumdoneR = crate::BitReader;
+        #[doc = "Field `ENUMDONE` writer - "]
+        pub type EnumdoneW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ISOOUTDROP` reader - "]
+        pub type IsooutdropR = crate::BitReader;
+        #[doc = "Field `ISOOUTDROP` writer - "]
+        pub type IsooutdropW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EOPF` reader - "]
+        pub type EopfR = crate::BitReader;
+        #[doc = "Field `EOPF` writer - "]
+        pub type EopfW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RESTORE_DONE` reader - "]
+        pub type RestoreDoneR = crate::BitReader;
+        #[doc = "Field `RESTORE_DONE` writer - "]
+        pub type RestoreDoneW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EPMIS` reader - "]
+        pub type EpmisR = crate::BitReader;
+        #[doc = "Field `EPMIS` writer - "]
+        pub type EpmisW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `IEPINT` reader - "]
+        pub type IepintR = crate::BitReader;
+        #[doc = "Field `IEPINT` writer - "]
+        pub type IepintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OEPINT` reader - "]
+        pub type OepintR = crate::BitReader;
+        #[doc = "Field `OEPINT` writer - "]
+        pub type OepintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INCOMPISOIN` reader - "]
+        pub type IncompisoinR = crate::BitReader;
+        #[doc = "Field `INCOMPISOIN` writer - "]
+        pub type IncompisoinW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INCOMPLP` reader - "]
+        pub type IncomplpR = crate::BitReader;
+        #[doc = "Field `INCOMPLP` writer - "]
+        pub type IncomplpW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FETSUSP` reader - "]
+        pub type FetsuspR = crate::BitReader;
+        #[doc = "Field `FETSUSP` writer - "]
+        pub type FetsuspW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RESETDET` reader - "]
+        pub type ResetdetR = crate::BitReader;
+        #[doc = "Field `RESETDET` writer - "]
+        pub type ResetdetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTINT` reader - "]
+        pub type PrtintR = crate::BitReader;
+        #[doc = "Field `PRTINT` writer - "]
+        pub type PrtintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HCHINT` reader - "]
+        pub type HchintR = crate::BitReader;
+        #[doc = "Field `HCHINT` writer - "]
+        pub type HchintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PTXFEMP` reader - "]
+        pub type PtxfempR = crate::BitReader;
+        #[doc = "Field `PTXFEMP` writer - "]
+        pub type PtxfempW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `LPM` reader - "]
+        pub type LpmR = crate::BitReader;
+        #[doc = "Field `LPM` writer - "]
+        pub type LpmW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CONIDSTSCHNG` reader - "]
+        pub type ConidstschngR = crate::BitReader;
+        #[doc = "Field `CONIDSTSCHNG` writer - "]
+        pub type ConidstschngW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DISCONNINT` reader - "]
+        pub type DisconnintR = crate::BitReader;
+        #[doc = "Field `DISCONNINT` writer - "]
+        pub type DisconnintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SESSREQINT` reader - "]
+        pub type SessreqintR = crate::BitReader;
+        #[doc = "Field `SESSREQINT` writer - "]
+        pub type SessreqintW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `WKUPINT` reader - "]
+        pub type WkupintR = crate::BitReader;
+        #[doc = "Field `WKUPINT` writer - "]
+        pub type WkupintW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn curmod(&self) -> CurmodR {
+                CurmodR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn modemis(&self) -> ModemisR {
+                ModemisR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn otgint(&self) -> OtgintR {
+                OtgintR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn sof(&self) -> SofR {
+                SofR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn rxflvl(&self) -> RxflvlR {
+                RxflvlR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn nptxfemp(&self) -> NptxfempR {
+                NptxfempR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn ginnakeff(&self) -> GinnakeffR {
+                GinnakeffR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn goutnakeff(&self) -> GoutnakeffR {
+                GoutnakeffR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn ulpickint(&self) -> UlpickintR {
+                UlpickintR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn i2cint(&self) -> I2cintR {
+                I2cintR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn erlysusp(&self) -> ErlysuspR {
+                ErlysuspR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn usbsusp(&self) -> UsbsuspR {
+                UsbsuspR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn usbrst(&self) -> UsbrstR {
+                UsbrstR::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn enumdone(&self) -> EnumdoneR {
+                EnumdoneR::new(((self.bits >> 13) & 1) != 0)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn isooutdrop(&self) -> IsooutdropR {
+                IsooutdropR::new(((self.bits >> 14) & 1) != 0)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn eopf(&self) -> EopfR {
+                EopfR::new(((self.bits >> 15) & 1) != 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn restore_done(&self) -> RestoreDoneR {
+                RestoreDoneR::new(((self.bits >> 16) & 1) != 0)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn epmis(&self) -> EpmisR {
+                EpmisR::new(((self.bits >> 17) & 1) != 0)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn iepint(&self) -> IepintR {
+                IepintR::new(((self.bits >> 18) & 1) != 0)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn oepint(&self) -> OepintR {
+                OepintR::new(((self.bits >> 19) & 1) != 0)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn incompisoin(&self) -> IncompisoinR {
+                IncompisoinR::new(((self.bits >> 20) & 1) != 0)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn incomplp(&self) -> IncomplpR {
+                IncomplpR::new(((self.bits >> 21) & 1) != 0)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn fetsusp(&self) -> FetsuspR {
+                FetsuspR::new(((self.bits >> 22) & 1) != 0)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn resetdet(&self) -> ResetdetR {
+                ResetdetR::new(((self.bits >> 23) & 1) != 0)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn prtint(&self) -> PrtintR {
+                PrtintR::new(((self.bits >> 24) & 1) != 0)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn hchint(&self) -> HchintR {
+                HchintR::new(((self.bits >> 25) & 1) != 0)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn ptxfemp(&self) -> PtxfempR {
+                PtxfempR::new(((self.bits >> 26) & 1) != 0)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn lpm(&self) -> LpmR {
+                LpmR::new(((self.bits >> 27) & 1) != 0)
+            }
+            #[doc = "Bit 28"]
+            #[inline(always)]
+            pub fn conidstschng(&self) -> ConidstschngR {
+                ConidstschngR::new(((self.bits >> 28) & 1) != 0)
+            }
+            #[doc = "Bit 29"]
+            #[inline(always)]
+            pub fn disconnint(&self) -> DisconnintR {
+                DisconnintR::new(((self.bits >> 29) & 1) != 0)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn sessreqint(&self) -> SessreqintR {
+                SessreqintR::new(((self.bits >> 30) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn wkupint(&self) -> WkupintR {
+                WkupintR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn curmod(&mut self) -> CurmodW<'_, GintstsSpec> {
+                CurmodW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn modemis(&mut self) -> ModemisW<'_, GintstsSpec> {
+                ModemisW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn otgint(&mut self) -> OtgintW<'_, GintstsSpec> {
+                OtgintW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn sof(&mut self) -> SofW<'_, GintstsSpec> {
+                SofW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn rxflvl(&mut self) -> RxflvlW<'_, GintstsSpec> {
+                RxflvlW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn nptxfemp(&mut self) -> NptxfempW<'_, GintstsSpec> {
+                NptxfempW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn ginnakeff(&mut self) -> GinnakeffW<'_, GintstsSpec> {
+                GinnakeffW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn goutnakeff(&mut self) -> GoutnakeffW<'_, GintstsSpec> {
+                GoutnakeffW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn ulpickint(&mut self) -> UlpickintW<'_, GintstsSpec> {
+                UlpickintW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn i2cint(&mut self) -> I2cintW<'_, GintstsSpec> {
+                I2cintW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn erlysusp(&mut self) -> ErlysuspW<'_, GintstsSpec> {
+                ErlysuspW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn usbsusp(&mut self) -> UsbsuspW<'_, GintstsSpec> {
+                UsbsuspW::new(self, 11)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn usbrst(&mut self) -> UsbrstW<'_, GintstsSpec> {
+                UsbrstW::new(self, 12)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn enumdone(&mut self) -> EnumdoneW<'_, GintstsSpec> {
+                EnumdoneW::new(self, 13)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn isooutdrop(&mut self) -> IsooutdropW<'_, GintstsSpec> {
+                IsooutdropW::new(self, 14)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn eopf(&mut self) -> EopfW<'_, GintstsSpec> {
+                EopfW::new(self, 15)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn restore_done(&mut self) -> RestoreDoneW<'_, GintstsSpec> {
+                RestoreDoneW::new(self, 16)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn epmis(&mut self) -> EpmisW<'_, GintstsSpec> {
+                EpmisW::new(self, 17)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn iepint(&mut self) -> IepintW<'_, GintstsSpec> {
+                IepintW::new(self, 18)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn oepint(&mut self) -> OepintW<'_, GintstsSpec> {
+                OepintW::new(self, 19)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn incompisoin(&mut self) -> IncompisoinW<'_, GintstsSpec> {
+                IncompisoinW::new(self, 20)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn incomplp(&mut self) -> IncomplpW<'_, GintstsSpec> {
+                IncomplpW::new(self, 21)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn fetsusp(&mut self) -> FetsuspW<'_, GintstsSpec> {
+                FetsuspW::new(self, 22)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn resetdet(&mut self) -> ResetdetW<'_, GintstsSpec> {
+                ResetdetW::new(self, 23)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn prtint(&mut self) -> PrtintW<'_, GintstsSpec> {
+                PrtintW::new(self, 24)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn hchint(&mut self) -> HchintW<'_, GintstsSpec> {
+                HchintW::new(self, 25)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn ptxfemp(&mut self) -> PtxfempW<'_, GintstsSpec> {
+                PtxfempW::new(self, 26)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn lpm(&mut self) -> LpmW<'_, GintstsSpec> {
+                LpmW::new(self, 27)
+            }
+            #[doc = "Bit 28"]
+            #[inline(always)]
+            pub fn conidstschng(&mut self) -> ConidstschngW<'_, GintstsSpec> {
+                ConidstschngW::new(self, 28)
+            }
+            #[doc = "Bit 29"]
+            #[inline(always)]
+            pub fn disconnint(&mut self) -> DisconnintW<'_, GintstsSpec> {
+                DisconnintW::new(self, 29)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn sessreqint(&mut self) -> SessreqintW<'_, GintstsSpec> {
+                SessreqintW::new(self, 30)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn wkupint(&mut self) -> WkupintW<'_, GintstsSpec> {
+                WkupintW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_GINTSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`gintsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gintsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GintstsSpec;
         impl crate::RegisterSpec for GintstsSpec {
@@ -25769,12 +26997,416 @@ pub mod usb {
         pub type R = crate::R<GintmskSpec>;
         #[doc = "Register `GINTMSK` writer"]
         pub type W = crate::W<GintmskSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `CURMODMSK` reader - "]
+        pub type CurmodmskR = crate::BitReader;
+        #[doc = "Field `CURMODMSK` writer - "]
+        pub type CurmodmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `MODEMISMSK` reader - "]
+        pub type ModemismskR = crate::BitReader;
+        #[doc = "Field `MODEMISMSK` writer - "]
+        pub type ModemismskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OTGINTMSK` reader - "]
+        pub type OtgintmskR = crate::BitReader;
+        #[doc = "Field `OTGINTMSK` writer - "]
+        pub type OtgintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SOFMSK` reader - "]
+        pub type SofmskR = crate::BitReader;
+        #[doc = "Field `SOFMSK` writer - "]
+        pub type SofmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RXFLVLMSK` reader - "]
+        pub type RxflvlmskR = crate::BitReader;
+        #[doc = "Field `RXFLVLMSK` writer - "]
+        pub type RxflvlmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `NPTXFEMPMSK` reader - "]
+        pub type NptxfempmskR = crate::BitReader;
+        #[doc = "Field `NPTXFEMPMSK` writer - "]
+        pub type NptxfempmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GINNAKEFFMSK` reader - "]
+        pub type GinnakeffmskR = crate::BitReader;
+        #[doc = "Field `GINNAKEFFMSK` writer - "]
+        pub type GinnakeffmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GOUTNAKEFFMSK` reader - "]
+        pub type GoutnakeffmskR = crate::BitReader;
+        #[doc = "Field `GOUTNAKEFFMSK` writer - "]
+        pub type GoutnakeffmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ULPICKINTMSK` reader - "]
+        pub type UlpickintmskR = crate::BitReader;
+        #[doc = "Field `ULPICKINTMSK` writer - "]
+        pub type UlpickintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `I2CINTMSK` reader - "]
+        pub type I2cintmskR = crate::BitReader;
+        #[doc = "Field `I2CINTMSK` writer - "]
+        pub type I2cintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ERLYSUSPMSK` reader - "]
+        pub type ErlysuspmskR = crate::BitReader;
+        #[doc = "Field `ERLYSUSPMSK` writer - "]
+        pub type ErlysuspmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `USBSUSPMSK` reader - "]
+        pub type UsbsuspmskR = crate::BitReader;
+        #[doc = "Field `USBSUSPMSK` writer - "]
+        pub type UsbsuspmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `USBRSTMSK` reader - "]
+        pub type UsbrstmskR = crate::BitReader;
+        #[doc = "Field `USBRSTMSK` writer - "]
+        pub type UsbrstmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ENUMDONEMSK` reader - "]
+        pub type EnumdonemskR = crate::BitReader;
+        #[doc = "Field `ENUMDONEMSK` writer - "]
+        pub type EnumdonemskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ISOOUTDROPMSK` reader - "]
+        pub type IsooutdropmskR = crate::BitReader;
+        #[doc = "Field `ISOOUTDROPMSK` writer - "]
+        pub type IsooutdropmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EOPFMSK` reader - "]
+        pub type EopfmskR = crate::BitReader;
+        #[doc = "Field `EOPFMSK` writer - "]
+        pub type EopfmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EPMISMSK` reader - "]
+        pub type EpmismskR = crate::BitReader;
+        #[doc = "Field `EPMISMSK` writer - "]
+        pub type EpmismskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `IEPINTMSK` reader - "]
+        pub type IepintmskR = crate::BitReader;
+        #[doc = "Field `IEPINTMSK` writer - "]
+        pub type IepintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OEPINTMSK` reader - "]
+        pub type OepintmskR = crate::BitReader;
+        #[doc = "Field `OEPINTMSK` writer - "]
+        pub type OepintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INCOMPISOINMSK` reader - "]
+        pub type IncompisoinmskR = crate::BitReader;
+        #[doc = "Field `INCOMPISOINMSK` writer - "]
+        pub type IncompisoinmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INCOMPLPMSK` reader - "]
+        pub type IncomplpmskR = crate::BitReader;
+        #[doc = "Field `INCOMPLPMSK` writer - "]
+        pub type IncomplpmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FETSUSPMSK` reader - "]
+        pub type FetsuspmskR = crate::BitReader;
+        #[doc = "Field `FETSUSPMSK` writer - "]
+        pub type FetsuspmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTINTMSK` reader - "]
+        pub type PrtintmskR = crate::BitReader;
+        #[doc = "Field `PRTINTMSK` writer - "]
+        pub type PrtintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HCHINTMSK` reader - "]
+        pub type HchintmskR = crate::BitReader;
+        #[doc = "Field `HCHINTMSK` writer - "]
+        pub type HchintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PTXFEMPMSK` reader - "]
+        pub type PtxfempmskR = crate::BitReader;
+        #[doc = "Field `PTXFEMPMSK` writer - "]
+        pub type PtxfempmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CONIDSTSCHNGMSK` reader - "]
+        pub type ConidstschngmskR = crate::BitReader;
+        #[doc = "Field `CONIDSTSCHNGMSK` writer - "]
+        pub type ConidstschngmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DISCONNINTMSK` reader - "]
+        pub type DisconnintmskR = crate::BitReader;
+        #[doc = "Field `DISCONNINTMSK` writer - "]
+        pub type DisconnintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SESSREQINTMSK` reader - "]
+        pub type SessreqintmskR = crate::BitReader;
+        #[doc = "Field `SESSREQINTMSK` writer - "]
+        pub type SessreqintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `WKUPINTMSK` reader - "]
+        pub type WkupintmskR = crate::BitReader;
+        #[doc = "Field `WKUPINTMSK` writer - "]
+        pub type WkupintmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn curmodmsk(&self) -> CurmodmskR {
+                CurmodmskR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn modemismsk(&self) -> ModemismskR {
+                ModemismskR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn otgintmsk(&self) -> OtgintmskR {
+                OtgintmskR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn sofmsk(&self) -> SofmskR {
+                SofmskR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn rxflvlmsk(&self) -> RxflvlmskR {
+                RxflvlmskR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn nptxfempmsk(&self) -> NptxfempmskR {
+                NptxfempmskR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn ginnakeffmsk(&self) -> GinnakeffmskR {
+                GinnakeffmskR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn goutnakeffmsk(&self) -> GoutnakeffmskR {
+                GoutnakeffmskR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn ulpickintmsk(&self) -> UlpickintmskR {
+                UlpickintmskR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn i2cintmsk(&self) -> I2cintmskR {
+                I2cintmskR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn erlysuspmsk(&self) -> ErlysuspmskR {
+                ErlysuspmskR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn usbsuspmsk(&self) -> UsbsuspmskR {
+                UsbsuspmskR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn usbrstmsk(&self) -> UsbrstmskR {
+                UsbrstmskR::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn enumdonemsk(&self) -> EnumdonemskR {
+                EnumdonemskR::new(((self.bits >> 13) & 1) != 0)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn isooutdropmsk(&self) -> IsooutdropmskR {
+                IsooutdropmskR::new(((self.bits >> 14) & 1) != 0)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn eopfmsk(&self) -> EopfmskR {
+                EopfmskR::new(((self.bits >> 15) & 1) != 0)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn epmismsk(&self) -> EpmismskR {
+                EpmismskR::new(((self.bits >> 17) & 1) != 0)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn iepintmsk(&self) -> IepintmskR {
+                IepintmskR::new(((self.bits >> 18) & 1) != 0)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn oepintmsk(&self) -> OepintmskR {
+                OepintmskR::new(((self.bits >> 19) & 1) != 0)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn incompisoinmsk(&self) -> IncompisoinmskR {
+                IncompisoinmskR::new(((self.bits >> 20) & 1) != 0)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn incomplpmsk(&self) -> IncomplpmskR {
+                IncomplpmskR::new(((self.bits >> 21) & 1) != 0)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn fetsuspmsk(&self) -> FetsuspmskR {
+                FetsuspmskR::new(((self.bits >> 22) & 1) != 0)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn prtintmsk(&self) -> PrtintmskR {
+                PrtintmskR::new(((self.bits >> 24) & 1) != 0)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn hchintmsk(&self) -> HchintmskR {
+                HchintmskR::new(((self.bits >> 25) & 1) != 0)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn ptxfempmsk(&self) -> PtxfempmskR {
+                PtxfempmskR::new(((self.bits >> 26) & 1) != 0)
+            }
+            #[doc = "Bit 28"]
+            #[inline(always)]
+            pub fn conidstschngmsk(&self) -> ConidstschngmskR {
+                ConidstschngmskR::new(((self.bits >> 28) & 1) != 0)
+            }
+            #[doc = "Bit 29"]
+            #[inline(always)]
+            pub fn disconnintmsk(&self) -> DisconnintmskR {
+                DisconnintmskR::new(((self.bits >> 29) & 1) != 0)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn sessreqintmsk(&self) -> SessreqintmskR {
+                SessreqintmskR::new(((self.bits >> 30) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn wkupintmsk(&self) -> WkupintmskR {
+                WkupintmskR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn curmodmsk(&mut self) -> CurmodmskW<'_, GintmskSpec> {
+                CurmodmskW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn modemismsk(&mut self) -> ModemismskW<'_, GintmskSpec> {
+                ModemismskW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn otgintmsk(&mut self) -> OtgintmskW<'_, GintmskSpec> {
+                OtgintmskW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn sofmsk(&mut self) -> SofmskW<'_, GintmskSpec> {
+                SofmskW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn rxflvlmsk(&mut self) -> RxflvlmskW<'_, GintmskSpec> {
+                RxflvlmskW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn nptxfempmsk(&mut self) -> NptxfempmskW<'_, GintmskSpec> {
+                NptxfempmskW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn ginnakeffmsk(&mut self) -> GinnakeffmskW<'_, GintmskSpec> {
+                GinnakeffmskW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn goutnakeffmsk(&mut self) -> GoutnakeffmskW<'_, GintmskSpec> {
+                GoutnakeffmskW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn ulpickintmsk(&mut self) -> UlpickintmskW<'_, GintmskSpec> {
+                UlpickintmskW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn i2cintmsk(&mut self) -> I2cintmskW<'_, GintmskSpec> {
+                I2cintmskW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn erlysuspmsk(&mut self) -> ErlysuspmskW<'_, GintmskSpec> {
+                ErlysuspmskW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn usbsuspmsk(&mut self) -> UsbsuspmskW<'_, GintmskSpec> {
+                UsbsuspmskW::new(self, 11)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn usbrstmsk(&mut self) -> UsbrstmskW<'_, GintmskSpec> {
+                UsbrstmskW::new(self, 12)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn enumdonemsk(&mut self) -> EnumdonemskW<'_, GintmskSpec> {
+                EnumdonemskW::new(self, 13)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn isooutdropmsk(&mut self) -> IsooutdropmskW<'_, GintmskSpec> {
+                IsooutdropmskW::new(self, 14)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn eopfmsk(&mut self) -> EopfmskW<'_, GintmskSpec> {
+                EopfmskW::new(self, 15)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn epmismsk(&mut self) -> EpmismskW<'_, GintmskSpec> {
+                EpmismskW::new(self, 17)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn iepintmsk(&mut self) -> IepintmskW<'_, GintmskSpec> {
+                IepintmskW::new(self, 18)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn oepintmsk(&mut self) -> OepintmskW<'_, GintmskSpec> {
+                OepintmskW::new(self, 19)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn incompisoinmsk(&mut self) -> IncompisoinmskW<'_, GintmskSpec> {
+                IncompisoinmskW::new(self, 20)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn incomplpmsk(&mut self) -> IncomplpmskW<'_, GintmskSpec> {
+                IncomplpmskW::new(self, 21)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn fetsuspmsk(&mut self) -> FetsuspmskW<'_, GintmskSpec> {
+                FetsuspmskW::new(self, 22)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn prtintmsk(&mut self) -> PrtintmskW<'_, GintmskSpec> {
+                PrtintmskW::new(self, 24)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn hchintmsk(&mut self) -> HchintmskW<'_, GintmskSpec> {
+                HchintmskW::new(self, 25)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn ptxfempmsk(&mut self) -> PtxfempmskW<'_, GintmskSpec> {
+                PtxfempmskW::new(self, 26)
+            }
+            #[doc = "Bit 28"]
+            #[inline(always)]
+            pub fn conidstschngmsk(&mut self) -> ConidstschngmskW<'_, GintmskSpec> {
+                ConidstschngmskW::new(self, 28)
+            }
+            #[doc = "Bit 29"]
+            #[inline(always)]
+            pub fn disconnintmsk(&mut self) -> DisconnintmskW<'_, GintmskSpec> {
+                DisconnintmskW::new(self, 29)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn sessreqintmsk(&mut self) -> SessreqintmskW<'_, GintmskSpec> {
+                SessreqintmskW::new(self, 30)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn wkupintmsk(&mut self) -> WkupintmskW<'_, GintmskSpec> {
+                WkupintmskW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_GINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`gintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GintmskSpec;
         impl crate::RegisterSpec for GintmskSpec {
@@ -25798,12 +27430,80 @@ pub mod usb {
         pub type R = crate::R<GrxstsrdSpec>;
         #[doc = "Register `GRXSTSRD` writer"]
         pub type W = crate::W<GrxstsrdSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `CHNUM` reader - "]
+        pub type ChnumR = crate::FieldReader;
+        #[doc = "Field `CHNUM` writer - "]
+        pub type ChnumW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `BCNT` reader - "]
+        pub type BcntR = crate::FieldReader<u16>;
+        #[doc = "Field `BCNT` writer - "]
+        pub type BcntW<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
+        #[doc = "Field `DPID_DATA2` reader - "]
+        pub type DpidData2R = crate::BitReader;
+        #[doc = "Field `DPID_DATA2` writer - "]
+        pub type DpidData2W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GLOB_OUT_NAK` reader - "]
+        pub type GlobOutNakR = crate::BitReader;
+        #[doc = "Field `GLOB_OUT_NAK` writer - "]
+        pub type GlobOutNakW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FN` reader - "]
+        pub type FnR = crate::FieldReader;
+        #[doc = "Field `FN` writer - "]
+        pub type FnW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn chnum(&self) -> ChnumR {
+                ChnumR::new((self.bits & 0x0f) as u8)
+            }
+            #[doc = "Bits 4:14"]
+            #[inline(always)]
+            pub fn bcnt(&self) -> BcntR {
+                BcntR::new(((self.bits >> 4) & 0x07ff) as u16)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn dpid_data2(&self) -> DpidData2R {
+                DpidData2R::new(((self.bits >> 15) & 1) != 0)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn glob_out_nak(&self) -> GlobOutNakR {
+                GlobOutNakR::new(((self.bits >> 17) & 1) != 0)
+            }
+            #[doc = "Bits 21:24"]
+            #[inline(always)]
+            pub fn fn_(&self) -> FnR {
+                FnR::new(((self.bits >> 21) & 0x0f) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn chnum(&mut self) -> ChnumW<'_, GrxstsrdSpec> {
+                ChnumW::new(self, 0)
+            }
+            #[doc = "Bits 4:14"]
+            #[inline(always)]
+            pub fn bcnt(&mut self) -> BcntW<'_, GrxstsrdSpec> {
+                BcntW::new(self, 4)
+            }
+            #[doc = "Bit 15"]
+            #[inline(always)]
+            pub fn dpid_data2(&mut self) -> DpidData2W<'_, GrxstsrdSpec> {
+                DpidData2W::new(self, 15)
+            }
+            #[doc = "Bit 17"]
+            #[inline(always)]
+            pub fn glob_out_nak(&mut self) -> GlobOutNakW<'_, GrxstsrdSpec> {
+                GlobOutNakW::new(self, 17)
+            }
+            #[doc = "Bits 21:24"]
+            #[inline(always)]
+            pub fn fn_(&mut self) -> FnW<'_, GrxstsrdSpec> {
+                FnW::new(self, 21)
+            }
+        }
         #[doc = "DOTG_GRXSTSRD\n\nYou can [`read`](crate::Reg::read) this register and get [`grxstsrd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxstsrd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GrxstsrdSpec;
         impl crate::RegisterSpec for GrxstsrdSpec {
@@ -25856,12 +27556,24 @@ pub mod usb {
         pub type R = crate::R<GrxfsizSpec>;
         #[doc = "Register `GRXFSIZ` writer"]
         pub type W = crate::W<GrxfsizSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `RXFDEP` reader - "]
+        pub type RxfdepR = crate::FieldReader<u16>;
+        #[doc = "Field `RXFDEP` writer - "]
+        pub type RxfdepW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn rxfdep(&self) -> RxfdepR {
+                RxfdepR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn rxfdep(&mut self) -> RxfdepW<'_, GrxfsizSpec> {
+                RxfdepW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_GRXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`grxfsiz::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`grxfsiz::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GrxfsizSpec;
         impl crate::RegisterSpec for GrxfsizSpec {
@@ -25885,12 +27597,24 @@ pub mod usb {
         pub type R = crate::R<GnptxfsizSpec>;
         #[doc = "Register `GNPTXFSIZ` writer"]
         pub type W = crate::W<GnptxfsizSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `NPTXFDEP` reader - "]
+        pub type NptxfdepR = crate::FieldReader<u16>;
+        #[doc = "Field `NPTXFDEP` writer - "]
+        pub type NptxfdepW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn nptxfdep(&self) -> NptxfdepR {
+                NptxfdepR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn nptxfdep(&mut self) -> NptxfdepW<'_, GnptxfsizSpec> {
+                NptxfdepW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_GNPTXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`gnptxfsiz::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gnptxfsiz::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GnptxfsizSpec;
         impl crate::RegisterSpec for GnptxfsizSpec {
@@ -25914,12 +27638,52 @@ pub mod usb {
         pub type R = crate::R<GnptxstsSpec>;
         #[doc = "Register `GNPTXSTS` writer"]
         pub type W = crate::W<GnptxstsSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `NPTXFSPCAVAIL` reader - "]
+        pub type NptxfspcavailR = crate::FieldReader<u16>;
+        #[doc = "Field `NPTXFSPCAVAIL` writer - "]
+        pub type NptxfspcavailW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        #[doc = "Field `NPTXQSPCAVAIL` reader - "]
+        pub type NptxqspcavailR = crate::FieldReader;
+        #[doc = "Field `NPTXQSPCAVAIL` writer - "]
+        pub type NptxqspcavailW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `NPTXQTOP` reader - "]
+        pub type NptxqtopR = crate::FieldReader;
+        #[doc = "Field `NPTXQTOP` writer - "]
+        pub type NptxqtopW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn nptxfspcavail(&self) -> NptxfspcavailR {
+                NptxfspcavailR::new((self.bits & 0xffff) as u16)
+            }
+            #[doc = "Bits 16:23"]
+            #[inline(always)]
+            pub fn nptxqspcavail(&self) -> NptxqspcavailR {
+                NptxqspcavailR::new(((self.bits >> 16) & 0xff) as u8)
+            }
+            #[doc = "Bits 24:30"]
+            #[inline(always)]
+            pub fn nptxqtop(&self) -> NptxqtopR {
+                NptxqtopR::new(((self.bits >> 24) & 0x7f) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn nptxfspcavail(&mut self) -> NptxfspcavailW<'_, GnptxstsSpec> {
+                NptxfspcavailW::new(self, 0)
+            }
+            #[doc = "Bits 16:23"]
+            #[inline(always)]
+            pub fn nptxqspcavail(&mut self) -> NptxqspcavailW<'_, GnptxstsSpec> {
+                NptxqspcavailW::new(self, 16)
+            }
+            #[doc = "Bits 24:30"]
+            #[inline(always)]
+            pub fn nptxqtop(&mut self) -> NptxqtopW<'_, GnptxstsSpec> {
+                NptxqtopW::new(self, 24)
+            }
+        }
         #[doc = "DOTG_GNPTXSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`gnptxsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gnptxsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GnptxstsSpec;
         impl crate::RegisterSpec for GnptxstsSpec {
@@ -25943,12 +27707,150 @@ pub mod usb {
         pub type R = crate::R<Gi2cctlSpec>;
         #[doc = "Register `GI2CCTL` writer"]
         pub type W = crate::W<Gi2cctlSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `RWDATA` reader - "]
+        pub type RwdataR = crate::FieldReader;
+        #[doc = "Field `RWDATA` writer - "]
+        pub type RwdataW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `REGADDR` reader - "]
+        pub type RegaddrR = crate::FieldReader;
+        #[doc = "Field `REGADDR` writer - "]
+        pub type RegaddrW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `ADDR` reader - "]
+        pub type AddrR = crate::FieldReader;
+        #[doc = "Field `ADDR` writer - "]
+        pub type AddrW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+        #[doc = "Field `I2CEN` reader - "]
+        pub type I2cenR = crate::BitReader;
+        #[doc = "Field `I2CEN` writer - "]
+        pub type I2cenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ACK` reader - "]
+        pub type AckR = crate::BitReader;
+        #[doc = "Field `ACK` writer - "]
+        pub type AckW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `I2CSUSPCTL` reader - "]
+        pub type I2csuspctlR = crate::BitReader;
+        #[doc = "Field `I2CSUSPCTL` writer - "]
+        pub type I2csuspctlW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `I2CDEVADR` reader - "]
+        pub type I2cdevadrR = crate::FieldReader;
+        #[doc = "Field `I2CDEVADR` writer - "]
+        pub type I2cdevadrW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `I2CDATSE0` reader - "]
+        pub type I2cdatse0R = crate::BitReader;
+        #[doc = "Field `I2CDATSE0` writer - "]
+        pub type I2cdatse0W<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RW` reader - "]
+        pub type RwR = crate::BitReader;
+        #[doc = "Field `RW` writer - "]
+        pub type RwW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `BSYDNE_SC` reader - "]
+        pub type BsydneScR = crate::BitReader;
+        #[doc = "Field `BSYDNE_SC` writer - "]
+        pub type BsydneScW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn rwdata(&self) -> RwdataR {
+                RwdataR::new((self.bits & 0xff) as u8)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn regaddr(&self) -> RegaddrR {
+                RegaddrR::new(((self.bits >> 8) & 0xff) as u8)
+            }
+            #[doc = "Bits 16:22"]
+            #[inline(always)]
+            pub fn addr(&self) -> AddrR {
+                AddrR::new(((self.bits >> 16) & 0x7f) as u8)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn i2cen(&self) -> I2cenR {
+                I2cenR::new(((self.bits >> 23) & 1) != 0)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn ack(&self) -> AckR {
+                AckR::new(((self.bits >> 24) & 1) != 0)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn i2csuspctl(&self) -> I2csuspctlR {
+                I2csuspctlR::new(((self.bits >> 25) & 1) != 0)
+            }
+            #[doc = "Bits 26:27"]
+            #[inline(always)]
+            pub fn i2cdevadr(&self) -> I2cdevadrR {
+                I2cdevadrR::new(((self.bits >> 26) & 3) as u8)
+            }
+            #[doc = "Bit 28"]
+            #[inline(always)]
+            pub fn i2cdatse0(&self) -> I2cdatse0R {
+                I2cdatse0R::new(((self.bits >> 28) & 1) != 0)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn rw(&self) -> RwR {
+                RwR::new(((self.bits >> 30) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn bsydne_sc(&self) -> BsydneScR {
+                BsydneScR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn rwdata(&mut self) -> RwdataW<'_, Gi2cctlSpec> {
+                RwdataW::new(self, 0)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn regaddr(&mut self) -> RegaddrW<'_, Gi2cctlSpec> {
+                RegaddrW::new(self, 8)
+            }
+            #[doc = "Bits 16:22"]
+            #[inline(always)]
+            pub fn addr(&mut self) -> AddrW<'_, Gi2cctlSpec> {
+                AddrW::new(self, 16)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn i2cen(&mut self) -> I2cenW<'_, Gi2cctlSpec> {
+                I2cenW::new(self, 23)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn ack(&mut self) -> AckW<'_, Gi2cctlSpec> {
+                AckW::new(self, 24)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn i2csuspctl(&mut self) -> I2csuspctlW<'_, Gi2cctlSpec> {
+                I2csuspctlW::new(self, 25)
+            }
+            #[doc = "Bits 26:27"]
+            #[inline(always)]
+            pub fn i2cdevadr(&mut self) -> I2cdevadrW<'_, Gi2cctlSpec> {
+                I2cdevadrW::new(self, 26)
+            }
+            #[doc = "Bit 28"]
+            #[inline(always)]
+            pub fn i2cdatse0(&mut self) -> I2cdatse0W<'_, Gi2cctlSpec> {
+                I2cdatse0W::new(self, 28)
+            }
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn rw(&mut self) -> RwW<'_, Gi2cctlSpec> {
+                RwW::new(self, 30)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn bsydne_sc(&mut self) -> BsydneScW<'_, Gi2cctlSpec> {
+                BsydneScW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_GI2CCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gi2cctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gi2cctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct Gi2cctlSpec;
         impl crate::RegisterSpec for Gi2cctlSpec {
@@ -25972,12 +27874,122 @@ pub mod usb {
         pub type R = crate::R<GpvndctlSpec>;
         #[doc = "Register `GPVNDCTL` writer"]
         pub type W = crate::W<GpvndctlSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `REGDATA` reader - "]
+        pub type RegdataR = crate::FieldReader;
+        #[doc = "Field `REGDATA` writer - "]
+        pub type RegdataW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `VCTRL` reader - "]
+        pub type VctrlR = crate::FieldReader;
+        #[doc = "Field `VCTRL` writer - "]
+        pub type VctrlW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `REGADDR` reader - "]
+        pub type RegaddrR = crate::FieldReader;
+        #[doc = "Field `REGADDR` writer - "]
+        pub type RegaddrW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+        #[doc = "Field `REGWR` reader - "]
+        pub type RegwrR = crate::BitReader;
+        #[doc = "Field `REGWR` writer - "]
+        pub type RegwrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `NEWREGREQ` reader - "]
+        pub type NewregreqR = crate::BitReader;
+        #[doc = "Field `NEWREGREQ` writer - "]
+        pub type NewregreqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `VSTSBSY` reader - "]
+        pub type VstsbsyR = crate::BitReader;
+        #[doc = "Field `VSTSBSY` writer - "]
+        pub type VstsbsyW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `VSTSDONE` reader - "]
+        pub type VstsdoneR = crate::BitReader;
+        #[doc = "Field `VSTSDONE` writer - "]
+        pub type VstsdoneW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DISULPIDRVR` reader - "]
+        pub type DisulpidrvrR = crate::BitReader;
+        #[doc = "Field `DISULPIDRVR` writer - "]
+        pub type DisulpidrvrW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn regdata(&self) -> RegdataR {
+                RegdataR::new((self.bits & 0xff) as u8)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn vctrl(&self) -> VctrlR {
+                VctrlR::new(((self.bits >> 8) & 0xff) as u8)
+            }
+            #[doc = "Bits 16:21"]
+            #[inline(always)]
+            pub fn regaddr(&self) -> RegaddrR {
+                RegaddrR::new(((self.bits >> 16) & 0x3f) as u8)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn regwr(&self) -> RegwrR {
+                RegwrR::new(((self.bits >> 22) & 1) != 0)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn newregreq(&self) -> NewregreqR {
+                NewregreqR::new(((self.bits >> 25) & 1) != 0)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn vstsbsy(&self) -> VstsbsyR {
+                VstsbsyR::new(((self.bits >> 26) & 1) != 0)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn vstsdone(&self) -> VstsdoneR {
+                VstsdoneR::new(((self.bits >> 27) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn disulpidrvr(&self) -> DisulpidrvrR {
+                DisulpidrvrR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn regdata(&mut self) -> RegdataW<'_, GpvndctlSpec> {
+                RegdataW::new(self, 0)
+            }
+            #[doc = "Bits 8:15"]
+            #[inline(always)]
+            pub fn vctrl(&mut self) -> VctrlW<'_, GpvndctlSpec> {
+                VctrlW::new(self, 8)
+            }
+            #[doc = "Bits 16:21"]
+            #[inline(always)]
+            pub fn regaddr(&mut self) -> RegaddrW<'_, GpvndctlSpec> {
+                RegaddrW::new(self, 16)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn regwr(&mut self) -> RegwrW<'_, GpvndctlSpec> {
+                RegwrW::new(self, 22)
+            }
+            #[doc = "Bit 25"]
+            #[inline(always)]
+            pub fn newregreq(&mut self) -> NewregreqW<'_, GpvndctlSpec> {
+                NewregreqW::new(self, 25)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn vstsbsy(&mut self) -> VstsbsyW<'_, GpvndctlSpec> {
+                VstsbsyW::new(self, 26)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn vstsdone(&mut self) -> VstsdoneW<'_, GpvndctlSpec> {
+                VstsdoneW::new(self, 27)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn disulpidrvr(&mut self) -> DisulpidrvrW<'_, GpvndctlSpec> {
+                DisulpidrvrW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_GPVNDCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`gpvndctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gpvndctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GpvndctlSpec;
         impl crate::RegisterSpec for GpvndctlSpec {
@@ -26001,12 +28013,38 @@ pub mod usb {
         pub type R = crate::R<GgpioSpec>;
         #[doc = "Register `GGPIO` writer"]
         pub type W = crate::W<GgpioSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `GPI` reader - "]
+        pub type GpiR = crate::FieldReader<u16>;
+        #[doc = "Field `GPI` writer - "]
+        pub type GpiW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        #[doc = "Field `GPO` reader - "]
+        pub type GpoR = crate::FieldReader<u16>;
+        #[doc = "Field `GPO` writer - "]
+        pub type GpoW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn gpi(&self) -> GpiR {
+                GpiR::new((self.bits & 0xffff) as u16)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn gpo(&self) -> GpoR {
+                GpoR::new(((self.bits >> 16) & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn gpi(&mut self) -> GpiW<'_, GgpioSpec> {
+                GpiW::new(self, 0)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn gpo(&mut self) -> GpoW<'_, GgpioSpec> {
+                GpoW::new(self, 16)
+            }
+        }
         #[doc = "DOTG_GGPIO\n\nYou can [`read`](crate::Reg::read) this register and get [`ggpio::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ggpio::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GgpioSpec;
         impl crate::RegisterSpec for GgpioSpec {
@@ -26117,12 +28155,192 @@ pub mod usb {
         pub type R = crate::R<Ghwcfg2Spec>;
         #[doc = "Register `GHWCFG2` writer"]
         pub type W = crate::W<Ghwcfg2Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `OTGMODE` reader - "]
+        pub type OtgmodeR = crate::FieldReader;
+        #[doc = "Field `OTGMODE` writer - "]
+        pub type OtgmodeW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `OTGARCH` reader - "]
+        pub type OtgarchR = crate::FieldReader;
+        #[doc = "Field `OTGARCH` writer - "]
+        pub type OtgarchW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `SINGPNT` reader - "]
+        pub type SingpntR = crate::BitReader;
+        #[doc = "Field `SINGPNT` writer - "]
+        pub type SingpntW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `HSPHYTYPE` reader - "]
+        pub type HsphytypeR = crate::FieldReader;
+        #[doc = "Field `HSPHYTYPE` writer - "]
+        pub type HsphytypeW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `FSPHYTYPE` reader - "]
+        pub type FsphytypeR = crate::FieldReader;
+        #[doc = "Field `FSPHYTYPE` writer - "]
+        pub type FsphytypeW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `NUMDEVEPS` reader - "]
+        pub type NumdevepsR = crate::FieldReader;
+        #[doc = "Field `NUMDEVEPS` writer - "]
+        pub type NumdevepsW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `NUMHSTCHNL` reader - "]
+        pub type NumhstchnlR = crate::FieldReader;
+        #[doc = "Field `NUMHSTCHNL` writer - "]
+        pub type NumhstchnlW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `PERIOSUPPORT` reader - "]
+        pub type PeriosupportR = crate::BitReader;
+        #[doc = "Field `PERIOSUPPORT` writer - "]
+        pub type PeriosupportW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DYNFIFOSIZING` reader - "]
+        pub type DynfifosizingR = crate::BitReader;
+        #[doc = "Field `DYNFIFOSIZING` writer - "]
+        pub type DynfifosizingW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `MPI` reader - "]
+        pub type MpiR = crate::BitReader;
+        #[doc = "Field `MPI` writer - "]
+        pub type MpiW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `NPTXQDEPTH` reader - "]
+        pub type NptxqdepthR = crate::FieldReader;
+        #[doc = "Field `NPTXQDEPTH` writer - "]
+        pub type NptxqdepthW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `PTXQDEPTH` reader - "]
+        pub type PtxqdepthR = crate::FieldReader;
+        #[doc = "Field `PTXQDEPTH` writer - "]
+        pub type PtxqdepthW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `TKNQDEPTH` reader - "]
+        pub type TknqdepthR = crate::FieldReader;
+        #[doc = "Field `TKNQDEPTH` writer - "]
+        pub type TknqdepthW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        impl R {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn otgmode(&self) -> OtgmodeR {
+                OtgmodeR::new((self.bits & 7) as u8)
+            }
+            #[doc = "Bits 3:4"]
+            #[inline(always)]
+            pub fn otgarch(&self) -> OtgarchR {
+                OtgarchR::new(((self.bits >> 3) & 3) as u8)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn singpnt(&self) -> SingpntR {
+                SingpntR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bits 6:7"]
+            #[inline(always)]
+            pub fn hsphytype(&self) -> HsphytypeR {
+                HsphytypeR::new(((self.bits >> 6) & 3) as u8)
+            }
+            #[doc = "Bits 8:9"]
+            #[inline(always)]
+            pub fn fsphytype(&self) -> FsphytypeR {
+                FsphytypeR::new(((self.bits >> 8) & 3) as u8)
+            }
+            #[doc = "Bits 10:13"]
+            #[inline(always)]
+            pub fn numdeveps(&self) -> NumdevepsR {
+                NumdevepsR::new(((self.bits >> 10) & 0x0f) as u8)
+            }
+            #[doc = "Bits 14:17"]
+            #[inline(always)]
+            pub fn numhstchnl(&self) -> NumhstchnlR {
+                NumhstchnlR::new(((self.bits >> 14) & 0x0f) as u8)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn periosupport(&self) -> PeriosupportR {
+                PeriosupportR::new(((self.bits >> 18) & 1) != 0)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn dynfifosizing(&self) -> DynfifosizingR {
+                DynfifosizingR::new(((self.bits >> 19) & 1) != 0)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn mpi(&self) -> MpiR {
+                MpiR::new(((self.bits >> 20) & 1) != 0)
+            }
+            #[doc = "Bits 22:23"]
+            #[inline(always)]
+            pub fn nptxqdepth(&self) -> NptxqdepthR {
+                NptxqdepthR::new(((self.bits >> 22) & 3) as u8)
+            }
+            #[doc = "Bits 24:25"]
+            #[inline(always)]
+            pub fn ptxqdepth(&self) -> PtxqdepthR {
+                PtxqdepthR::new(((self.bits >> 24) & 3) as u8)
+            }
+            #[doc = "Bits 26:30"]
+            #[inline(always)]
+            pub fn tknqdepth(&self) -> TknqdepthR {
+                TknqdepthR::new(((self.bits >> 26) & 0x1f) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:2"]
+            #[inline(always)]
+            pub fn otgmode(&mut self) -> OtgmodeW<'_, Ghwcfg2Spec> {
+                OtgmodeW::new(self, 0)
+            }
+            #[doc = "Bits 3:4"]
+            #[inline(always)]
+            pub fn otgarch(&mut self) -> OtgarchW<'_, Ghwcfg2Spec> {
+                OtgarchW::new(self, 3)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn singpnt(&mut self) -> SingpntW<'_, Ghwcfg2Spec> {
+                SingpntW::new(self, 5)
+            }
+            #[doc = "Bits 6:7"]
+            #[inline(always)]
+            pub fn hsphytype(&mut self) -> HsphytypeW<'_, Ghwcfg2Spec> {
+                HsphytypeW::new(self, 6)
+            }
+            #[doc = "Bits 8:9"]
+            #[inline(always)]
+            pub fn fsphytype(&mut self) -> FsphytypeW<'_, Ghwcfg2Spec> {
+                FsphytypeW::new(self, 8)
+            }
+            #[doc = "Bits 10:13"]
+            #[inline(always)]
+            pub fn numdeveps(&mut self) -> NumdevepsW<'_, Ghwcfg2Spec> {
+                NumdevepsW::new(self, 10)
+            }
+            #[doc = "Bits 14:17"]
+            #[inline(always)]
+            pub fn numhstchnl(&mut self) -> NumhstchnlW<'_, Ghwcfg2Spec> {
+                NumhstchnlW::new(self, 14)
+            }
+            #[doc = "Bit 18"]
+            #[inline(always)]
+            pub fn periosupport(&mut self) -> PeriosupportW<'_, Ghwcfg2Spec> {
+                PeriosupportW::new(self, 18)
+            }
+            #[doc = "Bit 19"]
+            #[inline(always)]
+            pub fn dynfifosizing(&mut self) -> DynfifosizingW<'_, Ghwcfg2Spec> {
+                DynfifosizingW::new(self, 19)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn mpi(&mut self) -> MpiW<'_, Ghwcfg2Spec> {
+                MpiW::new(self, 20)
+            }
+            #[doc = "Bits 22:23"]
+            #[inline(always)]
+            pub fn nptxqdepth(&mut self) -> NptxqdepthW<'_, Ghwcfg2Spec> {
+                NptxqdepthW::new(self, 22)
+            }
+            #[doc = "Bits 24:25"]
+            #[inline(always)]
+            pub fn ptxqdepth(&mut self) -> PtxqdepthW<'_, Ghwcfg2Spec> {
+                PtxqdepthW::new(self, 24)
+            }
+            #[doc = "Bits 26:30"]
+            #[inline(always)]
+            pub fn tknqdepth(&mut self) -> TknqdepthW<'_, Ghwcfg2Spec> {
+                TknqdepthW::new(self, 26)
+            }
+        }
         #[doc = "DOTG_GHWCFG2\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct Ghwcfg2Spec;
         impl crate::RegisterSpec for Ghwcfg2Spec {
@@ -26146,12 +28364,122 @@ pub mod usb {
         pub type R = crate::R<Ghwcfg3Spec>;
         #[doc = "Register `GHWCFG3` writer"]
         pub type W = crate::W<Ghwcfg3Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `XFERSIZEWIDTH` reader - "]
+        pub type XfersizewidthR = crate::FieldReader;
+        #[doc = "Field `XFERSIZEWIDTH` writer - "]
+        pub type XfersizewidthW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `PKTSIZEWIDTH` reader - "]
+        pub type PktsizewidthR = crate::FieldReader;
+        #[doc = "Field `PKTSIZEWIDTH` writer - "]
+        pub type PktsizewidthW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `OTGEN` reader - "]
+        pub type OtgenR = crate::BitReader;
+        #[doc = "Field `OTGEN` writer - "]
+        pub type OtgenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `I2CINTSEL` reader - "]
+        pub type I2cintselR = crate::BitReader;
+        #[doc = "Field `I2CINTSEL` writer - "]
+        pub type I2cintselW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `VNDCTLSUPT` reader - "]
+        pub type VndctlsuptR = crate::BitReader;
+        #[doc = "Field `VNDCTLSUPT` writer - "]
+        pub type VndctlsuptW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OPTFEATURE` reader - "]
+        pub type OptfeatureR = crate::BitReader;
+        #[doc = "Field `OPTFEATURE` writer - "]
+        pub type OptfeatureW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RSTTYPE` reader - "]
+        pub type RsttypeR = crate::BitReader;
+        #[doc = "Field `RSTTYPE` writer - "]
+        pub type RsttypeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DFIFODEPTH` reader - "]
+        pub type DfifodepthR = crate::FieldReader<u16>;
+        #[doc = "Field `DFIFODEPTH` writer - "]
+        pub type DfifodepthW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn xfersizewidth(&self) -> XfersizewidthR {
+                XfersizewidthR::new((self.bits & 0x0f) as u8)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn pktsizewidth(&self) -> PktsizewidthR {
+                PktsizewidthR::new(((self.bits >> 4) & 7) as u8)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn otgen(&self) -> OtgenR {
+                OtgenR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn i2cintsel(&self) -> I2cintselR {
+                I2cintselR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn vndctlsupt(&self) -> VndctlsuptR {
+                VndctlsuptR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn optfeature(&self) -> OptfeatureR {
+                OptfeatureR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn rsttype(&self) -> RsttypeR {
+                RsttypeR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn dfifodepth(&self) -> DfifodepthR {
+                DfifodepthR::new(((self.bits >> 16) & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn xfersizewidth(&mut self) -> XfersizewidthW<'_, Ghwcfg3Spec> {
+                XfersizewidthW::new(self, 0)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn pktsizewidth(&mut self) -> PktsizewidthW<'_, Ghwcfg3Spec> {
+                PktsizewidthW::new(self, 4)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn otgen(&mut self) -> OtgenW<'_, Ghwcfg3Spec> {
+                OtgenW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn i2cintsel(&mut self) -> I2cintselW<'_, Ghwcfg3Spec> {
+                I2cintselW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn vndctlsupt(&mut self) -> VndctlsuptW<'_, Ghwcfg3Spec> {
+                VndctlsuptW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn optfeature(&mut self) -> OptfeatureW<'_, Ghwcfg3Spec> {
+                OptfeatureW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn rsttype(&mut self) -> RsttypeW<'_, Ghwcfg3Spec> {
+                RsttypeW::new(self, 11)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn dfifodepth(&mut self) -> DfifodepthW<'_, Ghwcfg3Spec> {
+                DfifodepthW::new(self, 16)
+            }
+        }
         #[doc = "DOTG_GHWCFG3\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct Ghwcfg3Spec;
         impl crate::RegisterSpec for Ghwcfg3Spec {
@@ -26175,12 +28503,150 @@ pub mod usb {
         pub type R = crate::R<Ghwcfg4Spec>;
         #[doc = "Register `GHWCFG4` writer"]
         pub type W = crate::W<Ghwcfg4Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `NUMDEVPERIOEPS` reader - "]
+        pub type NumdevperioepsR = crate::FieldReader;
+        #[doc = "Field `NUMDEVPERIOEPS` writer - "]
+        pub type NumdevperioepsW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `ENABLEPWROPT` reader - "]
+        pub type EnablepwroptR = crate::BitReader;
+        #[doc = "Field `ENABLEPWROPT` writer - "]
+        pub type EnablepwroptW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `AHBFREQ` reader - "]
+        pub type AhbfreqR = crate::BitReader;
+        #[doc = "Field `AHBFREQ` writer - "]
+        pub type AhbfreqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PHYDATAWIDTH` reader - "]
+        pub type PhydatawidthR = crate::FieldReader;
+        #[doc = "Field `PHYDATAWIDTH` writer - "]
+        pub type PhydatawidthW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `NUMCTLEPS` reader - "]
+        pub type NumctlepsR = crate::FieldReader;
+        #[doc = "Field `NUMCTLEPS` writer - "]
+        pub type NumctlepsW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `IDDGFLTR` reader - "]
+        pub type IddgfltrR = crate::BitReader;
+        #[doc = "Field `IDDGFLTR` writer - "]
+        pub type IddgfltrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `VBUSVALIDFLTR` reader - "]
+        pub type VbusvalidfltrR = crate::BitReader;
+        #[doc = "Field `VBUSVALIDFLTR` writer - "]
+        pub type VbusvalidfltrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `AVALIDFLTR` reader - "]
+        pub type AvalidfltrR = crate::BitReader;
+        #[doc = "Field `AVALIDFLTR` writer - "]
+        pub type AvalidfltrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `BVALIDFLTR` reader - "]
+        pub type BvalidfltrR = crate::BitReader;
+        #[doc = "Field `BVALIDFLTR` writer - "]
+        pub type BvalidfltrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SESSENDFLTR` reader - "]
+        pub type SessendfltrR = crate::BitReader;
+        #[doc = "Field `SESSENDFLTR` writer - "]
+        pub type SessendfltrW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn numdevperioeps(&self) -> NumdevperioepsR {
+                NumdevperioepsR::new((self.bits & 0x0f) as u8)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn enablepwropt(&self) -> EnablepwroptR {
+                EnablepwroptR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn ahbfreq(&self) -> AhbfreqR {
+                AhbfreqR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bits 14:15"]
+            #[inline(always)]
+            pub fn phydatawidth(&self) -> PhydatawidthR {
+                PhydatawidthR::new(((self.bits >> 14) & 3) as u8)
+            }
+            #[doc = "Bits 16:19"]
+            #[inline(always)]
+            pub fn numctleps(&self) -> NumctlepsR {
+                NumctlepsR::new(((self.bits >> 16) & 0x0f) as u8)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn iddgfltr(&self) -> IddgfltrR {
+                IddgfltrR::new(((self.bits >> 20) & 1) != 0)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn vbusvalidfltr(&self) -> VbusvalidfltrR {
+                VbusvalidfltrR::new(((self.bits >> 21) & 1) != 0)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn avalidfltr(&self) -> AvalidfltrR {
+                AvalidfltrR::new(((self.bits >> 22) & 1) != 0)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn bvalidfltr(&self) -> BvalidfltrR {
+                BvalidfltrR::new(((self.bits >> 23) & 1) != 0)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn sessendfltr(&self) -> SessendfltrR {
+                SessendfltrR::new(((self.bits >> 24) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:3"]
+            #[inline(always)]
+            pub fn numdevperioeps(&mut self) -> NumdevperioepsW<'_, Ghwcfg4Spec> {
+                NumdevperioepsW::new(self, 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn enablepwropt(&mut self) -> EnablepwroptW<'_, Ghwcfg4Spec> {
+                EnablepwroptW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn ahbfreq(&mut self) -> AhbfreqW<'_, Ghwcfg4Spec> {
+                AhbfreqW::new(self, 5)
+            }
+            #[doc = "Bits 14:15"]
+            #[inline(always)]
+            pub fn phydatawidth(&mut self) -> PhydatawidthW<'_, Ghwcfg4Spec> {
+                PhydatawidthW::new(self, 14)
+            }
+            #[doc = "Bits 16:19"]
+            #[inline(always)]
+            pub fn numctleps(&mut self) -> NumctlepsW<'_, Ghwcfg4Spec> {
+                NumctlepsW::new(self, 16)
+            }
+            #[doc = "Bit 20"]
+            #[inline(always)]
+            pub fn iddgfltr(&mut self) -> IddgfltrW<'_, Ghwcfg4Spec> {
+                IddgfltrW::new(self, 20)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn vbusvalidfltr(&mut self) -> VbusvalidfltrW<'_, Ghwcfg4Spec> {
+                VbusvalidfltrW::new(self, 21)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn avalidfltr(&mut self) -> AvalidfltrW<'_, Ghwcfg4Spec> {
+                AvalidfltrW::new(self, 22)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn bvalidfltr(&mut self) -> BvalidfltrW<'_, Ghwcfg4Spec> {
+                BvalidfltrW::new(self, 23)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn sessendfltr(&mut self) -> SessendfltrW<'_, Ghwcfg4Spec> {
+                SessendfltrW::new(self, 24)
+            }
+        }
         #[doc = "DOTG_GHWCFG4\n\nYou can [`read`](crate::Reg::read) this register and get [`ghwcfg4::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ghwcfg4::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct Ghwcfg4Spec;
         impl crate::RegisterSpec for Ghwcfg4Spec {
@@ -26204,12 +28670,24 @@ pub mod usb {
         pub type R = crate::R<GlpmcfgSpec>;
         #[doc = "Register `GLPMCFG` writer"]
         pub type W = crate::W<GlpmcfgSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `HSIC_CONN` reader - "]
+        pub type HsicConnR = crate::BitReader;
+        #[doc = "Field `HSIC_CONN` writer - "]
+        pub type HsicConnW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn hsic_conn(&self) -> HsicConnR {
+                HsicConnR::new(((self.bits >> 30) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 30"]
+            #[inline(always)]
+            pub fn hsic_conn(&mut self) -> HsicConnW<'_, GlpmcfgSpec> {
+                HsicConnW::new(self, 30)
+            }
+        }
         #[doc = "DOTG_GLPMCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`glpmcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`glpmcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GlpmcfgSpec;
         impl crate::RegisterSpec for GlpmcfgSpec {
@@ -26233,12 +28711,248 @@ pub mod usb {
         pub type R = crate::R<GpwrdnSpec>;
         #[doc = "Register `GPWRDN` writer"]
         pub type W = crate::W<GpwrdnSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `PMU_IRQ_SEL` reader - "]
+        pub type PmuIrqSelR = crate::BitReader;
+        #[doc = "Field `PMU_IRQ_SEL` writer - "]
+        pub type PmuIrqSelW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PMU_ACTIVE` reader - "]
+        pub type PmuActiveR = crate::BitReader;
+        #[doc = "Field `PMU_ACTIVE` writer - "]
+        pub type PmuActiveW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RESTORE` reader - "]
+        pub type RestoreR = crate::BitReader;
+        #[doc = "Field `RESTORE` writer - "]
+        pub type RestoreW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `POWER_DOWN_CLAMP` reader - "]
+        pub type PowerDownClampR = crate::BitReader;
+        #[doc = "Field `POWER_DOWN_CLAMP` writer - "]
+        pub type PowerDownClampW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `POWER_DOWN_RST` reader - "]
+        pub type PowerDownRstR = crate::BitReader;
+        #[doc = "Field `POWER_DOWN_RST` writer - "]
+        pub type PowerDownRstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `POWER_DOWN` reader - "]
+        pub type PowerDownR = crate::BitReader;
+        #[doc = "Field `POWER_DOWN` writer - "]
+        pub type PowerDownW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DISABLE_VBUS` reader - "]
+        pub type DisableVbusR = crate::BitReader;
+        #[doc = "Field `DISABLE_VBUS` writer - "]
+        pub type DisableVbusW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `LINESTATE` reader - "]
+        pub type LinestateR = crate::BitReader;
+        #[doc = "Field `LINESTATE` writer - "]
+        pub type LinestateW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `LINESTATE_INT` reader - "]
+        pub type LinestateIntR = crate::BitReader;
+        #[doc = "Field `LINESTATE_INT` writer - "]
+        pub type LinestateIntW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RESETDET` reader - "]
+        pub type ResetdetR = crate::BitReader;
+        #[doc = "Field `RESETDET` writer - "]
+        pub type ResetdetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RESETDET_INT` reader - "]
+        pub type ResetdetIntR = crate::BitReader;
+        #[doc = "Field `RESETDET_INT` writer - "]
+        pub type ResetdetIntW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DISCONN` reader - "]
+        pub type DisconnR = crate::BitReader;
+        #[doc = "Field `DISCONN` writer - "]
+        pub type DisconnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DISCONN_INT` reader - "]
+        pub type DisconnIntR = crate::BitReader;
+        #[doc = "Field `DISCONN_INT` writer - "]
+        pub type DisconnIntW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CONNDET` reader - "]
+        pub type ConndetR = crate::BitReader;
+        #[doc = "Field `CONNDET` writer - "]
+        pub type ConndetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CONNDET_INT` reader - "]
+        pub type ConndetIntR = crate::BitReader;
+        #[doc = "Field `CONNDET_INT` writer - "]
+        pub type ConndetIntW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `IDDIG` reader - "]
+        pub type IddigR = crate::BitReader;
+        #[doc = "Field `IDDIG` writer - "]
+        pub type IddigW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `BVALID` reader - "]
+        pub type BvalidR = crate::BitReader;
+        #[doc = "Field `BVALID` writer - "]
+        pub type BvalidW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn pmu_irq_sel(&self) -> PmuIrqSelR {
+                PmuIrqSelR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn pmu_active(&self) -> PmuActiveR {
+                PmuActiveR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn restore(&self) -> RestoreR {
+                RestoreR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn power_down_clamp(&self) -> PowerDownClampR {
+                PowerDownClampR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn power_down_rst(&self) -> PowerDownRstR {
+                PowerDownRstR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn power_down(&self) -> PowerDownR {
+                PowerDownR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn disable_vbus(&self) -> DisableVbusR {
+                DisableVbusR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn linestate(&self) -> LinestateR {
+                LinestateR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn linestate_int(&self) -> LinestateIntR {
+                LinestateIntR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn resetdet(&self) -> ResetdetR {
+                ResetdetR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn resetdet_int(&self) -> ResetdetIntR {
+                ResetdetIntR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn disconn(&self) -> DisconnR {
+                DisconnR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn disconn_int(&self) -> DisconnIntR {
+                DisconnIntR::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn conndet(&self) -> ConndetR {
+                ConndetR::new(((self.bits >> 13) & 1) != 0)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn conndet_int(&self) -> ConndetIntR {
+                ConndetIntR::new(((self.bits >> 14) & 1) != 0)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn iddig(&self) -> IddigR {
+                IddigR::new(((self.bits >> 21) & 1) != 0)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn bvalid(&self) -> BvalidR {
+                BvalidR::new(((self.bits >> 22) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn pmu_irq_sel(&mut self) -> PmuIrqSelW<'_, GpwrdnSpec> {
+                PmuIrqSelW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn pmu_active(&mut self) -> PmuActiveW<'_, GpwrdnSpec> {
+                PmuActiveW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn restore(&mut self) -> RestoreW<'_, GpwrdnSpec> {
+                RestoreW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn power_down_clamp(&mut self) -> PowerDownClampW<'_, GpwrdnSpec> {
+                PowerDownClampW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn power_down_rst(&mut self) -> PowerDownRstW<'_, GpwrdnSpec> {
+                PowerDownRstW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn power_down(&mut self) -> PowerDownW<'_, GpwrdnSpec> {
+                PowerDownW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn disable_vbus(&mut self) -> DisableVbusW<'_, GpwrdnSpec> {
+                DisableVbusW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn linestate(&mut self) -> LinestateW<'_, GpwrdnSpec> {
+                LinestateW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn linestate_int(&mut self) -> LinestateIntW<'_, GpwrdnSpec> {
+                LinestateIntW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn resetdet(&mut self) -> ResetdetW<'_, GpwrdnSpec> {
+                ResetdetW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn resetdet_int(&mut self) -> ResetdetIntW<'_, GpwrdnSpec> {
+                ResetdetIntW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn disconn(&mut self) -> DisconnW<'_, GpwrdnSpec> {
+                DisconnW::new(self, 11)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn disconn_int(&mut self) -> DisconnIntW<'_, GpwrdnSpec> {
+                DisconnIntW::new(self, 12)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn conndet(&mut self) -> ConndetW<'_, GpwrdnSpec> {
+                ConndetW::new(self, 13)
+            }
+            #[doc = "Bit 14"]
+            #[inline(always)]
+            pub fn conndet_int(&mut self) -> ConndetIntW<'_, GpwrdnSpec> {
+                ConndetIntW::new(self, 14)
+            }
+            #[doc = "Bit 21"]
+            #[inline(always)]
+            pub fn iddig(&mut self) -> IddigW<'_, GpwrdnSpec> {
+                IddigW::new(self, 21)
+            }
+            #[doc = "Bit 22"]
+            #[inline(always)]
+            pub fn bvalid(&mut self) -> BvalidW<'_, GpwrdnSpec> {
+                BvalidW::new(self, 22)
+            }
+        }
         #[doc = "DOTG_GPWRDN\n\nYou can [`read`](crate::Reg::read) this register and get [`gpwrdn::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`gpwrdn::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct GpwrdnSpec;
         impl crate::RegisterSpec for GpwrdnSpec {
@@ -26320,12 +29034,38 @@ pub mod usb {
         pub type R = crate::R<HptxfsizSpec>;
         #[doc = "Register `HPTXFSIZ` writer"]
         pub type W = crate::W<HptxfsizSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `PTXFSTADDR` reader - "]
+        pub type PtxfstaddrR = crate::FieldReader<u16>;
+        #[doc = "Field `PTXFSTADDR` writer - "]
+        pub type PtxfstaddrW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        #[doc = "Field `PTXFSIZE` reader - "]
+        pub type PtxfsizeR = crate::FieldReader<u16>;
+        #[doc = "Field `PTXFSIZE` writer - "]
+        pub type PtxfsizeW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn ptxfstaddr(&self) -> PtxfstaddrR {
+                PtxfstaddrR::new((self.bits & 0xffff) as u16)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn ptxfsize(&self) -> PtxfsizeR {
+                PtxfsizeR::new(((self.bits >> 16) & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn ptxfstaddr(&mut self) -> PtxfstaddrW<'_, HptxfsizSpec> {
+                PtxfstaddrW::new(self, 0)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn ptxfsize(&mut self) -> PtxfsizeW<'_, HptxfsizSpec> {
+                PtxfsizeW::new(self, 16)
+            }
+        }
         #[doc = "DOTG_HPTXFSIZ\n\nYou can [`read`](crate::Reg::read) this register and get [`hptxfsiz::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hptxfsiz::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HptxfsizSpec;
         impl crate::RegisterSpec for HptxfsizSpec {
@@ -26349,12 +29089,108 @@ pub mod usb {
         pub type R = crate::R<HcfgSpec>;
         #[doc = "Register `HCFG` writer"]
         pub type W = crate::W<HcfgSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `FSLSPCLKSEL` reader - "]
+        pub type FslspclkselR = crate::FieldReader;
+        #[doc = "Field `FSLSPCLKSEL` writer - "]
+        pub type FslspclkselW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `FSLSSUPP` reader - "]
+        pub type FslssuppR = crate::BitReader;
+        #[doc = "Field `FSLSSUPP` writer - "]
+        pub type FslssuppW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `32KHZSUSPEND` reader - "]
+        pub type _32khzsuspendR = crate::BitReader;
+        #[doc = "Field `32KHZSUSPEND` writer - "]
+        pub type _32khzsuspendW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `MULTISEGDMA` reader - "]
+        pub type MultisegdmaR = crate::BitReader;
+        #[doc = "Field `MULTISEGDMA` writer - "]
+        pub type MultisegdmaW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `FLENTRIES` reader - "]
+        pub type FlentriesR = crate::FieldReader;
+        #[doc = "Field `FLENTRIES` writer - "]
+        pub type FlentriesW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `PERSCHEDENABLE` reader - "]
+        pub type PerschedenableR = crate::BitReader;
+        #[doc = "Field `PERSCHEDENABLE` writer - "]
+        pub type PerschedenableW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `MODECHANGERDY` reader - "]
+        pub type ModechangerdyR = crate::BitReader;
+        #[doc = "Field `MODECHANGERDY` writer - "]
+        pub type ModechangerdyW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn fslspclksel(&self) -> FslspclkselR {
+                FslspclkselR::new((self.bits & 3) as u8)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn fslssupp(&self) -> FslssuppR {
+                FslssuppR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn _32khzsuspend(&self) -> _32khzsuspendR {
+                _32khzsuspendR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn multisegdma(&self) -> MultisegdmaR {
+                MultisegdmaR::new(((self.bits >> 23) & 1) != 0)
+            }
+            #[doc = "Bits 24:25"]
+            #[inline(always)]
+            pub fn flentries(&self) -> FlentriesR {
+                FlentriesR::new(((self.bits >> 24) & 3) as u8)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn perschedenable(&self) -> PerschedenableR {
+                PerschedenableR::new(((self.bits >> 26) & 1) != 0)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn modechangerdy(&self) -> ModechangerdyR {
+                ModechangerdyR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn fslspclksel(&mut self) -> FslspclkselW<'_, HcfgSpec> {
+                FslspclkselW::new(self, 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn fslssupp(&mut self) -> FslssuppW<'_, HcfgSpec> {
+                FslssuppW::new(self, 2)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn _32khzsuspend(&mut self) -> _32khzsuspendW<'_, HcfgSpec> {
+                _32khzsuspendW::new(self, 7)
+            }
+            #[doc = "Bit 23"]
+            #[inline(always)]
+            pub fn multisegdma(&mut self) -> MultisegdmaW<'_, HcfgSpec> {
+                MultisegdmaW::new(self, 23)
+            }
+            #[doc = "Bits 24:25"]
+            #[inline(always)]
+            pub fn flentries(&mut self) -> FlentriesW<'_, HcfgSpec> {
+                FlentriesW::new(self, 24)
+            }
+            #[doc = "Bit 26"]
+            #[inline(always)]
+            pub fn perschedenable(&mut self) -> PerschedenableW<'_, HcfgSpec> {
+                PerschedenableW::new(self, 26)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn modechangerdy(&mut self) -> ModechangerdyW<'_, HcfgSpec> {
+                ModechangerdyW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_HCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`hcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HcfgSpec;
         impl crate::RegisterSpec for HcfgSpec {
@@ -26378,12 +29214,38 @@ pub mod usb {
         pub type R = crate::R<HfirSpec>;
         #[doc = "Register `HFIR` writer"]
         pub type W = crate::W<HfirSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `FRINT` reader - "]
+        pub type FrintR = crate::FieldReader<u16>;
+        #[doc = "Field `FRINT` writer - "]
+        pub type FrintW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        #[doc = "Field `RELOADCTRL` reader - "]
+        pub type ReloadctrlR = crate::BitReader;
+        #[doc = "Field `RELOADCTRL` writer - "]
+        pub type ReloadctrlW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn frint(&self) -> FrintR {
+                FrintR::new((self.bits & 0xffff) as u16)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn reloadctrl(&self) -> ReloadctrlR {
+                ReloadctrlR::new(((self.bits >> 16) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn frint(&mut self) -> FrintW<'_, HfirSpec> {
+                FrintW::new(self, 0)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn reloadctrl(&mut self) -> ReloadctrlW<'_, HfirSpec> {
+                ReloadctrlW::new(self, 16)
+            }
+        }
         #[doc = "DOTG_HFIR\n\nYou can [`read`](crate::Reg::read) this register and get [`hfir::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hfir::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HfirSpec;
         impl crate::RegisterSpec for HfirSpec {
@@ -26407,12 +29269,38 @@ pub mod usb {
         pub type R = crate::R<HfnumSpec>;
         #[doc = "Register `HFNUM` writer"]
         pub type W = crate::W<HfnumSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `FRNUM` reader - "]
+        pub type FrnumR = crate::FieldReader<u16>;
+        #[doc = "Field `FRNUM` writer - "]
+        pub type FrnumW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        #[doc = "Field `FRREM` reader - "]
+        pub type FrremR = crate::FieldReader<u16>;
+        #[doc = "Field `FRREM` writer - "]
+        pub type FrremW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn frnum(&self) -> FrnumR {
+                FrnumR::new((self.bits & 0xffff) as u16)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn frrem(&self) -> FrremR {
+                FrremR::new(((self.bits >> 16) & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn frnum(&mut self) -> FrnumW<'_, HfnumSpec> {
+                FrnumW::new(self, 0)
+            }
+            #[doc = "Bits 16:31"]
+            #[inline(always)]
+            pub fn frrem(&mut self) -> FrremW<'_, HfnumSpec> {
+                FrremW::new(self, 16)
+            }
+        }
         #[doc = "DOTG_HFNUM\n\nYou can [`read`](crate::Reg::read) this register and get [`hfnum::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hfnum::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HfnumSpec;
         impl crate::RegisterSpec for HfnumSpec {
@@ -26436,12 +29324,94 @@ pub mod usb {
         pub type R = crate::R<HptxstsSpec>;
         #[doc = "Register `HPTXSTS` writer"]
         pub type W = crate::W<HptxstsSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `PTXFSPCAVAIL` reader - "]
+        pub type PtxfspcavailR = crate::FieldReader<u16>;
+        #[doc = "Field `PTXFSPCAVAIL` writer - "]
+        pub type PtxfspcavailW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        #[doc = "Field `PTXQSPCAVAIL` reader - "]
+        pub type PtxqspcavailR = crate::FieldReader;
+        #[doc = "Field `PTXQSPCAVAIL` writer - "]
+        pub type PtxqspcavailW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `TERMINATE` reader - "]
+        pub type TerminateR = crate::BitReader;
+        #[doc = "Field `TERMINATE` writer - "]
+        pub type TerminateW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TOKEN` reader - "]
+        pub type TokenR = crate::FieldReader;
+        #[doc = "Field `TOKEN` writer - "]
+        pub type TokenW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `CHAN` reader - "]
+        pub type ChanR = crate::FieldReader;
+        #[doc = "Field `CHAN` writer - "]
+        pub type ChanW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `ODD` reader - "]
+        pub type OddR = crate::BitReader;
+        #[doc = "Field `ODD` writer - "]
+        pub type OddW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn ptxfspcavail(&self) -> PtxfspcavailR {
+                PtxfspcavailR::new((self.bits & 0xffff) as u16)
+            }
+            #[doc = "Bits 16:23"]
+            #[inline(always)]
+            pub fn ptxqspcavail(&self) -> PtxqspcavailR {
+                PtxqspcavailR::new(((self.bits >> 16) & 0xff) as u8)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn terminate(&self) -> TerminateR {
+                TerminateR::new(((self.bits >> 24) & 1) != 0)
+            }
+            #[doc = "Bits 25:26"]
+            #[inline(always)]
+            pub fn token(&self) -> TokenR {
+                TokenR::new(((self.bits >> 25) & 3) as u8)
+            }
+            #[doc = "Bits 27:30"]
+            #[inline(always)]
+            pub fn chan(&self) -> ChanR {
+                ChanR::new(((self.bits >> 27) & 0x0f) as u8)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn odd(&self) -> OddR {
+                OddR::new(((self.bits >> 31) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn ptxfspcavail(&mut self) -> PtxfspcavailW<'_, HptxstsSpec> {
+                PtxfspcavailW::new(self, 0)
+            }
+            #[doc = "Bits 16:23"]
+            #[inline(always)]
+            pub fn ptxqspcavail(&mut self) -> PtxqspcavailW<'_, HptxstsSpec> {
+                PtxqspcavailW::new(self, 16)
+            }
+            #[doc = "Bit 24"]
+            #[inline(always)]
+            pub fn terminate(&mut self) -> TerminateW<'_, HptxstsSpec> {
+                TerminateW::new(self, 24)
+            }
+            #[doc = "Bits 25:26"]
+            #[inline(always)]
+            pub fn token(&mut self) -> TokenW<'_, HptxstsSpec> {
+                TokenW::new(self, 25)
+            }
+            #[doc = "Bits 27:30"]
+            #[inline(always)]
+            pub fn chan(&mut self) -> ChanW<'_, HptxstsSpec> {
+                ChanW::new(self, 27)
+            }
+            #[doc = "Bit 31"]
+            #[inline(always)]
+            pub fn odd(&mut self) -> OddW<'_, HptxstsSpec> {
+                OddW::new(self, 31)
+            }
+        }
         #[doc = "DOTG_HPTXSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`hptxsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hptxsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HptxstsSpec;
         impl crate::RegisterSpec for HptxstsSpec {
@@ -26465,12 +29435,24 @@ pub mod usb {
         pub type R = crate::R<HaintSpec>;
         #[doc = "Register `HAINT` writer"]
         pub type W = crate::W<HaintSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `HAINT` reader - "]
+        pub type HaintR = crate::FieldReader<u16>;
+        #[doc = "Field `HAINT` writer - "]
+        pub type HaintW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn haint(&self) -> HaintR {
+                HaintR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn haint(&mut self) -> HaintW<'_, HaintSpec> {
+                HaintW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_HAINT\n\nYou can [`read`](crate::Reg::read) this register and get [`haint::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`haint::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HaintSpec;
         impl crate::RegisterSpec for HaintSpec {
@@ -26494,12 +29476,24 @@ pub mod usb {
         pub type R = crate::R<HaintmskSpec>;
         #[doc = "Register `HAINTMSK` writer"]
         pub type W = crate::W<HaintmskSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `HAINTMSK` reader - "]
+        pub type HaintmskR = crate::FieldReader<u16>;
+        #[doc = "Field `HAINTMSK` writer - "]
+        pub type HaintmskW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn haintmsk(&self) -> HaintmskR {
+                HaintmskR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn haintmsk(&mut self) -> HaintmskW<'_, HaintmskSpec> {
+                HaintmskW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_HAINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`haintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`haintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HaintmskSpec;
         impl crate::RegisterSpec for HaintmskSpec {
@@ -26523,12 +29517,192 @@ pub mod usb {
         pub type R = crate::R<HprtSpec>;
         #[doc = "Register `HPRT` writer"]
         pub type W = crate::W<HprtSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `PRTCONNSTS` reader - "]
+        pub type PrtconnstsR = crate::BitReader;
+        #[doc = "Field `PRTCONNSTS` writer - "]
+        pub type PrtconnstsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTCONNDET` reader - "]
+        pub type PrtconndetR = crate::BitReader;
+        #[doc = "Field `PRTCONNDET` writer - "]
+        pub type PrtconndetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTENA` reader - "]
+        pub type PrtenaR = crate::BitReader;
+        #[doc = "Field `PRTENA` writer - "]
+        pub type PrtenaW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTENCHNG` reader - "]
+        pub type PrtenchngR = crate::BitReader;
+        #[doc = "Field `PRTENCHNG` writer - "]
+        pub type PrtenchngW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTOVRCURRACT` reader - "]
+        pub type PrtovrcurractR = crate::BitReader;
+        #[doc = "Field `PRTOVRCURRACT` writer - "]
+        pub type PrtovrcurractW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTOVRCURRCHNG` reader - "]
+        pub type PrtovrcurrchngR = crate::BitReader;
+        #[doc = "Field `PRTOVRCURRCHNG` writer - "]
+        pub type PrtovrcurrchngW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTRES` reader - "]
+        pub type PrtresR = crate::BitReader;
+        #[doc = "Field `PRTRES` writer - "]
+        pub type PrtresW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTSUSP` reader - "]
+        pub type PrtsuspR = crate::BitReader;
+        #[doc = "Field `PRTSUSP` writer - "]
+        pub type PrtsuspW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTRST` reader - "]
+        pub type PrtrstR = crate::BitReader;
+        #[doc = "Field `PRTRST` writer - "]
+        pub type PrtrstW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTLNSTS` reader - "]
+        pub type PrtlnstsR = crate::FieldReader;
+        #[doc = "Field `PRTLNSTS` writer - "]
+        pub type PrtlnstsW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `PRTPWR` reader - "]
+        pub type PrtpwrR = crate::BitReader;
+        #[doc = "Field `PRTPWR` writer - "]
+        pub type PrtpwrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PRTTSTCTL` reader - "]
+        pub type PrttstctlR = crate::FieldReader;
+        #[doc = "Field `PRTTSTCTL` writer - "]
+        pub type PrttstctlW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+        #[doc = "Field `PRTSPD` reader - "]
+        pub type PrtspdR = crate::FieldReader;
+        #[doc = "Field `PRTSPD` writer - "]
+        pub type PrtspdW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn prtconnsts(&self) -> PrtconnstsR {
+                PrtconnstsR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn prtconndet(&self) -> PrtconndetR {
+                PrtconndetR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn prtena(&self) -> PrtenaR {
+                PrtenaR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn prtenchng(&self) -> PrtenchngR {
+                PrtenchngR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn prtovrcurract(&self) -> PrtovrcurractR {
+                PrtovrcurractR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn prtovrcurrchng(&self) -> PrtovrcurrchngR {
+                PrtovrcurrchngR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn prtres(&self) -> PrtresR {
+                PrtresR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn prtsusp(&self) -> PrtsuspR {
+                PrtsuspR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn prtrst(&self) -> PrtrstR {
+                PrtrstR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bits 10:11"]
+            #[inline(always)]
+            pub fn prtlnsts(&self) -> PrtlnstsR {
+                PrtlnstsR::new(((self.bits >> 10) & 3) as u8)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn prtpwr(&self) -> PrtpwrR {
+                PrtpwrR::new(((self.bits >> 12) & 1) != 0)
+            }
+            #[doc = "Bits 13:16"]
+            #[inline(always)]
+            pub fn prttstctl(&self) -> PrttstctlR {
+                PrttstctlR::new(((self.bits >> 13) & 0x0f) as u8)
+            }
+            #[doc = "Bits 17:18"]
+            #[inline(always)]
+            pub fn prtspd(&self) -> PrtspdR {
+                PrtspdR::new(((self.bits >> 17) & 3) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn prtconnsts(&mut self) -> PrtconnstsW<'_, HprtSpec> {
+                PrtconnstsW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn prtconndet(&mut self) -> PrtconndetW<'_, HprtSpec> {
+                PrtconndetW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn prtena(&mut self) -> PrtenaW<'_, HprtSpec> {
+                PrtenaW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn prtenchng(&mut self) -> PrtenchngW<'_, HprtSpec> {
+                PrtenchngW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn prtovrcurract(&mut self) -> PrtovrcurractW<'_, HprtSpec> {
+                PrtovrcurractW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn prtovrcurrchng(&mut self) -> PrtovrcurrchngW<'_, HprtSpec> {
+                PrtovrcurrchngW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn prtres(&mut self) -> PrtresW<'_, HprtSpec> {
+                PrtresW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn prtsusp(&mut self) -> PrtsuspW<'_, HprtSpec> {
+                PrtsuspW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn prtrst(&mut self) -> PrtrstW<'_, HprtSpec> {
+                PrtrstW::new(self, 8)
+            }
+            #[doc = "Bits 10:11"]
+            #[inline(always)]
+            pub fn prtlnsts(&mut self) -> PrtlnstsW<'_, HprtSpec> {
+                PrtlnstsW::new(self, 10)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn prtpwr(&mut self) -> PrtpwrW<'_, HprtSpec> {
+                PrtpwrW::new(self, 12)
+            }
+            #[doc = "Bits 13:16"]
+            #[inline(always)]
+            pub fn prttstctl(&mut self) -> PrttstctlW<'_, HprtSpec> {
+                PrttstctlW::new(self, 13)
+            }
+            #[doc = "Bits 17:18"]
+            #[inline(always)]
+            pub fn prtspd(&mut self) -> PrtspdW<'_, HprtSpec> {
+                PrtspdW::new(self, 17)
+            }
+        }
         #[doc = "DOTG_HPRT\n\nYou can [`read`](crate::Reg::read) this register and get [`hprt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`hprt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct HprtSpec;
         impl crate::RegisterSpec for HprtSpec {
@@ -26552,12 +29726,80 @@ pub mod usb {
         pub type R = crate::R<DcfgSpec>;
         #[doc = "Register `DCFG` writer"]
         pub type W = crate::W<DcfgSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `DEVSPD` reader - "]
+        pub type DevspdR = crate::FieldReader;
+        #[doc = "Field `DEVSPD` writer - "]
+        pub type DevspdW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `NZSTSOUTHSHK` reader - "]
+        pub type NzstsouthshkR = crate::BitReader;
+        #[doc = "Field `NZSTSOUTHSHK` writer - "]
+        pub type NzstsouthshkW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `DEVADDR` reader - "]
+        pub type DevaddrR = crate::FieldReader;
+        #[doc = "Field `DEVADDR` writer - "]
+        pub type DevaddrW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
+        #[doc = "Field `PERFRINT` reader - "]
+        pub type PerfrintR = crate::FieldReader;
+        #[doc = "Field `PERFRINT` writer - "]
+        pub type PerfrintW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `EPMISCNT` reader - "]
+        pub type EpmiscntR = crate::FieldReader;
+        #[doc = "Field `EPMISCNT` writer - "]
+        pub type EpmiscntW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        impl R {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn devspd(&self) -> DevspdR {
+                DevspdR::new((self.bits & 3) as u8)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn nzstsouthshk(&self) -> NzstsouthshkR {
+                NzstsouthshkR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bits 4:10"]
+            #[inline(always)]
+            pub fn devaddr(&self) -> DevaddrR {
+                DevaddrR::new(((self.bits >> 4) & 0x7f) as u8)
+            }
+            #[doc = "Bits 11:12"]
+            #[inline(always)]
+            pub fn perfrint(&self) -> PerfrintR {
+                PerfrintR::new(((self.bits >> 11) & 3) as u8)
+            }
+            #[doc = "Bits 18:22"]
+            #[inline(always)]
+            pub fn epmiscnt(&self) -> EpmiscntR {
+                EpmiscntR::new(((self.bits >> 18) & 0x1f) as u8)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:1"]
+            #[inline(always)]
+            pub fn devspd(&mut self) -> DevspdW<'_, DcfgSpec> {
+                DevspdW::new(self, 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn nzstsouthshk(&mut self) -> NzstsouthshkW<'_, DcfgSpec> {
+                NzstsouthshkW::new(self, 2)
+            }
+            #[doc = "Bits 4:10"]
+            #[inline(always)]
+            pub fn devaddr(&mut self) -> DevaddrW<'_, DcfgSpec> {
+                DevaddrW::new(self, 4)
+            }
+            #[doc = "Bits 11:12"]
+            #[inline(always)]
+            pub fn perfrint(&mut self) -> PerfrintW<'_, DcfgSpec> {
+                PerfrintW::new(self, 11)
+            }
+            #[doc = "Bits 18:22"]
+            #[inline(always)]
+            pub fn epmiscnt(&mut self) -> EpmiscntW<'_, DcfgSpec> {
+                EpmiscntW::new(self, 18)
+            }
+        }
         #[doc = "DOTG_DCFG\n\nYou can [`read`](crate::Reg::read) this register and get [`dcfg::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dcfg::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DcfgSpec;
         impl crate::RegisterSpec for DcfgSpec {
@@ -26581,12 +29823,150 @@ pub mod usb {
         pub type R = crate::R<DctlSpec>;
         #[doc = "Register `DCTL` writer"]
         pub type W = crate::W<DctlSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `RMTWKUPSIG` reader - "]
+        pub type RmtwkupsigR = crate::BitReader;
+        #[doc = "Field `RMTWKUPSIG` writer - "]
+        pub type RmtwkupsigW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SFTDISCON` reader - "]
+        pub type SftdisconR = crate::BitReader;
+        #[doc = "Field `SFTDISCON` writer - "]
+        pub type SftdisconW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GNPINNAKSTS` reader - "]
+        pub type GnpinnakstsR = crate::BitReader;
+        #[doc = "Field `GNPINNAKSTS` writer - "]
+        pub type GnpinnakstsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `GOUTNAKSTS` reader - "]
+        pub type GoutnakstsR = crate::BitReader;
+        #[doc = "Field `GOUTNAKSTS` writer - "]
+        pub type GoutnakstsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TSTCTL` reader - "]
+        pub type TstctlR = crate::FieldReader;
+        #[doc = "Field `TSTCTL` writer - "]
+        pub type TstctlW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
+        #[doc = "Field `SGNPINNAK` reader - "]
+        pub type SgnpinnakR = crate::BitReader;
+        #[doc = "Field `SGNPINNAK` writer - "]
+        pub type SgnpinnakW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CGNPINNAK` reader - "]
+        pub type CgnpinnakR = crate::BitReader;
+        #[doc = "Field `CGNPINNAK` writer - "]
+        pub type CgnpinnakW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SGOUTNAK` reader - "]
+        pub type SgoutnakR = crate::BitReader;
+        #[doc = "Field `SGOUTNAK` writer - "]
+        pub type SgoutnakW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `CGOUTNAK` reader - "]
+        pub type CgoutnakR = crate::BitReader;
+        #[doc = "Field `CGOUTNAK` writer - "]
+        pub type CgoutnakW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `PWRONPRGDONE` reader - "]
+        pub type PwronprgdoneR = crate::BitReader;
+        #[doc = "Field `PWRONPRGDONE` writer - "]
+        pub type PwronprgdoneW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rmtwkupsig(&self) -> RmtwkupsigR {
+                RmtwkupsigR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn sftdiscon(&self) -> SftdisconR {
+                SftdisconR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn gnpinnaksts(&self) -> GnpinnakstsR {
+                GnpinnakstsR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn goutnaksts(&self) -> GoutnakstsR {
+                GoutnakstsR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn tstctl(&self) -> TstctlR {
+                TstctlR::new(((self.bits >> 4) & 7) as u8)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn sgnpinnak(&self) -> SgnpinnakR {
+                SgnpinnakR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cgnpinnak(&self) -> CgnpinnakR {
+                CgnpinnakR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn sgoutnak(&self) -> SgoutnakR {
+                SgoutnakR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn cgoutnak(&self) -> CgoutnakR {
+                CgoutnakR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn pwronprgdone(&self) -> PwronprgdoneR {
+                PwronprgdoneR::new(((self.bits >> 11) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rmtwkupsig(&mut self) -> RmtwkupsigW<'_, DctlSpec> {
+                RmtwkupsigW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn sftdiscon(&mut self) -> SftdisconW<'_, DctlSpec> {
+                SftdisconW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn gnpinnaksts(&mut self) -> GnpinnakstsW<'_, DctlSpec> {
+                GnpinnakstsW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn goutnaksts(&mut self) -> GoutnakstsW<'_, DctlSpec> {
+                GoutnakstsW::new(self, 3)
+            }
+            #[doc = "Bits 4:6"]
+            #[inline(always)]
+            pub fn tstctl(&mut self) -> TstctlW<'_, DctlSpec> {
+                TstctlW::new(self, 4)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn sgnpinnak(&mut self) -> SgnpinnakW<'_, DctlSpec> {
+                SgnpinnakW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn cgnpinnak(&mut self) -> CgnpinnakW<'_, DctlSpec> {
+                CgnpinnakW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn sgoutnak(&mut self) -> SgoutnakW<'_, DctlSpec> {
+                SgoutnakW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn cgoutnak(&mut self) -> CgoutnakW<'_, DctlSpec> {
+                CgoutnakW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn pwronprgdone(&mut self) -> PwronprgdoneW<'_, DctlSpec> {
+                PwronprgdoneW::new(self, 11)
+            }
+        }
         #[doc = "DOTG_DCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`dctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DctlSpec;
         impl crate::RegisterSpec for DctlSpec {
@@ -26610,12 +29990,66 @@ pub mod usb {
         pub type R = crate::R<DstsSpec>;
         #[doc = "Register `DSTS` writer"]
         pub type W = crate::W<DstsSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `SUSPSTS` reader - "]
+        pub type SuspstsR = crate::BitReader;
+        #[doc = "Field `SUSPSTS` writer - "]
+        pub type SuspstsW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ENUMSPD` reader - "]
+        pub type EnumspdR = crate::FieldReader;
+        #[doc = "Field `ENUMSPD` writer - "]
+        pub type EnumspdW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `ERRTICERR` reader - "]
+        pub type ErrticerrR = crate::BitReader;
+        #[doc = "Field `ERRTICERR` writer - "]
+        pub type ErrticerrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SOFFN` reader - "]
+        pub type SoffnR = crate::FieldReader<u16>;
+        #[doc = "Field `SOFFN` writer - "]
+        pub type SoffnW<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn suspsts(&self) -> SuspstsR {
+                SuspstsR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bits 1:2"]
+            #[inline(always)]
+            pub fn enumspd(&self) -> EnumspdR {
+                EnumspdR::new(((self.bits >> 1) & 3) as u8)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn errticerr(&self) -> ErrticerrR {
+                ErrticerrR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bits 8:21"]
+            #[inline(always)]
+            pub fn soffn(&self) -> SoffnR {
+                SoffnR::new(((self.bits >> 8) & 0x3fff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn suspsts(&mut self) -> SuspstsW<'_, DstsSpec> {
+                SuspstsW::new(self, 0)
+            }
+            #[doc = "Bits 1:2"]
+            #[inline(always)]
+            pub fn enumspd(&mut self) -> EnumspdW<'_, DstsSpec> {
+                EnumspdW::new(self, 1)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn errticerr(&mut self) -> ErrticerrW<'_, DstsSpec> {
+                ErrticerrW::new(self, 3)
+            }
+            #[doc = "Bits 8:21"]
+            #[inline(always)]
+            pub fn soffn(&mut self) -> SoffnW<'_, DstsSpec> {
+                SoffnW::new(self, 8)
+            }
+        }
         #[doc = "DOTG_DSTS\n\nYou can [`read`](crate::Reg::read) this register and get [`dsts::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dsts::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DstsSpec;
         impl crate::RegisterSpec for DstsSpec {
@@ -26639,12 +30073,122 @@ pub mod usb {
         pub type R = crate::R<DiepmskSpec>;
         #[doc = "Register `DIEPMSK` writer"]
         pub type W = crate::W<DiepmskSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `XFERCOMPLMSK` reader - "]
+        pub type XfercomplmskR = crate::BitReader;
+        #[doc = "Field `XFERCOMPLMSK` writer - "]
+        pub type XfercomplmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EPDISBLDMSK` reader - "]
+        pub type EpdisbldmskR = crate::BitReader;
+        #[doc = "Field `EPDISBLDMSK` writer - "]
+        pub type EpdisbldmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `AHBERRMSK` reader - "]
+        pub type AhberrmskR = crate::BitReader;
+        #[doc = "Field `AHBERRMSK` writer - "]
+        pub type AhberrmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TIMEOUTMSK` reader - "]
+        pub type TimeoutmskR = crate::BitReader;
+        #[doc = "Field `TIMEOUTMSK` writer - "]
+        pub type TimeoutmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INTKNTXFEMPMSK` reader - "]
+        pub type IntkntxfempmskR = crate::BitReader;
+        #[doc = "Field `INTKNTXFEMPMSK` writer - "]
+        pub type IntkntxfempmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INTKNEPMISMSK` reader - "]
+        pub type IntknepmismskR = crate::BitReader;
+        #[doc = "Field `INTKNEPMISMSK` writer - "]
+        pub type IntknepmismskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `INEPNAKEFFMSK` reader - "]
+        pub type InepnakeffmskR = crate::BitReader;
+        #[doc = "Field `INEPNAKEFFMSK` writer - "]
+        pub type InepnakeffmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TXFIFOUNDRNMSK` reader - "]
+        pub type TxfifoundrnmskR = crate::BitReader;
+        #[doc = "Field `TXFIFOUNDRNMSK` writer - "]
+        pub type TxfifoundrnmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn xfercomplmsk(&self) -> XfercomplmskR {
+                XfercomplmskR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn epdisbldmsk(&self) -> EpdisbldmskR {
+                EpdisbldmskR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn ahberrmsk(&self) -> AhberrmskR {
+                AhberrmskR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn timeoutmsk(&self) -> TimeoutmskR {
+                TimeoutmskR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn intkntxfempmsk(&self) -> IntkntxfempmskR {
+                IntkntxfempmskR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn intknepmismsk(&self) -> IntknepmismskR {
+                IntknepmismskR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn inepnakeffmsk(&self) -> InepnakeffmskR {
+                InepnakeffmskR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn txfifoundrnmsk(&self) -> TxfifoundrnmskR {
+                TxfifoundrnmskR::new(((self.bits >> 8) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn xfercomplmsk(&mut self) -> XfercomplmskW<'_, DiepmskSpec> {
+                XfercomplmskW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn epdisbldmsk(&mut self) -> EpdisbldmskW<'_, DiepmskSpec> {
+                EpdisbldmskW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn ahberrmsk(&mut self) -> AhberrmskW<'_, DiepmskSpec> {
+                AhberrmskW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn timeoutmsk(&mut self) -> TimeoutmskW<'_, DiepmskSpec> {
+                TimeoutmskW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn intkntxfempmsk(&mut self) -> IntkntxfempmskW<'_, DiepmskSpec> {
+                IntkntxfempmskW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn intknepmismsk(&mut self) -> IntknepmismskW<'_, DiepmskSpec> {
+                IntknepmismskW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn inepnakeffmsk(&mut self) -> InepnakeffmskW<'_, DiepmskSpec> {
+                InepnakeffmskW::new(self, 6)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn txfifoundrnmsk(&mut self) -> TxfifoundrnmskW<'_, DiepmskSpec> {
+                TxfifoundrnmskW::new(self, 8)
+            }
+        }
         #[doc = "DOTG_DIEPMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`diepmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`diepmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DiepmskSpec;
         impl crate::RegisterSpec for DiepmskSpec {
@@ -26668,12 +30212,108 @@ pub mod usb {
         pub type R = crate::R<DoepmskSpec>;
         #[doc = "Register `DOEPMSK` writer"]
         pub type W = crate::W<DoepmskSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `XFERCOMPLMSK` reader - "]
+        pub type XfercomplmskR = crate::BitReader;
+        #[doc = "Field `XFERCOMPLMSK` writer - "]
+        pub type XfercomplmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EPDISBLDMSK` reader - "]
+        pub type EpdisbldmskR = crate::BitReader;
+        #[doc = "Field `EPDISBLDMSK` writer - "]
+        pub type EpdisbldmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `AHBERRMSK` reader - "]
+        pub type AhberrmskR = crate::BitReader;
+        #[doc = "Field `AHBERRMSK` writer - "]
+        pub type AhberrmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `SETUPMSK` reader - "]
+        pub type SetupmskR = crate::BitReader;
+        #[doc = "Field `SETUPMSK` writer - "]
+        pub type SetupmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OUTTKNEPDISMSK` reader - "]
+        pub type OuttknepdismskR = crate::BitReader;
+        #[doc = "Field `OUTTKNEPDISMSK` writer - "]
+        pub type OuttknepdismskW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `BACK2BACKSETUP` reader - "]
+        pub type Back2backsetupR = crate::BitReader;
+        #[doc = "Field `BACK2BACKSETUP` writer - "]
+        pub type Back2backsetupW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `OUTPKTERRMSK` reader - "]
+        pub type OutpkterrmskR = crate::BitReader;
+        #[doc = "Field `OUTPKTERRMSK` writer - "]
+        pub type OutpkterrmskW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn xfercomplmsk(&self) -> XfercomplmskR {
+                XfercomplmskR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn epdisbldmsk(&self) -> EpdisbldmskR {
+                EpdisbldmskR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn ahberrmsk(&self) -> AhberrmskR {
+                AhberrmskR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn setupmsk(&self) -> SetupmskR {
+                SetupmskR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn outtknepdismsk(&self) -> OuttknepdismskR {
+                OuttknepdismskR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn back2backsetup(&self) -> Back2backsetupR {
+                Back2backsetupR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn outpkterrmsk(&self) -> OutpkterrmskR {
+                OutpkterrmskR::new(((self.bits >> 8) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn xfercomplmsk(&mut self) -> XfercomplmskW<'_, DoepmskSpec> {
+                XfercomplmskW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn epdisbldmsk(&mut self) -> EpdisbldmskW<'_, DoepmskSpec> {
+                EpdisbldmskW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn ahberrmsk(&mut self) -> AhberrmskW<'_, DoepmskSpec> {
+                AhberrmskW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn setupmsk(&mut self) -> SetupmskW<'_, DoepmskSpec> {
+                SetupmskW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn outtknepdismsk(&mut self) -> OuttknepdismskW<'_, DoepmskSpec> {
+                OuttknepdismskW::new(self, 4)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn back2backsetup(&mut self) -> Back2backsetupW<'_, DoepmskSpec> {
+                Back2backsetupW::new(self, 6)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn outpkterrmsk(&mut self) -> OutpkterrmskW<'_, DoepmskSpec> {
+                OutpkterrmskW::new(self, 8)
+            }
+        }
         #[doc = "DOTG_DOEPMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`doepmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`doepmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DoepmskSpec;
         impl crate::RegisterSpec for DoepmskSpec {
@@ -26697,12 +30337,24 @@ pub mod usb {
         pub type R = crate::R<DaintSpec>;
         #[doc = "Register `DAINT` writer"]
         pub type W = crate::W<DaintSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `INEPINT` reader - "]
+        pub type InepintR = crate::FieldReader<u16>;
+        #[doc = "Field `INEPINT` writer - "]
+        pub type InepintW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn inepint(&self) -> InepintR {
+                InepintR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn inepint(&mut self) -> InepintW<'_, DaintSpec> {
+                InepintW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_DAINT\n\nYou can [`read`](crate::Reg::read) this register and get [`daint::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daint::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DaintSpec;
         impl crate::RegisterSpec for DaintSpec {
@@ -26726,12 +30378,24 @@ pub mod usb {
         pub type R = crate::R<DaintmskSpec>;
         #[doc = "Register `DAINTMSK` writer"]
         pub type W = crate::W<DaintmskSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `INEPINT` reader - "]
+        pub type InepintR = crate::FieldReader<u16>;
+        #[doc = "Field `INEPINT` writer - "]
+        pub type InepintW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn inepint(&self) -> InepintR {
+                InepintR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn inepint(&mut self) -> InepintW<'_, DaintmskSpec> {
+                InepintW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_DAINTMSK\n\nYou can [`read`](crate::Reg::read) this register and get [`daintmsk::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daintmsk::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DaintmskSpec;
         impl crate::RegisterSpec for DaintmskSpec {
@@ -26755,12 +30419,52 @@ pub mod usb {
         pub type R = crate::R<Dtknqr1Spec>;
         #[doc = "Register `DTKNQR1` writer"]
         pub type W = crate::W<Dtknqr1Spec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `INTKNWPTR` reader - "]
+        pub type IntknwptrR = crate::FieldReader;
+        #[doc = "Field `INTKNWPTR` writer - "]
+        pub type IntknwptrW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
+        #[doc = "Field `WRAPBIT` reader - "]
+        pub type WrapbitR = crate::BitReader;
+        #[doc = "Field `WRAPBIT` writer - "]
+        pub type WrapbitW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `EPTKN` reader - "]
+        pub type EptknR = crate::FieldReader<u32>;
+        #[doc = "Field `EPTKN` writer - "]
+        pub type EptknW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
+        impl R {
+            #[doc = "Bits 0:4"]
+            #[inline(always)]
+            pub fn intknwptr(&self) -> IntknwptrR {
+                IntknwptrR::new((self.bits & 0x1f) as u8)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn wrapbit(&self) -> WrapbitR {
+                WrapbitR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bits 8:31"]
+            #[inline(always)]
+            pub fn eptkn(&self) -> EptknR {
+                EptknR::new((self.bits >> 8) & 0x00ff_ffff)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:4"]
+            #[inline(always)]
+            pub fn intknwptr(&mut self) -> IntknwptrW<'_, Dtknqr1Spec> {
+                IntknwptrW::new(self, 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn wrapbit(&mut self) -> WrapbitW<'_, Dtknqr1Spec> {
+                WrapbitW::new(self, 7)
+            }
+            #[doc = "Bits 8:31"]
+            #[inline(always)]
+            pub fn eptkn(&mut self) -> EptknW<'_, Dtknqr1Spec> {
+                EptknW::new(self, 8)
+            }
+        }
         #[doc = "DOTG_DTKNQR1\n\nYou can [`read`](crate::Reg::read) this register and get [`dtknqr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dtknqr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct Dtknqr1Spec;
         impl crate::RegisterSpec for Dtknqr1Spec {
@@ -26813,12 +30517,24 @@ pub mod usb {
         pub type R = crate::R<DvbusdisSpec>;
         #[doc = "Register `DVBUSDIS` writer"]
         pub type W = crate::W<DvbusdisSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `DVBUSDIS` reader - "]
+        pub type DvbusdisR = crate::FieldReader<u16>;
+        #[doc = "Field `DVBUSDIS` writer - "]
+        pub type DvbusdisW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn dvbusdis(&self) -> DvbusdisR {
+                DvbusdisR::new((self.bits & 0xffff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn dvbusdis(&mut self) -> DvbusdisW<'_, DvbusdisSpec> {
+                DvbusdisW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_DVBUSDIS\n\nYou can [`read`](crate::Reg::read) this register and get [`dvbusdis::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dvbusdis::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DvbusdisSpec;
         impl crate::RegisterSpec for DvbusdisSpec {
@@ -26842,12 +30558,24 @@ pub mod usb {
         pub type R = crate::R<DvbuspulseSpec>;
         #[doc = "Register `DVBUSPULSE` writer"]
         pub type W = crate::W<DvbuspulseSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `DVBUSPULSE` reader - "]
+        pub type DvbuspulseR = crate::FieldReader<u16>;
+        #[doc = "Field `DVBUSPULSE` writer - "]
+        pub type DvbuspulseW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+        impl R {
+            #[doc = "Bits 0:11"]
+            #[inline(always)]
+            pub fn dvbuspulse(&self) -> DvbuspulseR {
+                DvbuspulseR::new((self.bits & 0x0fff) as u16)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bits 0:11"]
+            #[inline(always)]
+            pub fn dvbuspulse(&mut self) -> DvbuspulseW<'_, DvbuspulseSpec> {
+                DvbuspulseW::new(self, 0)
+            }
+        }
         #[doc = "DOTG_DVBUSPULSE\n\nYou can [`read`](crate::Reg::read) this register and get [`dvbuspulse::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dvbuspulse::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DvbuspulseSpec;
         impl crate::RegisterSpec for DvbuspulseSpec {
@@ -26871,12 +30599,94 @@ pub mod usb {
         pub type R = crate::R<DthrctlSpec>;
         #[doc = "Register `DTHRCTL` writer"]
         pub type W = crate::W<DthrctlSpec>;
-        impl core::fmt::Debug for R {
-            fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-                write!(f, "{}", self.bits())
+        #[doc = "Field `NONISOTHREN` reader - "]
+        pub type NonisothrenR = crate::BitReader;
+        #[doc = "Field `NONISOTHREN` writer - "]
+        pub type NonisothrenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ISOTHREN` reader - "]
+        pub type IsothrenR = crate::BitReader;
+        #[doc = "Field `ISOTHREN` writer - "]
+        pub type IsothrenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `TXTHRLEN` reader - "]
+        pub type TxthrlenR = crate::FieldReader<u16>;
+        #[doc = "Field `TXTHRLEN` writer - "]
+        pub type TxthrlenW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+        #[doc = "Field `RXTHREN` reader - "]
+        pub type RxthrenR = crate::BitReader;
+        #[doc = "Field `RXTHREN` writer - "]
+        pub type RxthrenW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `RXTHRLEN` reader - "]
+        pub type RxthrlenR = crate::FieldReader<u16>;
+        #[doc = "Field `RXTHRLEN` writer - "]
+        pub type RxthrlenW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
+        #[doc = "Field `ARBPRKEN` reader - "]
+        pub type ArbprkenR = crate::BitReader;
+        #[doc = "Field `ARBPRKEN` writer - "]
+        pub type ArbprkenW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn nonisothren(&self) -> NonisothrenR {
+                NonisothrenR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn isothren(&self) -> IsothrenR {
+                IsothrenR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bits 2:10"]
+            #[inline(always)]
+            pub fn txthrlen(&self) -> TxthrlenR {
+                TxthrlenR::new(((self.bits >> 2) & 0x01ff) as u16)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn rxthren(&self) -> RxthrenR {
+                RxthrenR::new(((self.bits >> 16) & 1) != 0)
+            }
+            #[doc = "Bits 17:25"]
+            #[inline(always)]
+            pub fn rxthrlen(&self) -> RxthrlenR {
+                RxthrlenR::new(((self.bits >> 17) & 0x01ff) as u16)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn arbprken(&self) -> ArbprkenR {
+                ArbprkenR::new(((self.bits >> 27) & 1) != 0)
             }
         }
-        impl W {}
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn nonisothren(&mut self) -> NonisothrenW<'_, DthrctlSpec> {
+                NonisothrenW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn isothren(&mut self) -> IsothrenW<'_, DthrctlSpec> {
+                IsothrenW::new(self, 1)
+            }
+            #[doc = "Bits 2:10"]
+            #[inline(always)]
+            pub fn txthrlen(&mut self) -> TxthrlenW<'_, DthrctlSpec> {
+                TxthrlenW::new(self, 2)
+            }
+            #[doc = "Bit 16"]
+            #[inline(always)]
+            pub fn rxthren(&mut self) -> RxthrenW<'_, DthrctlSpec> {
+                RxthrenW::new(self, 16)
+            }
+            #[doc = "Bits 17:25"]
+            #[inline(always)]
+            pub fn rxthrlen(&mut self) -> RxthrlenW<'_, DthrctlSpec> {
+                RxthrlenW::new(self, 17)
+            }
+            #[doc = "Bit 27"]
+            #[inline(always)]
+            pub fn arbprken(&mut self) -> ArbprkenW<'_, DthrctlSpec> {
+                ArbprkenW::new(self, 27)
+            }
+        }
         #[doc = "DOTG_DTHRCTL\n\nYou can [`read`](crate::Reg::read) this register and get [`dthrctl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dthrctl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
         pub struct DthrctlSpec;
         impl crate::RegisterSpec for DthrctlSpec {

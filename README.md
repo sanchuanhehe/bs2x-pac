@@ -18,7 +18,7 @@ Shared versioned-IP (reused from WS63's SVD): `GLB_CTL_M`, `GPIO0..4` + `ULP_GPI
 
 BS2X-specific (derived from the fbb_bs2x SDK headers — no WS63 analogue): `GADC`
 (13-bit ADC), `KEYSCAN`, `PDM`, `QDEC`, and `USB` (USB 2.0 OTG / Synopsys DWC OTG
-@0x5800_0000, register-level).
+@0x5800_0000, 49 registers + 269 fields).
 
 All at the BS21 base addresses (`0x52xx_xxxx` M_CTL / `0x57xx_xxxx` GLB /
 `0x5800_0000` USB), plus the BS21 `interrupt::ExternalInterrupt` map
