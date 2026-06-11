@@ -2,7 +2,7 @@
 
 Peripheral Access Crate for the HiSilicon **BS21 / BS2X** RISC-V SoC
 (RV32IMFC_Zicsr, BLE 5.4 + SLE/NearLink, **no Wi-Fi**), **generated via svd2rust**
-from [`bs2x-svd`](https://github.com/sanchuanhehe/bs2x-svd) (vendored as a nested
+from [`bs2x-svd`](https://github.com/hispark-rs/bs2x-svd) (vendored as a nested
 submodule under `bs2x-svd/`).
 
 Independent of `ws63-pac`: BS21 shares WS63's HimiDeer riscv31 core + versioned IP
@@ -45,5 +45,5 @@ bash bs2x-svd/regen.sh
 ```
 
 See [`bs2x-svd/README.md`](bs2x-svd/README.md) for the pipeline. Consumed by
-[`hisi-riscv-hal`](https://github.com/sanchuanhehe/hisi-riscv-hal) under its
+[`hisi-riscv-hal`](https://github.com/hispark-rs/hisi-riscv-hal) under its
 `chip-bs21` feature.

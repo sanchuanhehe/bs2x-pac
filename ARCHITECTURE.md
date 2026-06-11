@@ -1,6 +1,6 @@
 # bs2x-pac — 架构
 
-`bs2x-pac` 是用 **svd2rust** 从 [`bs2x-svd`](https://github.com/sanchuanhehe/bs2x-svd)
+`bs2x-pac` 是用 **svd2rust** 从 [`bs2x-svd`](https://github.com/hispark-rs/bs2x-svd)
 （嵌套子模块 `bs2x-svd/`）生成的 HiSilicon **BS21/BS2X** 寄存器访问层，角色与 `ws63-pac` 对等。
 
 ## 生成关系
@@ -21,10 +21,10 @@ bs2x-svd/BS2X.svd  ──(svd2rust 0.37.1 --target riscv)──▶  bs2x-pac/src
 
 ## 与生态的关系
 
-- 上游真值：[`bs2x-svd`](https://github.com/sanchuanhehe/bs2x-svd)（CMSIS-SVD）。
-- 下游消费：[`hisi-riscv-hal`](https://github.com/sanchuanhehe/hisi-riscv-hal) 的 `chip-bs21` 特性
+- 上游真值：[`bs2x-svd`](https://github.com/hispark-rs/bs2x-svd)（CMSIS-SVD）。
+- 下游消费：[`hisi-riscv-hal`](https://github.com/hispark-rs/hisi-riscv-hal) 的 `chip-bs21` 特性
   （`#[no_mangle] DEVICE_PERIPHERALS` 单例、`device.x` 中断向量表均来自本 crate）。
-- 同族对照：[`ws63-pac`](https://github.com/sanchuanhehe/ws63-pac)（WS63 的 per-chip PAC）。
-- 文档：[`bs2x-guide`](https://github.com/sanchuanhehe/bs2x-guide)。
+- 同族对照：[`ws63-pac`](https://github.com/hispark-rs/ws63-pac)（WS63 的 per-chip PAC）。
+- 文档：[`bs2x-guide`](https://github.com/hispark-rs/bs2x-guide)。
 
-详见伞仓 <https://github.com/sanchuanhehe/hisi-riscv-rs>。
+详见伞仓 <https://github.com/hispark-rs/hisi-riscv-rs>。

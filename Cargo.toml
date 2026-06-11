@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "Peripheral Access Crate for HiSilicon BS21/BS2X (RISC-V, BLE 5.4 + SLE/NearLink) — generated via svd2rust from bs2x-svd"
 license = "MIT"
-repository = "https://github.com/sanchuanhehe/bs2x-pac"
+repository = "https://github.com/hispark-rs/bs2x-pac"
 keywords = ["bs21", "bs2x", "hisilicon", "riscv", "svd2rust"]
 categories = ["embedded", "no-std", "hardware-support"]
 
