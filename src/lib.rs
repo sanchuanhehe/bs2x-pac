@@ -972,8 +972,6 @@ pub mod interrupt {
         SPI_M_S_1 = 60,
         #[doc = "61 - SPI_M (IRQ 61)"]
         SPI_M = 61,
-        #[doc = "62 - I2C_0 (IRQ 62)"]
-        I2C_0 = 62,
         #[doc = "63 - I2C_1 (IRQ 63)"]
         I2C_1 = 63,
         #[doc = "64 - BT_BB_BT (IRQ 64)"]
@@ -5517,1078 +5515,2249 @@ pub mod tcxo {
         impl crate::Resettable for TcxoCount3Spec {}
     }
 }
-#[doc = "I2C0 master controller"]
+#[doc = "I2C0 master controller (DesignWare SSI, IP v151)"]
 pub type I2c0 = crate::Periph<i2c0::RegisterBlock, 0x5208_3000>;
 impl core::fmt::Debug for I2c0 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("I2c0").finish()
     }
 }
-#[doc = "I2C0 master controller"]
+#[doc = "I2C0 master controller (DesignWare SSI, IP v151)"]
 pub mod i2c0 {
     #[repr(C)]
     #[doc = "Register block"]
     pub struct RegisterBlock {
-        i2c_ctrl: I2cCtrl,
-        i2c_com: I2cCom,
-        i2c_icr: I2cIcr,
-        i2c_sr: I2cSr,
-        i2c_scl_h: I2cSclH,
-        i2c_scl_l: I2cSclL,
-        i2c_txr: I2cTxr,
-        i2c_rxr: I2cRxr,
-        i2c_fifostatus: I2cFifostatus,
-        i2c_txcount: I2cTxcount,
-        i2c_rxcount: I2cRxcount,
-        i2c_rxtide: I2cRxtide,
-        i2c_txtide: I2cTxtide,
-        i2c_ftrper: I2cFtrper,
+        ic_con: IcCon,
+        ic_enable: IcEnable,
+        _reserved2: [u8; 0x08],
+        ic_tar: IcTar,
+        ic_sar: IcSar,
+        ic_hs_maddr: IcHsMaddr,
+        ic_data_cmd: IcDataCmd,
+        _reserved6: [u8; 0x10],
+        ic_ss_scl_hcnt: IcSsSclHcnt,
+        ic_ss_scl_lcnt: IcSsSclLcnt,
+        _reserved8: [u8; 0x04],
+        ic_fs_scl_hcnt: IcFsSclHcnt,
+        ic_fs_scl_lcnt: IcFsSclLcnt,
+        ic_hs_scl_hcnt: IcHsSclHcnt,
+        ic_hs_scl_lcnt: IcHsSclLcnt,
+        _reserved12: [u8; 0x04],
+        ic_rx_tl: IcRxTl,
+        ic_tx_tl: IcTxTl,
+        ic_slv_data_nack_only: IcSlvDataNackOnly,
+        _reserved15: [u8; 0x04],
+        ic_status: IcStatus,
+        ic_txflr: IcTxflr,
+        ic_rxflr: IcRxflr,
+        ic_sda_hold: IcSdaHold,
+        ic_sda_hold_tx: IcSdaHoldTx,
+        ic_tx_flush_cnt: IcTxFlushCnt,
+        ic_tx_abrt_source: IcTxAbrtSource,
+        ic_tx_abrt_slv_intx: IcTxAbrtSlvIntx,
+        ic_ack_general_call: IcAckGeneralCall,
+        ic_enable_status: IcEnableStatus,
+        _reserved25: [u8; 0x18],
+        ic_dma_cr: IcDmaCr,
+        ic_dma_tdlr: IcDmaTdlr,
+        ic_dma_rdlr: IcDmaRdlr,
+        ic_sda_setup: IcSdaSetup,
+        ic_intr_mask: IcIntrMask,
+        ic_intr_stat: IcIntrStat,
+        ic_raw_intr_stat: IcRawIntrStat,
+        ic_intr_stat_all: IcIntrStatAll,
+        ic_clr_intr: IcClrIntr,
+        ic_clr_int: IcClrInt,
     }
     impl RegisterBlock {
-        #[doc = "0x00 - I2C control register"]
+        #[doc = "0x00 - IC_CON"]
         #[inline(always)]
-        pub const fn i2c_ctrl(&self) -> &I2cCtrl {
-            &self.i2c_ctrl
+        pub const fn ic_con(&self) -> &IcCon {
+            &self.ic_con
         }
-        #[doc = "0x04 - I2C command register"]
+        #[doc = "0x04 - IC_ENABLE"]
         #[inline(always)]
-        pub const fn i2c_com(&self) -> &I2cCom {
-            &self.i2c_com
+        pub const fn ic_enable(&self) -> &IcEnable {
+            &self.ic_enable
         }
-        #[doc = "0x08 - I2C interrupt clear register"]
+        #[doc = "0x10 - IC_TAR"]
         #[inline(always)]
-        pub const fn i2c_icr(&self) -> &I2cIcr {
-            &self.i2c_icr
+        pub const fn ic_tar(&self) -> &IcTar {
+            &self.ic_tar
         }
-        #[doc = "0x0c - I2C status register"]
+        #[doc = "0x14 - IC_SAR"]
         #[inline(always)]
-        pub const fn i2c_sr(&self) -> &I2cSr {
-            &self.i2c_sr
+        pub const fn ic_sar(&self) -> &IcSar {
+            &self.ic_sar
         }
-        #[doc = "0x10 - SCL high period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]"]
+        #[doc = "0x18 - IC_HS_MADDR"]
         #[inline(always)]
-        pub const fn i2c_scl_h(&self) -> &I2cSclH {
-            &self.i2c_scl_h
+        pub const fn ic_hs_maddr(&self) -> &IcHsMaddr {
+            &self.ic_hs_maddr
         }
-        #[doc = "0x14 - SCL low period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]"]
+        #[doc = "0x1c - IC_DATA_CMD"]
         #[inline(always)]
-        pub const fn i2c_scl_l(&self) -> &I2cSclL {
-            &self.i2c_scl_l
+        pub const fn ic_data_cmd(&self) -> &IcDataCmd {
+            &self.ic_data_cmd
         }
-        #[doc = "0x18 - I2C TX data register"]
+        #[doc = "0x30 - IC_SS_SCL_HCNT"]
         #[inline(always)]
-        pub const fn i2c_txr(&self) -> &I2cTxr {
-            &self.i2c_txr
+        pub const fn ic_ss_scl_hcnt(&self) -> &IcSsSclHcnt {
+            &self.ic_ss_scl_hcnt
         }
-        #[doc = "0x1c - I2C RX data register"]
+        #[doc = "0x34 - IC_SS_SCL_LCNT"]
         #[inline(always)]
-        pub const fn i2c_rxr(&self) -> &I2cRxr {
-            &self.i2c_rxr
+        pub const fn ic_ss_scl_lcnt(&self) -> &IcSsSclLcnt {
+            &self.ic_ss_scl_lcnt
         }
-        #[doc = "0x20 - FIFO status register"]
+        #[doc = "0x3c - IC_FS_SCL_HCNT"]
         #[inline(always)]
-        pub const fn i2c_fifostatus(&self) -> &I2cFifostatus {
-            &self.i2c_fifostatus
+        pub const fn ic_fs_scl_hcnt(&self) -> &IcFsSclHcnt {
+            &self.ic_fs_scl_hcnt
         }
-        #[doc = "0x24 - TX FIFO count register"]
+        #[doc = "0x40 - IC_FS_SCL_LCNT"]
         #[inline(always)]
-        pub const fn i2c_txcount(&self) -> &I2cTxcount {
-            &self.i2c_txcount
+        pub const fn ic_fs_scl_lcnt(&self) -> &IcFsSclLcnt {
+            &self.ic_fs_scl_lcnt
         }
-        #[doc = "0x28 - RX FIFO count register"]
+        #[doc = "0x44 - IC_HS_SCL_HCNT"]
         #[inline(always)]
-        pub const fn i2c_rxcount(&self) -> &I2cRxcount {
-            &self.i2c_rxcount
+        pub const fn ic_hs_scl_hcnt(&self) -> &IcHsSclHcnt {
+            &self.ic_hs_scl_hcnt
         }
-        #[doc = "0x2c - RX FIFO threshold register"]
+        #[doc = "0x48 - IC_HS_SCL_LCNT"]
         #[inline(always)]
-        pub const fn i2c_rxtide(&self) -> &I2cRxtide {
-            &self.i2c_rxtide
+        pub const fn ic_hs_scl_lcnt(&self) -> &IcHsSclLcnt {
+            &self.ic_hs_scl_lcnt
         }
-        #[doc = "0x30 - TX FIFO threshold register"]
+        #[doc = "0x50 - IC_RX_TL"]
         #[inline(always)]
-        pub const fn i2c_txtide(&self) -> &I2cTxtide {
-            &self.i2c_txtide
+        pub const fn ic_rx_tl(&self) -> &IcRxTl {
+            &self.ic_rx_tl
         }
-        #[doc = "0x34 - Glitch filter configuration register"]
+        #[doc = "0x54 - IC_TX_TL"]
         #[inline(always)]
-        pub const fn i2c_ftrper(&self) -> &I2cFtrper {
-            &self.i2c_ftrper
+        pub const fn ic_tx_tl(&self) -> &IcTxTl {
+            &self.ic_tx_tl
+        }
+        #[doc = "0x58 - IC_SLV_DATA_NACK_ONLY"]
+        #[inline(always)]
+        pub const fn ic_slv_data_nack_only(&self) -> &IcSlvDataNackOnly {
+            &self.ic_slv_data_nack_only
+        }
+        #[doc = "0x60 - IC_STATUS"]
+        #[inline(always)]
+        pub const fn ic_status(&self) -> &IcStatus {
+            &self.ic_status
+        }
+        #[doc = "0x64 - IC_TXFLR"]
+        #[inline(always)]
+        pub const fn ic_txflr(&self) -> &IcTxflr {
+            &self.ic_txflr
+        }
+        #[doc = "0x68 - IC_RXFLR"]
+        #[inline(always)]
+        pub const fn ic_rxflr(&self) -> &IcRxflr {
+            &self.ic_rxflr
+        }
+        #[doc = "0x6c - IC_SDA_HOLD"]
+        #[inline(always)]
+        pub const fn ic_sda_hold(&self) -> &IcSdaHold {
+            &self.ic_sda_hold
+        }
+        #[doc = "0x70 - IC_SDA_HOLD_TX"]
+        #[inline(always)]
+        pub const fn ic_sda_hold_tx(&self) -> &IcSdaHoldTx {
+            &self.ic_sda_hold_tx
+        }
+        #[doc = "0x74 - IC_TX_FLUSH_CNT"]
+        #[inline(always)]
+        pub const fn ic_tx_flush_cnt(&self) -> &IcTxFlushCnt {
+            &self.ic_tx_flush_cnt
+        }
+        #[doc = "0x78 - IC_TX_ABRT_SOURCE"]
+        #[inline(always)]
+        pub const fn ic_tx_abrt_source(&self) -> &IcTxAbrtSource {
+            &self.ic_tx_abrt_source
+        }
+        #[doc = "0x7c - IC_TX_ABRT_SLV_INTX"]
+        #[inline(always)]
+        pub const fn ic_tx_abrt_slv_intx(&self) -> &IcTxAbrtSlvIntx {
+            &self.ic_tx_abrt_slv_intx
+        }
+        #[doc = "0x80 - IC_ACK_GENERAL_CALL"]
+        #[inline(always)]
+        pub const fn ic_ack_general_call(&self) -> &IcAckGeneralCall {
+            &self.ic_ack_general_call
+        }
+        #[doc = "0x84 - IC_ENABLE_STATUS"]
+        #[inline(always)]
+        pub const fn ic_enable_status(&self) -> &IcEnableStatus {
+            &self.ic_enable_status
+        }
+        #[doc = "0xa0 - IC_DMA_CR"]
+        #[inline(always)]
+        pub const fn ic_dma_cr(&self) -> &IcDmaCr {
+            &self.ic_dma_cr
+        }
+        #[doc = "0xa4 - IC_DMA_TDLR"]
+        #[inline(always)]
+        pub const fn ic_dma_tdlr(&self) -> &IcDmaTdlr {
+            &self.ic_dma_tdlr
+        }
+        #[doc = "0xa8 - IC_DMA_RDLR"]
+        #[inline(always)]
+        pub const fn ic_dma_rdlr(&self) -> &IcDmaRdlr {
+            &self.ic_dma_rdlr
+        }
+        #[doc = "0xac - IC_SDA_SETUP"]
+        #[inline(always)]
+        pub const fn ic_sda_setup(&self) -> &IcSdaSetup {
+            &self.ic_sda_setup
+        }
+        #[doc = "0xb0 - IC_INTR_MASK"]
+        #[inline(always)]
+        pub const fn ic_intr_mask(&self) -> &IcIntrMask {
+            &self.ic_intr_mask
+        }
+        #[doc = "0xb4 - IC_INTR_STAT"]
+        #[inline(always)]
+        pub const fn ic_intr_stat(&self) -> &IcIntrStat {
+            &self.ic_intr_stat
+        }
+        #[doc = "0xb8 - IC_RAW_INTR_STAT"]
+        #[inline(always)]
+        pub const fn ic_raw_intr_stat(&self) -> &IcRawIntrStat {
+            &self.ic_raw_intr_stat
+        }
+        #[doc = "0xbc - IC_INTR_STAT_ALL"]
+        #[inline(always)]
+        pub const fn ic_intr_stat_all(&self) -> &IcIntrStatAll {
+            &self.ic_intr_stat_all
+        }
+        #[doc = "0xc0 - IC_CLR_INTR"]
+        #[inline(always)]
+        pub const fn ic_clr_intr(&self) -> &IcClrIntr {
+            &self.ic_clr_intr
+        }
+        #[doc = "0xc4 - IC_CLR_INT"]
+        #[inline(always)]
+        pub const fn ic_clr_int(&self) -> &IcClrInt {
+            &self.ic_clr_int
         }
     }
-    #[doc = "I2C_CTRL (rw) register accessor: I2C control register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_ctrl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_ctrl`] module"]
-    #[doc(alias = "I2C_CTRL")]
-    pub type I2cCtrl = crate::Reg<i2c_ctrl::I2cCtrlSpec>;
-    #[doc = "I2C control register"]
-    pub mod i2c_ctrl {
-        #[doc = "Register `I2C_CTRL` reader"]
-        pub type R = crate::R<I2cCtrlSpec>;
-        #[doc = "Register `I2C_CTRL` writer"]
-        pub type W = crate::W<I2cCtrlSpec>;
-        #[doc = "Field `int_done_mask` reader - Transfer complete interrupt mask: 0=masked; 1=unmasked"]
-        pub type IntDoneMaskR = crate::BitReader;
-        #[doc = "Field `int_done_mask` writer - Transfer complete interrupt mask: 0=masked; 1=unmasked"]
-        pub type IntDoneMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_arb_loss_mask` reader - Arbitration loss interrupt mask"]
-        pub type IntArbLossMaskR = crate::BitReader;
-        #[doc = "Field `int_arb_loss_mask` writer - Arbitration loss interrupt mask"]
-        pub type IntArbLossMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_ack_err_mask` reader - ACK error interrupt mask"]
-        pub type IntAckErrMaskR = crate::BitReader;
-        #[doc = "Field `int_ack_err_mask` writer - ACK error interrupt mask"]
-        pub type IntAckErrMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_rx_mask` reader - RX interrupt mask"]
-        pub type IntRxMaskR = crate::BitReader;
-        #[doc = "Field `int_rx_mask` writer - RX interrupt mask"]
-        pub type IntRxMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_tx_mask` reader - TX interrupt mask"]
-        pub type IntTxMaskR = crate::BitReader;
-        #[doc = "Field `int_tx_mask` writer - TX interrupt mask"]
-        pub type IntTxMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_stop_mask` reader - Stop condition interrupt mask"]
-        pub type IntStopMaskR = crate::BitReader;
-        #[doc = "Field `int_stop_mask` writer - Stop condition interrupt mask"]
-        pub type IntStopMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_start_mask` reader - Start condition interrupt mask"]
-        pub type IntStartMaskR = crate::BitReader;
-        #[doc = "Field `int_start_mask` writer - Start condition interrupt mask"]
-        pub type IntStartMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_mask` reader - I2C interrupt master mask"]
-        pub type IntMaskR = crate::BitReader;
-        #[doc = "Field `int_mask` writer - I2C interrupt master mask"]
-        pub type IntMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `i2c_en` reader - I2C enable: 0=disabled; 1=enabled"]
-        pub type I2cEnR = crate::BitReader;
-        #[doc = "Field `i2c_en` writer - I2C enable: 0=disabled; 1=enabled"]
-        pub type I2cEnW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_rxtide_mask` reader - RX FIFO overflow interrupt mask"]
-        pub type IntRxtideMaskR = crate::BitReader;
-        #[doc = "Field `int_rxtide_mask` writer - RX FIFO overflow interrupt mask"]
-        pub type IntRxtideMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `int_txtide_mask` reader - TX FIFO overflow interrupt mask"]
-        pub type IntTxtideMaskR = crate::BitReader;
-        #[doc = "Field `int_txtide_mask` writer - TX FIFO overflow interrupt mask"]
-        pub type IntTxtideMaskW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "I2C mode: 0=no FIFO; 1=FIFO mode\n\nValue on reset: 0"]
-        #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-        pub enum ModeCtrl {
-            #[doc = "0: No FIFO transfer mode"]
-            NoFifo = 0,
-            #[doc = "1: FIFO transfer mode"]
-            Fifo = 1,
-        }
-        impl From<ModeCtrl> for bool {
-            #[inline(always)]
-            fn from(variant: ModeCtrl) -> Self {
-                variant as u8 != 0
-            }
-        }
-        #[doc = "Field `mode_ctrl` reader - I2C mode: 0=no FIFO; 1=FIFO mode"]
-        pub type ModeCtrlR = crate::BitReader<ModeCtrl>;
-        impl ModeCtrlR {
-            #[doc = "Get enumerated values variant"]
-            #[inline(always)]
-            pub const fn variant(&self) -> ModeCtrl {
-                match self.bits {
-                    false => ModeCtrl::NoFifo,
-                    true => ModeCtrl::Fifo,
-                }
-            }
-            #[doc = "No FIFO transfer mode"]
-            #[inline(always)]
-            pub fn is_no_fifo(&self) -> bool {
-                *self == ModeCtrl::NoFifo
-            }
-            #[doc = "FIFO transfer mode"]
-            #[inline(always)]
-            pub fn is_fifo(&self) -> bool {
-                *self == ModeCtrl::Fifo
-            }
-        }
-        #[doc = "Field `mode_ctrl` writer - I2C mode: 0=no FIFO; 1=FIFO mode"]
-        pub type ModeCtrlW<'a, REG> = crate::BitWriter<'a, REG, ModeCtrl>;
-        impl<'a, REG> ModeCtrlW<'a, REG>
-        where
-            REG: crate::Writable + crate::RegisterSpec,
-        {
-            #[doc = "No FIFO transfer mode"]
-            #[inline(always)]
-            pub fn no_fifo(self) -> &'a mut crate::W<REG> {
-                self.variant(ModeCtrl::NoFifo)
-            }
-            #[doc = "FIFO transfer mode"]
-            #[inline(always)]
-            pub fn fifo(self) -> &'a mut crate::W<REG> {
-                self.variant(ModeCtrl::Fifo)
-            }
-        }
-        #[doc = "Field `int_txfifo_over_mask` reader - TX FIFO complete interrupt mask"]
-        pub type IntTxfifoOverMaskR = crate::BitReader;
-        #[doc = "Field `int_txfifo_over_mask` writer - TX FIFO complete interrupt mask"]
-        pub type IntTxfifoOverMaskW<'a, REG> = crate::BitWriter<'a, REG>;
+    #[doc = "IC_CON (rw) register accessor: IC_CON\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_con::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_con::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_con`] module"]
+    #[doc(alias = "IC_CON")]
+    pub type IcCon = crate::Reg<ic_con::IcConSpec>;
+    #[doc = "IC_CON"]
+    pub mod ic_con {
+        #[doc = "Register `IC_CON` reader"]
+        pub type R = crate::R<IcConSpec>;
+        #[doc = "Register `IC_CON` writer"]
+        pub type W = crate::W<IcConSpec>;
+        #[doc = "Field `master_mode` reader - 1=master"]
+        pub type MasterModeR = crate::BitReader;
+        #[doc = "Field `master_mode` writer - 1=master"]
+        pub type MasterModeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `speed` reader - 1=SS 2=FS 3=HS"]
+        pub type SpeedR = crate::FieldReader;
+        #[doc = "Field `speed` writer - 1=SS 2=FS 3=HS"]
+        pub type SpeedW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+        #[doc = "Field `ic_10bitaddr_slave` reader - "]
+        pub type Ic10bitaddrSlaveR = crate::BitReader;
+        #[doc = "Field `ic_10bitaddr_slave` writer - "]
+        pub type Ic10bitaddrSlaveW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ic_10bitaddr_master` reader - "]
+        pub type Ic10bitaddrMasterR = crate::BitReader;
+        #[doc = "Field `ic_10bitaddr_master` writer - "]
+        pub type Ic10bitaddrMasterW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ic_restart_en` reader - "]
+        pub type IcRestartEnR = crate::BitReader;
+        #[doc = "Field `ic_restart_en` writer - "]
+        pub type IcRestartEnW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `ic_slave_disable` reader - "]
+        pub type IcSlaveDisableR = crate::BitReader;
+        #[doc = "Field `ic_slave_disable` writer - "]
+        pub type IcSlaveDisableW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `stop_det_ifaddressed` reader - "]
+        pub type StopDetIfaddressedR = crate::BitReader;
+        #[doc = "Field `stop_det_ifaddressed` writer - "]
+        pub type StopDetIfaddressedW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `tx_empty_ctrl` reader - "]
+        pub type TxEmptyCtrlR = crate::BitReader;
+        #[doc = "Field `tx_empty_ctrl` writer - "]
+        pub type TxEmptyCtrlW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `rx_fifo_full_hld_ctrl` reader - "]
+        pub type RxFifoFullHldCtrlR = crate::BitReader;
+        #[doc = "Field `rx_fifo_full_hld_ctrl` writer - "]
+        pub type RxFifoFullHldCtrlW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `stop_det_if_master_active` reader - "]
+        pub type StopDetIfMasterActiveR = crate::BitReader;
+        #[doc = "Field `stop_det_if_master_active` writer - "]
+        pub type StopDetIfMasterActiveW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `bus_clear_feature_ctrl` reader - "]
+        pub type BusClearFeatureCtrlR = crate::BitReader;
+        #[doc = "Field `bus_clear_feature_ctrl` writer - "]
+        pub type BusClearFeatureCtrlW<'a, REG> = crate::BitWriter<'a, REG>;
         impl R {
-            #[doc = "Bit 0 - Transfer complete interrupt mask: 0=masked; 1=unmasked"]
+            #[doc = "Bit 0 - 1=master"]
             #[inline(always)]
-            pub fn int_done_mask(&self) -> IntDoneMaskR {
-                IntDoneMaskR::new((self.bits & 1) != 0)
+            pub fn master_mode(&self) -> MasterModeR {
+                MasterModeR::new((self.bits & 1) != 0)
             }
-            #[doc = "Bit 1 - Arbitration loss interrupt mask"]
+            #[doc = "Bits 1:2 - 1=SS 2=FS 3=HS"]
             #[inline(always)]
-            pub fn int_arb_loss_mask(&self) -> IntArbLossMaskR {
-                IntArbLossMaskR::new(((self.bits >> 1) & 1) != 0)
+            pub fn speed(&self) -> SpeedR {
+                SpeedR::new(((self.bits >> 1) & 3) as u8)
             }
-            #[doc = "Bit 2 - ACK error interrupt mask"]
+            #[doc = "Bit 3"]
             #[inline(always)]
-            pub fn int_ack_err_mask(&self) -> IntAckErrMaskR {
-                IntAckErrMaskR::new(((self.bits >> 2) & 1) != 0)
+            pub fn ic_10bitaddr_slave(&self) -> Ic10bitaddrSlaveR {
+                Ic10bitaddrSlaveR::new(((self.bits >> 3) & 1) != 0)
             }
-            #[doc = "Bit 3 - RX interrupt mask"]
+            #[doc = "Bit 4"]
             #[inline(always)]
-            pub fn int_rx_mask(&self) -> IntRxMaskR {
-                IntRxMaskR::new(((self.bits >> 3) & 1) != 0)
+            pub fn ic_10bitaddr_master(&self) -> Ic10bitaddrMasterR {
+                Ic10bitaddrMasterR::new(((self.bits >> 4) & 1) != 0)
             }
-            #[doc = "Bit 4 - TX interrupt mask"]
+            #[doc = "Bit 5"]
             #[inline(always)]
-            pub fn int_tx_mask(&self) -> IntTxMaskR {
-                IntTxMaskR::new(((self.bits >> 4) & 1) != 0)
+            pub fn ic_restart_en(&self) -> IcRestartEnR {
+                IcRestartEnR::new(((self.bits >> 5) & 1) != 0)
             }
-            #[doc = "Bit 5 - Stop condition interrupt mask"]
+            #[doc = "Bit 6"]
             #[inline(always)]
-            pub fn int_stop_mask(&self) -> IntStopMaskR {
-                IntStopMaskR::new(((self.bits >> 5) & 1) != 0)
+            pub fn ic_slave_disable(&self) -> IcSlaveDisableR {
+                IcSlaveDisableR::new(((self.bits >> 6) & 1) != 0)
             }
-            #[doc = "Bit 6 - Start condition interrupt mask"]
+            #[doc = "Bit 7"]
             #[inline(always)]
-            pub fn int_start_mask(&self) -> IntStartMaskR {
-                IntStartMaskR::new(((self.bits >> 6) & 1) != 0)
+            pub fn stop_det_ifaddressed(&self) -> StopDetIfaddressedR {
+                StopDetIfaddressedR::new(((self.bits >> 7) & 1) != 0)
             }
-            #[doc = "Bit 7 - I2C interrupt master mask"]
+            #[doc = "Bit 8"]
             #[inline(always)]
-            pub fn int_mask(&self) -> IntMaskR {
-                IntMaskR::new(((self.bits >> 7) & 1) != 0)
+            pub fn tx_empty_ctrl(&self) -> TxEmptyCtrlR {
+                TxEmptyCtrlR::new(((self.bits >> 8) & 1) != 0)
             }
-            #[doc = "Bit 8 - I2C enable: 0=disabled; 1=enabled"]
+            #[doc = "Bit 9"]
             #[inline(always)]
-            pub fn i2c_en(&self) -> I2cEnR {
-                I2cEnR::new(((self.bits >> 8) & 1) != 0)
+            pub fn rx_fifo_full_hld_ctrl(&self) -> RxFifoFullHldCtrlR {
+                RxFifoFullHldCtrlR::new(((self.bits >> 9) & 1) != 0)
             }
-            #[doc = "Bit 9 - RX FIFO overflow interrupt mask"]
+            #[doc = "Bit 10"]
             #[inline(always)]
-            pub fn int_rxtide_mask(&self) -> IntRxtideMaskR {
-                IntRxtideMaskR::new(((self.bits >> 9) & 1) != 0)
+            pub fn stop_det_if_master_active(&self) -> StopDetIfMasterActiveR {
+                StopDetIfMasterActiveR::new(((self.bits >> 10) & 1) != 0)
             }
-            #[doc = "Bit 10 - TX FIFO overflow interrupt mask"]
+            #[doc = "Bit 11"]
             #[inline(always)]
-            pub fn int_txtide_mask(&self) -> IntTxtideMaskR {
-                IntTxtideMaskR::new(((self.bits >> 10) & 1) != 0)
-            }
-            #[doc = "Bit 11 - I2C mode: 0=no FIFO; 1=FIFO mode"]
-            #[inline(always)]
-            pub fn mode_ctrl(&self) -> ModeCtrlR {
-                ModeCtrlR::new(((self.bits >> 11) & 1) != 0)
-            }
-            #[doc = "Bit 12 - TX FIFO complete interrupt mask"]
-            #[inline(always)]
-            pub fn int_txfifo_over_mask(&self) -> IntTxfifoOverMaskR {
-                IntTxfifoOverMaskR::new(((self.bits >> 12) & 1) != 0)
+            pub fn bus_clear_feature_ctrl(&self) -> BusClearFeatureCtrlR {
+                BusClearFeatureCtrlR::new(((self.bits >> 11) & 1) != 0)
             }
         }
         impl W {
-            #[doc = "Bit 0 - Transfer complete interrupt mask: 0=masked; 1=unmasked"]
+            #[doc = "Bit 0 - 1=master"]
             #[inline(always)]
-            pub fn int_done_mask(&mut self) -> IntDoneMaskW<'_, I2cCtrlSpec> {
-                IntDoneMaskW::new(self, 0)
+            pub fn master_mode(&mut self) -> MasterModeW<'_, IcConSpec> {
+                MasterModeW::new(self, 0)
             }
-            #[doc = "Bit 1 - Arbitration loss interrupt mask"]
+            #[doc = "Bits 1:2 - 1=SS 2=FS 3=HS"]
             #[inline(always)]
-            pub fn int_arb_loss_mask(&mut self) -> IntArbLossMaskW<'_, I2cCtrlSpec> {
-                IntArbLossMaskW::new(self, 1)
+            pub fn speed(&mut self) -> SpeedW<'_, IcConSpec> {
+                SpeedW::new(self, 1)
             }
-            #[doc = "Bit 2 - ACK error interrupt mask"]
+            #[doc = "Bit 3"]
             #[inline(always)]
-            pub fn int_ack_err_mask(&mut self) -> IntAckErrMaskW<'_, I2cCtrlSpec> {
-                IntAckErrMaskW::new(self, 2)
+            pub fn ic_10bitaddr_slave(&mut self) -> Ic10bitaddrSlaveW<'_, IcConSpec> {
+                Ic10bitaddrSlaveW::new(self, 3)
             }
-            #[doc = "Bit 3 - RX interrupt mask"]
+            #[doc = "Bit 4"]
             #[inline(always)]
-            pub fn int_rx_mask(&mut self) -> IntRxMaskW<'_, I2cCtrlSpec> {
-                IntRxMaskW::new(self, 3)
+            pub fn ic_10bitaddr_master(&mut self) -> Ic10bitaddrMasterW<'_, IcConSpec> {
+                Ic10bitaddrMasterW::new(self, 4)
             }
-            #[doc = "Bit 4 - TX interrupt mask"]
+            #[doc = "Bit 5"]
             #[inline(always)]
-            pub fn int_tx_mask(&mut self) -> IntTxMaskW<'_, I2cCtrlSpec> {
-                IntTxMaskW::new(self, 4)
+            pub fn ic_restart_en(&mut self) -> IcRestartEnW<'_, IcConSpec> {
+                IcRestartEnW::new(self, 5)
             }
-            #[doc = "Bit 5 - Stop condition interrupt mask"]
+            #[doc = "Bit 6"]
             #[inline(always)]
-            pub fn int_stop_mask(&mut self) -> IntStopMaskW<'_, I2cCtrlSpec> {
-                IntStopMaskW::new(self, 5)
+            pub fn ic_slave_disable(&mut self) -> IcSlaveDisableW<'_, IcConSpec> {
+                IcSlaveDisableW::new(self, 6)
             }
-            #[doc = "Bit 6 - Start condition interrupt mask"]
+            #[doc = "Bit 7"]
             #[inline(always)]
-            pub fn int_start_mask(&mut self) -> IntStartMaskW<'_, I2cCtrlSpec> {
-                IntStartMaskW::new(self, 6)
+            pub fn stop_det_ifaddressed(&mut self) -> StopDetIfaddressedW<'_, IcConSpec> {
+                StopDetIfaddressedW::new(self, 7)
             }
-            #[doc = "Bit 7 - I2C interrupt master mask"]
+            #[doc = "Bit 8"]
             #[inline(always)]
-            pub fn int_mask(&mut self) -> IntMaskW<'_, I2cCtrlSpec> {
-                IntMaskW::new(self, 7)
+            pub fn tx_empty_ctrl(&mut self) -> TxEmptyCtrlW<'_, IcConSpec> {
+                TxEmptyCtrlW::new(self, 8)
             }
-            #[doc = "Bit 8 - I2C enable: 0=disabled; 1=enabled"]
+            #[doc = "Bit 9"]
             #[inline(always)]
-            pub fn i2c_en(&mut self) -> I2cEnW<'_, I2cCtrlSpec> {
-                I2cEnW::new(self, 8)
+            pub fn rx_fifo_full_hld_ctrl(&mut self) -> RxFifoFullHldCtrlW<'_, IcConSpec> {
+                RxFifoFullHldCtrlW::new(self, 9)
             }
-            #[doc = "Bit 9 - RX FIFO overflow interrupt mask"]
+            #[doc = "Bit 10"]
             #[inline(always)]
-            pub fn int_rxtide_mask(&mut self) -> IntRxtideMaskW<'_, I2cCtrlSpec> {
-                IntRxtideMaskW::new(self, 9)
+            pub fn stop_det_if_master_active(&mut self) -> StopDetIfMasterActiveW<'_, IcConSpec> {
+                StopDetIfMasterActiveW::new(self, 10)
             }
-            #[doc = "Bit 10 - TX FIFO overflow interrupt mask"]
+            #[doc = "Bit 11"]
             #[inline(always)]
-            pub fn int_txtide_mask(&mut self) -> IntTxtideMaskW<'_, I2cCtrlSpec> {
-                IntTxtideMaskW::new(self, 10)
-            }
-            #[doc = "Bit 11 - I2C mode: 0=no FIFO; 1=FIFO mode"]
-            #[inline(always)]
-            pub fn mode_ctrl(&mut self) -> ModeCtrlW<'_, I2cCtrlSpec> {
-                ModeCtrlW::new(self, 11)
-            }
-            #[doc = "Bit 12 - TX FIFO complete interrupt mask"]
-            #[inline(always)]
-            pub fn int_txfifo_over_mask(&mut self) -> IntTxfifoOverMaskW<'_, I2cCtrlSpec> {
-                IntTxfifoOverMaskW::new(self, 12)
+            pub fn bus_clear_feature_ctrl(&mut self) -> BusClearFeatureCtrlW<'_, IcConSpec> {
+                BusClearFeatureCtrlW::new(self, 11)
             }
         }
-        #[doc = "I2C control register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_ctrl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cCtrlSpec;
-        impl crate::RegisterSpec for I2cCtrlSpec {
+        #[doc = "IC_CON\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_con::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_con::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcConSpec;
+        impl crate::RegisterSpec for IcConSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_ctrl::R`](R) reader structure"]
-        impl crate::Readable for I2cCtrlSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_ctrl::W`](W) writer structure"]
-        impl crate::Writable for I2cCtrlSpec {
+        #[doc = "`read()` method returns [`ic_con::R`](R) reader structure"]
+        impl crate::Readable for IcConSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_con::W`](W) writer structure"]
+        impl crate::Writable for IcConSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_CTRL to value 0"]
-        impl crate::Resettable for I2cCtrlSpec {}
+        #[doc = "`reset()` method sets IC_CON to value 0"]
+        impl crate::Resettable for IcConSpec {}
     }
-    #[doc = "I2C_COM (rw) register accessor: I2C command register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_com::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_com::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_com`] module"]
-    #[doc(alias = "I2C_COM")]
-    pub type I2cCom = crate::Reg<i2c_com::I2cComSpec>;
-    #[doc = "I2C command register"]
-    pub mod i2c_com {
-        #[doc = "Register `I2C_COM` reader"]
-        pub type R = crate::R<I2cComSpec>;
-        #[doc = "Register `I2C_COM` writer"]
-        pub type W = crate::W<I2cComSpec>;
-        #[doc = "Field `op_stop` reader - Generate stop condition: 0=end; 1=active"]
-        pub type OpStopR = crate::BitReader;
-        #[doc = "Field `op_stop` writer - Generate stop condition: 0=end; 1=active"]
-        pub type OpStopW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `op_we` reader - Generate write operation"]
-        pub type OpWeR = crate::BitReader;
-        #[doc = "Field `op_we` writer - Generate write operation"]
-        pub type OpWeW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `op_rd` reader - Generate read operation"]
-        pub type OpRdR = crate::BitReader;
-        #[doc = "Field `op_rd` writer - Generate read operation"]
-        pub type OpRdW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `op_start` reader - Generate start condition"]
-        pub type OpStartR = crate::BitReader;
-        #[doc = "Field `op_start` writer - Generate start condition"]
-        pub type OpStartW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `op_ack` reader - Master RX ACK: 0=send ACK; 1=no ACK"]
-        pub type OpAckR = crate::BitReader;
-        #[doc = "Field `op_ack` writer - Master RX ACK: 0=send ACK; 1=no ACK"]
-        pub type OpAckW<'a, REG> = crate::BitWriter<'a, REG>;
+    #[doc = "IC_ENABLE (rw) register accessor: IC_ENABLE\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_enable::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_enable::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_enable`] module"]
+    #[doc(alias = "IC_ENABLE")]
+    pub type IcEnable = crate::Reg<ic_enable::IcEnableSpec>;
+    #[doc = "IC_ENABLE"]
+    pub mod ic_enable {
+        #[doc = "Register `IC_ENABLE` reader"]
+        pub type R = crate::R<IcEnableSpec>;
+        #[doc = "Register `IC_ENABLE` writer"]
+        pub type W = crate::W<IcEnableSpec>;
+        #[doc = "Field `enable` reader - "]
+        pub type EnableR = crate::BitReader;
+        #[doc = "Field `enable` writer - "]
+        pub type EnableW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `abort` reader - "]
+        pub type AbortR = crate::BitReader;
+        #[doc = "Field `abort` writer - "]
+        pub type AbortW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `tx_cmd_block` reader - "]
+        pub type TxCmdBlockR = crate::BitReader;
+        #[doc = "Field `tx_cmd_block` writer - "]
+        pub type TxCmdBlockW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `sda_stuck_recovery_enable` reader - "]
+        pub type SdaStuckRecoveryEnableR = crate::BitReader;
+        #[doc = "Field `sda_stuck_recovery_enable` writer - "]
+        pub type SdaStuckRecoveryEnableW<'a, REG> = crate::BitWriter<'a, REG>;
         impl R {
-            #[doc = "Bit 0 - Generate stop condition: 0=end; 1=active"]
+            #[doc = "Bit 0"]
             #[inline(always)]
-            pub fn op_stop(&self) -> OpStopR {
-                OpStopR::new((self.bits & 1) != 0)
+            pub fn enable(&self) -> EnableR {
+                EnableR::new((self.bits & 1) != 0)
             }
-            #[doc = "Bit 1 - Generate write operation"]
+            #[doc = "Bit 1"]
             #[inline(always)]
-            pub fn op_we(&self) -> OpWeR {
-                OpWeR::new(((self.bits >> 1) & 1) != 0)
+            pub fn abort(&self) -> AbortR {
+                AbortR::new(((self.bits >> 1) & 1) != 0)
             }
-            #[doc = "Bit 2 - Generate read operation"]
+            #[doc = "Bit 2"]
             #[inline(always)]
-            pub fn op_rd(&self) -> OpRdR {
-                OpRdR::new(((self.bits >> 2) & 1) != 0)
+            pub fn tx_cmd_block(&self) -> TxCmdBlockR {
+                TxCmdBlockR::new(((self.bits >> 2) & 1) != 0)
             }
-            #[doc = "Bit 3 - Generate start condition"]
+            #[doc = "Bit 3"]
             #[inline(always)]
-            pub fn op_start(&self) -> OpStartR {
-                OpStartR::new(((self.bits >> 3) & 1) != 0)
-            }
-            #[doc = "Bit 4 - Master RX ACK: 0=send ACK; 1=no ACK"]
-            #[inline(always)]
-            pub fn op_ack(&self) -> OpAckR {
-                OpAckR::new(((self.bits >> 4) & 1) != 0)
+            pub fn sda_stuck_recovery_enable(&self) -> SdaStuckRecoveryEnableR {
+                SdaStuckRecoveryEnableR::new(((self.bits >> 3) & 1) != 0)
             }
         }
         impl W {
-            #[doc = "Bit 0 - Generate stop condition: 0=end; 1=active"]
+            #[doc = "Bit 0"]
             #[inline(always)]
-            pub fn op_stop(&mut self) -> OpStopW<'_, I2cComSpec> {
-                OpStopW::new(self, 0)
+            pub fn enable(&mut self) -> EnableW<'_, IcEnableSpec> {
+                EnableW::new(self, 0)
             }
-            #[doc = "Bit 1 - Generate write operation"]
+            #[doc = "Bit 1"]
             #[inline(always)]
-            pub fn op_we(&mut self) -> OpWeW<'_, I2cComSpec> {
-                OpWeW::new(self, 1)
+            pub fn abort(&mut self) -> AbortW<'_, IcEnableSpec> {
+                AbortW::new(self, 1)
             }
-            #[doc = "Bit 2 - Generate read operation"]
+            #[doc = "Bit 2"]
             #[inline(always)]
-            pub fn op_rd(&mut self) -> OpRdW<'_, I2cComSpec> {
-                OpRdW::new(self, 2)
+            pub fn tx_cmd_block(&mut self) -> TxCmdBlockW<'_, IcEnableSpec> {
+                TxCmdBlockW::new(self, 2)
             }
-            #[doc = "Bit 3 - Generate start condition"]
+            #[doc = "Bit 3"]
             #[inline(always)]
-            pub fn op_start(&mut self) -> OpStartW<'_, I2cComSpec> {
-                OpStartW::new(self, 3)
-            }
-            #[doc = "Bit 4 - Master RX ACK: 0=send ACK; 1=no ACK"]
-            #[inline(always)]
-            pub fn op_ack(&mut self) -> OpAckW<'_, I2cComSpec> {
-                OpAckW::new(self, 4)
+            pub fn sda_stuck_recovery_enable(
+                &mut self,
+            ) -> SdaStuckRecoveryEnableW<'_, IcEnableSpec> {
+                SdaStuckRecoveryEnableW::new(self, 3)
             }
         }
-        #[doc = "I2C command register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_com::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_com::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cComSpec;
-        impl crate::RegisterSpec for I2cComSpec {
+        #[doc = "IC_ENABLE\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_enable::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_enable::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcEnableSpec;
+        impl crate::RegisterSpec for IcEnableSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_com::R`](R) reader structure"]
-        impl crate::Readable for I2cComSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_com::W`](W) writer structure"]
-        impl crate::Writable for I2cComSpec {
+        #[doc = "`read()` method returns [`ic_enable::R`](R) reader structure"]
+        impl crate::Readable for IcEnableSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_enable::W`](W) writer structure"]
+        impl crate::Writable for IcEnableSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_COM to value 0"]
-        impl crate::Resettable for I2cComSpec {}
+        #[doc = "`reset()` method sets IC_ENABLE to value 0"]
+        impl crate::Resettable for IcEnableSpec {}
     }
-    #[doc = "I2C_ICR (rw) register accessor: I2C interrupt clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_icr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_icr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_icr`] module"]
-    #[doc(alias = "I2C_ICR")]
-    pub type I2cIcr = crate::Reg<i2c_icr::I2cIcrSpec>;
-    #[doc = "I2C interrupt clear register"]
-    pub mod i2c_icr {
-        #[doc = "Register `I2C_ICR` reader"]
-        pub type R = crate::R<I2cIcrSpec>;
-        #[doc = "Register `I2C_ICR` writer"]
-        pub type W = crate::W<I2cIcrSpec>;
-        #[doc = "Field `clr_int_done` writer - Clear transfer complete interrupt"]
-        pub type ClrIntDoneW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_arb_loss` writer - Clear arbitration loss interrupt"]
-        pub type ClrIntArbLossW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_ack_err` writer - Clear ACK error interrupt"]
-        pub type ClrIntAckErrW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_rx` writer - Clear RX interrupt"]
-        pub type ClrIntRxW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_tx` writer - Clear TX interrupt"]
-        pub type ClrIntTxW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_stop` writer - Clear stop interrupt"]
-        pub type ClrIntStopW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_start` writer - Clear start interrupt"]
-        pub type ClrIntStartW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_rxtide` writer - Clear RX FIFO overflow interrupt"]
-        pub type ClrIntRxtideW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_txtide` writer - Clear TX FIFO overflow interrupt"]
-        pub type ClrIntTxtideW<'a, REG> = crate::BitWriter<'a, REG>;
-        #[doc = "Field `clr_int_txfifo_over` writer - Clear TX FIFO complete interrupt"]
-        pub type ClrIntTxfifoOverW<'a, REG> = crate::BitWriter<'a, REG>;
-        impl W {
-            #[doc = "Bit 0 - Clear transfer complete interrupt"]
-            #[inline(always)]
-            pub fn clr_int_done(&mut self) -> ClrIntDoneW<'_, I2cIcrSpec> {
-                ClrIntDoneW::new(self, 0)
-            }
-            #[doc = "Bit 1 - Clear arbitration loss interrupt"]
-            #[inline(always)]
-            pub fn clr_int_arb_loss(&mut self) -> ClrIntArbLossW<'_, I2cIcrSpec> {
-                ClrIntArbLossW::new(self, 1)
-            }
-            #[doc = "Bit 2 - Clear ACK error interrupt"]
-            #[inline(always)]
-            pub fn clr_int_ack_err(&mut self) -> ClrIntAckErrW<'_, I2cIcrSpec> {
-                ClrIntAckErrW::new(self, 2)
-            }
-            #[doc = "Bit 3 - Clear RX interrupt"]
-            #[inline(always)]
-            pub fn clr_int_rx(&mut self) -> ClrIntRxW<'_, I2cIcrSpec> {
-                ClrIntRxW::new(self, 3)
-            }
-            #[doc = "Bit 4 - Clear TX interrupt"]
-            #[inline(always)]
-            pub fn clr_int_tx(&mut self) -> ClrIntTxW<'_, I2cIcrSpec> {
-                ClrIntTxW::new(self, 4)
-            }
-            #[doc = "Bit 5 - Clear stop interrupt"]
-            #[inline(always)]
-            pub fn clr_int_stop(&mut self) -> ClrIntStopW<'_, I2cIcrSpec> {
-                ClrIntStopW::new(self, 5)
-            }
-            #[doc = "Bit 6 - Clear start interrupt"]
-            #[inline(always)]
-            pub fn clr_int_start(&mut self) -> ClrIntStartW<'_, I2cIcrSpec> {
-                ClrIntStartW::new(self, 6)
-            }
-            #[doc = "Bit 7 - Clear RX FIFO overflow interrupt"]
-            #[inline(always)]
-            pub fn clr_int_rxtide(&mut self) -> ClrIntRxtideW<'_, I2cIcrSpec> {
-                ClrIntRxtideW::new(self, 7)
-            }
-            #[doc = "Bit 8 - Clear TX FIFO overflow interrupt"]
-            #[inline(always)]
-            pub fn clr_int_txtide(&mut self) -> ClrIntTxtideW<'_, I2cIcrSpec> {
-                ClrIntTxtideW::new(self, 8)
-            }
-            #[doc = "Bit 9 - Clear TX FIFO complete interrupt"]
-            #[inline(always)]
-            pub fn clr_int_txfifo_over(&mut self) -> ClrIntTxfifoOverW<'_, I2cIcrSpec> {
-                ClrIntTxfifoOverW::new(self, 9)
-            }
-        }
-        #[doc = "I2C interrupt clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_icr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_icr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cIcrSpec;
-        impl crate::RegisterSpec for I2cIcrSpec {
-            type Ux = u32;
-        }
-        #[doc = "`read()` method returns [`i2c_icr::R`](R) reader structure"]
-        impl crate::Readable for I2cIcrSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_icr::W`](W) writer structure"]
-        impl crate::Writable for I2cIcrSpec {
-            type Safety = crate::Unsafe;
-        }
-        #[doc = "`reset()` method sets I2C_ICR to value 0"]
-        impl crate::Resettable for I2cIcrSpec {}
-    }
-    #[doc = "I2C_SR (rw) register accessor: I2C status register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_sr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_sr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_sr`] module"]
-    #[doc(alias = "I2C_SR")]
-    pub type I2cSr = crate::Reg<i2c_sr::I2cSrSpec>;
-    #[doc = "I2C status register"]
-    pub mod i2c_sr {
-        #[doc = "Register `I2C_SR` reader"]
-        pub type R = crate::R<I2cSrSpec>;
-        #[doc = "Register `I2C_SR` writer"]
-        pub type W = crate::W<I2cSrSpec>;
-        #[doc = "Field `int_done` reader - Transfer complete interrupt flag"]
-        pub type IntDoneR = crate::BitReader;
-        #[doc = "Field `int_arb_loss` reader - Arbitration loss interrupt flag"]
-        pub type IntArbLossR = crate::BitReader;
-        #[doc = "Field `int_ack_err` reader - ACK error interrupt flag"]
-        pub type IntAckErrR = crate::BitReader;
-        #[doc = "Field `int_rx` reader - RX interrupt flag"]
-        pub type IntRxR = crate::BitReader;
-        #[doc = "Field `int_tx` reader - TX interrupt flag"]
-        pub type IntTxR = crate::BitReader;
-        #[doc = "Field `int_stop` reader - Stop interrupt flag"]
-        pub type IntStopR = crate::BitReader;
-        #[doc = "Field `int_start` reader - Start interrupt flag"]
-        pub type IntStartR = crate::BitReader;
-        #[doc = "Field `bus_busy` reader - Bus busy: 0=idle; 1=busy"]
-        pub type BusBusyR = crate::BitReader;
-        #[doc = "Field `int_rxtide` reader - RX FIFO overflow flag"]
-        pub type IntRxtideR = crate::BitReader;
-        #[doc = "Field `int_txtide` reader - TX FIFO overflow flag"]
-        pub type IntTxtideR = crate::BitReader;
-        #[doc = "Field `int_txfifo_over` reader - TX FIFO complete flag"]
-        pub type IntTxfifoOverR = crate::BitReader;
+    #[doc = "IC_TAR (rw) register accessor: IC_TAR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tar::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_tar::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_tar`] module"]
+    #[doc(alias = "IC_TAR")]
+    pub type IcTar = crate::Reg<ic_tar::IcTarSpec>;
+    #[doc = "IC_TAR"]
+    pub mod ic_tar {
+        #[doc = "Register `IC_TAR` reader"]
+        pub type R = crate::R<IcTarSpec>;
+        #[doc = "Register `IC_TAR` writer"]
+        pub type W = crate::W<IcTarSpec>;
+        #[doc = "Field `ic_tar` reader - target address"]
+        pub type IcTarR = crate::FieldReader<u16>;
+        #[doc = "Field `ic_tar` writer - target address"]
+        pub type IcTarW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
+        #[doc = "Field `gc_or_start` reader - "]
+        pub type GcOrStartR = crate::BitReader;
+        #[doc = "Field `gc_or_start` writer - "]
+        pub type GcOrStartW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `special` reader - "]
+        pub type SpecialR = crate::BitReader;
+        #[doc = "Field `special` writer - "]
+        pub type SpecialW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `master_10bitaddr` reader - "]
+        pub type Master10bitaddrR = crate::BitReader;
+        #[doc = "Field `master_10bitaddr` writer - "]
+        pub type Master10bitaddrW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `device_id` reader - "]
+        pub type DeviceIdR = crate::BitReader;
+        #[doc = "Field `device_id` writer - "]
+        pub type DeviceIdW<'a, REG> = crate::BitWriter<'a, REG>;
         impl R {
-            #[doc = "Bit 0 - Transfer complete interrupt flag"]
+            #[doc = "Bits 0:9 - target address"]
             #[inline(always)]
-            pub fn int_done(&self) -> IntDoneR {
-                IntDoneR::new((self.bits & 1) != 0)
+            pub fn ic_tar(&self) -> IcTarR {
+                IcTarR::new((self.bits & 0x03ff) as u16)
             }
-            #[doc = "Bit 1 - Arbitration loss interrupt flag"]
+            #[doc = "Bit 10"]
             #[inline(always)]
-            pub fn int_arb_loss(&self) -> IntArbLossR {
-                IntArbLossR::new(((self.bits >> 1) & 1) != 0)
+            pub fn gc_or_start(&self) -> GcOrStartR {
+                GcOrStartR::new(((self.bits >> 10) & 1) != 0)
             }
-            #[doc = "Bit 2 - ACK error interrupt flag"]
+            #[doc = "Bit 11"]
             #[inline(always)]
-            pub fn int_ack_err(&self) -> IntAckErrR {
-                IntAckErrR::new(((self.bits >> 2) & 1) != 0)
+            pub fn special(&self) -> SpecialR {
+                SpecialR::new(((self.bits >> 11) & 1) != 0)
             }
-            #[doc = "Bit 3 - RX interrupt flag"]
+            #[doc = "Bit 12"]
             #[inline(always)]
-            pub fn int_rx(&self) -> IntRxR {
-                IntRxR::new(((self.bits >> 3) & 1) != 0)
+            pub fn master_10bitaddr(&self) -> Master10bitaddrR {
+                Master10bitaddrR::new(((self.bits >> 12) & 1) != 0)
             }
-            #[doc = "Bit 4 - TX interrupt flag"]
+            #[doc = "Bit 13"]
             #[inline(always)]
-            pub fn int_tx(&self) -> IntTxR {
-                IntTxR::new(((self.bits >> 4) & 1) != 0)
-            }
-            #[doc = "Bit 5 - Stop interrupt flag"]
-            #[inline(always)]
-            pub fn int_stop(&self) -> IntStopR {
-                IntStopR::new(((self.bits >> 5) & 1) != 0)
-            }
-            #[doc = "Bit 6 - Start interrupt flag"]
-            #[inline(always)]
-            pub fn int_start(&self) -> IntStartR {
-                IntStartR::new(((self.bits >> 6) & 1) != 0)
-            }
-            #[doc = "Bit 7 - Bus busy: 0=idle; 1=busy"]
-            #[inline(always)]
-            pub fn bus_busy(&self) -> BusBusyR {
-                BusBusyR::new(((self.bits >> 7) & 1) != 0)
-            }
-            #[doc = "Bit 8 - RX FIFO overflow flag"]
-            #[inline(always)]
-            pub fn int_rxtide(&self) -> IntRxtideR {
-                IntRxtideR::new(((self.bits >> 8) & 1) != 0)
-            }
-            #[doc = "Bit 9 - TX FIFO overflow flag"]
-            #[inline(always)]
-            pub fn int_txtide(&self) -> IntTxtideR {
-                IntTxtideR::new(((self.bits >> 9) & 1) != 0)
-            }
-            #[doc = "Bit 10 - TX FIFO complete flag"]
-            #[inline(always)]
-            pub fn int_txfifo_over(&self) -> IntTxfifoOverR {
-                IntTxfifoOverR::new(((self.bits >> 10) & 1) != 0)
-            }
-        }
-        impl W {}
-        #[doc = "I2C status register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_sr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_sr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cSrSpec;
-        impl crate::RegisterSpec for I2cSrSpec {
-            type Ux = u32;
-        }
-        #[doc = "`read()` method returns [`i2c_sr::R`](R) reader structure"]
-        impl crate::Readable for I2cSrSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_sr::W`](W) writer structure"]
-        impl crate::Writable for I2cSrSpec {
-            type Safety = crate::Unsafe;
-        }
-        #[doc = "`reset()` method sets I2C_SR to value 0"]
-        impl crate::Resettable for I2cSrSpec {}
-    }
-    #[doc = "I2C_SCL_H (rw) register accessor: SCL high period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_scl_h::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_scl_h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_scl_h`] module"]
-    #[doc(alias = "I2C_SCL_H")]
-    pub type I2cSclH = crate::Reg<i2c_scl_h::I2cSclHSpec>;
-    #[doc = "SCL high period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]"]
-    pub mod i2c_scl_h {
-        #[doc = "Register `I2C_SCL_H` reader"]
-        pub type R = crate::R<I2cSclHSpec>;
-        #[doc = "Register `I2C_SCL_H` writer"]
-        pub type W = crate::W<I2cSclHSpec>;
-        #[doc = "Field `scl_h` reader - SCL high period (value*2 = actual period)"]
-        pub type SclHR = crate::FieldReader<u16>;
-        #[doc = "Field `scl_h` writer - SCL high period (value*2 = actual period)"]
-        pub type SclHW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-        impl R {
-            #[doc = "Bits 0:15 - SCL high period (value*2 = actual period)"]
-            #[inline(always)]
-            pub fn scl_h(&self) -> SclHR {
-                SclHR::new((self.bits & 0xffff) as u16)
+            pub fn device_id(&self) -> DeviceIdR {
+                DeviceIdR::new(((self.bits >> 13) & 1) != 0)
             }
         }
         impl W {
-            #[doc = "Bits 0:15 - SCL high period (value*2 = actual period)"]
+            #[doc = "Bits 0:9 - target address"]
             #[inline(always)]
-            pub fn scl_h(&mut self) -> SclHW<'_, I2cSclHSpec> {
-                SclHW::new(self, 0)
+            pub fn ic_tar(&mut self) -> IcTarW<'_, IcTarSpec> {
+                IcTarW::new(self, 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn gc_or_start(&mut self) -> GcOrStartW<'_, IcTarSpec> {
+                GcOrStartW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn special(&mut self) -> SpecialW<'_, IcTarSpec> {
+                SpecialW::new(self, 11)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn master_10bitaddr(&mut self) -> Master10bitaddrW<'_, IcTarSpec> {
+                Master10bitaddrW::new(self, 12)
+            }
+            #[doc = "Bit 13"]
+            #[inline(always)]
+            pub fn device_id(&mut self) -> DeviceIdW<'_, IcTarSpec> {
+                DeviceIdW::new(self, 13)
             }
         }
-        #[doc = "SCL high period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_scl_h::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_scl_h::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cSclHSpec;
-        impl crate::RegisterSpec for I2cSclHSpec {
+        #[doc = "IC_TAR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tar::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_tar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcTarSpec;
+        impl crate::RegisterSpec for IcTarSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_scl_h::R`](R) reader structure"]
-        impl crate::Readable for I2cSclHSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_scl_h::W`](W) writer structure"]
-        impl crate::Writable for I2cSclHSpec {
+        #[doc = "`read()` method returns [`ic_tar::R`](R) reader structure"]
+        impl crate::Readable for IcTarSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_tar::W`](W) writer structure"]
+        impl crate::Writable for IcTarSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_SCL_H to value 0"]
-        impl crate::Resettable for I2cSclHSpec {}
+        #[doc = "`reset()` method sets IC_TAR to value 0"]
+        impl crate::Resettable for IcTarSpec {}
     }
-    #[doc = "I2C_SCL_L (rw) register accessor: SCL low period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_scl_l::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_scl_l::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_scl_l`] module"]
-    #[doc(alias = "I2C_SCL_L")]
-    pub type I2cSclL = crate::Reg<i2c_scl_l::I2cSclLSpec>;
-    #[doc = "SCL low period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]"]
-    pub mod i2c_scl_l {
-        #[doc = "Register `I2C_SCL_L` reader"]
-        pub type R = crate::R<I2cSclLSpec>;
-        #[doc = "Register `I2C_SCL_L` writer"]
-        pub type W = crate::W<I2cSclLSpec>;
-        #[doc = "Field `scl_l` reader - SCL low period (value*2 = actual period)"]
-        pub type SclLR = crate::FieldReader<u16>;
-        #[doc = "Field `scl_l` writer - SCL low period (value*2 = actual period)"]
-        pub type SclLW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+    #[doc = "IC_SAR (rw) register accessor: IC_SAR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sar::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sar::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_sar`] module"]
+    #[doc(alias = "IC_SAR")]
+    pub type IcSar = crate::Reg<ic_sar::IcSarSpec>;
+    #[doc = "IC_SAR"]
+    pub mod ic_sar {
+        #[doc = "Register `IC_SAR` reader"]
+        pub type R = crate::R<IcSarSpec>;
+        #[doc = "Register `IC_SAR` writer"]
+        pub type W = crate::W<IcSarSpec>;
+        #[doc = "Field `ic_sar` reader - slave address"]
+        pub type IcSarR = crate::FieldReader<u16>;
+        #[doc = "Field `ic_sar` writer - slave address"]
+        pub type IcSarW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
         impl R {
-            #[doc = "Bits 0:15 - SCL low period (value*2 = actual period)"]
+            #[doc = "Bits 0:9 - slave address"]
             #[inline(always)]
-            pub fn scl_l(&self) -> SclLR {
-                SclLR::new((self.bits & 0xffff) as u16)
+            pub fn ic_sar(&self) -> IcSarR {
+                IcSarR::new((self.bits & 0x03ff) as u16)
             }
         }
         impl W {
-            #[doc = "Bits 0:15 - SCL low period (value*2 = actual period)"]
+            #[doc = "Bits 0:9 - slave address"]
             #[inline(always)]
-            pub fn scl_l(&mut self) -> SclLW<'_, I2cSclLSpec> {
-                SclLW::new(self, 0)
+            pub fn ic_sar(&mut self) -> IcSarW<'_, IcSarSpec> {
+                IcSarW::new(self, 0)
             }
         }
-        #[doc = "SCL low period register \\[Constraint: write only when I2C_CTRL\\[int_mask\\]=0\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_scl_l::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_scl_l::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cSclLSpec;
-        impl crate::RegisterSpec for I2cSclLSpec {
+        #[doc = "IC_SAR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sar::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSarSpec;
+        impl crate::RegisterSpec for IcSarSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_scl_l::R`](R) reader structure"]
-        impl crate::Readable for I2cSclLSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_scl_l::W`](W) writer structure"]
-        impl crate::Writable for I2cSclLSpec {
+        #[doc = "`read()` method returns [`ic_sar::R`](R) reader structure"]
+        impl crate::Readable for IcSarSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_sar::W`](W) writer structure"]
+        impl crate::Writable for IcSarSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_SCL_L to value 0"]
-        impl crate::Resettable for I2cSclLSpec {}
+        #[doc = "`reset()` method sets IC_SAR to value 0"]
+        impl crate::Resettable for IcSarSpec {}
     }
-    #[doc = "I2C_TXR (rw) register accessor: I2C TX data register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_txr`] module"]
-    #[doc(alias = "I2C_TXR")]
-    pub type I2cTxr = crate::Reg<i2c_txr::I2cTxrSpec>;
-    #[doc = "I2C TX data register"]
-    pub mod i2c_txr {
-        #[doc = "Register `I2C_TXR` reader"]
-        pub type R = crate::R<I2cTxrSpec>;
-        #[doc = "Register `I2C_TXR` writer"]
-        pub type W = crate::W<I2cTxrSpec>;
-        #[doc = "Field `i2c_txr` reader - TX data byte"]
-        pub type I2cTxrR = crate::FieldReader;
-        #[doc = "Field `i2c_txr` writer - TX data byte"]
-        pub type I2cTxrW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+    #[doc = "IC_HS_MADDR (rw) register accessor: IC_HS_MADDR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_hs_maddr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_hs_maddr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_hs_maddr`] module"]
+    #[doc(alias = "IC_HS_MADDR")]
+    pub type IcHsMaddr = crate::Reg<ic_hs_maddr::IcHsMaddrSpec>;
+    #[doc = "IC_HS_MADDR"]
+    pub mod ic_hs_maddr {
+        #[doc = "Register `IC_HS_MADDR` reader"]
+        pub type R = crate::R<IcHsMaddrSpec>;
+        #[doc = "Register `IC_HS_MADDR` writer"]
+        pub type W = crate::W<IcHsMaddrSpec>;
+        #[doc = "Field `ic_hs_mar` reader - "]
+        pub type IcHsMarR = crate::FieldReader;
+        #[doc = "Field `ic_hs_mar` writer - "]
+        pub type IcHsMarW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
         impl R {
-            #[doc = "Bits 0:7 - TX data byte"]
+            #[doc = "Bits 0:2"]
             #[inline(always)]
-            pub fn i2c_txr(&self) -> I2cTxrR {
-                I2cTxrR::new((self.bits & 0xff) as u8)
+            pub fn ic_hs_mar(&self) -> IcHsMarR {
+                IcHsMarR::new((self.bits & 7) as u8)
             }
         }
         impl W {
-            #[doc = "Bits 0:7 - TX data byte"]
+            #[doc = "Bits 0:2"]
             #[inline(always)]
-            pub fn i2c_txr(&mut self) -> I2cTxrW<'_, I2cTxrSpec> {
-                I2cTxrW::new(self, 0)
+            pub fn ic_hs_mar(&mut self) -> IcHsMarW<'_, IcHsMaddrSpec> {
+                IcHsMarW::new(self, 0)
             }
         }
-        #[doc = "I2C TX data register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cTxrSpec;
-        impl crate::RegisterSpec for I2cTxrSpec {
+        #[doc = "IC_HS_MADDR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_hs_maddr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_hs_maddr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcHsMaddrSpec;
+        impl crate::RegisterSpec for IcHsMaddrSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_txr::R`](R) reader structure"]
-        impl crate::Readable for I2cTxrSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_txr::W`](W) writer structure"]
-        impl crate::Writable for I2cTxrSpec {
+        #[doc = "`read()` method returns [`ic_hs_maddr::R`](R) reader structure"]
+        impl crate::Readable for IcHsMaddrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_hs_maddr::W`](W) writer structure"]
+        impl crate::Writable for IcHsMaddrSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_TXR to value 0"]
-        impl crate::Resettable for I2cTxrSpec {}
+        #[doc = "`reset()` method sets IC_HS_MADDR to value 0"]
+        impl crate::Resettable for IcHsMaddrSpec {}
     }
-    #[doc = "I2C_RXR (rw) register accessor: I2C RX data register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_rxr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_rxr`] module"]
-    #[doc(alias = "I2C_RXR")]
-    pub type I2cRxr = crate::Reg<i2c_rxr::I2cRxrSpec>;
-    #[doc = "I2C RX data register"]
-    pub mod i2c_rxr {
-        #[doc = "Register `I2C_RXR` reader"]
-        pub type R = crate::R<I2cRxrSpec>;
-        #[doc = "Register `I2C_RXR` writer"]
-        pub type W = crate::W<I2cRxrSpec>;
-        #[doc = "Field `i2c_rxr` reader - RX data byte"]
-        pub type I2cRxrR = crate::FieldReader;
+    #[doc = "IC_DATA_CMD (rw) register accessor: IC_DATA_CMD\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_data_cmd::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_data_cmd::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_data_cmd`] module"]
+    #[doc(alias = "IC_DATA_CMD")]
+    pub type IcDataCmd = crate::Reg<ic_data_cmd::IcDataCmdSpec>;
+    #[doc = "IC_DATA_CMD"]
+    pub mod ic_data_cmd {
+        #[doc = "Register `IC_DATA_CMD` reader"]
+        pub type R = crate::R<IcDataCmdSpec>;
+        #[doc = "Register `IC_DATA_CMD` writer"]
+        pub type W = crate::W<IcDataCmdSpec>;
+        #[doc = "Field `dat` reader - data byte"]
+        pub type DatR = crate::FieldReader;
+        #[doc = "Field `dat` writer - data byte"]
+        pub type DatW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        #[doc = "Field `cmd` reader - 1=read 0=write"]
+        pub type CmdR = crate::BitReader;
+        #[doc = "Field `cmd` writer - 1=read 0=write"]
+        pub type CmdW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `stop` reader - "]
+        pub type StopR = crate::BitReader;
+        #[doc = "Field `stop` writer - "]
+        pub type StopW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `restart` reader - "]
+        pub type RestartR = crate::BitReader;
+        #[doc = "Field `restart` writer - "]
+        pub type RestartW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `first_data_byte` reader - "]
+        pub type FirstDataByteR = crate::BitReader;
         impl R {
-            #[doc = "Bits 0:7 - RX data byte"]
+            #[doc = "Bits 0:7 - data byte"]
             #[inline(always)]
-            pub fn i2c_rxr(&self) -> I2cRxrR {
-                I2cRxrR::new((self.bits & 0xff) as u8)
+            pub fn dat(&self) -> DatR {
+                DatR::new((self.bits & 0xff) as u8)
             }
-        }
-        impl W {}
-        #[doc = "I2C RX data register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_rxr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cRxrSpec;
-        impl crate::RegisterSpec for I2cRxrSpec {
-            type Ux = u32;
-        }
-        #[doc = "`read()` method returns [`i2c_rxr::R`](R) reader structure"]
-        impl crate::Readable for I2cRxrSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_rxr::W`](W) writer structure"]
-        impl crate::Writable for I2cRxrSpec {
-            type Safety = crate::Unsafe;
-        }
-        #[doc = "`reset()` method sets I2C_RXR to value 0"]
-        impl crate::Resettable for I2cRxrSpec {}
-    }
-    #[doc = "I2C_FIFOSTATUS (rw) register accessor: FIFO status register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_fifostatus::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_fifostatus::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_fifostatus`] module"]
-    #[doc(alias = "I2C_FIFOSTATUS")]
-    pub type I2cFifostatus = crate::Reg<i2c_fifostatus::I2cFifostatusSpec>;
-    #[doc = "FIFO status register"]
-    pub mod i2c_fifostatus {
-        #[doc = "Register `I2C_FIFOSTATUS` reader"]
-        pub type R = crate::R<I2cFifostatusSpec>;
-        #[doc = "Register `I2C_FIFOSTATUS` writer"]
-        pub type W = crate::W<I2cFifostatusSpec>;
-        #[doc = "Field `txff` reader - TX FIFO full: 0=not full; 1=full"]
-        pub type TxffR = crate::BitReader;
-        #[doc = "Field `txfe` reader - TX FIFO empty: 0=not empty; 1=empty"]
-        pub type TxfeR = crate::BitReader;
-        #[doc = "Field `rxff` reader - RX FIFO full"]
-        pub type RxffR = crate::BitReader;
-        #[doc = "Field `rxfe` reader - RX FIFO empty"]
-        pub type RxfeR = crate::BitReader;
-        impl R {
-            #[doc = "Bit 0 - TX FIFO full: 0=not full; 1=full"]
+            #[doc = "Bit 8 - 1=read 0=write"]
             #[inline(always)]
-            pub fn txff(&self) -> TxffR {
-                TxffR::new((self.bits & 1) != 0)
+            pub fn cmd(&self) -> CmdR {
+                CmdR::new(((self.bits >> 8) & 1) != 0)
             }
-            #[doc = "Bit 1 - TX FIFO empty: 0=not empty; 1=empty"]
+            #[doc = "Bit 9"]
             #[inline(always)]
-            pub fn txfe(&self) -> TxfeR {
-                TxfeR::new(((self.bits >> 1) & 1) != 0)
+            pub fn stop(&self) -> StopR {
+                StopR::new(((self.bits >> 9) & 1) != 0)
             }
-            #[doc = "Bit 2 - RX FIFO full"]
+            #[doc = "Bit 10"]
             #[inline(always)]
-            pub fn rxff(&self) -> RxffR {
-                RxffR::new(((self.bits >> 2) & 1) != 0)
+            pub fn restart(&self) -> RestartR {
+                RestartR::new(((self.bits >> 10) & 1) != 0)
             }
-            #[doc = "Bit 3 - RX FIFO empty"]
+            #[doc = "Bit 11"]
             #[inline(always)]
-            pub fn rxfe(&self) -> RxfeR {
-                RxfeR::new(((self.bits >> 3) & 1) != 0)
-            }
-        }
-        impl W {}
-        #[doc = "FIFO status register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_fifostatus::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_fifostatus::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cFifostatusSpec;
-        impl crate::RegisterSpec for I2cFifostatusSpec {
-            type Ux = u32;
-        }
-        #[doc = "`read()` method returns [`i2c_fifostatus::R`](R) reader structure"]
-        impl crate::Readable for I2cFifostatusSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_fifostatus::W`](W) writer structure"]
-        impl crate::Writable for I2cFifostatusSpec {
-            type Safety = crate::Unsafe;
-        }
-        #[doc = "`reset()` method sets I2C_FIFOSTATUS to value 0"]
-        impl crate::Resettable for I2cFifostatusSpec {}
-    }
-    #[doc = "I2C_TXCOUNT (rw) register accessor: TX FIFO count register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txcount::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txcount::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_txcount`] module"]
-    #[doc(alias = "I2C_TXCOUNT")]
-    pub type I2cTxcount = crate::Reg<i2c_txcount::I2cTxcountSpec>;
-    #[doc = "TX FIFO count register"]
-    pub mod i2c_txcount {
-        #[doc = "Register `I2C_TXCOUNT` reader"]
-        pub type R = crate::R<I2cTxcountSpec>;
-        #[doc = "Register `I2C_TXCOUNT` writer"]
-        pub type W = crate::W<I2cTxcountSpec>;
-        #[doc = "Field `txcount` reader - TX FIFO character count (write any value to clear TX FIFO)"]
-        pub type TxcountR = crate::FieldReader;
-        #[doc = "Field `txcount` writer - TX FIFO character count (write any value to clear TX FIFO)"]
-        pub type TxcountW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
-        impl R {
-            #[doc = "Bits 0:5 - TX FIFO character count (write any value to clear TX FIFO)"]
-            #[inline(always)]
-            pub fn txcount(&self) -> TxcountR {
-                TxcountR::new((self.bits & 0x3f) as u8)
+            pub fn first_data_byte(&self) -> FirstDataByteR {
+                FirstDataByteR::new(((self.bits >> 11) & 1) != 0)
             }
         }
         impl W {
-            #[doc = "Bits 0:5 - TX FIFO character count (write any value to clear TX FIFO)"]
+            #[doc = "Bits 0:7 - data byte"]
             #[inline(always)]
-            pub fn txcount(&mut self) -> TxcountW<'_, I2cTxcountSpec> {
-                TxcountW::new(self, 0)
+            pub fn dat(&mut self) -> DatW<'_, IcDataCmdSpec> {
+                DatW::new(self, 0)
+            }
+            #[doc = "Bit 8 - 1=read 0=write"]
+            #[inline(always)]
+            pub fn cmd(&mut self) -> CmdW<'_, IcDataCmdSpec> {
+                CmdW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn stop(&mut self) -> StopW<'_, IcDataCmdSpec> {
+                StopW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn restart(&mut self) -> RestartW<'_, IcDataCmdSpec> {
+                RestartW::new(self, 10)
             }
         }
-        #[doc = "TX FIFO count register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txcount::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txcount::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cTxcountSpec;
-        impl crate::RegisterSpec for I2cTxcountSpec {
+        #[doc = "IC_DATA_CMD\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_data_cmd::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_data_cmd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcDataCmdSpec;
+        impl crate::RegisterSpec for IcDataCmdSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_txcount::R`](R) reader structure"]
-        impl crate::Readable for I2cTxcountSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_txcount::W`](W) writer structure"]
-        impl crate::Writable for I2cTxcountSpec {
+        #[doc = "`read()` method returns [`ic_data_cmd::R`](R) reader structure"]
+        impl crate::Readable for IcDataCmdSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_data_cmd::W`](W) writer structure"]
+        impl crate::Writable for IcDataCmdSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_TXCOUNT to value 0"]
-        impl crate::Resettable for I2cTxcountSpec {}
+        #[doc = "`reset()` method sets IC_DATA_CMD to value 0"]
+        impl crate::Resettable for IcDataCmdSpec {}
     }
-    #[doc = "I2C_RXCOUNT (rw) register accessor: RX FIFO count register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxcount::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_rxcount::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_rxcount`] module"]
-    #[doc(alias = "I2C_RXCOUNT")]
-    pub type I2cRxcount = crate::Reg<i2c_rxcount::I2cRxcountSpec>;
-    #[doc = "RX FIFO count register"]
-    pub mod i2c_rxcount {
-        #[doc = "Register `I2C_RXCOUNT` reader"]
-        pub type R = crate::R<I2cRxcountSpec>;
-        #[doc = "Register `I2C_RXCOUNT` writer"]
-        pub type W = crate::W<I2cRxcountSpec>;
-        #[doc = "Field `rxcount` reader - RX FIFO character count (write any value to clear RX FIFO)"]
-        pub type RxcountR = crate::FieldReader;
-        #[doc = "Field `rxcount` writer - RX FIFO character count (write any value to clear RX FIFO)"]
-        pub type RxcountW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+    #[doc = "IC_SS_SCL_HCNT (rw) register accessor: IC_SS_SCL_HCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_ss_scl_hcnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_ss_scl_hcnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_ss_scl_hcnt`] module"]
+    #[doc(alias = "IC_SS_SCL_HCNT")]
+    pub type IcSsSclHcnt = crate::Reg<ic_ss_scl_hcnt::IcSsSclHcntSpec>;
+    #[doc = "IC_SS_SCL_HCNT"]
+    pub mod ic_ss_scl_hcnt {
+        #[doc = "Register `IC_SS_SCL_HCNT` reader"]
+        pub type R = crate::R<IcSsSclHcntSpec>;
+        #[doc = "Register `IC_SS_SCL_HCNT` writer"]
+        pub type W = crate::W<IcSsSclHcntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        #[doc = "Field `cnt` writer - "]
+        pub type CntW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
         impl R {
-            #[doc = "Bits 0:5 - RX FIFO character count (write any value to clear RX FIFO)"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn rxcount(&self) -> RxcountR {
-                RxcountR::new((self.bits & 0x3f) as u8)
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
             }
         }
         impl W {
-            #[doc = "Bits 0:5 - RX FIFO character count (write any value to clear RX FIFO)"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn rxcount(&mut self) -> RxcountW<'_, I2cRxcountSpec> {
-                RxcountW::new(self, 0)
+            pub fn cnt(&mut self) -> CntW<'_, IcSsSclHcntSpec> {
+                CntW::new(self, 0)
             }
         }
-        #[doc = "RX FIFO count register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxcount::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_rxcount::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cRxcountSpec;
-        impl crate::RegisterSpec for I2cRxcountSpec {
+        #[doc = "IC_SS_SCL_HCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_ss_scl_hcnt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_ss_scl_hcnt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSsSclHcntSpec;
+        impl crate::RegisterSpec for IcSsSclHcntSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_rxcount::R`](R) reader structure"]
-        impl crate::Readable for I2cRxcountSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_rxcount::W`](W) writer structure"]
-        impl crate::Writable for I2cRxcountSpec {
+        #[doc = "`read()` method returns [`ic_ss_scl_hcnt::R`](R) reader structure"]
+        impl crate::Readable for IcSsSclHcntSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_ss_scl_hcnt::W`](W) writer structure"]
+        impl crate::Writable for IcSsSclHcntSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_RXCOUNT to value 0"]
-        impl crate::Resettable for I2cRxcountSpec {}
+        #[doc = "`reset()` method sets IC_SS_SCL_HCNT to value 0"]
+        impl crate::Resettable for IcSsSclHcntSpec {}
     }
-    #[doc = "I2C_RXTIDE (rw) register accessor: RX FIFO threshold register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxtide::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_rxtide::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_rxtide`] module"]
-    #[doc(alias = "I2C_RXTIDE")]
-    pub type I2cRxtide = crate::Reg<i2c_rxtide::I2cRxtideSpec>;
-    #[doc = "RX FIFO threshold register"]
-    pub mod i2c_rxtide {
-        #[doc = "Register `I2C_RXTIDE` reader"]
-        pub type R = crate::R<I2cRxtideSpec>;
-        #[doc = "Register `I2C_RXTIDE` writer"]
-        pub type W = crate::W<I2cRxtideSpec>;
-        #[doc = "Field `rxtide` reader - RX FIFO overflow interrupt trigger value"]
-        pub type RxtideR = crate::FieldReader;
-        #[doc = "Field `rxtide` writer - RX FIFO overflow interrupt trigger value"]
-        pub type RxtideW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+    #[doc = "IC_SS_SCL_LCNT (rw) register accessor: IC_SS_SCL_LCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_ss_scl_lcnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_ss_scl_lcnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_ss_scl_lcnt`] module"]
+    #[doc(alias = "IC_SS_SCL_LCNT")]
+    pub type IcSsSclLcnt = crate::Reg<ic_ss_scl_lcnt::IcSsSclLcntSpec>;
+    #[doc = "IC_SS_SCL_LCNT"]
+    pub mod ic_ss_scl_lcnt {
+        #[doc = "Register `IC_SS_SCL_LCNT` reader"]
+        pub type R = crate::R<IcSsSclLcntSpec>;
+        #[doc = "Register `IC_SS_SCL_LCNT` writer"]
+        pub type W = crate::W<IcSsSclLcntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        #[doc = "Field `cnt` writer - "]
+        pub type CntW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
         impl R {
-            #[doc = "Bits 0:5 - RX FIFO overflow interrupt trigger value"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn rxtide(&self) -> RxtideR {
-                RxtideR::new((self.bits & 0x3f) as u8)
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
             }
         }
         impl W {
-            #[doc = "Bits 0:5 - RX FIFO overflow interrupt trigger value"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn rxtide(&mut self) -> RxtideW<'_, I2cRxtideSpec> {
-                RxtideW::new(self, 0)
+            pub fn cnt(&mut self) -> CntW<'_, IcSsSclLcntSpec> {
+                CntW::new(self, 0)
             }
         }
-        #[doc = "RX FIFO threshold register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_rxtide::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_rxtide::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cRxtideSpec;
-        impl crate::RegisterSpec for I2cRxtideSpec {
+        #[doc = "IC_SS_SCL_LCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_ss_scl_lcnt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_ss_scl_lcnt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSsSclLcntSpec;
+        impl crate::RegisterSpec for IcSsSclLcntSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_rxtide::R`](R) reader structure"]
-        impl crate::Readable for I2cRxtideSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_rxtide::W`](W) writer structure"]
-        impl crate::Writable for I2cRxtideSpec {
+        #[doc = "`read()` method returns [`ic_ss_scl_lcnt::R`](R) reader structure"]
+        impl crate::Readable for IcSsSclLcntSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_ss_scl_lcnt::W`](W) writer structure"]
+        impl crate::Writable for IcSsSclLcntSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_RXTIDE to value 0x01"]
-        impl crate::Resettable for I2cRxtideSpec {
-            const RESET_VALUE: u32 = 0x01;
-        }
+        #[doc = "`reset()` method sets IC_SS_SCL_LCNT to value 0"]
+        impl crate::Resettable for IcSsSclLcntSpec {}
     }
-    #[doc = "I2C_TXTIDE (rw) register accessor: TX FIFO threshold register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txtide::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txtide::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_txtide`] module"]
-    #[doc(alias = "I2C_TXTIDE")]
-    pub type I2cTxtide = crate::Reg<i2c_txtide::I2cTxtideSpec>;
-    #[doc = "TX FIFO threshold register"]
-    pub mod i2c_txtide {
-        #[doc = "Register `I2C_TXTIDE` reader"]
-        pub type R = crate::R<I2cTxtideSpec>;
-        #[doc = "Register `I2C_TXTIDE` writer"]
-        pub type W = crate::W<I2cTxtideSpec>;
-        #[doc = "Field `txtide` reader - TX FIFO overflow interrupt trigger value"]
-        pub type TxtideR = crate::FieldReader;
-        #[doc = "Field `txtide` writer - TX FIFO overflow interrupt trigger value"]
-        pub type TxtideW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+    #[doc = "IC_FS_SCL_HCNT (rw) register accessor: IC_FS_SCL_HCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_fs_scl_hcnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_fs_scl_hcnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_fs_scl_hcnt`] module"]
+    #[doc(alias = "IC_FS_SCL_HCNT")]
+    pub type IcFsSclHcnt = crate::Reg<ic_fs_scl_hcnt::IcFsSclHcntSpec>;
+    #[doc = "IC_FS_SCL_HCNT"]
+    pub mod ic_fs_scl_hcnt {
+        #[doc = "Register `IC_FS_SCL_HCNT` reader"]
+        pub type R = crate::R<IcFsSclHcntSpec>;
+        #[doc = "Register `IC_FS_SCL_HCNT` writer"]
+        pub type W = crate::W<IcFsSclHcntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        #[doc = "Field `cnt` writer - "]
+        pub type CntW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
         impl R {
-            #[doc = "Bits 0:5 - TX FIFO overflow interrupt trigger value"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn txtide(&self) -> TxtideR {
-                TxtideR::new((self.bits & 0x3f) as u8)
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
             }
         }
         impl W {
-            #[doc = "Bits 0:5 - TX FIFO overflow interrupt trigger value"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn txtide(&mut self) -> TxtideW<'_, I2cTxtideSpec> {
-                TxtideW::new(self, 0)
+            pub fn cnt(&mut self) -> CntW<'_, IcFsSclHcntSpec> {
+                CntW::new(self, 0)
             }
         }
-        #[doc = "TX FIFO threshold register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_txtide::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_txtide::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cTxtideSpec;
-        impl crate::RegisterSpec for I2cTxtideSpec {
+        #[doc = "IC_FS_SCL_HCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_fs_scl_hcnt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_fs_scl_hcnt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcFsSclHcntSpec;
+        impl crate::RegisterSpec for IcFsSclHcntSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_txtide::R`](R) reader structure"]
-        impl crate::Readable for I2cTxtideSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_txtide::W`](W) writer structure"]
-        impl crate::Writable for I2cTxtideSpec {
+        #[doc = "`read()` method returns [`ic_fs_scl_hcnt::R`](R) reader structure"]
+        impl crate::Readable for IcFsSclHcntSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_fs_scl_hcnt::W`](W) writer structure"]
+        impl crate::Writable for IcFsSclHcntSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_TXTIDE to value 0x01"]
-        impl crate::Resettable for I2cTxtideSpec {
-            const RESET_VALUE: u32 = 0x01;
-        }
+        #[doc = "`reset()` method sets IC_FS_SCL_HCNT to value 0"]
+        impl crate::Resettable for IcFsSclHcntSpec {}
     }
-    #[doc = "I2C_FTRPER (rw) register accessor: Glitch filter configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_ftrper::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_ftrper::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@i2c_ftrper`] module"]
-    #[doc(alias = "I2C_FTRPER")]
-    pub type I2cFtrper = crate::Reg<i2c_ftrper::I2cFtrperSpec>;
-    #[doc = "Glitch filter configuration register"]
-    pub mod i2c_ftrper {
-        #[doc = "Register `I2C_FTRPER` reader"]
-        pub type R = crate::R<I2cFtrperSpec>;
-        #[doc = "Register `I2C_FTRPER` writer"]
-        pub type W = crate::W<I2cFtrperSpec>;
-        #[doc = "Field `ftrper` reader - Glitch filter period in ic_clk cycles"]
-        pub type FtrperR = crate::FieldReader;
-        #[doc = "Field `ftrper` writer - Glitch filter period in ic_clk cycles"]
-        pub type FtrperW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
+    #[doc = "IC_FS_SCL_LCNT (rw) register accessor: IC_FS_SCL_LCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_fs_scl_lcnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_fs_scl_lcnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_fs_scl_lcnt`] module"]
+    #[doc(alias = "IC_FS_SCL_LCNT")]
+    pub type IcFsSclLcnt = crate::Reg<ic_fs_scl_lcnt::IcFsSclLcntSpec>;
+    #[doc = "IC_FS_SCL_LCNT"]
+    pub mod ic_fs_scl_lcnt {
+        #[doc = "Register `IC_FS_SCL_LCNT` reader"]
+        pub type R = crate::R<IcFsSclLcntSpec>;
+        #[doc = "Register `IC_FS_SCL_LCNT` writer"]
+        pub type W = crate::W<IcFsSclLcntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        #[doc = "Field `cnt` writer - "]
+        pub type CntW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
         impl R {
-            #[doc = "Bits 0:3 - Glitch filter period in ic_clk cycles"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn ftrper(&self) -> FtrperR {
-                FtrperR::new((self.bits & 0x0f) as u8)
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
             }
         }
         impl W {
-            #[doc = "Bits 0:3 - Glitch filter period in ic_clk cycles"]
+            #[doc = "Bits 0:15"]
             #[inline(always)]
-            pub fn ftrper(&mut self) -> FtrperW<'_, I2cFtrperSpec> {
-                FtrperW::new(self, 0)
+            pub fn cnt(&mut self) -> CntW<'_, IcFsSclLcntSpec> {
+                CntW::new(self, 0)
             }
         }
-        #[doc = "Glitch filter configuration register\n\nYou can [`read`](crate::Reg::read) this register and get [`i2c_ftrper::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`i2c_ftrper::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-        pub struct I2cFtrperSpec;
-        impl crate::RegisterSpec for I2cFtrperSpec {
+        #[doc = "IC_FS_SCL_LCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_fs_scl_lcnt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_fs_scl_lcnt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcFsSclLcntSpec;
+        impl crate::RegisterSpec for IcFsSclLcntSpec {
             type Ux = u32;
         }
-        #[doc = "`read()` method returns [`i2c_ftrper::R`](R) reader structure"]
-        impl crate::Readable for I2cFtrperSpec {}
-        #[doc = "`write(|w| ..)` method takes [`i2c_ftrper::W`](W) writer structure"]
-        impl crate::Writable for I2cFtrperSpec {
+        #[doc = "`read()` method returns [`ic_fs_scl_lcnt::R`](R) reader structure"]
+        impl crate::Readable for IcFsSclLcntSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_fs_scl_lcnt::W`](W) writer structure"]
+        impl crate::Writable for IcFsSclLcntSpec {
             type Safety = crate::Unsafe;
         }
-        #[doc = "`reset()` method sets I2C_FTRPER to value 0x0f"]
-        impl crate::Resettable for I2cFtrperSpec {
-            const RESET_VALUE: u32 = 0x0f;
+        #[doc = "`reset()` method sets IC_FS_SCL_LCNT to value 0"]
+        impl crate::Resettable for IcFsSclLcntSpec {}
+    }
+    #[doc = "IC_HS_SCL_HCNT (rw) register accessor: IC_HS_SCL_HCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_hs_scl_hcnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_hs_scl_hcnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_hs_scl_hcnt`] module"]
+    #[doc(alias = "IC_HS_SCL_HCNT")]
+    pub type IcHsSclHcnt = crate::Reg<ic_hs_scl_hcnt::IcHsSclHcntSpec>;
+    #[doc = "IC_HS_SCL_HCNT"]
+    pub mod ic_hs_scl_hcnt {
+        #[doc = "Register `IC_HS_SCL_HCNT` reader"]
+        pub type R = crate::R<IcHsSclHcntSpec>;
+        #[doc = "Register `IC_HS_SCL_HCNT` writer"]
+        pub type W = crate::W<IcHsSclHcntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        #[doc = "Field `cnt` writer - "]
+        pub type CntW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
+            }
         }
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn cnt(&mut self) -> CntW<'_, IcHsSclHcntSpec> {
+                CntW::new(self, 0)
+            }
+        }
+        #[doc = "IC_HS_SCL_HCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_hs_scl_hcnt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_hs_scl_hcnt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcHsSclHcntSpec;
+        impl crate::RegisterSpec for IcHsSclHcntSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_hs_scl_hcnt::R`](R) reader structure"]
+        impl crate::Readable for IcHsSclHcntSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_hs_scl_hcnt::W`](W) writer structure"]
+        impl crate::Writable for IcHsSclHcntSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_HS_SCL_HCNT to value 0"]
+        impl crate::Resettable for IcHsSclHcntSpec {}
+    }
+    #[doc = "IC_HS_SCL_LCNT (rw) register accessor: IC_HS_SCL_LCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_hs_scl_lcnt::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_hs_scl_lcnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_hs_scl_lcnt`] module"]
+    #[doc(alias = "IC_HS_SCL_LCNT")]
+    pub type IcHsSclLcnt = crate::Reg<ic_hs_scl_lcnt::IcHsSclLcntSpec>;
+    #[doc = "IC_HS_SCL_LCNT"]
+    pub mod ic_hs_scl_lcnt {
+        #[doc = "Register `IC_HS_SCL_LCNT` reader"]
+        pub type R = crate::R<IcHsSclLcntSpec>;
+        #[doc = "Register `IC_HS_SCL_LCNT` writer"]
+        pub type W = crate::W<IcHsSclLcntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        #[doc = "Field `cnt` writer - "]
+        pub type CntW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn cnt(&mut self) -> CntW<'_, IcHsSclLcntSpec> {
+                CntW::new(self, 0)
+            }
+        }
+        #[doc = "IC_HS_SCL_LCNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_hs_scl_lcnt::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_hs_scl_lcnt::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcHsSclLcntSpec;
+        impl crate::RegisterSpec for IcHsSclLcntSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_hs_scl_lcnt::R`](R) reader structure"]
+        impl crate::Readable for IcHsSclLcntSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_hs_scl_lcnt::W`](W) writer structure"]
+        impl crate::Writable for IcHsSclLcntSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_HS_SCL_LCNT to value 0"]
+        impl crate::Resettable for IcHsSclLcntSpec {}
+    }
+    #[doc = "IC_RX_TL (rw) register accessor: IC_RX_TL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_rx_tl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_rx_tl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_rx_tl`] module"]
+    #[doc(alias = "IC_RX_TL")]
+    pub type IcRxTl = crate::Reg<ic_rx_tl::IcRxTlSpec>;
+    #[doc = "IC_RX_TL"]
+    pub mod ic_rx_tl {
+        #[doc = "Register `IC_RX_TL` reader"]
+        pub type R = crate::R<IcRxTlSpec>;
+        #[doc = "Register `IC_RX_TL` writer"]
+        pub type W = crate::W<IcRxTlSpec>;
+        #[doc = "Field `rx_tl` reader - "]
+        pub type RxTlR = crate::FieldReader;
+        #[doc = "Field `rx_tl` writer - "]
+        pub type RxTlW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        impl R {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn rx_tl(&self) -> RxTlR {
+                RxTlR::new((self.bits & 0xff) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn rx_tl(&mut self) -> RxTlW<'_, IcRxTlSpec> {
+                RxTlW::new(self, 0)
+            }
+        }
+        #[doc = "IC_RX_TL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_rx_tl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_rx_tl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcRxTlSpec;
+        impl crate::RegisterSpec for IcRxTlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_rx_tl::R`](R) reader structure"]
+        impl crate::Readable for IcRxTlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_rx_tl::W`](W) writer structure"]
+        impl crate::Writable for IcRxTlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_RX_TL to value 0"]
+        impl crate::Resettable for IcRxTlSpec {}
+    }
+    #[doc = "IC_TX_TL (rw) register accessor: IC_TX_TL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_tl::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_tx_tl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_tx_tl`] module"]
+    #[doc(alias = "IC_TX_TL")]
+    pub type IcTxTl = crate::Reg<ic_tx_tl::IcTxTlSpec>;
+    #[doc = "IC_TX_TL"]
+    pub mod ic_tx_tl {
+        #[doc = "Register `IC_TX_TL` reader"]
+        pub type R = crate::R<IcTxTlSpec>;
+        #[doc = "Register `IC_TX_TL` writer"]
+        pub type W = crate::W<IcTxTlSpec>;
+        #[doc = "Field `tx_tl` reader - "]
+        pub type TxTlR = crate::FieldReader;
+        #[doc = "Field `tx_tl` writer - "]
+        pub type TxTlW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        impl R {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn tx_tl(&self) -> TxTlR {
+                TxTlR::new((self.bits & 0xff) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn tx_tl(&mut self) -> TxTlW<'_, IcTxTlSpec> {
+                TxTlW::new(self, 0)
+            }
+        }
+        #[doc = "IC_TX_TL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_tl::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_tx_tl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcTxTlSpec;
+        impl crate::RegisterSpec for IcTxTlSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_tx_tl::R`](R) reader structure"]
+        impl crate::Readable for IcTxTlSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_tx_tl::W`](W) writer structure"]
+        impl crate::Writable for IcTxTlSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_TX_TL to value 0"]
+        impl crate::Resettable for IcTxTlSpec {}
+    }
+    #[doc = "IC_SLV_DATA_NACK_ONLY (rw) register accessor: IC_SLV_DATA_NACK_ONLY\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_slv_data_nack_only::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_slv_data_nack_only::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_slv_data_nack_only`] module"]
+    #[doc(alias = "IC_SLV_DATA_NACK_ONLY")]
+    pub type IcSlvDataNackOnly = crate::Reg<ic_slv_data_nack_only::IcSlvDataNackOnlySpec>;
+    #[doc = "IC_SLV_DATA_NACK_ONLY"]
+    pub mod ic_slv_data_nack_only {
+        #[doc = "Register `IC_SLV_DATA_NACK_ONLY` reader"]
+        pub type R = crate::R<IcSlvDataNackOnlySpec>;
+        #[doc = "Register `IC_SLV_DATA_NACK_ONLY` writer"]
+        pub type W = crate::W<IcSlvDataNackOnlySpec>;
+        #[doc = "Field `nack` reader - "]
+        pub type NackR = crate::BitReader;
+        #[doc = "Field `nack` writer - "]
+        pub type NackW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn nack(&self) -> NackR {
+                NackR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn nack(&mut self) -> NackW<'_, IcSlvDataNackOnlySpec> {
+                NackW::new(self, 0)
+            }
+        }
+        #[doc = "IC_SLV_DATA_NACK_ONLY\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_slv_data_nack_only::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_slv_data_nack_only::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSlvDataNackOnlySpec;
+        impl crate::RegisterSpec for IcSlvDataNackOnlySpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_slv_data_nack_only::R`](R) reader structure"]
+        impl crate::Readable for IcSlvDataNackOnlySpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_slv_data_nack_only::W`](W) writer structure"]
+        impl crate::Writable for IcSlvDataNackOnlySpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_SLV_DATA_NACK_ONLY to value 0"]
+        impl crate::Resettable for IcSlvDataNackOnlySpec {}
+    }
+    #[doc = "IC_STATUS (r) register accessor: IC_STATUS\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_status::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_status`] module"]
+    #[doc(alias = "IC_STATUS")]
+    pub type IcStatus = crate::Reg<ic_status::IcStatusSpec>;
+    #[doc = "IC_STATUS"]
+    pub mod ic_status {
+        #[doc = "Register `IC_STATUS` reader"]
+        pub type R = crate::R<IcStatusSpec>;
+        #[doc = "Field `activity` reader - "]
+        pub type ActivityR = crate::BitReader;
+        #[doc = "Field `tfnf` reader - TX not full"]
+        pub type TfnfR = crate::BitReader;
+        #[doc = "Field `tfe` reader - TX empty"]
+        pub type TfeR = crate::BitReader;
+        #[doc = "Field `rfne` reader - RX not empty"]
+        pub type RfneR = crate::BitReader;
+        #[doc = "Field `rff` reader - RX full"]
+        pub type RffR = crate::BitReader;
+        #[doc = "Field `mst_activity` reader - "]
+        pub type MstActivityR = crate::BitReader;
+        #[doc = "Field `slv_activity` reader - "]
+        pub type SlvActivityR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn activity(&self) -> ActivityR {
+                ActivityR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1 - TX not full"]
+            #[inline(always)]
+            pub fn tfnf(&self) -> TfnfR {
+                TfnfR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2 - TX empty"]
+            #[inline(always)]
+            pub fn tfe(&self) -> TfeR {
+                TfeR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3 - RX not empty"]
+            #[inline(always)]
+            pub fn rfne(&self) -> RfneR {
+                RfneR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4 - RX full"]
+            #[inline(always)]
+            pub fn rff(&self) -> RffR {
+                RffR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn mst_activity(&self) -> MstActivityR {
+                MstActivityR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn slv_activity(&self) -> SlvActivityR {
+                SlvActivityR::new(((self.bits >> 6) & 1) != 0)
+            }
+        }
+        #[doc = "IC_STATUS\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcStatusSpec;
+        impl crate::RegisterSpec for IcStatusSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_status::R`](R) reader structure"]
+        impl crate::Readable for IcStatusSpec {}
+        #[doc = "`reset()` method sets IC_STATUS to value 0"]
+        impl crate::Resettable for IcStatusSpec {}
+    }
+    #[doc = "IC_TXFLR (r) register accessor: IC_TXFLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_txflr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_txflr`] module"]
+    #[doc(alias = "IC_TXFLR")]
+    pub type IcTxflr = crate::Reg<ic_txflr::IcTxflrSpec>;
+    #[doc = "IC_TXFLR"]
+    pub mod ic_txflr {
+        #[doc = "Register `IC_TXFLR` reader"]
+        pub type R = crate::R<IcTxflrSpec>;
+        #[doc = "Field `txflr` reader - "]
+        pub type TxflrR = crate::FieldReader;
+        impl R {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn txflr(&self) -> TxflrR {
+                TxflrR::new((self.bits & 0x3f) as u8)
+            }
+        }
+        #[doc = "IC_TXFLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_txflr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcTxflrSpec;
+        impl crate::RegisterSpec for IcTxflrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_txflr::R`](R) reader structure"]
+        impl crate::Readable for IcTxflrSpec {}
+        #[doc = "`reset()` method sets IC_TXFLR to value 0"]
+        impl crate::Resettable for IcTxflrSpec {}
+    }
+    #[doc = "IC_RXFLR (r) register accessor: IC_RXFLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_rxflr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_rxflr`] module"]
+    #[doc(alias = "IC_RXFLR")]
+    pub type IcRxflr = crate::Reg<ic_rxflr::IcRxflrSpec>;
+    #[doc = "IC_RXFLR"]
+    pub mod ic_rxflr {
+        #[doc = "Register `IC_RXFLR` reader"]
+        pub type R = crate::R<IcRxflrSpec>;
+        #[doc = "Field `rxflr` reader - "]
+        pub type RxflrR = crate::FieldReader;
+        impl R {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn rxflr(&self) -> RxflrR {
+                RxflrR::new((self.bits & 0x3f) as u8)
+            }
+        }
+        #[doc = "IC_RXFLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_rxflr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcRxflrSpec;
+        impl crate::RegisterSpec for IcRxflrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_rxflr::R`](R) reader structure"]
+        impl crate::Readable for IcRxflrSpec {}
+        #[doc = "`reset()` method sets IC_RXFLR to value 0"]
+        impl crate::Resettable for IcRxflrSpec {}
+    }
+    #[doc = "IC_SDA_HOLD (rw) register accessor: IC_SDA_HOLD\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sda_hold::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sda_hold::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_sda_hold`] module"]
+    #[doc(alias = "IC_SDA_HOLD")]
+    pub type IcSdaHold = crate::Reg<ic_sda_hold::IcSdaHoldSpec>;
+    #[doc = "IC_SDA_HOLD"]
+    pub mod ic_sda_hold {
+        #[doc = "Register `IC_SDA_HOLD` reader"]
+        pub type R = crate::R<IcSdaHoldSpec>;
+        #[doc = "Register `IC_SDA_HOLD` writer"]
+        pub type W = crate::W<IcSdaHoldSpec>;
+        #[doc = "Field `sda_rx_hold` reader - "]
+        pub type SdaRxHoldR = crate::FieldReader;
+        #[doc = "Field `sda_rx_hold` writer - "]
+        pub type SdaRxHoldW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        impl R {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn sda_rx_hold(&self) -> SdaRxHoldR {
+                SdaRxHoldR::new((self.bits & 0xff) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn sda_rx_hold(&mut self) -> SdaRxHoldW<'_, IcSdaHoldSpec> {
+                SdaRxHoldW::new(self, 0)
+            }
+        }
+        #[doc = "IC_SDA_HOLD\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sda_hold::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sda_hold::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSdaHoldSpec;
+        impl crate::RegisterSpec for IcSdaHoldSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_sda_hold::R`](R) reader structure"]
+        impl crate::Readable for IcSdaHoldSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_sda_hold::W`](W) writer structure"]
+        impl crate::Writable for IcSdaHoldSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_SDA_HOLD to value 0"]
+        impl crate::Resettable for IcSdaHoldSpec {}
+    }
+    #[doc = "IC_SDA_HOLD_TX (rw) register accessor: IC_SDA_HOLD_TX\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sda_hold_tx::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sda_hold_tx::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_sda_hold_tx`] module"]
+    #[doc(alias = "IC_SDA_HOLD_TX")]
+    pub type IcSdaHoldTx = crate::Reg<ic_sda_hold_tx::IcSdaHoldTxSpec>;
+    #[doc = "IC_SDA_HOLD_TX"]
+    pub mod ic_sda_hold_tx {
+        #[doc = "Register `IC_SDA_HOLD_TX` reader"]
+        pub type R = crate::R<IcSdaHoldTxSpec>;
+        #[doc = "Register `IC_SDA_HOLD_TX` writer"]
+        pub type W = crate::W<IcSdaHoldTxSpec>;
+        #[doc = "Field `sda_tx_hold` reader - "]
+        pub type SdaTxHoldR = crate::FieldReader<u16>;
+        #[doc = "Field `sda_tx_hold` writer - "]
+        pub type SdaTxHoldW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn sda_tx_hold(&self) -> SdaTxHoldR {
+                SdaTxHoldR::new((self.bits & 0xffff) as u16)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn sda_tx_hold(&mut self) -> SdaTxHoldW<'_, IcSdaHoldTxSpec> {
+                SdaTxHoldW::new(self, 0)
+            }
+        }
+        #[doc = "IC_SDA_HOLD_TX\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sda_hold_tx::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sda_hold_tx::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSdaHoldTxSpec;
+        impl crate::RegisterSpec for IcSdaHoldTxSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_sda_hold_tx::R`](R) reader structure"]
+        impl crate::Readable for IcSdaHoldTxSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_sda_hold_tx::W`](W) writer structure"]
+        impl crate::Writable for IcSdaHoldTxSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_SDA_HOLD_TX to value 0"]
+        impl crate::Resettable for IcSdaHoldTxSpec {}
+    }
+    #[doc = "IC_TX_FLUSH_CNT (r) register accessor: IC_TX_FLUSH_CNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_flush_cnt::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_tx_flush_cnt`] module"]
+    #[doc(alias = "IC_TX_FLUSH_CNT")]
+    pub type IcTxFlushCnt = crate::Reg<ic_tx_flush_cnt::IcTxFlushCntSpec>;
+    #[doc = "IC_TX_FLUSH_CNT"]
+    pub mod ic_tx_flush_cnt {
+        #[doc = "Register `IC_TX_FLUSH_CNT` reader"]
+        pub type R = crate::R<IcTxFlushCntSpec>;
+        #[doc = "Field `cnt` reader - "]
+        pub type CntR = crate::FieldReader<u16>;
+        impl R {
+            #[doc = "Bits 0:15"]
+            #[inline(always)]
+            pub fn cnt(&self) -> CntR {
+                CntR::new((self.bits & 0xffff) as u16)
+            }
+        }
+        #[doc = "IC_TX_FLUSH_CNT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_flush_cnt::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcTxFlushCntSpec;
+        impl crate::RegisterSpec for IcTxFlushCntSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_tx_flush_cnt::R`](R) reader structure"]
+        impl crate::Readable for IcTxFlushCntSpec {}
+        #[doc = "`reset()` method sets IC_TX_FLUSH_CNT to value 0"]
+        impl crate::Resettable for IcTxFlushCntSpec {}
+    }
+    #[doc = "IC_TX_ABRT_SOURCE (r) register accessor: IC_TX_ABRT_SOURCE\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_abrt_source::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_tx_abrt_source`] module"]
+    #[doc(alias = "IC_TX_ABRT_SOURCE")]
+    pub type IcTxAbrtSource = crate::Reg<ic_tx_abrt_source::IcTxAbrtSourceSpec>;
+    #[doc = "IC_TX_ABRT_SOURCE"]
+    pub mod ic_tx_abrt_source {
+        #[doc = "Register `IC_TX_ABRT_SOURCE` reader"]
+        pub type R = crate::R<IcTxAbrtSourceSpec>;
+        #[doc = "Field `user_abrt` reader - "]
+        pub type UserAbrtR = crate::BitReader;
+        #[doc = "Field `sda_stuck_at_low` reader - "]
+        pub type SdaStuckAtLowR = crate::BitReader;
+        #[doc = "Field `device_noack` reader - "]
+        pub type DeviceNoackR = crate::BitReader;
+        #[doc = "Field `device_slvaddr_noack` reader - "]
+        pub type DeviceSlvaddrNoackR = crate::BitReader;
+        #[doc = "Field `abrt_device_write` reader - "]
+        pub type AbrtDeviceWriteR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn user_abrt(&self) -> UserAbrtR {
+                UserAbrtR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn sda_stuck_at_low(&self) -> SdaStuckAtLowR {
+                SdaStuckAtLowR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn device_noack(&self) -> DeviceNoackR {
+                DeviceNoackR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn device_slvaddr_noack(&self) -> DeviceSlvaddrNoackR {
+                DeviceSlvaddrNoackR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn abrt_device_write(&self) -> AbrtDeviceWriteR {
+                AbrtDeviceWriteR::new(((self.bits >> 4) & 1) != 0)
+            }
+        }
+        #[doc = "IC_TX_ABRT_SOURCE\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_abrt_source::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcTxAbrtSourceSpec;
+        impl crate::RegisterSpec for IcTxAbrtSourceSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_tx_abrt_source::R`](R) reader structure"]
+        impl crate::Readable for IcTxAbrtSourceSpec {}
+        #[doc = "`reset()` method sets IC_TX_ABRT_SOURCE to value 0"]
+        impl crate::Resettable for IcTxAbrtSourceSpec {}
+    }
+    #[doc = "IC_TX_ABRT_SLV_INTX (r) register accessor: IC_TX_ABRT_SLV_INTX\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_abrt_slv_intx::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_tx_abrt_slv_intx`] module"]
+    #[doc(alias = "IC_TX_ABRT_SLV_INTX")]
+    pub type IcTxAbrtSlvIntx = crate::Reg<ic_tx_abrt_slv_intx::IcTxAbrtSlvIntxSpec>;
+    #[doc = "IC_TX_ABRT_SLV_INTX"]
+    pub mod ic_tx_abrt_slv_intx {
+        #[doc = "Register `IC_TX_ABRT_SLV_INTX` reader"]
+        pub type R = crate::R<IcTxAbrtSlvIntxSpec>;
+        #[doc = "Field `addr_7b_noack` reader - 7-bit address NACK (bus scan)"]
+        pub type Addr7bNoackR = crate::BitReader;
+        #[doc = "Field `addr1_10b_noack` reader - "]
+        pub type Addr1_10bNoackR = crate::BitReader;
+        #[doc = "Field `addr2_10b_noack` reader - "]
+        pub type Addr2_10bNoackR = crate::BitReader;
+        #[doc = "Field `txdata_noack` reader - "]
+        pub type TxdataNoackR = crate::BitReader;
+        #[doc = "Field `gcall_noack` reader - "]
+        pub type GcallNoackR = crate::BitReader;
+        #[doc = "Field `lost` reader - arbitration lost"]
+        pub type LostR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0 - 7-bit address NACK (bus scan)"]
+            #[inline(always)]
+            pub fn addr_7b_noack(&self) -> Addr7bNoackR {
+                Addr7bNoackR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn addr1_10b_noack(&self) -> Addr1_10bNoackR {
+                Addr1_10bNoackR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn addr2_10b_noack(&self) -> Addr2_10bNoackR {
+                Addr2_10bNoackR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn txdata_noack(&self) -> TxdataNoackR {
+                TxdataNoackR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn gcall_noack(&self) -> GcallNoackR {
+                GcallNoackR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 12 - arbitration lost"]
+            #[inline(always)]
+            pub fn lost(&self) -> LostR {
+                LostR::new(((self.bits >> 12) & 1) != 0)
+            }
+        }
+        #[doc = "IC_TX_ABRT_SLV_INTX\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_tx_abrt_slv_intx::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcTxAbrtSlvIntxSpec;
+        impl crate::RegisterSpec for IcTxAbrtSlvIntxSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_tx_abrt_slv_intx::R`](R) reader structure"]
+        impl crate::Readable for IcTxAbrtSlvIntxSpec {}
+        #[doc = "`reset()` method sets IC_TX_ABRT_SLV_INTX to value 0"]
+        impl crate::Resettable for IcTxAbrtSlvIntxSpec {}
+    }
+    #[doc = "IC_ACK_GENERAL_CALL (rw) register accessor: IC_ACK_GENERAL_CALL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_ack_general_call::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_ack_general_call::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_ack_general_call`] module"]
+    #[doc(alias = "IC_ACK_GENERAL_CALL")]
+    pub type IcAckGeneralCall = crate::Reg<ic_ack_general_call::IcAckGeneralCallSpec>;
+    #[doc = "IC_ACK_GENERAL_CALL"]
+    pub mod ic_ack_general_call {
+        #[doc = "Register `IC_ACK_GENERAL_CALL` reader"]
+        pub type R = crate::R<IcAckGeneralCallSpec>;
+        #[doc = "Register `IC_ACK_GENERAL_CALL` writer"]
+        pub type W = crate::W<IcAckGeneralCallSpec>;
+        #[doc = "Field `ack_gen_call` reader - "]
+        pub type AckGenCallR = crate::BitReader;
+        #[doc = "Field `ack_gen_call` writer - "]
+        pub type AckGenCallW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn ack_gen_call(&self) -> AckGenCallR {
+                AckGenCallR::new((self.bits & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn ack_gen_call(&mut self) -> AckGenCallW<'_, IcAckGeneralCallSpec> {
+                AckGenCallW::new(self, 0)
+            }
+        }
+        #[doc = "IC_ACK_GENERAL_CALL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_ack_general_call::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_ack_general_call::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcAckGeneralCallSpec;
+        impl crate::RegisterSpec for IcAckGeneralCallSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_ack_general_call::R`](R) reader structure"]
+        impl crate::Readable for IcAckGeneralCallSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_ack_general_call::W`](W) writer structure"]
+        impl crate::Writable for IcAckGeneralCallSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_ACK_GENERAL_CALL to value 0"]
+        impl crate::Resettable for IcAckGeneralCallSpec {}
+    }
+    #[doc = "IC_ENABLE_STATUS (r) register accessor: IC_ENABLE_STATUS\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_enable_status::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_enable_status`] module"]
+    #[doc(alias = "IC_ENABLE_STATUS")]
+    pub type IcEnableStatus = crate::Reg<ic_enable_status::IcEnableStatusSpec>;
+    #[doc = "IC_ENABLE_STATUS"]
+    pub mod ic_enable_status {
+        #[doc = "Register `IC_ENABLE_STATUS` reader"]
+        pub type R = crate::R<IcEnableStatusSpec>;
+        #[doc = "Field `ic_en` reader - "]
+        pub type IcEnR = crate::BitReader;
+        #[doc = "Field `slv_disable_while_busy` reader - "]
+        pub type SlvDisableWhileBusyR = crate::BitReader;
+        #[doc = "Field `slv_rx_data_lost` reader - "]
+        pub type SlvRxDataLostR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn ic_en(&self) -> IcEnR {
+                IcEnR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn slv_disable_while_busy(&self) -> SlvDisableWhileBusyR {
+                SlvDisableWhileBusyR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn slv_rx_data_lost(&self) -> SlvRxDataLostR {
+                SlvRxDataLostR::new(((self.bits >> 2) & 1) != 0)
+            }
+        }
+        #[doc = "IC_ENABLE_STATUS\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_enable_status::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcEnableStatusSpec;
+        impl crate::RegisterSpec for IcEnableStatusSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_enable_status::R`](R) reader structure"]
+        impl crate::Readable for IcEnableStatusSpec {}
+        #[doc = "`reset()` method sets IC_ENABLE_STATUS to value 0"]
+        impl crate::Resettable for IcEnableStatusSpec {}
+    }
+    #[doc = "IC_DMA_CR (rw) register accessor: IC_DMA_CR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_dma_cr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_dma_cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_dma_cr`] module"]
+    #[doc(alias = "IC_DMA_CR")]
+    pub type IcDmaCr = crate::Reg<ic_dma_cr::IcDmaCrSpec>;
+    #[doc = "IC_DMA_CR"]
+    pub mod ic_dma_cr {
+        #[doc = "Register `IC_DMA_CR` reader"]
+        pub type R = crate::R<IcDmaCrSpec>;
+        #[doc = "Register `IC_DMA_CR` writer"]
+        pub type W = crate::W<IcDmaCrSpec>;
+        #[doc = "Field `rdmae` reader - "]
+        pub type RdmaeR = crate::BitReader;
+        #[doc = "Field `rdmae` writer - "]
+        pub type RdmaeW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `tdmae` reader - "]
+        pub type TdmaeR = crate::BitReader;
+        #[doc = "Field `tdmae` writer - "]
+        pub type TdmaeW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rdmae(&self) -> RdmaeR {
+                RdmaeR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn tdmae(&self) -> TdmaeR {
+                TdmaeR::new(((self.bits >> 1) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rdmae(&mut self) -> RdmaeW<'_, IcDmaCrSpec> {
+                RdmaeW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn tdmae(&mut self) -> TdmaeW<'_, IcDmaCrSpec> {
+                TdmaeW::new(self, 1)
+            }
+        }
+        #[doc = "IC_DMA_CR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_dma_cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_dma_cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcDmaCrSpec;
+        impl crate::RegisterSpec for IcDmaCrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_dma_cr::R`](R) reader structure"]
+        impl crate::Readable for IcDmaCrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_dma_cr::W`](W) writer structure"]
+        impl crate::Writable for IcDmaCrSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_DMA_CR to value 0"]
+        impl crate::Resettable for IcDmaCrSpec {}
+    }
+    #[doc = "IC_DMA_TDLR (rw) register accessor: IC_DMA_TDLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_dma_tdlr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_dma_tdlr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_dma_tdlr`] module"]
+    #[doc(alias = "IC_DMA_TDLR")]
+    pub type IcDmaTdlr = crate::Reg<ic_dma_tdlr::IcDmaTdlrSpec>;
+    #[doc = "IC_DMA_TDLR"]
+    pub mod ic_dma_tdlr {
+        #[doc = "Register `IC_DMA_TDLR` reader"]
+        pub type R = crate::R<IcDmaTdlrSpec>;
+        #[doc = "Register `IC_DMA_TDLR` writer"]
+        pub type W = crate::W<IcDmaTdlrSpec>;
+        #[doc = "Field `dmatdl` reader - "]
+        pub type DmatdlR = crate::FieldReader;
+        #[doc = "Field `dmatdl` writer - "]
+        pub type DmatdlW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+        impl R {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn dmatdl(&self) -> DmatdlR {
+                DmatdlR::new((self.bits & 0x3f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn dmatdl(&mut self) -> DmatdlW<'_, IcDmaTdlrSpec> {
+                DmatdlW::new(self, 0)
+            }
+        }
+        #[doc = "IC_DMA_TDLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_dma_tdlr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_dma_tdlr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcDmaTdlrSpec;
+        impl crate::RegisterSpec for IcDmaTdlrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_dma_tdlr::R`](R) reader structure"]
+        impl crate::Readable for IcDmaTdlrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_dma_tdlr::W`](W) writer structure"]
+        impl crate::Writable for IcDmaTdlrSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_DMA_TDLR to value 0"]
+        impl crate::Resettable for IcDmaTdlrSpec {}
+    }
+    #[doc = "IC_DMA_RDLR (rw) register accessor: IC_DMA_RDLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_dma_rdlr::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_dma_rdlr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_dma_rdlr`] module"]
+    #[doc(alias = "IC_DMA_RDLR")]
+    pub type IcDmaRdlr = crate::Reg<ic_dma_rdlr::IcDmaRdlrSpec>;
+    #[doc = "IC_DMA_RDLR"]
+    pub mod ic_dma_rdlr {
+        #[doc = "Register `IC_DMA_RDLR` reader"]
+        pub type R = crate::R<IcDmaRdlrSpec>;
+        #[doc = "Register `IC_DMA_RDLR` writer"]
+        pub type W = crate::W<IcDmaRdlrSpec>;
+        #[doc = "Field `dmardl` reader - "]
+        pub type DmardlR = crate::FieldReader;
+        #[doc = "Field `dmardl` writer - "]
+        pub type DmardlW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+        impl R {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn dmardl(&self) -> DmardlR {
+                DmardlR::new((self.bits & 0x3f) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:5"]
+            #[inline(always)]
+            pub fn dmardl(&mut self) -> DmardlW<'_, IcDmaRdlrSpec> {
+                DmardlW::new(self, 0)
+            }
+        }
+        #[doc = "IC_DMA_RDLR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_dma_rdlr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_dma_rdlr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcDmaRdlrSpec;
+        impl crate::RegisterSpec for IcDmaRdlrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_dma_rdlr::R`](R) reader structure"]
+        impl crate::Readable for IcDmaRdlrSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_dma_rdlr::W`](W) writer structure"]
+        impl crate::Writable for IcDmaRdlrSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_DMA_RDLR to value 0"]
+        impl crate::Resettable for IcDmaRdlrSpec {}
+    }
+    #[doc = "IC_SDA_SETUP (rw) register accessor: IC_SDA_SETUP\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sda_setup::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sda_setup::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_sda_setup`] module"]
+    #[doc(alias = "IC_SDA_SETUP")]
+    pub type IcSdaSetup = crate::Reg<ic_sda_setup::IcSdaSetupSpec>;
+    #[doc = "IC_SDA_SETUP"]
+    pub mod ic_sda_setup {
+        #[doc = "Register `IC_SDA_SETUP` reader"]
+        pub type R = crate::R<IcSdaSetupSpec>;
+        #[doc = "Register `IC_SDA_SETUP` writer"]
+        pub type W = crate::W<IcSdaSetupSpec>;
+        #[doc = "Field `sda_setup` reader - "]
+        pub type SdaSetupR = crate::FieldReader;
+        #[doc = "Field `sda_setup` writer - "]
+        pub type SdaSetupW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
+        impl R {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn sda_setup(&self) -> SdaSetupR {
+                SdaSetupR::new((self.bits & 0xff) as u8)
+            }
+        }
+        impl W {
+            #[doc = "Bits 0:7"]
+            #[inline(always)]
+            pub fn sda_setup(&mut self) -> SdaSetupW<'_, IcSdaSetupSpec> {
+                SdaSetupW::new(self, 0)
+            }
+        }
+        #[doc = "IC_SDA_SETUP\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_sda_setup::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_sda_setup::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcSdaSetupSpec;
+        impl crate::RegisterSpec for IcSdaSetupSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_sda_setup::R`](R) reader structure"]
+        impl crate::Readable for IcSdaSetupSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_sda_setup::W`](W) writer structure"]
+        impl crate::Writable for IcSdaSetupSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_SDA_SETUP to value 0"]
+        impl crate::Resettable for IcSdaSetupSpec {}
+    }
+    #[doc = "IC_INTR_MASK (rw) register accessor: IC_INTR_MASK\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_intr_mask::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_intr_mask::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_intr_mask`] module"]
+    #[doc(alias = "IC_INTR_MASK")]
+    pub type IcIntrMask = crate::Reg<ic_intr_mask::IcIntrMaskSpec>;
+    #[doc = "IC_INTR_MASK"]
+    pub mod ic_intr_mask {
+        #[doc = "Register `IC_INTR_MASK` reader"]
+        pub type R = crate::R<IcIntrMaskSpec>;
+        #[doc = "Register `IC_INTR_MASK` writer"]
+        pub type W = crate::W<IcIntrMaskSpec>;
+        #[doc = "Field `rx_under` reader - "]
+        pub type RxUnderR = crate::BitReader;
+        #[doc = "Field `rx_under` writer - "]
+        pub type RxUnderW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `rx_over` reader - "]
+        pub type RxOverR = crate::BitReader;
+        #[doc = "Field `rx_over` writer - "]
+        pub type RxOverW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `rx_full` reader - "]
+        pub type RxFullR = crate::BitReader;
+        #[doc = "Field `rx_full` writer - "]
+        pub type RxFullW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `tx_over` reader - "]
+        pub type TxOverR = crate::BitReader;
+        #[doc = "Field `tx_over` writer - "]
+        pub type TxOverW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `tx_empty` reader - "]
+        pub type TxEmptyR = crate::BitReader;
+        #[doc = "Field `tx_empty` writer - "]
+        pub type TxEmptyW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `rd_req` reader - "]
+        pub type RdReqR = crate::BitReader;
+        #[doc = "Field `rd_req` writer - "]
+        pub type RdReqW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `tx_abrt` reader - "]
+        pub type TxAbrtR = crate::BitReader;
+        #[doc = "Field `tx_abrt` writer - "]
+        pub type TxAbrtW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `rx_done` reader - "]
+        pub type RxDoneR = crate::BitReader;
+        #[doc = "Field `rx_done` writer - "]
+        pub type RxDoneW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `activity` reader - "]
+        pub type ActivityR = crate::BitReader;
+        #[doc = "Field `activity` writer - "]
+        pub type ActivityW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `stop_det` reader - "]
+        pub type StopDetR = crate::BitReader;
+        #[doc = "Field `stop_det` writer - "]
+        pub type StopDetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `start_det` reader - "]
+        pub type StartDetR = crate::BitReader;
+        #[doc = "Field `start_det` writer - "]
+        pub type StartDetW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `gen_call` reader - "]
+        pub type GenCallR = crate::BitReader;
+        #[doc = "Field `gen_call` writer - "]
+        pub type GenCallW<'a, REG> = crate::BitWriter<'a, REG>;
+        #[doc = "Field `restart_det` reader - "]
+        pub type RestartDetR = crate::BitReader;
+        #[doc = "Field `restart_det` writer - "]
+        pub type RestartDetW<'a, REG> = crate::BitWriter<'a, REG>;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rx_under(&self) -> RxUnderR {
+                RxUnderR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn rx_over(&self) -> RxOverR {
+                RxOverR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn rx_full(&self) -> RxFullR {
+                RxFullR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn tx_over(&self) -> TxOverR {
+                TxOverR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn tx_empty(&self) -> TxEmptyR {
+                TxEmptyR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn rd_req(&self) -> RdReqR {
+                RdReqR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn tx_abrt(&self) -> TxAbrtR {
+                TxAbrtR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn rx_done(&self) -> RxDoneR {
+                RxDoneR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn activity(&self) -> ActivityR {
+                ActivityR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn stop_det(&self) -> StopDetR {
+                StopDetR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn start_det(&self) -> StartDetR {
+                StartDetR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn gen_call(&self) -> GenCallR {
+                GenCallR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn restart_det(&self) -> RestartDetR {
+                RestartDetR::new(((self.bits >> 12) & 1) != 0)
+            }
+        }
+        impl W {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rx_under(&mut self) -> RxUnderW<'_, IcIntrMaskSpec> {
+                RxUnderW::new(self, 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn rx_over(&mut self) -> RxOverW<'_, IcIntrMaskSpec> {
+                RxOverW::new(self, 1)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn rx_full(&mut self) -> RxFullW<'_, IcIntrMaskSpec> {
+                RxFullW::new(self, 2)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn tx_over(&mut self) -> TxOverW<'_, IcIntrMaskSpec> {
+                TxOverW::new(self, 3)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn tx_empty(&mut self) -> TxEmptyW<'_, IcIntrMaskSpec> {
+                TxEmptyW::new(self, 4)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn rd_req(&mut self) -> RdReqW<'_, IcIntrMaskSpec> {
+                RdReqW::new(self, 5)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn tx_abrt(&mut self) -> TxAbrtW<'_, IcIntrMaskSpec> {
+                TxAbrtW::new(self, 6)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn rx_done(&mut self) -> RxDoneW<'_, IcIntrMaskSpec> {
+                RxDoneW::new(self, 7)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn activity(&mut self) -> ActivityW<'_, IcIntrMaskSpec> {
+                ActivityW::new(self, 8)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn stop_det(&mut self) -> StopDetW<'_, IcIntrMaskSpec> {
+                StopDetW::new(self, 9)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn start_det(&mut self) -> StartDetW<'_, IcIntrMaskSpec> {
+                StartDetW::new(self, 10)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn gen_call(&mut self) -> GenCallW<'_, IcIntrMaskSpec> {
+                GenCallW::new(self, 11)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn restart_det(&mut self) -> RestartDetW<'_, IcIntrMaskSpec> {
+                RestartDetW::new(self, 12)
+            }
+        }
+        #[doc = "IC_INTR_MASK\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_intr_mask::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ic_intr_mask::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcIntrMaskSpec;
+        impl crate::RegisterSpec for IcIntrMaskSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_intr_mask::R`](R) reader structure"]
+        impl crate::Readable for IcIntrMaskSpec {}
+        #[doc = "`write(|w| ..)` method takes [`ic_intr_mask::W`](W) writer structure"]
+        impl crate::Writable for IcIntrMaskSpec {
+            type Safety = crate::Unsafe;
+        }
+        #[doc = "`reset()` method sets IC_INTR_MASK to value 0"]
+        impl crate::Resettable for IcIntrMaskSpec {}
+    }
+    #[doc = "IC_INTR_STAT (r) register accessor: IC_INTR_STAT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_intr_stat::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_intr_stat`] module"]
+    #[doc(alias = "IC_INTR_STAT")]
+    pub type IcIntrStat = crate::Reg<ic_intr_stat::IcIntrStatSpec>;
+    #[doc = "IC_INTR_STAT"]
+    pub mod ic_intr_stat {
+        #[doc = "Register `IC_INTR_STAT` reader"]
+        pub type R = crate::R<IcIntrStatSpec>;
+        #[doc = "Field `rx_under` reader - "]
+        pub type RxUnderR = crate::BitReader;
+        #[doc = "Field `rx_over` reader - "]
+        pub type RxOverR = crate::BitReader;
+        #[doc = "Field `rx_full` reader - "]
+        pub type RxFullR = crate::BitReader;
+        #[doc = "Field `tx_over` reader - "]
+        pub type TxOverR = crate::BitReader;
+        #[doc = "Field `tx_empty` reader - "]
+        pub type TxEmptyR = crate::BitReader;
+        #[doc = "Field `rd_req` reader - "]
+        pub type RdReqR = crate::BitReader;
+        #[doc = "Field `tx_abrt` reader - "]
+        pub type TxAbrtR = crate::BitReader;
+        #[doc = "Field `rx_done` reader - "]
+        pub type RxDoneR = crate::BitReader;
+        #[doc = "Field `activity` reader - "]
+        pub type ActivityR = crate::BitReader;
+        #[doc = "Field `stop_det` reader - "]
+        pub type StopDetR = crate::BitReader;
+        #[doc = "Field `start_det` reader - "]
+        pub type StartDetR = crate::BitReader;
+        #[doc = "Field `gen_call` reader - "]
+        pub type GenCallR = crate::BitReader;
+        #[doc = "Field `restart_det` reader - "]
+        pub type RestartDetR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rx_under(&self) -> RxUnderR {
+                RxUnderR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn rx_over(&self) -> RxOverR {
+                RxOverR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn rx_full(&self) -> RxFullR {
+                RxFullR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn tx_over(&self) -> TxOverR {
+                TxOverR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn tx_empty(&self) -> TxEmptyR {
+                TxEmptyR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn rd_req(&self) -> RdReqR {
+                RdReqR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn tx_abrt(&self) -> TxAbrtR {
+                TxAbrtR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn rx_done(&self) -> RxDoneR {
+                RxDoneR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn activity(&self) -> ActivityR {
+                ActivityR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn stop_det(&self) -> StopDetR {
+                StopDetR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn start_det(&self) -> StartDetR {
+                StartDetR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn gen_call(&self) -> GenCallR {
+                GenCallR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn restart_det(&self) -> RestartDetR {
+                RestartDetR::new(((self.bits >> 12) & 1) != 0)
+            }
+        }
+        #[doc = "IC_INTR_STAT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_intr_stat::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcIntrStatSpec;
+        impl crate::RegisterSpec for IcIntrStatSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_intr_stat::R`](R) reader structure"]
+        impl crate::Readable for IcIntrStatSpec {}
+        #[doc = "`reset()` method sets IC_INTR_STAT to value 0"]
+        impl crate::Resettable for IcIntrStatSpec {}
+    }
+    #[doc = "IC_RAW_INTR_STAT (r) register accessor: IC_RAW_INTR_STAT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_raw_intr_stat::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_raw_intr_stat`] module"]
+    #[doc(alias = "IC_RAW_INTR_STAT")]
+    pub type IcRawIntrStat = crate::Reg<ic_raw_intr_stat::IcRawIntrStatSpec>;
+    #[doc = "IC_RAW_INTR_STAT"]
+    pub mod ic_raw_intr_stat {
+        #[doc = "Register `IC_RAW_INTR_STAT` reader"]
+        pub type R = crate::R<IcRawIntrStatSpec>;
+        #[doc = "Field `rx_under` reader - "]
+        pub type RxUnderR = crate::BitReader;
+        #[doc = "Field `rx_over` reader - "]
+        pub type RxOverR = crate::BitReader;
+        #[doc = "Field `rx_full` reader - "]
+        pub type RxFullR = crate::BitReader;
+        #[doc = "Field `tx_over` reader - "]
+        pub type TxOverR = crate::BitReader;
+        #[doc = "Field `tx_empty` reader - "]
+        pub type TxEmptyR = crate::BitReader;
+        #[doc = "Field `rd_req` reader - "]
+        pub type RdReqR = crate::BitReader;
+        #[doc = "Field `tx_abrt` reader - "]
+        pub type TxAbrtR = crate::BitReader;
+        #[doc = "Field `rx_done` reader - "]
+        pub type RxDoneR = crate::BitReader;
+        #[doc = "Field `activity` reader - "]
+        pub type ActivityR = crate::BitReader;
+        #[doc = "Field `stop_det` reader - "]
+        pub type StopDetR = crate::BitReader;
+        #[doc = "Field `start_det` reader - "]
+        pub type StartDetR = crate::BitReader;
+        #[doc = "Field `gen_call` reader - "]
+        pub type GenCallR = crate::BitReader;
+        #[doc = "Field `restart_det` reader - "]
+        pub type RestartDetR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0"]
+            #[inline(always)]
+            pub fn rx_under(&self) -> RxUnderR {
+                RxUnderR::new((self.bits & 1) != 0)
+            }
+            #[doc = "Bit 1"]
+            #[inline(always)]
+            pub fn rx_over(&self) -> RxOverR {
+                RxOverR::new(((self.bits >> 1) & 1) != 0)
+            }
+            #[doc = "Bit 2"]
+            #[inline(always)]
+            pub fn rx_full(&self) -> RxFullR {
+                RxFullR::new(((self.bits >> 2) & 1) != 0)
+            }
+            #[doc = "Bit 3"]
+            #[inline(always)]
+            pub fn tx_over(&self) -> TxOverR {
+                TxOverR::new(((self.bits >> 3) & 1) != 0)
+            }
+            #[doc = "Bit 4"]
+            #[inline(always)]
+            pub fn tx_empty(&self) -> TxEmptyR {
+                TxEmptyR::new(((self.bits >> 4) & 1) != 0)
+            }
+            #[doc = "Bit 5"]
+            #[inline(always)]
+            pub fn rd_req(&self) -> RdReqR {
+                RdReqR::new(((self.bits >> 5) & 1) != 0)
+            }
+            #[doc = "Bit 6"]
+            #[inline(always)]
+            pub fn tx_abrt(&self) -> TxAbrtR {
+                TxAbrtR::new(((self.bits >> 6) & 1) != 0)
+            }
+            #[doc = "Bit 7"]
+            #[inline(always)]
+            pub fn rx_done(&self) -> RxDoneR {
+                RxDoneR::new(((self.bits >> 7) & 1) != 0)
+            }
+            #[doc = "Bit 8"]
+            #[inline(always)]
+            pub fn activity(&self) -> ActivityR {
+                ActivityR::new(((self.bits >> 8) & 1) != 0)
+            }
+            #[doc = "Bit 9"]
+            #[inline(always)]
+            pub fn stop_det(&self) -> StopDetR {
+                StopDetR::new(((self.bits >> 9) & 1) != 0)
+            }
+            #[doc = "Bit 10"]
+            #[inline(always)]
+            pub fn start_det(&self) -> StartDetR {
+                StartDetR::new(((self.bits >> 10) & 1) != 0)
+            }
+            #[doc = "Bit 11"]
+            #[inline(always)]
+            pub fn gen_call(&self) -> GenCallR {
+                GenCallR::new(((self.bits >> 11) & 1) != 0)
+            }
+            #[doc = "Bit 12"]
+            #[inline(always)]
+            pub fn restart_det(&self) -> RestartDetR {
+                RestartDetR::new(((self.bits >> 12) & 1) != 0)
+            }
+        }
+        #[doc = "IC_RAW_INTR_STAT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_raw_intr_stat::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcRawIntrStatSpec;
+        impl crate::RegisterSpec for IcRawIntrStatSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_raw_intr_stat::R`](R) reader structure"]
+        impl crate::Readable for IcRawIntrStatSpec {}
+        #[doc = "`reset()` method sets IC_RAW_INTR_STAT to value 0"]
+        impl crate::Resettable for IcRawIntrStatSpec {}
+    }
+    #[doc = "IC_INTR_STAT_ALL (r) register accessor: IC_INTR_STAT_ALL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_intr_stat_all::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_intr_stat_all`] module"]
+    #[doc(alias = "IC_INTR_STAT_ALL")]
+    pub type IcIntrStatAll = crate::Reg<ic_intr_stat_all::IcIntrStatAllSpec>;
+    #[doc = "IC_INTR_STAT_ALL"]
+    pub mod ic_intr_stat_all {
+        #[doc = "Register `IC_INTR_STAT_ALL` reader"]
+        pub type R = crate::R<IcIntrStatAllSpec>;
+        #[doc = "Field `stat` reader - "]
+        pub type StatR = crate::FieldReader<u16>;
+        impl R {
+            #[doc = "Bits 0:12"]
+            #[inline(always)]
+            pub fn stat(&self) -> StatR {
+                StatR::new((self.bits & 0x1fff) as u16)
+            }
+        }
+        #[doc = "IC_INTR_STAT_ALL\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_intr_stat_all::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcIntrStatAllSpec;
+        impl crate::RegisterSpec for IcIntrStatAllSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_intr_stat_all::R`](R) reader structure"]
+        impl crate::Readable for IcIntrStatAllSpec {}
+        #[doc = "`reset()` method sets IC_INTR_STAT_ALL to value 0"]
+        impl crate::Resettable for IcIntrStatAllSpec {}
+    }
+    #[doc = "IC_CLR_INTR (r) register accessor: IC_CLR_INTR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_clr_intr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_clr_intr`] module"]
+    #[doc(alias = "IC_CLR_INTR")]
+    pub type IcClrIntr = crate::Reg<ic_clr_intr::IcClrIntrSpec>;
+    #[doc = "IC_CLR_INTR"]
+    pub mod ic_clr_intr {
+        #[doc = "Register `IC_CLR_INTR` reader"]
+        pub type R = crate::R<IcClrIntrSpec>;
+        #[doc = "Field `clr` reader - read-to-clear all"]
+        pub type ClrR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0 - read-to-clear all"]
+            #[inline(always)]
+            pub fn clr(&self) -> ClrR {
+                ClrR::new((self.bits & 1) != 0)
+            }
+        }
+        #[doc = "IC_CLR_INTR\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_clr_intr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcClrIntrSpec;
+        impl crate::RegisterSpec for IcClrIntrSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_clr_intr::R`](R) reader structure"]
+        impl crate::Readable for IcClrIntrSpec {}
+        #[doc = "`reset()` method sets IC_CLR_INTR to value 0"]
+        impl crate::Resettable for IcClrIntrSpec {}
+    }
+    #[doc = "IC_CLR_INT (r) register accessor: IC_CLR_INT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_clr_int::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ic_clr_int`] module"]
+    #[doc(alias = "IC_CLR_INT")]
+    pub type IcClrInt = crate::Reg<ic_clr_int::IcClrIntSpec>;
+    #[doc = "IC_CLR_INT"]
+    pub mod ic_clr_int {
+        #[doc = "Register `IC_CLR_INT` reader"]
+        pub type R = crate::R<IcClrIntSpec>;
+        #[doc = "Field `clr` reader - read-to-clear combined"]
+        pub type ClrR = crate::BitReader;
+        impl R {
+            #[doc = "Bit 0 - read-to-clear combined"]
+            #[inline(always)]
+            pub fn clr(&self) -> ClrR {
+                ClrR::new((self.bits & 1) != 0)
+            }
+        }
+        #[doc = "IC_CLR_INT\n\nYou can [`read`](crate::Reg::read) this register and get [`ic_clr_int::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+        pub struct IcClrIntSpec;
+        impl crate::RegisterSpec for IcClrIntSpec {
+            type Ux = u32;
+        }
+        #[doc = "`read()` method returns [`ic_clr_int::R`](R) reader structure"]
+        impl crate::Readable for IcClrIntSpec {}
+        #[doc = "`reset()` method sets IC_CLR_INT to value 0"]
+        impl crate::Resettable for IcClrIntSpec {}
     }
 }
 #[doc = "SPI0 master/slave controller (SSI v151)"]
@@ -15884,14 +17053,14 @@ impl core::fmt::Debug for Uart2 {
 }
 #[doc = "UART0 - Universal Asynchronous Receiver/Transmitter"]
 pub use self::uart0 as uart2;
-#[doc = "I2C0 master controller"]
+#[doc = "I2C0 master controller (DesignWare SSI, IP v151)"]
 pub type I2c1 = crate::Periph<i2c0::RegisterBlock, 0x5208_4000>;
 impl core::fmt::Debug for I2c1 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("I2c1").finish()
     }
 }
-#[doc = "I2C0 master controller"]
+#[doc = "I2C0 master controller (DesignWare SSI, IP v151)"]
 pub use self::i2c0 as i2c1;
 #[doc = "SPI0 master/slave controller (SSI v151)"]
 pub type Spi1 = crate::Periph<spi0::RegisterBlock, 0x5208_8000>;
