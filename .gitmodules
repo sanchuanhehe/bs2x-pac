@@ -1,3 +1,3 @@
 [submodule "bs2x-svd"]
 	path = bs2x-svd
-	url = https://github.com/sanchuanhehe/bs2x-svd.git
+	url = https://github.com/hispark-rs/bs2x-svd.git
